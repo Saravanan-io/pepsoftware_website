@@ -6,9 +6,9 @@ import { ServiceProcessTimeline } from "@/components/services/ServiceProcessTime
 import { ContactCTA } from "@/components/home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Graphic Design & AR/VR | PEP Software",
+  title: "Graphic Design & AR/VR Services | PEP Software",
   description:
-    "Enhance your brand with captivating visuals and stunning designs that leave a lasting impact. Our professional graphic design and AR/VR services bring your ideas to life.",
+    "Captivating Visuals. Immersive Realities. Professional graphic design, 3D modeling, and WebAR experiences.",
 };
 
 export default function GraphicDesignPage() {
@@ -18,13 +18,23 @@ export default function GraphicDesignPage() {
     <div>
       <ServiceHero
         badge={service.badge}
-        title="Captivating Visuals &"
-        gradientWord="Spatial AR/VR Design"
+        title="Captivating Visuals."
+        highlight="Immersive Realities."
         description={service.shortDescription}
+        bullets={service.features.slice(0, 4)}
+        ctaText="Start Creative Project"
+        breadcrumbs={[
+          { label: "Services", href: "/services" },
+          { label: "Graphic Design & AR/VR", href: "/services/graphic-design" },
+        ]}
+        visualImage="/images/services/graphic-design-3d.png"
+        visualAlt="Graphic Design & AR/VR Services - Branding, Visual Identity & Spatial Experiences"
       />
       <ServiceOverviewCard
         features={service.features}
         deliverables={service.deliverables}
+        subServices={service.subServices}
+        tools={service.tools}
       />
       <ServiceProcessTimeline timeline={service.timeline} />
       <ContactCTA />

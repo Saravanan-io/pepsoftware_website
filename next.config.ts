@@ -5,6 +5,18 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "pepsoftwares.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "pepsoftwares.com",
+        pathname: "/**",
+      },
+    ],
   },
 
   // Optimize specific heavy package imports

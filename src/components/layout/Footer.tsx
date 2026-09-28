@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUp, MapPin, Mail, Phone } from "lucide-react";
 import { COMPANY_INFO, NAV_ITEMS } from "@/lib/constants";
 
@@ -18,14 +19,44 @@ export function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#C6C2C1]/40">
           {/* Brand */}
-          <div className="lg:col-span-4 space-y-5">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#151515] flex items-center justify-center text-[#F7F8F8] font-black text-xl shadow-md">P</div>
-              <span className="font-extrabold text-2xl tracking-tight text-[#151515]">
-                PEP <span className="font-light text-[#544643]">Software</span>
-              </span>
+          <div className="lg:col-span-4 space-y-5 relative">
+            {/* Signature PEP Software Logo Watermark directly behind the brand text */}
+            <div className="absolute -top-10 -left-10 w-72 h-72 opacity-[0.16] pointer-events-none select-none z-0">
+              <Image
+                src="/pep-icon.png"
+                alt="Pep Software Watermark Logo"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+
+            <Link href="/" className="relative z-10 inline-flex items-center gap-3.5 group">
+              <div className="relative w-12 h-12 shrink-0 rounded-2xl bg-white p-1.5 border border-[#C6C2C1]/80 shadow-md shadow-black/[0.04] transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-[#C86A28]/50">
+                <Image
+                  src="/pep-icon.png"
+                  alt="Pep Software Logo"
+                  fill
+                  sizes="48px"
+                  priority
+                  className="object-contain p-0.5"
+                />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-baseline gap-1.5 leading-none">
+                  <span className="font-black text-[27px] tracking-tight text-[#151515] group-hover:text-[#C86A28] transition-colors">
+                    PEP
+                  </span>
+                  <span className="font-semibold text-[27px] tracking-tight text-[#544643] group-hover:text-[#151515] transition-colors">
+                    Software
+                  </span>
+                </div>
+                <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#C86A28] mt-1.5">
+                  Engineering Digital Growth
+                </span>
+              </div>
             </Link>
-            <p className="text-sm text-[#544643] leading-relaxed max-w-xs">
+            <p className="relative z-10 text-sm text-[#544643] leading-relaxed max-w-xs font-normal">
               We craft digital experiences that help businesses grow and make a difference. Delivering high-impact web, mobile and software solutions.
             </p>
             {/* Social icons */}
@@ -72,7 +103,6 @@ export function Footer() {
                 { label: "Website Development", href: "/services/website-design-development" },
                 { label: "Mobile App Development", href: "/services/mobile-app-design-development" },
                 { label: "Graphic Design", href: "/services/graphic-design" },
-                { label: "Design Training Academy", href: "/academy" },
                 { label: "Maintenance & Support", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
@@ -125,6 +155,11 @@ export function Footer() {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Background Architectural Brand Watermark */}
+      <div className="absolute -bottom-6 right-4 pointer-events-none select-none overflow-hidden opacity-[0.035] text-[#151515] font-black text-[90px] sm:text-[130px] lg:text-[170px] tracking-tighter leading-none whitespace-nowrap">
+        PEP SOFTWARE
       </div>
     </footer>
   );

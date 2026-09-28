@@ -14,16 +14,30 @@ export interface ServiceItem {
   id: string;
   slug: string;
   title: string;
+  tagline?: string;
   shortDescription: string;
   fullDescription: string;
   iconName: string;
   badge: string;
   features: string[];
   deliverables: string[];
+  subServices?: {
+    title: string;
+    description: string;
+  }[];
+  tools?: string[];
+  whyChooseUs?: {
+    title: string;
+    description: string;
+  }[];
   timeline: {
     step: string;
     title: string;
     description: string;
+  }[];
+  faqs?: {
+    q: string;
+    a: string;
   }[];
 }
 
@@ -67,6 +81,7 @@ export interface ProjectItem {
   technologies: string[];
   image: string;
   secondaryImage?: string;
+  liveUrl?: string;
   featured?: boolean;
 }
 

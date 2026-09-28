@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
@@ -54,13 +55,26 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
             <span>Back to All Projects</span>
           </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full bg-[#E9E8E6] text-[#C86A28] border border-[#C6C2C1]">
-              {project.category}
-            </span>
-            <span className="text-xs font-semibold text-[#544643]">
-              Client: {project.client} • {project.year}
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full bg-[#E9E8E6] text-[#C86A28] border border-[#C6C2C1]">
+                {project.category}
+              </span>
+              <span className="text-xs font-semibold text-[#544643]">
+                Client: {project.client} • {project.year}
+              </span>
+            </div>
+            {project.liveUrl && project.liveUrl !== "#" && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#151515] text-[#F7F8F8] text-xs font-bold hover:bg-[#544643] transition-colors"
+              >
+                <span>Visit Live Project</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#C86A28]" />
+              </a>
+            )}
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#151515] tracking-tight leading-tight">
@@ -84,6 +98,27 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
               </div>
             ))}
           </div>
+
+          {/* Project Showcase Visual */}
+          {project.image && (
+            <div className="mt-12 rounded-[28px] bg-[#FFFFFF] border border-[#E5E5E3] p-4 sm:p-6 shadow-sm overflow-hidden">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FF7700]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#C6C2C1]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#544643]" />
+                <span className="text-xs text-[#544643] font-mono ml-2 font-bold">{project.client}</span>
+              </div>
+              <div className="relative w-full aspect-[16/9] max-h-[460px] rounded-2xl overflow-hidden bg-[#FAF9F7] flex items-center justify-center">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-contain p-4"
+                  priority
+                />
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

@@ -69,38 +69,6 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: "Portfolio", href: "/work" },
-  {
-    label: "Academy",
-    href: "/academy",
-    badge: "Internship",
-    children: [
-      {
-        label: "UI/UX Design (90 Days)",
-        href: "/academy/ui-ux-design-90-days",
-        description: "Advanced UX principles, Figma, Adobe XD & design systems",
-      },
-      {
-        label: "UI/UX + Front-End (120 Days)",
-        href: "/academy/ui-ux-design-120-days",
-        description: "Full-spectrum design & frontend with guaranteed 30-day internship",
-      },
-      {
-        label: "AR Design (60 Days)",
-        href: "/academy/ar-design-60-days",
-        description: "Augmented reality experiences, spatial design & 3D UI",
-      },
-      {
-        label: "AR/UX Interactive (90 Days)",
-        href: "/academy/ar-ux-design-90-days",
-        description: "Next-gen immersive experiences with 30-day industry internship",
-      },
-      {
-        label: "Web Development (90 Days)",
-        href: "/academy/web-development-90-days",
-        description: "Transform Figma mockups to high-speed reactive web apps",
-      },
-    ],
-  },
   { label: "Process", href: "/#process" },
   { label: "Contact", href: "/contact" },
 ];

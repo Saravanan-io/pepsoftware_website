@@ -3,9 +3,9 @@ import { ClientsMarquee } from "@/components/home/ClientsMarquee";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { IntroStatement } from "@/components/home/IntroStatement";
 import { ProcessStrip } from "@/components/home/ProcessStrip";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { PortfolioTeaser } from "@/components/home/PortfolioTeaser";
 import { ProcessHowWeDevelop } from "@/components/home/ProcessHowWeDevelop";
-import { AcademyTeaser } from "@/components/home/AcademyTeaser";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ContactCTA } from "@/components/home/ContactCTA";
 
@@ -27,14 +27,14 @@ export default function HomePage() {
       {/* Structured Process Strip (01 to 06 with 'From Idea to Impact') */}
       <ProcessStrip />
 
+      {/* Why Choose Us: Smart Solutions, Real Results */}
+      <WhyChooseUs />
+
       {/* Portfolio Teaser with Filter Tabs */}
       <PortfolioTeaser />
 
       {/* Impact Numbers & Performance Growth Chart */}
       <ProcessHowWeDevelop />
-
-      {/* Design Training Academy Courses & WhatsApp Community */}
-      <AcademyTeaser />
 
       {/* Client Testimonials Slider */}
       <Testimonials />

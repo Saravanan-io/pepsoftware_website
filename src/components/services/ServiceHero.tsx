@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles, Home, ChevronRight } from "lucide-react";
+import { ServiceFeaturesVisual } from "./ServiceFeaturesVisual";
 
 interface ServiceHeroProps {
   badge: string;
@@ -11,6 +12,8 @@ interface ServiceHeroProps {
   ctaText?: string;
   ctaHref?: string;
   breadcrumbs?: { label: string; href: string }[];
+  visualImage?: string;
+  visualAlt?: string;
 }
 
 export function ServiceHero({
@@ -23,6 +26,8 @@ export function ServiceHero({
   ctaText = "Get a Free Quote",
   ctaHref = "/contact",
   breadcrumbs,
+  visualImage,
+  visualAlt,
 }: ServiceHeroProps) {
   const gradientText = highlight || gradientWord;
   return (
@@ -96,23 +101,12 @@ export function ServiceHero({
             </div>
           </div>
 
-          {/* Right: Feature highlights card in Charcoal Luxury */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            <div className="w-full p-8 rounded-3xl bg-[#151515] border border-[#544643]/50 shadow-2xl">
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: "🎨", label: "Modern Technologies" },
-                  { icon: "📱", label: "Responsive Design" },
-                  { icon: "🔍", label: "SEO Optimized" },
-                  { icon: "🏗️", label: "Scalable Architecture" },
-                ].map((f) => (
-                  <div key={f.label} className="flex flex-col items-center gap-2.5 p-5 rounded-2xl bg-[#544643]/20 border border-[#544643]/40 text-center">
-                    <span className="text-2xl">{f.icon}</span>
-                    <span className="text-xs font-bold text-[#F7F8F8]">{f.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Right: 3D Feature Highlights Visual with Smooth Animation */}
+          <div className="relative flex items-center justify-center mt-8 lg:mt-0">
+            <ServiceFeaturesVisual
+              imageSrc={visualImage}
+              alt={visualAlt || title}
+            />
           </div>
         </div>
       </div>
