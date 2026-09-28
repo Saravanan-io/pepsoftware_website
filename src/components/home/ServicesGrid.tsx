@@ -158,6 +158,7 @@ export function ServicesGrid() {
       window.removeEventListener("resize", handleResize);
       tl.scrollTrigger?.kill();
       tl.kill();
+      scrollTriggerRef.current = null;
     };
   }, [applyCardPositions]);
 
