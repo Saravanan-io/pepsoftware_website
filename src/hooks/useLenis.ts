@@ -40,7 +40,18 @@ export function useLenis() {
     gsap.ticker.add(onTick);
     gsap.ticker.lagSmoothing(0); // prevent large jumps after tab switch
 
+    // Normalize all ScrollTrigger measurements once every trigger on the page
+    // has been created (this hook's effect runs after all child effects) and
+    // again once every asset has finished loading. Without this, a trigger
+    // created before a sibling's pin-spacer keeps stale start/end values and
+    // its pin hijacks the sibling's scroll range.
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+    const onLoad = () => ScrollTrigger.refresh();
+    window.addEventListener("load", onLoad);
+
     return () => {
+      cancelAnimationFrame(refreshId);
+      window.removeEventListener("load", onLoad);
       gsap.ticker.remove(onTick);
       lenis.destroy();
       lenisRef.current = null;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { registerGSAP } from "@/lib/gsap";
+import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -366,12 +366,12 @@ export function HeroContent() {
   const c3 = useRef<HTMLDivElement>(null);
   const cardDOMRefs = [c0, c1, c2, c3];
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
   /* ── GSAP ──────────────────────────────────────────────────────────────── */
-  useEffect(() => {
-    if (!mounted) return;
+  // Layout effect (pre-paint): the pinned ScrollTrigger + its pin-spacer must
+  // exist BEFORE sibling sections (ServicesGrid) measure their own scroll
+  // ranges, otherwise they measure against a layout without this 1800px
+  // spacer and their pins hijack the hero's scroll range.
+  useIsomorphicLayoutEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
@@ -552,8 +552,7 @@ export function HeroContent() {
       tl.kill();
       window.removeEventListener("resize", onResize);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mounted]);
+  }, []);
 
   return (
     <>
@@ -715,14 +714,10 @@ export function HeroContent() {
             overflow: "hidden",
           }}
         >
-          {mounted && (
-            <>
-              <GlassCard card={CARDS[0]} elRef={c0} />
-              <GlassCard card={CARDS[1]} elRef={c1} />
-              <GlassCard card={CARDS[2]} elRef={c2} />
-              <GlassCard card={CARDS[3]} elRef={c3} />
-            </>
-          )}
+          <GlassCard card={CARDS[0]} elRef={c0} />
+          <GlassCard card={CARDS[1]} elRef={c1} />
+          <GlassCard card={CARDS[2]} elRef={c2} />
+          <GlassCard card={CARDS[3]} elRef={c3} />
         </div>
 
         <style>{`
