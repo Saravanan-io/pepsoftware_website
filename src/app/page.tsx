@@ -18,11 +18,11 @@ export default function HomePage() {
       {/* Infinite Logo Marquee */}
       <ClientsMarquee />
 
-      {/* Services Grid (4 Core Services with 3D Tilt Hover) */}
-      <ServicesGrid />
-
-      {/* About PEP Software & Metrics Cards */}
+      {/* About PEP Software & Metrics Cards (Who We Are) */}
       <IntroStatement />
+
+      {/* Services Grid (4 Core Services with 3D Tilt Hover - Our Services) */}
+      <ServicesGrid />
 
       {/* Structured Process Strip (01 to 06 with 'From Idea to Impact') */}
       <ProcessStrip />

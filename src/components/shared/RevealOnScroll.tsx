@@ -10,20 +10,24 @@ interface RevealOnScrollProps {
   delay?: number;
   duration?: number;
   yOffset?: number;
+  once?: boolean;
+  amount?: number;
 }
 
 export function RevealOnScroll({
   children,
   className,
   delay = 0,
-  duration = 0.45,
-  yOffset = 16,
+  duration = 0.65,
+  yOffset = 22,
+  once = false,
+  amount = 0.15,
 }: RevealOnScrollProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px 80px 0px" }}
+      initial={{ opacity: 0, y: yOffset, filter: "blur(4px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once, amount, margin: "0px 0px -40px 0px" }}
       transition={{
         duration,
         delay,

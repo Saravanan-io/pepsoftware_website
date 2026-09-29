@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Layout, Code2, Smartphone, Layers, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Layout, Code2, Smartphone, Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { registerGSAP } from "@/lib/gsap";
 import type { ScrollTrigger as ScrollTriggerInstance } from "gsap/ScrollTrigger";
+import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
 
 const services = [
   {
@@ -14,9 +15,9 @@ const services = [
     icon: Layout,
     label: "UI/UX Design",
     desc: "Beautiful Interfaces. Meaningful Experiences. User-centered products crafted to elevate brands and maximize engagement.",
-    accent: "#C86A28",
+    accent: "#502D6D", // PEP Royal Purple
     href: "/services/ui-ux-design",
-    image: "/images/services/ui-ux-design.jpg",
+    image: "/images/services/ui-ux-design-real.jpg",
     tag: "Design & Research",
   },
   {
@@ -25,9 +26,9 @@ const services = [
     icon: Code2,
     label: "Website Development",
     desc: "Inspired Design. Intelligent Development. Responsive, lightning-fast web solutions that perform seamlessly across all devices.",
-    accent: "#544643",
+    accent: "#68358F", // Vibrant Violet
     href: "/services/website-design-development",
-    image: "/images/services/website-development.jpg",
+    image: "/images/services/website-development-real.jpg",
     tag: "Web Architecture",
   },
   {
@@ -36,9 +37,9 @@ const services = [
     icon: Smartphone,
     label: "Mobile App Development",
     desc: "Design with Purpose. Develop with Precision. Deliver with Impact. High-performance native and cross-platform apps.",
-    accent: "#C86A28",
+    accent: "#502D6D", // PEP Royal Purple
     href: "/services/mobile-app-design-development",
-    image: "/images/services/mobile-app-development.jpg",
+    image: "/images/services/mobile-app-development-real.jpg",
     tag: "iOS & Android",
   },
   {
@@ -47,14 +48,15 @@ const services = [
     icon: Layers,
     label: "AR/VR Design",
     desc: "Captivating Visuals. Immersive Realities. Boundary-pushing 3D modeling, interactive WebAR, and spatial experiences.",
-    accent: "#544643",
+    accent: "#7C3AED", // Royal Purple Accent
     href: "/services/graphic-design",
-    image: "/images/services/ar-vr-design.jpg",
+    image: "/images/services/ar-vr-design-real.jpg",
     tag: "Spatial Computing",
   },
 ];
 
 export function ServicesGrid() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const scrollTriggerRef = useRef<ScrollTriggerInstance | null>(null);
@@ -70,12 +72,12 @@ export function ServicesGrid() {
     const isMobile = vw < 768;
     const isTablet = vw >= 768 && vw < 1024;
     
-    // Spacing dynamically scaled to viewport
+    // Spacing dynamically scaled to viewport for larger cards
     const spacing = isMobile
-      ? Math.min(vw * 0.72, 280)
+      ? Math.min(vw * 0.78, 310)
       : isTablet
-      ? Math.min(vw * 0.35, 300)
-      : Math.min(330, Math.max(270, vw * 0.23));
+      ? Math.min(vw * 0.40, 360)
+      : Math.min(390, Math.max(320, vw * 0.27));
 
     services.forEach((_, i) => {
       const el = cardRefs.current[i];
@@ -113,39 +115,39 @@ export function ServicesGrid() {
     // Initial positioning
     applyCardPositions(0, window.innerWidth);
 
-    const PIN_SCROLL = Math.max(window.innerHeight * 2.0, 1800);
+    const ctx = gsap.context(() => {
+      const PIN_SCROLL = Math.max(window.innerHeight * 2.0, 1800);
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: `+=${PIN_SCROLL}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.15, // Responsive 60fps tracking without Lenis delay
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          const p = self.progress;
-          // Progress 0.0 to 0.82 smoothly navigates cards 0 through 3 (N-1)
-          // Progress 0.82 to 1.0 smoothly glides last card out to seamlessly transition to next section
-          let virtual = (p / 0.82) * (N - 1);
-          if (p > 0.82) {
-            const exitP = (p - 0.82) / 0.18;
-            virtual = (N - 1) + exitP * 0.9;
-          }
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: `+=${PIN_SCROLL}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.15, // Responsive 60fps tracking without Lenis delay
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const p = self.progress;
+            let virtual = (p / 0.82) * (N - 1);
+            if (p > 0.82) {
+              const exitP = (p - 0.82) / 0.18;
+              virtual = (N - 1) + exitP * 0.9;
+            }
 
-          applyCardPositions(virtual, window.innerWidth);
+            applyCardPositions(virtual, window.innerWidth);
 
-          const closest = Math.min(N - 1, Math.max(0, Math.round(virtual)));
-          if (closest !== activeIndexRef.current) {
-            activeIndexRef.current = closest;
-            setActiveIdx(closest);
-          }
+            const closest = Math.min(N - 1, Math.max(0, Math.round(virtual)));
+            if (closest !== activeIndexRef.current) {
+              activeIndexRef.current = closest;
+              setActiveIdx(closest);
+            }
+          },
         },
-      },
-    });
+      });
 
-    scrollTriggerRef.current = tl.scrollTrigger ?? null;
+      scrollTriggerRef.current = tl.scrollTrigger ?? null;
+    }, containerRef);
 
     const handleResize = () => {
       applyCardPositions(activeIndexRef.current, window.innerWidth);
@@ -156,9 +158,8 @@ export function ServicesGrid() {
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      tl.scrollTrigger?.kill();
-      tl.kill();
       scrollTriggerRef.current = null;
+      ctx.revert();
     };
   }, [applyCardPositions]);
 
@@ -192,92 +193,158 @@ export function ServicesGrid() {
   };
 
   return (
-    <section
-      ref={sectionRef}
-      id="services"
-      className="min-h-screen flex flex-col justify-between py-4 sm:py-6 lg:py-8 bg-[#F7F8F8] relative overflow-hidden select-none"
-    >
-      {/* Background delicate dot pattern */}
-      <div className="absolute inset-0 bg-dot-light opacity-30 pointer-events-none" />
+    <div ref={containerRef} className="w-full relative bg-[#F7F8F8]">
+      <section
+        ref={sectionRef}
+        id="services"
+        className="min-h-screen h-screen flex flex-col justify-between bg-[#F7F8F8] select-none overflow-hidden"
+      >
+        {/* Top band showing previous page color (#F7F8F8) */}
+        <div className="w-full h-16 sm:h-20 lg:h-24 shrink-0 bg-[#F7F8F8]" />
 
-      {/* Subtle warm ambient lighting glow behind 3D tunnel */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#C86A28]/6 rounded-full blur-[140px] pointer-events-none" />
+        {/* Decreased-height Dark Purple Section with Cosmic Atmosphere */}
+        <div className="w-full flex-1 flex flex-col justify-center bg-[#0B0217] relative overflow-hidden py-3 sm:py-4 lg:py-5 border-y border-[#3A145E]/40 shadow-sm">
+          {/* Pure Deep Dark Purple Cosmic Ambient Nebulae */}
+          <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(104,53,143,0.55),transparent_65%)] pointer-events-none"
+            style={{ animation: "cosmicPulse 9s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute inset-0 bg-[radial-gradient(circle_at_20%_60%,rgba(80,45,109,0.55),transparent_55%)] pointer-events-none"
+            style={{ animation: "cosmicPulse 12s ease-in-out infinite reverse" }}
+          />
+          <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(58,20,94,0.65),transparent_60%)] pointer-events-none"
+            style={{ animation: "cosmicPulse 15s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(124,58,237,0.22),transparent_55%)] pointer-events-none"
+            style={{ animation: "cosmicPulse 11s ease-in-out infinite reverse" }}
+          />
+          <div className="absolute inset-0 bg-dot-light opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-between">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-2 sm:mb-4 gap-4">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-1.5">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9E8E6] border border-[#C6C2C1] text-[11px] font-bold uppercase tracking-wider text-[#C86A28]">
-                <Sparkles className="w-3 h-3" />
-                <span>OUR SERVICES</span>
-              </span>
+          {/* Animated Floating Pure Dark Purple Glow Orbs */}
+          <div
+            className="absolute -top-24 -left-20 w-[600px] h-[600px] bg-[#502D6D]/45 rounded-full blur-[140px] pointer-events-none"
+            style={{ animation: "orbFloat1 10s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute top-1/2 -right-24 w-[550px] h-[550px] bg-[#68358F]/40 rounded-full blur-[130px] pointer-events-none"
+            style={{ animation: "orbFloat2 12s ease-in-out infinite" }}
+          />
+          <div
+            className="absolute -bottom-24 left-1/3 w-[650px] h-[650px] bg-[#3D1466]/55 rounded-full blur-[150px] pointer-events-none"
+            style={{ animation: "orbFloat1 14s ease-in-out infinite reverse" }}
+          />
+          <div
+            className="absolute top-1/4 left-1/4 w-[480px] h-[480px] bg-[#7C3AED]/20 rounded-full blur-[130px] pointer-events-none"
+            style={{ animation: "orbFloat2 16s ease-in-out infinite" }}
+          />
 
-              {/* Live Card Counter */}
-              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#EFF0EF] border border-[#C6C2C1]/80">
-                <span className="text-[11px] font-mono font-bold text-[#C86A28]">
-                  0{activeIdx + 1}
-                </span>
-                <span className="text-[11px] font-mono text-[#544643]">/ 04</span>
-                <span className="text-[11px] font-semibold text-[#151515] ml-1 hidden sm:inline">
-                  • {services[activeIdx]?.label}
-                </span>
+          {/* Subtle Lavender & Purple Stardust Sparkles */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {[
+              { top: "15%", left: "12%", size: 3, delay: "0s", duration: "3s" },
+              { top: "25%", left: "85%", size: 2.5, delay: "1s", duration: "4s" },
+              { top: "70%", left: "8%", size: 3.5, delay: "0.5s", duration: "3.5s" },
+              { top: "80%", left: "90%", size: 2.5, delay: "1.5s", duration: "4.5s" },
+              { top: "45%", left: "95%", size: 3, delay: "2s", duration: "3s" },
+              { top: "10%", left: "60%", size: 2, delay: "0.8s", duration: "4s" },
+            ].map((star, i) => (
+              <span
+                key={i}
+                className="absolute rounded-full bg-[#D4C7EC]/70 shadow-[0_0_8px_rgba(168,85,247,0.7)]"
+                style={{
+                  top: star.top,
+                  left: star.left,
+                  width: star.size,
+                  height: star.size,
+                  animation: `twinkleStar ${star.duration} ease-in-out infinite ${star.delay}`,
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center gap-2 sm:gap-3">
+            {/* Section Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-1.5 sm:mb-2 gap-3">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="inline-flex items-center gap-2">
+                  <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#D4C7EC] to-[#A855F7]" />
+                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#FFFFFF] via-[#E9D5FF] to-[#C084FC] bg-clip-text text-transparent">
+                    OUR SERVICES
+                  </span>
+                </div>
+
+                {/* Live Card Counter */}
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15">
+                  <span className="text-[11px] font-mono font-bold text-[#E9D5FF]">
+                    0{activeIdx + 1}
+                  </span>
+                  <span className="text-[11px] font-mono text-[#D4C7EC]/70">/ 04</span>
+                  <span className="text-[11px] font-semibold text-white ml-1 hidden sm:inline">
+                    • {services[activeIdx]?.label}
+                  </span>
+                </div>
               </div>
+
+              <WordReveal
+                as="h2"
+                text="Digital solutions for a smarter tomorrow."
+                gradientWords="tomorrow."
+                gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-[#E9D5FF] to-[#C084FC]"
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight"
+              />
+              <ParagraphReveal
+                text="From design to development, we deliver end-to-end digital solutions tailored to your business needs."
+                delay={0.12}
+                className="mt-1 text-xs sm:text-sm text-[#D4C7EC] leading-relaxed font-normal"
+              />
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#151515] leading-tight tracking-tight">
-              Digital solutions for a smarter{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]">
-                tomorrow.
-              </span>
-            </h2>
-            <p className="mt-1 text-xs sm:text-sm text-[#544643] leading-relaxed">
-              From design to development, we deliver end-to-end digital solutions tailored to your business needs.
-            </p>
-          </div>
+            {/* Right Action Bar & Navigation Arrows */}
+            <div className="flex items-center gap-3 shrink-0">
+              <div className="flex items-center gap-2 mr-2">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label="Previous service"
+                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next service"
+                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
 
-          {/* Right Action Bar & Navigation Arrows */}
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="flex items-center gap-2 mr-2">
-              <button
-                type="button"
-                onClick={handlePrev}
-                aria-label="Previous service"
-                className="w-9 h-9 rounded-full bg-[#EFF0EF] border border-[#C6C2C1] hover:border-[#151515] flex items-center justify-center text-[#151515] hover:bg-[#151515] hover:text-[#F7F8F8] transition-colors duration-200 shadow-xs cursor-pointer"
+              <Link
+                href="/services"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#502D6D] to-[#68358F] hover:from-[#68358F] hover:to-[#7C3AED] text-white text-xs sm:text-sm font-bold border border-white/15 hover:border-transparent shadow-lg shadow-black/30 transition-all shrink-0"
               >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label="Next service"
-                className="w-9 h-9 rounded-full bg-[#EFF0EF] border border-[#C6C2C1] hover:border-[#151515] flex items-center justify-center text-[#151515] hover:bg-[#151515] hover:text-[#F7F8F8] transition-colors duration-200 shadow-xs cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
+                <span>Explore All Services</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D4C7EC] group-hover:text-white transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
-
-            <Link
-              href="/services"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#151515] text-[#F7F8F8] text-xs sm:text-sm font-semibold hover:bg-[#544643] shadow-md shadow-[#151515]/10 transition-all shrink-0"
-            >
-              <span>Explore All Services</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#C86A28] transition-transform group-hover:translate-x-1" />
-            </Link>
           </div>
-        </div>
 
-        {/* ── 3D Perspective Carousel Stage ────────────────────────────── */}
+          {/* ── 3D Perspective Carousel Stage ────────────────────────────── */}
         <div
-          className="relative w-full h-[390px] sm:h-[420px] flex items-center justify-center overflow-visible my-auto"
+          className="relative w-full h-[440px] sm:h-[465px] lg:h-[485px] flex items-center justify-center overflow-visible"
           style={{
             perspective: "1200px",
             perspectiveOrigin: "50% 50%",
             transformStyle: "preserve-3d",
           }}
         >
-          {/* Subtle 3D floor plane grid glow */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[85%] max-w-4xl h-10 bg-radial from-[#C86A28]/10 via-[#151515]/5 to-transparent blur-xl pointer-events-none rounded-full" />
+          {/* Pure Dark Purple 3D floor plane glow */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl h-20 bg-radial from-[#68358F]/40 via-[#502D6D]/25 to-transparent blur-2xl pointer-events-none rounded-full" />
 
           {services.map((svc, idx) => {
             const Icon = svc.icon;
@@ -292,7 +359,7 @@ export function ServicesGrid() {
                 onClick={() => {
                   if (!isCenter) scrollToCard(idx);
                 }}
-                className={`absolute top-1/2 left-1/2 w-[280px] sm:w-[320px] -translate-x-1/2 -translate-y-1/2 will-change-transform ${
+                className={`absolute top-1/2 left-1/2 w-[315px] sm:w-[355px] lg:w-[385px] -translate-x-1/2 -translate-y-1/2 will-change-transform ${
                   isCenter ? "cursor-default" : "cursor-pointer"
                 }`}
                 style={{
@@ -300,126 +367,159 @@ export function ServicesGrid() {
                 }}
               >
                 <div
-                  className={`group relative flex flex-col p-4 sm:p-5 rounded-[24px] bg-[#EFF0EF] border transition-[border-color,background-color] duration-200 overflow-hidden ${
+                  className={`group relative flex flex-col p-5 sm:p-6 rounded-[28px] transition-all duration-300 overflow-hidden ${
                     isCenter
-                      ? "border-[#C86A28] ring-1 ring-[#C86A28]/40 shadow-xl bg-[#FFFFFF]"
-                      : "border-[#C6C2C1] shadow-md bg-[#EFF0EF]"
+                      ? "bg-gradient-to-b from-[#1C0A33]/92 via-[#140626]/95 to-[#0D021A]/98 backdrop-blur-2xl border border-[#A855F7]/50 ring-1 ring-white/20 shadow-[0_25px_60px_-10px_rgba(124,58,237,0.45),0_0_35px_rgba(168,85,247,0.25)]"
+                      : "bg-gradient-to-b from-[#18082D]/75 via-[#110420]/80 to-[#0A0214]/85 backdrop-blur-xl border border-white/10 shadow-2xl"
                   }`}
                 >
+                  {/* Subtle top border light sheen */}
+                  <div
+                    className={`absolute top-0 inset-x-0 h-[1.5px] pointer-events-none transition-opacity duration-300 ${
+                      isCenter
+                        ? "bg-gradient-to-r from-transparent via-[#C084FC] to-transparent opacity-90"
+                        : "bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-40"
+                    }`}
+                  />
+
+                  {/* Ambient inner soft glow for active card */}
+                  {isCenter && (
+                    <div className="absolute -top-14 -right-14 w-40 h-40 rounded-full bg-[#7C3AED]/25 blur-2xl pointer-events-none" />
+                  )}
+
                   {/* Image showcase window */}
-                  <div className="relative w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-3 bg-[#E7EBEA] border border-[#C6C2C1]/60">
+                  <div className="relative w-full h-44 sm:h-48 lg:h-52 rounded-2xl overflow-hidden mb-4 bg-[#0E031B] border border-white/10 group-hover:border-[#A855F7]/40 transition-colors">
                     <Image
                       src={svc.image}
                       alt={svc.label}
                       fill
-                      sizes="(max-width: 768px) 280px, 320px"
-                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 315px, (max-width: 1024px) 355px, 385px"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       priority={idx === 0}
                     />
 
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E031B]/90 via-black/20 to-transparent pointer-events-none" />
 
-                    {/* Card index pill */}
-                    <div className="absolute bottom-2 left-2.5 px-2 py-0.5 rounded-md bg-[#151515]/75 backdrop-blur-md text-[9px] font-mono font-bold tracking-wider text-[#F7F8F8]">
-                      {svc.num} • {svc.tag}
+                    {/* Card index pill with glowing status dot */}
+                    <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-[#0B0217]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono font-bold tracking-wider text-[#E9D5FF] flex items-center gap-1.5 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C084FC] animate-pulse" />
+                      <span>{svc.num}</span>
+                      <span className="text-white/40">•</span>
+                      <span>{svc.tag}</span>
                     </div>
 
                     {/* Floating service icon */}
                     <div
-                      className={`absolute top-2.5 right-2.5 w-9 h-9 rounded-lg backdrop-blur-md border flex items-center justify-center transition-colors duration-200 ${
+                      className={`absolute top-3 right-3 w-10 h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 ${
                         isCenter
-                          ? "bg-[#FFFFFF] border-[#C86A28]/60 text-[#C86A28] shadow-sm"
-                          : "bg-[#F7F8F8]/90 border-[#C6C2C1]/80 text-[#544643]"
+                          ? "bg-gradient-to-br from-[#7C3AED] to-[#502D6D] border-[#C084FC]/50 text-white shadow-[0_0_15px_rgba(168,85,247,0.5)]"
+                          : "bg-white/10 border-white/15 text-[#D4C7EC]"
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                   </div>
 
                   {/* Card Title */}
                   <h3
-                    className={`text-lg sm:text-xl font-bold transition-colors mb-1 ${
-                      isCenter ? "text-[#151515]" : "text-[#544643]"
+                    className={`text-xl sm:text-2xl font-extrabold tracking-tight mb-2 transition-colors ${
+                      isCenter ? "text-white group-hover:text-[#E9D5FF]" : "text-white/85"
                     }`}
                   >
                     {svc.label}
                   </h3>
 
                   {/* Card Description */}
-                  <p className="text-xs sm:text-sm text-[#544643] leading-relaxed line-clamp-2 mb-3">
+                  <p className="text-xs sm:text-sm text-[#D4C7EC]/85 leading-relaxed line-clamp-2 mb-4">
                     {svc.desc}
                   </p>
 
                   {/* Arrow CTA */}
-                  <div className="pt-2.5 border-t border-[#C6C2C1]/60 flex items-center justify-between mt-auto">
-                    <span className="text-xs font-semibold text-[#544643]">
+                  <div className="pt-3.5 border-t border-white/10 flex items-center justify-between mt-auto">
+                    <span
+                      className={`text-xs sm:text-sm font-semibold tracking-wide transition-colors ${
+                        isCenter ? "text-[#C084FC] group-hover:text-[#E9D5FF]" : "text-[#D4C7EC]/70"
+                      }`}
+                    >
                       Learn more
                     </span>
                     <Link
                       href={svc.href}
                       tabIndex={isCenter ? 0 : -1}
-                      className={`w-9 h-9 rounded-full border flex items-center justify-center transition-colors duration-200 shadow-xs ${
+                      className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
                         isCenter
-                          ? "bg-[#151515] text-[#F7F8F8] border-[#151515] hover:bg-[#C86A28] hover:border-[#C86A28]"
-                          : "bg-[#E9E8E6] text-[#544643] border-[#C6C2C1] hover:bg-[#151515] hover:text-[#F7F8F8]"
+                          ? "bg-gradient-to-r from-[#7C3AED] to-[#68358F] hover:from-[#A855F7] hover:to-[#7C3AED] text-white border-[#C084FC]/50 shadow-[0_0_16px_rgba(168,85,247,0.45)] group-hover:scale-105"
+                          : "bg-white/10 border-white/15 text-[#D4C7EC] hover:bg-white/20 hover:text-white"
                       }`}
                       aria-label={`Learn more about ${svc.label}`}
                     >
-                      <ArrowRight className="w-3.5 h-3.5 text-[#C86A28] group-hover:text-[#F7F8F8]" />
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   </div>
                 </div>
 
-                {/* 3D Floor Shadow */}
+                {/* Pure Purple 3D Floor Shadow */}
                 <div
-                  className={`mx-auto h-3 rounded-full blur-md transition-opacity duration-300 pointer-events-none ${
-                    isCenter ? "w-4/5 bg-[#151515]/20 opacity-100" : "w-3/5 bg-[#151515]/10 opacity-40"
+                  className={`mx-auto h-4 rounded-full blur-xl transition-all duration-300 pointer-events-none ${
+                    isCenter
+                      ? "w-4/5 bg-gradient-to-r from-[#502D6D]/0 via-[#A855F7]/50 to-[#502D6D]/0 opacity-95"
+                      : "w-3/5 bg-black/60 opacity-30"
                   }`}
                 />
               </div>
             );
           })}
         </div>
-
-        {/* ── Bottom Interactive Pagination Bar ────────────────────────── */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-2 sm:pt-3 border-t border-[#C6C2C1]/40 gap-3">
-          {/* Scroll progress instruction */}
-          <div className="flex items-center gap-2 text-xs text-[#544643] font-medium">
-            <span className="w-2 h-2 rounded-full bg-[#C86A28] animate-pulse" />
-            <span>Scroll vertically to traverse 3D cards</span>
-          </div>
-
-          {/* Clickable Card Selector Pills */}
-          <div className="flex items-center gap-2">
-            {services.map((svc, i) => {
-              const isSelected = activeIdx === i;
-              return (
-                <button
-                  key={svc.id}
-                  type="button"
-                  onClick={() => scrollToCard(i)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
-                    isSelected
-                      ? "bg-[#151515] text-[#F7F8F8] shadow-sm shadow-[#151515]/20"
-                      : "bg-[#EFF0EF] text-[#544643] border border-[#C6C2C1] hover:border-[#151515] hover:text-[#151515]"
-                  }`}
-                >
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full ${
-                      isSelected ? "bg-[#C86A28]" : "bg-[#C6C2C1]"
-                    }`}
-                  />
-                  <span>0{i + 1}</span>
-                  <span className="hidden md:inline font-normal opacity-85">
-                    {svc.label}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
       </div>
+    </div>
+
+        {/* Bottom band showing next page color (#F7F8F8) */}
+        <div className="w-full h-8 sm:h-12 lg:h-14 shrink-0 bg-[#F7F8F8]" />
+
+      {/* Embedded Ambient Animation Keyframes */}
+      <style jsx>{`
+        @keyframes orbFloat1 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          50% {
+            transform: translate(35px, -30px) scale(1.12);
+          }
+        }
+
+        @keyframes orbFloat2 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          50% {
+            transform: translate(-40px, 25px) scale(1.15);
+          }
+        }
+
+        @keyframes twinkleStar {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(0.8);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.4);
+          }
+        }
+
+        @keyframes cosmicPulse {
+          0%, 100% {
+            opacity: 0.5;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.08);
+          }
+        }
+      `}</style>
     </section>
-  );
+  </div>
+);
 }

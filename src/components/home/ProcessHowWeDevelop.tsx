@@ -2,9 +2,10 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Briefcase, Globe, Smartphone, Star, Sparkles, TrendingUp } from "lucide-react";
+import { Briefcase, Globe, Smartphone, Star, TrendingUp } from "lucide-react";
 import { AnimatedCounter } from "../shared/AnimatedCounter";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
+import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
 
 const metrics = [
   { value: "5", label: "Years Experience", icon: Briefcase },
@@ -280,19 +281,24 @@ export function ProcessHowWeDevelop() {
           {/* Left Column: Heading + Metric Cards */}
           <div className="lg:col-span-6 space-y-8">
             <RevealOnScroll>
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E8E6] border border-[#C6C2C1] text-xs font-bold uppercase tracking-wider text-[#C86A28]">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>OUR IMPACT</span>
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-extrabold text-[#151515] leading-tight tracking-tight mt-4">
-                Numbers that build{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]">
-                  trust.
+              <div className="inline-flex items-center gap-2.5 mb-2">
+                <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
+                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                  OUR IMPACT
                 </span>
-              </h2>
-              <p className="text-base sm:text-lg text-[#544643] leading-relaxed mt-4 max-w-xl">
-                We take pride in delivering digital solutions that create real value for our clients across every industry and business stage.
-              </p>
+              </div>
+              <WordReveal
+                as="h2"
+                text="Numbers that build trust."
+                gradientWords="trust."
+                gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]"
+                className="text-4xl sm:text-5xl font-extrabold text-[#151515] leading-tight tracking-tight mt-4"
+              />
+              <ParagraphReveal
+                text="We take pride in delivering digital solutions that create real value for our clients across every industry and business stage."
+                delay={0.12}
+                className="text-base sm:text-lg text-[#544643] leading-relaxed mt-4 max-w-xl"
+              />
             </RevealOnScroll>
 
             {/* 4 Metrics Grid */}

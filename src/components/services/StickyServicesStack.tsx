@@ -10,7 +10,6 @@ import {
   Palette,
   Wrench,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import { SERVICES_DATA } from "@/data/services";
 import { ServiceItem } from "@/types";
@@ -270,9 +269,11 @@ function StackCard({ service, index, total, scrollYProgress }: CardProps) {
         <div className="p-6 sm:p-10 lg:p-12 space-y-8">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto space-y-2.5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E8E6] border border-[#C6C2C1] text-[10px] font-black uppercase tracking-[0.2em] text-[#C86A28]">
-              <Sparkles className="w-3.5 h-3.5 text-[#C86A28]" />
-              <span>{processData.badgeText}</span>
+            <div className="inline-flex items-center gap-2 mb-2">
+              <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
+              <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#502D6D]">
+                {processData.badgeText}
+              </span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#151515] tracking-tight">
@@ -414,10 +415,12 @@ export function StickyServicesStack() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header Intro */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E8E6] border border-[#C6C2C1] text-xs font-bold uppercase tracking-wider text-[#C86A28] mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>CORE CAPABILITIES</span>
-          </span>
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
+            <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+              CORE CAPABILITIES
+            </span>
+          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151515] tracking-tight mt-1">
             Explore Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]">

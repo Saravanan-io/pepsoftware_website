@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, Sparkles, Home, ChevronRight } from "lucide-react";
+import { ArrowRight, Home, ChevronRight } from "lucide-react";
 import { ServiceFeaturesVisual } from "./ServiceFeaturesVisual";
+import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
 
 interface ServiceHeroProps {
   badge: string;
@@ -56,21 +59,26 @@ export function ServiceHero({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text */}
           <div className="space-y-6">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E8E6] border border-[#C6C2C1] text-xs font-bold uppercase tracking-wider text-[#C86A28]">
-              <Sparkles className="w-3.5 h-3.5" />
-              {badge}
-            </span>
+            <div className="inline-flex items-center gap-2.5">
+              <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                {badge}
+              </span>
+            </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#151515] leading-[1.06]">
-              {title}{" "}
-              {gradientText && (
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]">
-                  {gradientText}
-                </span>
-              )}
-            </h1>
+            <WordReveal
+              as="h1"
+              text={[title, gradientText].filter(Boolean).join(" ")}
+              gradientWords={gradientText}
+              gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#151515] leading-[1.06]"
+            />
 
-            <p className="text-base sm:text-lg text-[#544643] leading-relaxed">{description}</p>
+            <ParagraphReveal
+              text={description}
+              delay={0.15}
+              className="text-base sm:text-lg text-[#544643] leading-relaxed"
+            />
 
             {bullets && (
               <ul className="space-y-2.5">

@@ -14,6 +14,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
+import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
 
 const steps = [
   {
@@ -138,46 +139,59 @@ export function ProcessStrip() {
     <section id="process" className="py-20 lg:py-28 bg-[#F7F8F8] relative overflow-hidden select-none">
       {/* Background Grid & Ambient Lighting Glows */}
       <div className="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-[#E7EBEA] rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#C86A28]/8 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-[#502D6D]/[0.08] rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#FCB116]/[0.09] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Row with Narrative + 3D Innovation Hub */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 lg:mb-20">
           {/* Left Column: Heading & Narrative */}
           <RevealOnScroll className="lg:col-span-6 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FDF2EC] border border-[#F4D3C2] text-xs font-bold uppercase tracking-wider text-[#C86A28]">
-              <Workflow className="w-3.5 h-3.5 text-[#C86A28]" />
-              <span>OUR WORKFLOW</span>
-            </span>
+            <div className="inline-flex items-center gap-2.5">
+              <Workflow className="w-4 h-4 text-[#FCB116] shrink-0" />
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                OUR WORKFLOW
+              </span>
+            </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-[46px] font-black leading-[1.15] tracking-tight text-[#151515]">
-              A simple process for{" "}
-              <span className="text-[#C86A28]">powerful results.</span>
-            </h2>
+            <WordReveal
+              as="h2"
+              text="A simple process for powerful results."
+              gradientWords="powerful results."
+              gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#502D6D] via-[#C86A28] to-[#FCB116]"
+              className="text-4xl sm:text-5xl lg:text-[46px] font-black leading-[1.15] tracking-tight text-[#151515]"
+            />
 
-            <p className="text-base sm:text-lg text-[#544643] leading-relaxed max-w-xl">
-              We follow a structured and collaborative approach to ensure your vision turns into a successful digital product.
-            </p>
+            <ParagraphReveal
+              text="We follow a structured and collaborative approach to ensure your vision turns into a successful digital product."
+              delay={0.12}
+              className="text-base sm:text-lg text-[#544643] leading-relaxed max-w-xl"
+            />
 
             {/* From Idea to Impact Pill Card */}
             <div className="pt-2">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-4 px-5 py-3.5 rounded-full bg-[#FFFFFF]/95 border border-[#E5E5E3] shadow-xs hover:border-[#C86A28]/50 hover:shadow-md transition-all duration-300"
+                className="group inline-flex items-center gap-4 px-5 py-3.5 rounded-full bg-[#FFFFFF]/95 border border-[#E5E5E3] shadow-xs hover:border-[#502D6D]/40 hover:shadow-md transition-all duration-300"
               >
-                <span className="text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
-                  🚀
-                </span>
+                <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0 transition-transform duration-300 group-hover:scale-115 group-hover:-translate-y-1 drop-shadow-[0_4px_10px_rgba(252,177,22,0.35)]">
+                  <Image
+                    src="/images/realistic-rocket.png"
+                    alt="Realistic Rocket Icon"
+                    fill
+                    sizes="36px"
+                    className="object-contain"
+                  />
+                </div>
                 <div className="text-left pr-2">
-                  <span className="block text-xs font-black uppercase tracking-wider text-[#C86A28]">
+                  <span className="block text-xs font-black uppercase tracking-wider text-[#502D6D]">
                     FROM IDEA TO IMPACT
                   </span>
                   <span className="block text-[11px] text-[#544643] font-medium mt-0.5">
                     End-to-end digital excellence
                   </span>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#FDF2EC] border border-[#F4D3C2] flex items-center justify-center text-[#C86A28] ml-auto group-hover:bg-[#C86A28] group-hover:text-white transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#502D6D]/15 to-[#FCB116]/20 border border-[#502D6D]/30 flex items-center justify-center text-[#502D6D] ml-auto group-hover:bg-[#502D6D] group-hover:text-white transition-all duration-300">
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </Link>
@@ -306,9 +320,10 @@ export function ProcessStrip() {
 
               <defs>
                 <linearGradient id="process-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#C86A28" stopOpacity="0.8" />
-                  <stop offset={`${Math.min(100, (activeStep + 1) * 18)}%`} stopColor="#C86A28" stopOpacity="1" />
-                  <stop offset={`${Math.min(100, (activeStep + 1) * 20)}%`} stopColor="#F4D3C2" stopOpacity="0.2" />
+                  <stop offset="0%" stopColor="#502D6D" stopOpacity="0.9" />
+                  <stop offset={`${Math.min(100, (activeStep + 1) * 16)}%`} stopColor="#C86A28" stopOpacity="1" />
+                  <stop offset={`${Math.min(100, (activeStep + 1) * 18)}%`} stopColor="#FCB116" stopOpacity="1" />
+                  <stop offset={`${Math.min(100, (activeStep + 1) * 20)}%`} stopColor="#C6C2C1" stopOpacity="0.2" />
                 </linearGradient>
               </defs>
 
@@ -323,7 +338,7 @@ export function ProcessStrip() {
                       cy={18}
                       r={isCurrent ? "8" : "6"}
                       fill="#FFFFFF"
-                      stroke={isCurrent ? "#FF7700" : isPassed ? "#C86A28" : "#F4D3C2"}
+                      stroke={isCurrent ? "#FCB116" : isPassed ? "#502D6D" : "#E5E5E3"}
                       strokeWidth={isCurrent ? "3" : "2.5"}
                       className="transition-all duration-300"
                     />
@@ -331,7 +346,7 @@ export function ProcessStrip() {
                       cx={cx}
                       cy={18}
                       r={isCurrent ? "4" : "2.5"}
-                      fill={isCurrent ? "#FF7700" : isPassed ? "#C86A28" : "#F4D3C2"}
+                      fill={isCurrent ? "#FCB116" : isPassed ? "#502D6D" : "#E5E5E3"}
                       className="transition-all duration-300"
                     />
                   </g>
@@ -351,23 +366,21 @@ export function ProcessStrip() {
                   <div
                     onClick={() => handleStepSelect(idx)}
                     onMouseEnter={() => handleStepSelect(idx)}
-                    className={`group relative flex flex-col items-center text-center p-4 sm:p-5 rounded-[26px] transition-all duration-500 cursor-pointer ${
-                      isActive
-                        ? "bg-gradient-to-b from-[#FFFFFF] via-[#FFFBF6] to-[#FDF1E7] border-2 border-[#FF7700] ring-4 ring-[#FF9500]/30 shadow-[0_0_35px_rgba(255,119,0,0.45),0_15px_30px_rgba(200,106,40,0.25)] -translate-y-3 scale-[1.03]"
-                        : "bg-[#FFFFFF] border border-[#E5E5E3] shadow-xs hover:border-[#C86A28]/50 hover:-translate-y-1 hover:shadow-md"
-                    }`}
+                    className={`group relative flex flex-col items-center text-center p-4 sm:p-5 rounded-[26px] transition-all duration-500 cursor-pointer ${isActive
+                        ? "bg-gradient-to-b from-[#FFFFFF] via-[#FAF5FC] to-[#FFF9EE] border-2 border-[#502D6D] ring-4 ring-[#FCB116]/25 shadow-[0_0_35px_rgba(80,45,109,0.22),0_15px_30px_rgba(252,177,22,0.18)] -translate-y-3 scale-[1.03]"
+                        : "bg-[#FFFFFF] border border-[#E5E5E3] shadow-xs hover:border-[#502D6D]/40 hover:-translate-y-1 hover:shadow-md"
+                      }`}
                   >
                     {/* Step Number Top Pill with Reached Beacon */}
                     <div className="relative mb-3 flex items-center justify-center">
                       {isActive && (
-                        <span className="absolute -top-3 w-2.5 h-2.5 rounded-full bg-[#FF7700] shadow-[0_0_10px_#FF7700] animate-ping" />
+                        <span className="absolute -top-3 w-2.5 h-2.5 rounded-full bg-[#FCB116] shadow-[0_0_10px_#FCB116] animate-ping" />
                       )}
                       <span
-                        className={`inline-block px-3 py-0.5 rounded-full text-xs font-extrabold transition-all duration-300 ${
-                          isActive
-                            ? "bg-[#FF7700] text-white shadow-[0_0_16px_rgba(255,119,0,0.7)] scale-105"
+                        className={`inline-block px-3 py-0.5 rounded-full text-xs font-extrabold transition-all duration-300 ${isActive
+                            ? "bg-gradient-to-r from-[#502D6D] to-[#FCB116] text-white shadow-[0_0_16px_rgba(80,45,109,0.4)] scale-105"
                             : "text-[#544643] bg-transparent"
-                        }`}
+                          }`}
                       >
                         {step.num}
                       </span>
@@ -375,22 +388,20 @@ export function ProcessStrip() {
 
                     {/* Step Icon Squircle with Neon Aura */}
                     <div
-                      className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3.5 transition-all duration-300 ${
-                        isActive
+                      className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3.5 transition-all duration-300 ${isActive
                           ? "bg-gradient-to-tr from-[#FF7700] to-[#FFA500] text-white shadow-[0_0_24px_rgba(255,119,0,0.6)] scale-110"
                           : "bg-[#FDF2EC] border border-[#F4D3C2] text-[#C86A28] group-hover:scale-105"
-                      }`}
+                        }`}
                     >
                       <Icon className="w-5 h-5 stroke-[2.4]" />
                     </div>
 
                     {/* Step Title */}
                     <h4
-                      className={`text-sm font-black mb-1.5 transition-colors ${
-                        isActive
+                      className={`text-sm font-black mb-1.5 transition-colors ${isActive
                           ? "text-[#C86A28]"
                           : "text-[#151515] group-hover:text-[#C86A28]"
-                      }`}
+                        }`}
                     >
                       {step.title}
                     </h4>
@@ -402,11 +413,10 @@ export function ProcessStrip() {
 
                     {/* Bottom Action Arrow Circle Button */}
                     <div
-                      className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isActive
+                      className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${isActive
                           ? "bg-[#FF7700] text-white shadow-[0_0_14px_rgba(255,119,0,0.7)] scale-115"
                           : "bg-[#FDF2EC] border border-[#F4D3C2] text-[#C86A28] group-hover:bg-[#C86A28] group-hover:text-white"
-                      }`}
+                        }`}
                     >
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>

@@ -73,15 +73,15 @@ export function Header() {
                 <div key={item.label} className="relative group">
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1.5 text-[15px] font-medium transition-colors ${
-                      isActive ? "text-[#C86A28]" : "text-[#151515]/75 hover:text-[#151515]"
+                    className={`flex items-center gap-1.5 text-[15px] transition-colors ${
+                      isActive ? "text-[#502D6D] font-bold" : "text-[#151515]/75 hover:text-[#502D6D] font-medium"
                     }`}
                   >
                     {item.label}
                     {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
                   </Link>
                   {isActive && (
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-1 bg-[#C86A28] rounded-full" />
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-5 h-1 bg-gradient-to-r from-[#502D6D] to-[#FCB116] rounded-full shadow-[0_0_8px_rgba(252,177,22,0.5)]" />
                   )}
                 </div>
               );
@@ -92,10 +92,10 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden sm:flex items-center gap-3 px-2 py-2 pr-6 rounded-full bg-[#151515] text-[#F7F8F8] hover:bg-[#544643] transition-colors group shadow-lg shadow-[#151515]/10"
+              className="hidden sm:flex items-center gap-3 px-2 py-2 pr-6 rounded-full bg-[#151515] text-[#F7F8F8] hover:bg-[#502D6D] transition-all duration-300 group shadow-lg shadow-[#151515]/10 hover:shadow-[#502D6D]/25 border border-transparent hover:border-[#FCB116]/35"
             >
-              <span className="pl-4 text-[15px] font-medium">Get Started</span>
-              <div className="w-7 h-7 rounded-full bg-[#E9E8E6] flex items-center justify-center text-[#151515] group-hover:translate-x-1 transition-transform">
+              <span className="pl-4 text-[15px] font-semibold">Get Started</span>
+              <div className="w-7 h-7 rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116] flex items-center justify-center text-white group-hover:scale-105 group-hover:translate-x-0.5 transition-all shadow-xs">
                 <ArrowRight className="w-4 h-4" />
               </div>
             </Link>

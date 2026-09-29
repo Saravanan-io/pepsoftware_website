@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Eye, Award, Rocket, Heart } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ProcessStrip } from "@/components/home/ProcessStrip";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
@@ -7,6 +6,9 @@ import { Testimonials } from "@/components/home/Testimonials";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
 import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
+import { CosmicSolarSystem } from "@/components/about/CosmicSolarSystem";
+import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
+import { ModernWhyChooseSection } from "@/components/shared/ModernWhyChooseSection";
 
 export const metadata: Metadata = {
   title: "About Us | PEP Software — Design & Development Studio",
@@ -15,28 +17,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const values = [
-    {
-      title: "Human-Centered Empathy",
-      desc: "We prioritize understanding real human emotions, user behaviors, and client business fundamentals before writing a single line of code.",
-      icon: Heart,
-    },
-    {
-      title: "Pixel & Code Precision",
-      desc: "No compromises on visual craftsmanship or architectural robustness. Everything we ship is responsive, accessible, and ultra-fast.",
-      icon: Eye,
-    },
-    {
-      title: "Continuous Innovation",
-      desc: "From WebGL and Three.js 3D web experiences to Augmented Reality spatial interfaces, we push the frontiers of modern digital design.",
-      icon: Rocket,
-    },
-    {
-      title: "Relentless Client Partnership",
-      desc: "We measure our success solely by our clients' business expansion, conversion metrics, and lasting market leadership.",
-      icon: Award,
-    },
-  ];
 
   return (
     <div className="w-full bg-[#F7F8F8]">
@@ -53,30 +33,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Narrative & Metrics */}
-      <section className="py-20 bg-[#EFF0EF] border-b border-[#C6C2C1]/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <RevealOnScroll className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#C86A28]">
-                Solutions that Empower
-              </span>
+      {/* Narrative & Metrics with Dark Purple Cosmic 3D Solar System & Asteroids */}
+      <section className="py-24 lg:py-32 bg-[#0C0418] relative overflow-hidden border-y border-[#502D6D]/50 select-none">
+        {/* Cosmic Ambient Deep Purple & Gold Nebulae */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(80,45,109,0.5),transparent_65%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(252,177,22,0.12),transparent_55%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(104,53,143,0.35),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-dot-light opacity-10 pointer-events-none" />
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#151515] leading-tight">
-                Crafting digital experiences that stand out in an increasingly crowded world.
-              </h2>
+        {/* 3D Interactive Solar System, Orbiting Planets, Asteroid Belt & Flickering Stars */}
+        <CosmicSolarSystem />
 
-              <p className="text-base sm:text-lg text-[#544643] leading-relaxed">
-                Founded with a conviction that software should not just function, but inspire — PEP Software has grown into a versatile creative engineering studio. We partner with emerging startups and established enterprises across industries such as healthcare, e-commerce, real estate, automotive, and high technology.
-              </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            {/* Left Narrative */}
+            <RevealOnScroll className="lg:col-span-7 space-y-6 pointer-events-auto">
+              <div className="inline-flex items-center gap-2.5">
+                <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#D79EFF] to-[#FCB116]" />
+                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE8A3] bg-clip-text text-transparent">
+                  SOLUTIONS THAT EMPOWER
+                </span>
+              </div>
 
-              <p className="text-base text-[#544643]/85 leading-relaxed">
-                Headquartered along Perundurai Road in Erode, Tamil Nadu, our studio serves as an innovation lab where design thinking, spatial AR computing, and full-stack web engineering converge to solve real business challenges.
-              </p>
+              <WordReveal
+                as="h2"
+                text="Crafting digital experiences that stand out in an increasingly crowded world."
+                gradientWords="increasingly crowded world."
+                gradientClassName="bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE29A] bg-clip-text text-transparent"
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.12] tracking-tight"
+              />
+
+              <ParagraphReveal
+                text="Founded with a conviction that software should not just function, but inspire — PEP Software has grown into a versatile creative engineering studio. We partner with emerging startups and established enterprises across industries such as healthcare, e-commerce, real estate, automotive, and high technology."
+                delay={0.15}
+                className="text-base sm:text-lg text-[#E3DAF3] leading-relaxed font-normal"
+              />
+
+              <ParagraphReveal
+                text="Headquartered along Perundurai Road in Erode, Tamil Nadu, our studio serves as an innovation lab where design thinking, spatial AR computing, and full-stack web engineering converge to solve real business challenges."
+                delay={0.25}
+                className="text-base text-[#C6B8DE] leading-relaxed font-normal"
+              />
             </RevealOnScroll>
 
-            <RevealOnScroll delay={0.2} className="lg:col-span-5">
-              <div className="grid grid-cols-2 gap-4">
+            {/* Right Metric Stat Cards */}
+            <RevealOnScroll delay={0.2} className="lg:col-span-5 pointer-events-auto">
+              <div className="grid grid-cols-2 gap-4 sm:gap-5">
                 {[
                   { value: "20+", label: "Years Combined Studio Experience" },
                   { value: "150+", label: "High Impact Projects Delivered" },
@@ -85,14 +87,20 @@ export default function AboutPage() {
                 ].map((stat, i) => (
                   <div
                     key={i}
-                    className="p-6 rounded-3xl bg-[#E9E8E6] border border-[#C6C2C1] text-center shadow-xs"
+                    className="p-6 sm:p-7 rounded-3xl bg-[#1C0B32]/80 backdrop-blur-xl border border-[#502D6D]/70 hover:border-[#FCB116] text-center shadow-2xl shadow-black/50 hover:shadow-[#502D6D]/40 hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 group relative overflow-hidden cursor-default"
                   >
-                    <div className="text-3xl sm:text-4xl font-black text-[#151515]">
+                    {/* Hover inner stardust glow */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,177,22,0.18),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                    <div className="relative z-10 text-3xl sm:text-4xl font-black bg-gradient-to-r from-white via-[#FCB116] to-[#FFD573] bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
                       <AnimatedCounter value={stat.value} />
                     </div>
-                    <div className="text-xs font-semibold text-[#544643] mt-2">
+                    <div className="relative z-10 text-xs font-semibold text-[#D4C7EC] mt-2.5 group-hover:text-white transition-colors leading-tight">
                       {stat.label}
                     </div>
+
+                    {/* Corner starlight sparkle accent */}
+                    <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#FCB116] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#FCB116]" />
                   </div>
                 ))}
               </div>
@@ -101,38 +109,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values Grid */}
-      <section className="py-20 bg-[#F7F8F8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Our Pillars"
-            title="The values that guide every"
-            gradientWord="pixel and build."
-            align="center"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((v, idx) => {
-              const Icon = v.icon;
-              return (
-                <RevealOnScroll key={v.title} delay={idx * 0.1}>
-                  <div className="p-7 rounded-3xl bg-[#EFF0EF] border border-[#C6C2C1] shadow-xs hover:border-[#544643] hover:shadow-md transition-all h-full">
-                    <div className="w-12 h-12 rounded-2xl bg-[#E9E8E6] border border-[#C6C2C1] text-[#C86A28] flex items-center justify-center mb-6">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#151515] mb-2">
-                      {v.title}
-                    </h3>
-                    <p className="text-sm text-[#544643] leading-relaxed">
-                      {v.desc}
-                    </p>
-                  </div>
-                </RevealOnScroll>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* Values & Quality Pillars - Modern 3D Card Design */}
+      <ModernWhyChooseSection id="values" />
 
       {/* Structured Process Section */}
       <ProcessStrip />

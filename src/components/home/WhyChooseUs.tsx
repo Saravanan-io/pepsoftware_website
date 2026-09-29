@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Sparkles,
   Cpu,
   Award,
   Users,
@@ -17,6 +16,7 @@ import {
   Check,
 } from "lucide-react";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
+import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
 
 interface FeaturePillar {
   id: string;
@@ -143,30 +143,37 @@ export function WhyChooseUs() {
     >
       {/* Background Subtle Luxury Grid & Ambient Glows */}
       <div className="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E7EBEA] rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-[#C86A28]/8 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#502D6D]/[0.08] rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-[#FCB116]/[0.09] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Left Column: Heading & Interactive Feature Cards List */}
           <div className="lg:col-span-7 space-y-8">
             <RevealOnScroll className="space-y-5">
-              {/* Badge */}
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FDF2EC] border border-[#F4D3C2] text-xs font-bold uppercase tracking-wider text-[#C86A28]">
-                <Sparkles className="w-3.5 h-3.5 text-[#C86A28]" />
-                <span>WHY CHOOSE US?</span>
-              </span>
+              {/* Stylish Section Kicker */}
+              <div className="inline-flex items-center gap-2.5">
+                <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
+                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                  WHY CHOOSE US?
+                </span>
+              </div>
 
               {/* Main Headline */}
-              <h2 className="text-4xl sm:text-5xl lg:text-[46px] font-black leading-[1.15] tracking-tight text-[#151515]">
-                Smart Solutions, Real Results &mdash;{" "}
-                <span className="text-[#C86A28]">Built Around Your Vision</span>
-              </h2>
+              <WordReveal
+                as="h2"
+                text="Smart Solutions, Real Results — Built Around Your Vision"
+                gradientWords="Built Around Your Vision"
+                gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#502D6D] via-[#C86A28] to-[#FCB116]"
+                className="text-4xl sm:text-5xl lg:text-[46px] font-black leading-[1.15] tracking-tight text-[#151515]"
+              />
 
               {/* Sub-description */}
-              <p className="text-base sm:text-lg text-[#544643] leading-relaxed max-w-2xl">
-                We don&apos;t just deliver projects &mdash; we partner with you to create digital experiences that are impactful, efficient, and built to grow with your business.
-              </p>
+              <ParagraphReveal
+                text="We don't just deliver projects — we partner with you to create digital experiences that are impactful, efficient, and built to grow with your business."
+                delay={0.12}
+                className="text-base sm:text-lg text-[#544643] leading-relaxed max-w-2xl"
+              />
             </RevealOnScroll>
 
             {/* Interactive Feature List Cards */}
@@ -182,21 +189,21 @@ export function WhyChooseUs() {
                     onMouseEnter={() => handleSelect(idx)}
                     className={`group relative flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-[24px] cursor-pointer transition-all duration-300 ${
                       isActive
-                        ? "bg-[#FFFFFF] border-2 border-[#FF7700] ring-4 ring-[#FF9500]/20 shadow-[0_12px_32px_rgba(200,106,40,0.18)] -translate-y-1 scale-[1.01]"
-                        : "bg-[#FFFFFF]/60 border border-[#E5E5E3] hover:border-[#C86A28]/40 hover:bg-[#FFFFFF] hover:shadow-sm"
+                        ? "bg-[#FFFFFF] border-2 border-[#502D6D] ring-4 ring-[#FCB116]/25 shadow-[0_12px_32px_rgba(80,45,109,0.14)] -translate-y-1 scale-[1.01]"
+                        : "bg-[#FFFFFF]/60 border border-[#E5E5E3] hover:border-[#502D6D]/40 hover:bg-[#FFFFFF] hover:shadow-sm"
                     }`}
                   >
                     {/* Active Ping Beacon */}
                     {isActive && (
-                      <span className="absolute top-4 right-4 w-2 h-2 rounded-full bg-[#FF7700] shadow-[0_0_8px_#FF7700] animate-ping" />
+                      <span className="absolute top-4 right-4 w-2 h-2 rounded-full bg-[#FCB116] shadow-[0_0_8px_#FCB116] animate-ping" />
                     )}
 
                     {/* Icon Squircle */}
                     <div
                       className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${
                         isActive
-                          ? "bg-gradient-to-tr from-[#FF7700] to-[#FFA500] text-white shadow-[0_0_20px_rgba(255,119,0,0.45)] scale-105"
-                          : "bg-[#FDF2EC] border border-[#F4D3C2] text-[#C86A28] group-hover:scale-105"
+                          ? "bg-gradient-to-tr from-[#502D6D] to-[#FCB116] text-white shadow-[0_0_20px_rgba(80,45,109,0.35)] scale-105"
+                          : "bg-[#502D6D]/10 border border-[#502D6D]/20 text-[#502D6D] group-hover:scale-105"
                       }`}
                     >
                       <Icon className="w-5 h-5 stroke-[2.2]" />
@@ -207,13 +214,13 @@ export function WhyChooseUs() {
                       <div className="flex items-center gap-2.5 mb-1">
                         <h3
                           className={`text-base sm:text-lg font-black transition-colors ${
-                            isActive ? "text-[#151515]" : "text-[#151515] group-hover:text-[#C86A28]"
+                            isActive ? "text-[#151515]" : "text-[#151515] group-hover:text-[#502D6D]"
                           }`}
                         >
                           {pillar.title}
                         </h3>
                         {isActive && (
-                          <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#FDF2EC] border border-[#F4D3C2] text-[#C86A28]">
+                          <span className="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-gradient-to-r from-[#502D6D]/15 to-[#FCB116]/20 border border-[#502D6D]/30 text-[#502D6D]">
                             {pillar.badge}
                           </span>
                         )}

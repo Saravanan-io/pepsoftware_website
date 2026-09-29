@@ -10,11 +10,13 @@ export function Footer() {
     <footer className="bg-[#E7EBEA] relative overflow-hidden">
       {/* Subtle grid */}
       <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#C6C2C1 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-      {/* Top radial glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#E9E8E6] blur-[100px] rounded-full pointer-events-none" />
 
-      {/* Top accent line */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C6C2C1] to-transparent" />
+      {/* Ambient Logo-Themed Glow Orbs */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[350px] bg-[#502D6D]/[0.05] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-10 w-[500px] h-[350px] bg-[#FCB116]/[0.06] blur-[120px] rounded-full pointer-events-none" />
+
+      {/* Top accent line with brand gradient */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#502D6D]/30 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#C6C2C1]/40">
@@ -26,13 +28,14 @@ export function Footer() {
                 src="/pep-icon.png"
                 alt="Pep Software Watermark Logo"
                 fill
+                sizes="288px"
                 priority
                 className="object-contain"
               />
             </div>
 
             <Link href="/" className="relative z-10 inline-flex items-center gap-3.5 group">
-              <div className="relative w-12 h-12 shrink-0 rounded-2xl bg-white p-1.5 border border-[#C6C2C1]/80 shadow-md shadow-black/[0.04] transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-[#C86A28]/50">
+              <div className="relative w-12 h-12 shrink-0 rounded-2xl bg-white p-1.5 border border-[#C6C2C1]/80 shadow-md shadow-black/[0.04] transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-[#502D6D]/60 group-hover:ring-2 group-hover:ring-[#FCB116]/30">
                 <Image
                   src="/pep-icon.png"
                   alt="Pep Software Logo"
@@ -44,14 +47,14 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-1.5 leading-none">
-                  <span className="font-black text-[27px] tracking-tight text-[#151515] group-hover:text-[#C86A28] transition-colors">
+                  <span className="font-black text-[27px] tracking-tight text-[#151515] group-hover:text-[#502D6D] transition-colors">
                     PEP
                   </span>
                   <span className="font-semibold text-[27px] tracking-tight text-[#544643] group-hover:text-[#151515] transition-colors">
                     Software
                   </span>
                 </div>
-                <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#C86A28] mt-1.5">
+                <span className="text-[10px] font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#502D6D] to-[#FCB116] bg-clip-text text-transparent mt-1.5">
                   Engineering Digital Growth
                 </span>
               </div>
@@ -72,7 +75,7 @@ export function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-8 h-8 rounded-full bg-[#F7F8F8] border border-[#C6C2C1] flex items-center justify-center text-[10px] font-black text-[#544643] hover:bg-[#151515] hover:text-[#F7F8F8] hover:border-[#151515] transition-all duration-200 shadow-sm"
+                  className="w-8 h-8 rounded-full bg-[#F7F8F8] border border-[#C6C2C1] flex items-center justify-center text-[10px] font-black text-[#544643] hover:bg-[#502D6D] hover:text-[#FFFFFF] hover:border-[#502D6D] transition-all duration-200 shadow-sm"
                 >
                   {s.short}
                 </a>
@@ -86,7 +89,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-[#544643] hover:text-[#C86A28] transition-colors">
+                  <Link href={item.href} className="text-sm text-[#544643] hover:text-[#502D6D] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -106,7 +109,7 @@ export function Footer() {
                 { label: "Maintenance & Support", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-[#544643] hover:text-[#C86A28] transition-colors">
+                  <Link href={item.href} className="text-sm text-[#544643] hover:text-[#502D6D] transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -119,20 +122,20 @@ export function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#151515]">Contact Us</h4>
             <ul className="space-y-3.5">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#C86A28] shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-[#502D6D] shrink-0 mt-1" />
                 <span className="text-sm text-[#544643] leading-snug">
                   {COMPANY_INFO.address}
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#C86A28] shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="text-sm text-[#544643] hover:text-[#C86A28] transition-colors">
+                <Mail className="w-4 h-4 text-[#502D6D] shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="text-sm text-[#544643] hover:text-[#502D6D] transition-colors">
                   {COMPANY_INFO.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#C86A28] shrink-0" />
-                <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-sm font-semibold text-[#151515] hover:text-[#C86A28] transition-colors">
+                <Phone className="w-4 h-4 text-[#FCB116] shrink-0" />
+                <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="text-sm font-semibold text-[#151515] hover:text-[#502D6D] transition-colors">
                   {COMPANY_INFO.phone}
                 </a>
               </li>
@@ -144,14 +147,14 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#544643]">
           <span>© 2026 {COMPANY_INFO.name}. All Rights Reserved.</span>
           <div className="flex items-center gap-6">
-            <Link href="/about" className="hover:text-[#C86A28] transition-colors">Privacy Policy</Link>
-            <Link href="/about" className="hover:text-[#C86A28] transition-colors">Terms & Conditions</Link>
+            <Link href="/about" className="hover:text-[#502D6D] transition-colors">Privacy Policy</Link>
+            <Link href="/about" className="hover:text-[#502D6D] transition-colors">Terms & Conditions</Link>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center gap-1.5 font-bold text-[#151515] hover:text-[#C86A28] transition-colors"
+              className="flex items-center gap-1.5 font-bold text-[#151515] hover:text-[#502D6D] transition-colors"
             >
               <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+              <ArrowUp className="w-3.5 h-3.5 text-[#FCB116]" />
             </button>
           </div>
         </div>

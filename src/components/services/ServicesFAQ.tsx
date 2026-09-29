@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { SERVICES_DATA } from "@/data/services";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
 
@@ -51,10 +51,12 @@ export function ServicesFAQ() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <RevealOnScroll>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9E8E6] border border-[#C6C2C1] text-xs font-bold uppercase tracking-wider text-[#C86A28] mb-3">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>FREQUENTLY ASKED QUESTIONS</span>
-            </span>
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <HelpCircle className="w-4 h-4 text-[#FCB116] shrink-0" />
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                FREQUENTLY ASKED QUESTIONS
+              </span>
+            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151515] leading-tight tracking-tight mt-2">
               Common Questions &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]">
@@ -106,9 +108,9 @@ export function ServicesFAQ() {
                   aria-expanded={isOpen}
                 >
                   <span className="text-sm sm:text-base font-bold text-[#151515] flex items-center gap-3">
-                    <Sparkles
+                    <HelpCircle
                       className={`w-4 h-4 shrink-0 transition-colors ${
-                        isOpen ? "text-[#C86A28]" : "text-[#C6C2C1]"
+                        isOpen ? "text-[#502D6D]" : "text-[#C6C2C1]"
                       }`}
                     />
                     {faq.q}

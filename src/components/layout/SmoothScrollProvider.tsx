@@ -1,9 +1,21 @@
 "use client";
 
 import { ReactNode, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { registerGSAP } from "@/lib/gsap";
+import { useLenis } from "@/hooks/useLenis";
 
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const lenisRef = useLenis();
+
+  useEffect(() => {
+    // Reset scroll to top smoothly on page route changes
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+  }, [pathname, lenisRef]);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.history.scrollRestoration = "manual";

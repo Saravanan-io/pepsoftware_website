@@ -15,9 +15,13 @@ export function ServiceProcessTimeline({
     <section className="py-20 lg:py-28 bg-[#F7F8F8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C86A28] bg-[#E9E8E6] px-3.5 py-1.5 rounded-full border border-[#C6C2C1]">
-            Methodology
-          </span>
+          <div className="inline-flex items-center gap-2 mb-2">
+            <span className="w-5 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
+            <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+              Methodology
+            </span>
+            <span className="w-5 h-[2px] rounded-full bg-gradient-to-r from-[#FCB116] to-[#502D6D]" />
+          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#151515] mt-4">
             How We Execute This Service
           </h2>
