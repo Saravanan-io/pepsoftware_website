@@ -103,10 +103,15 @@ export function ProcessHowWeDevelop() {
 
   const [tilt, setTilt] = useState({ x: 0, y: 0, isHovered: false });
 
+  const sectionRef = useRef<HTMLElement>(null);
+
   // 60FPS Continuous Animation of Walking Man & Instagram Party Paper Effect
   useEffect(() => {
     let animId: number;
     let startTime: number | null = null;
+    let isVisible = false;
+    let isRunning = false;
+    let cachedTotalLength = 0;
     const LOOP_DURATION = 12500; // 12.5 seconds total cycle
     const walkEnd = 0.76; // 9.5s ascent, 3.0s celebration with party paper flow
 
@@ -117,7 +122,10 @@ export function ProcessHowWeDevelop() {
       const progress = loopTime / LOOP_DURATION;
 
       if (pathRef.current && characterRef.current) {
-        const totalLength = pathRef.current.getTotalLength();
+        if (!cachedTotalLength) {
+          cachedTotalLength = pathRef.current.getTotalLength() || 1;
+        }
+        const totalLength = cachedTotalLength;
         const isCelebrating = progress >= walkEnd;
         const walkProgress = isCelebrating ? 1 : progress / walkEnd;
 
@@ -249,11 +257,45 @@ export function ProcessHowWeDevelop() {
         }
       }
 
-      animId = requestAnimationFrame(animate);
+      if (isVisible) {
+        animId = requestAnimationFrame(animate);
+      } else {
+        isRunning = false;
+      }
     };
 
-    animId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animId);
+    const startAnimation = () => {
+      if (!isRunning) {
+        isRunning = true;
+        animId = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopAnimation = () => {
+      isRunning = false;
+      cancelAnimationFrame(animId);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { rootMargin: "150px 0px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      stopAnimation();
+      observer.disconnect();
+    };
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -273,7 +315,7 @@ export function ProcessHowWeDevelop() {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-[#E7EBEA] relative overflow-hidden select-none">
+    <section ref={sectionRef} className="py-20 lg:py-28 bg-[#E7EBEA] relative overflow-hidden select-none">
       <div className="absolute inset-0 bg-dot-light opacity-30 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -569,7 +611,6 @@ export function ProcessHowWeDevelop() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                       <span className="text-[11px] font-black uppercase tracking-wider text-[#151515]">
                         Performance Velocity
                       </span>

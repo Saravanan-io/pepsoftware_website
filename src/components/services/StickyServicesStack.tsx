@@ -252,8 +252,7 @@ function StackCard({ service, index, total, scrollYProgress }: CardProps) {
             <span className="w-8 h-8 rounded-xl bg-[#151515] text-[#F7F8F8] font-mono text-xs font-black flex items-center justify-center shadow-xs">
               0{index + 1}
             </span>
-            <span className="text-xs font-black uppercase tracking-wider text-[#C86A28] flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#C86A28] animate-pulse" />
+            <span className="text-xs font-black uppercase tracking-wider text-[#C86A28]">
               {service.badge}
             </span>
           </div>

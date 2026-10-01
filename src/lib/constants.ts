@@ -11,11 +11,11 @@ export const COMPANY_INFO = {
   phoneRaw: "+916381010282",
   email: "contact@pepsoftwares.com",
   emailSupport: "info@pepsoftwares.com",
-  address: "Perundurai Road, opposite Alayamani Mahal, Nalliyampalayam, Thindal, Erode, TN-638012",
+  address: "Marappa Street 1, Surampatti, Erode - 638009, Tamil Nadu, India",
   city: "Erode",
   state: "Tamil Nadu",
   country: "India",
-  pincode: "638012",
+  pincode: "638009",
   whatsappCommunityLink: "https://chat.whatsapp.com/pepsoftware-community",
   workingHours: "Mon - Sat: 9:30 AM - 6:30 PM IST",
   socials: {

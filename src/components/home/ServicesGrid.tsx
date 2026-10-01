@@ -276,17 +276,6 @@ export function ServicesGrid() {
                     OUR SERVICES
                   </span>
                 </div>
-
-                {/* Live Card Counter */}
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15">
-                  <span className="text-[11px] font-mono font-bold text-[#E9D5FF]">
-                    0{activeIdx + 1}
-                  </span>
-                  <span className="text-[11px] font-mono text-[#D4C7EC]/70">/ 04</span>
-                  <span className="text-[11px] font-semibold text-white ml-1 hidden sm:inline">
-                    • {services[activeIdx]?.label}
-                  </span>
-                </div>
               </div>
 
               <WordReveal
@@ -303,34 +292,24 @@ export function ServicesGrid() {
               />
             </div>
 
-            {/* Right Action Bar & Navigation Arrows */}
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="flex items-center gap-2 mr-2">
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  aria-label="Previous service"
-                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  aria-label="Next service"
-                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-
-              <Link
-                href="/services"
-                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#502D6D] to-[#68358F] hover:from-[#68358F] hover:to-[#7C3AED] text-white text-xs sm:text-sm font-bold border border-white/15 hover:border-transparent shadow-lg shadow-black/30 transition-all shrink-0"
+            {/* Navigation Arrows */}
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onClick={handlePrev}
+                aria-label="Previous service"
+                className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
               >
-                <span>Explore All Services</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#D4C7EC] group-hover:text-white transition-transform group-hover:translate-x-1" />
-              </Link>
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                aria-label="Next service"
+                className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
@@ -367,54 +346,46 @@ export function ServicesGrid() {
                 }}
               >
                 <div
-                  className={`group relative flex flex-col p-5 sm:p-6 rounded-[28px] transition-all duration-300 overflow-hidden ${
+                  className={`group relative flex flex-col p-5 sm:p-6 rounded-[28px] transition-[background,border-color,box-shadow,opacity] duration-300 overflow-hidden ${
                     isCenter
-                      ? "bg-gradient-to-b from-[#1C0A33]/92 via-[#140626]/95 to-[#0D021A]/98 backdrop-blur-2xl border border-[#A855F7]/50 ring-1 ring-white/20 shadow-[0_25px_60px_-10px_rgba(124,58,237,0.45),0_0_35px_rgba(168,85,247,0.25)]"
-                      : "bg-gradient-to-b from-[#18082D]/75 via-[#110420]/80 to-[#0A0214]/85 backdrop-blur-xl border border-white/10 shadow-2xl"
+                      ? "bg-[#FFFFFF] border-2 border-[#502D6D] ring-4 ring-[#FCB116]/30 shadow-[0_25px_60px_-10px_rgba(80,45,109,0.35),0_0_35px_rgba(252,177,22,0.2)]"
+                      : "bg-[#FFFFFF]/95 backdrop-blur-xl border border-[#E5E5E3] shadow-[0_15px_40px_rgba(0,0,0,0.35)]"
                   }`}
                 >
-                  {/* Subtle top border light sheen */}
+                  {/* Subtle top border brand accent gradient */}
                   <div
-                    className={`absolute top-0 inset-x-0 h-[1.5px] pointer-events-none transition-opacity duration-300 ${
+                    className={`absolute top-0 inset-x-0 h-[2.5px] pointer-events-none transition-opacity duration-300 ${
                       isCenter
-                        ? "bg-gradient-to-r from-transparent via-[#C084FC] to-transparent opacity-90"
-                        : "bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-40"
+                        ? "bg-gradient-to-r from-[#502D6D] via-[#C86A28] to-[#FCB116] opacity-100"
+                        : "bg-gradient-to-r from-transparent via-[#502D6D]/30 to-transparent opacity-60"
                     }`}
                   />
 
                   {/* Ambient inner soft glow for active card */}
                   {isCenter && (
-                    <div className="absolute -top-14 -right-14 w-40 h-40 rounded-full bg-[#7C3AED]/25 blur-2xl pointer-events-none" />
+                    <div className="absolute -top-14 -right-14 w-40 h-40 rounded-full bg-[#FCB116]/15 blur-2xl pointer-events-none" />
                   )}
 
                   {/* Image showcase window */}
-                  <div className="relative w-full h-44 sm:h-48 lg:h-52 rounded-2xl overflow-hidden mb-4 bg-[#0E031B] border border-white/10 group-hover:border-[#A855F7]/40 transition-colors">
+                  <div className="relative w-full h-48 sm:h-52 lg:h-56 rounded-2xl overflow-hidden mb-4 bg-[#F5F4F2] border border-[#E5E5E3] group-hover:border-[#502D6D]/40 transition-colors">
                     <Image
                       src={svc.image}
                       alt={svc.label}
                       fill
-                      sizes="(max-width: 768px) 315px, (max-width: 1024px) 355px, 385px"
+                      quality={95}
+                      sizes="(max-width: 768px) 650px, (max-width: 1024px) 800px, 900px"
                       className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      priority={idx === 0}
+                      priority={idx <= 1}
                     />
 
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E031B]/90 via-black/20 to-transparent pointer-events-none" />
 
-                    {/* Card index pill with glowing status dot */}
-                    <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-[#0B0217]/85 backdrop-blur-md border border-white/15 text-[11px] font-mono font-bold tracking-wider text-[#E9D5FF] flex items-center gap-1.5 shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C084FC] animate-pulse" />
-                      <span>{svc.num}</span>
-                      <span className="text-white/40">•</span>
-                      <span>{svc.tag}</span>
-                    </div>
 
                     {/* Floating service icon */}
                     <div
                       className={`absolute top-3 right-3 w-10 h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 ${
                         isCenter
-                          ? "bg-gradient-to-br from-[#7C3AED] to-[#502D6D] border-[#C084FC]/50 text-white shadow-[0_0_15px_rgba(168,85,247,0.5)]"
-                          : "bg-white/10 border-white/15 text-[#D4C7EC]"
+                          ? "bg-gradient-to-br from-[#502D6D] to-[#68358F] border-white/25 text-white shadow-[0_4px_16px_rgba(80,45,109,0.4)]"
+                          : "bg-white/85 border-[#E5E5E3] text-[#502D6D] shadow-sm"
                       }`}
                     >
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -424,22 +395,22 @@ export function ServicesGrid() {
                   {/* Card Title */}
                   <h3
                     className={`text-xl sm:text-2xl font-extrabold tracking-tight mb-2 transition-colors ${
-                      isCenter ? "text-white group-hover:text-[#E9D5FF]" : "text-white/85"
+                      isCenter ? "text-[#151515] group-hover:text-[#502D6D]" : "text-[#151515]"
                     }`}
                   >
                     {svc.label}
                   </h3>
 
                   {/* Card Description */}
-                  <p className="text-xs sm:text-sm text-[#D4C7EC]/85 leading-relaxed line-clamp-2 mb-4">
+                  <p className="text-xs sm:text-sm text-[#544643] leading-relaxed line-clamp-2 mb-4 font-normal">
                     {svc.desc}
                   </p>
 
                   {/* Arrow CTA */}
-                  <div className="pt-3.5 border-t border-white/10 flex items-center justify-between mt-auto">
+                  <div className="pt-3.5 border-t border-[#F0EFEB] flex items-center justify-between mt-auto">
                     <span
                       className={`text-xs sm:text-sm font-semibold tracking-wide transition-colors ${
-                        isCenter ? "text-[#C084FC] group-hover:text-[#E9D5FF]" : "text-[#D4C7EC]/70"
+                        isCenter ? "text-[#502D6D] font-bold group-hover:text-[#C86A28]" : "text-[#544643]"
                       }`}
                     >
                       Learn more
@@ -449,8 +420,8 @@ export function ServicesGrid() {
                       tabIndex={isCenter ? 0 : -1}
                       className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
                         isCenter
-                          ? "bg-gradient-to-r from-[#7C3AED] to-[#68358F] hover:from-[#A855F7] hover:to-[#7C3AED] text-white border-[#C084FC]/50 shadow-[0_0_16px_rgba(168,85,247,0.45)] group-hover:scale-105"
-                          : "bg-white/10 border-white/15 text-[#D4C7EC] hover:bg-white/20 hover:text-white"
+                          ? "bg-[#151515] hover:bg-[#502D6D] text-white border-transparent shadow-md shadow-[#151515]/20 group-hover:scale-105"
+                          : "bg-[#F5F4F2] border-[#E5E5E3] text-[#151515] hover:bg-[#502D6D] hover:text-white hover:border-[#502D6D]"
                       }`}
                       aria-label={`Learn more about ${svc.label}`}
                     >
@@ -481,41 +452,37 @@ export function ServicesGrid() {
       <style jsx>{`
         @keyframes orbFloat1 {
           0%, 100% {
-            transform: translate(0, 0) scale(1);
+            transform: translate3d(0, 0, 0);
           }
           50% {
-            transform: translate(35px, -30px) scale(1.12);
+            transform: translate3d(25px, -20px, 0);
           }
         }
 
         @keyframes orbFloat2 {
           0%, 100% {
-            transform: translate(0, 0) scale(1);
+            transform: translate3d(0, 0, 0);
           }
           50% {
-            transform: translate(-40px, 25px) scale(1.15);
+            transform: translate3d(-25px, 15px, 0);
           }
         }
 
         @keyframes twinkleStar {
           0%, 100% {
             opacity: 0.2;
-            transform: scale(0.8);
           }
           50% {
             opacity: 1;
-            transform: scale(1.4);
           }
         }
 
         @keyframes cosmicPulse {
           0%, 100% {
             opacity: 0.5;
-            transform: scale(1);
           }
           50% {
             opacity: 0.8;
-            transform: scale(1.08);
           }
         }
       `}</style>

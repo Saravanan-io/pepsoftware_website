@@ -61,12 +61,10 @@ const defaultWordVariants: Variants = {
   hidden: {
     opacity: 0,
     y: "110%",
-    filter: "blur(4px)",
   },
   visible: (custom: { duration: number }) => ({
     opacity: 1,
     y: "0%",
-    filter: "blur(0px)",
     transition: {
       duration: custom.duration,
       ease: [0.16, 1, 0.3, 1],
@@ -100,7 +98,7 @@ export function WordReveal({
   delay = 0,
   staggerDelay = 0.035,
   duration = 0.6,
-  once = false,
+  once = true,
   amount = 0.15,
 }: WordRevealProps) {
   const rawText =
@@ -169,7 +167,7 @@ export function ParagraphReveal({
   delay = 0.05,
   duration = 0.55,
   staggerDelay = 0.016,
-  once = false,
+  once = true,
   amount = 0.15,
 }: ParagraphRevealProps) {
   const rawText =

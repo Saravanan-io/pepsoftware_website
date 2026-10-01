@@ -310,13 +310,44 @@ export function Clients3DBackground() {
         ctx.globalAlpha = 1;
       });
 
-      animId = requestAnimationFrame(render);
+      if (isVisible) {
+        animId = requestAnimationFrame(render);
+      } else {
+        isRunning = false;
+      }
     };
 
-    animId = requestAnimationFrame(render);
+    let isVisible = false;
+    let isRunning = false;
+
+    const startAnimation = () => {
+      if (!isRunning) {
+        isRunning = true;
+        animId = requestAnimationFrame(render);
+      }
+    };
+
+    const stopAnimation = () => {
+      isRunning = false;
+      cancelAnimationFrame(animId);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { rootMargin: "150px 0px" }
+    );
+    observer.observe(container);
 
     return () => {
-      cancelAnimationFrame(animId);
+      stopAnimation();
+      observer.disconnect();
       window.removeEventListener("resize", handleResize);
       container.removeEventListener("pointermove", handlePointerMove);
       container.removeEventListener("pointerleave", handlePointerLeave);

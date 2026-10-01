@@ -31,7 +31,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Framer Motion"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-27-2026-01_10_59-PM-300x300.png",
+    "image": "/images/portfolio/ChatGPT-Image-Mar-27-2026-01_10_59-PM.png",
     "liveUrl": "http://twilightengineering.co.uk/",
     "featured": true
   },
@@ -65,7 +65,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Vercel CDN"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-27-2026-01_16_21-PM-300x300.png",
+    "image": "/images/portfolio/ChatGPT-Image-Mar-27-2026-01_16_21-PM.png",
     "liveUrl": "https://www.italianwaterconsultancy.com/",
     "featured": true
   },
@@ -99,7 +99,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Node.js",
       "SMS Gateway"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-27-2026-01_21_20-PM-300x300.png",
+    "image": "/images/portfolio/ChatGPT-Image-Mar-27-2026-01_21_20-PM.png",
     "liveUrl": "https://erodueyebank.com",
     "featured": true
   },
@@ -133,7 +133,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Razorpay API",
       "PostgreSQL"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/12/Smart-bakery-website-2-282x300.png",
+    "image": "/images/portfolio/Smart-bakery-website-2.png",
     "liveUrl": "https://pettagam.com/",
     "featured": true
   },
@@ -167,7 +167,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Algolia Search",
       "Stripe & UPI"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/12/Smart-bakery-website-1-282x300.png",
+    "image": "/images/portfolio/Smart-bakery-website-1.png",
     "liveUrl": "https://www.smartbakersmart.in/",
     "featured": true
   },
@@ -201,7 +201,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Framer Motion",
       "EmailJS"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/09/Website-2-300x300.png",
+    "image": "/images/portfolio/Website-2.png",
     "liveUrl": "https://srijailakshmialloys.in/",
     "featured": false
   },
@@ -235,7 +235,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Direct Booking Engine",
       "Mapbox GL"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/09/Website-1-300x300.png",
+    "image": "/images/portfolio/Website-1.png",
     "liveUrl": "https://allenresidency.com/",
     "featured": false
   },
@@ -269,7 +269,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Vercel"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Pravin-Bottelings-300x300.png",
+    "image": "/images/portfolio/Pravin-Bottelings.png",
     "liveUrl": "https://pravinbottelings.com/",
     "featured": false
   },
@@ -303,7 +303,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Algolia Search",
       "Node.js"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Hakir-1-300x300.png",
+    "image": "/images/portfolio/Hakir-1.png",
     "liveUrl": "https://hakirpharmaceuticals.com/",
     "featured": false
   },
@@ -337,7 +337,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Chart.js",
       "Tailwind CSS"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Elite-300x300.png",
+    "image": "/images/portfolio/Elite.png",
     "liveUrl": "https://theeliteplatform.in/",
     "featured": true
   },
@@ -371,7 +371,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Framer Motion",
       "Vercel"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Frame-20-3-300x300.png",
+    "image": "/images/portfolio/Frame-20-3.png",
     "liveUrl": "https://sspinfraprojects.co.in/",
     "featured": false
   },
@@ -404,7 +404,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "WhatsApp Cloud API"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/09/Website-300x300.png",
+    "image": "/images/portfolio/Website.png",
     "liveUrl": "https://majestictravels.co.in/",
     "featured": false
   },
@@ -438,7 +438,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Three.js Preview",
       "Vercel"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/RVR-Bags-300x300.png",
+    "image": "/images/portfolio/RVR-Bags.png",
     "liveUrl": "http://www.rvrbags.com",
     "featured": false
   },
@@ -472,7 +472,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Shiprocket API",
       "Razorpay"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Vainavi-Goodies-1-300x300.png",
+    "image": "/images/portfolio/Vainavi-Goodies-1.png",
     "liveUrl": "http://www.vainavigoodies.com",
     "featured": false
   },
@@ -506,7 +506,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Cloudflare Stream",
       "WebSockets"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Mochooo-Tv-300x300.png",
+    "image": "/images/portfolio/Mochooo-Tv.png",
     "liveUrl": "https://mochoootv.com/",
     "featured": false
   },
@@ -540,7 +540,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Framer Motion",
       "Stripe"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Navis-Studio-300x300.png",
+    "image": "/images/portfolio/Navis-Studio.png",
     "liveUrl": "http://www.navisstudio.com",
     "featured": true
   },
@@ -574,7 +574,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "PostgreSQL"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/09/Website-4-1-300x300.png",
+    "image": "/images/portfolio/Website-4-1.png",
     "liveUrl": "http://www.kyrosteels.com",
     "featured": false
   },
@@ -608,7 +608,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Vercel"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/AAnddal-Group-300x300.png",
+    "image": "/images/portfolio/AAnddal-Group.png",
     "liveUrl": "http://www.aanddalgroup.com",
     "featured": false
   },
@@ -642,7 +642,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Student Portal API",
       "AWS"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Hope-School-2-300x300.png",
+    "image": "/images/portfolio/Hope-School-2.png",
     "liveUrl": "http://www.hopecbse.school",
     "featured": false
   },
@@ -676,7 +676,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Firebase"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Arusa-School-300x300.png",
+    "image": "/images/portfolio/Arusa-School.png",
     "liveUrl": "http://www.aarusaeducation.in",
     "featured": false
   },
@@ -710,7 +710,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "SEO Optimization",
       "Vercel"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/texcherimpex-300x300.png",
+    "image": "/images/portfolio/texcherimpex.png",
     "liveUrl": "http://www.texcherimpex.com",
     "featured": false
   },
@@ -744,7 +744,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Three.js",
       "Vercel"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Europrogetti-1-300x300.png",
+    "image": "/images/portfolio/Europrogetti-1.png",
     "liveUrl": "http://www.europrogetti-india.com",
     "featured": false
   },
@@ -778,7 +778,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Cloudinary",
       "Vercel"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/SDA-Clothing-1-300x300.png",
+    "image": "/images/portfolio/SDA-Clothing-1.png",
     "liveUrl": "http://www.sdaclothing.in",
     "featured": false
   },
@@ -813,7 +813,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "SQLite",
       "Node.js"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Esuba-mobile-app-mockup-3-300x300.png",
+    "image": "/images/portfolio/Esuba-mobile-app-mockup-3.png",
     "liveUrl": "https://play.google.com/store/apps/details?id=com.esuba.esuba",
     "featured": true
   },
@@ -848,7 +848,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Redux",
       "SQLite"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/Lenient-mobile-app-mockup-300x300.png",
+    "image": "/images/portfolio/Lenient-mobile-app-mockup.png",
     "liveUrl": "#",
     "featured": true
   },
@@ -883,7 +883,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Fastlane"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/07/esuba-mobile-app-mockup-2-300x300.png",
+    "image": "/images/portfolio/esuba-mobile-app-mockup-2.png",
     "liveUrl": "https://play.google.com/store/apps/details?id=com.gelite.gelite",
     "featured": true
   },
@@ -918,7 +918,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Node.js",
       "Redis"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/09/Esuba-mobile-app-mockup-4-300x300.png",
+    "image": "/images/portfolio/Esuba-mobile-app-mockup-4.png",
     "liveUrl": "https://play.google.com/store/apps/details?id=com.pep.feedit",
     "featured": true
   },
@@ -952,7 +952,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "PostgreSQL",
       "Push Notifications"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/12/RMBF-Mobile-App-1-282x300.png",
+    "image": "/images/portfolio/RMBF-Mobile-App-1.png",
     "liveUrl": "https://play.google.com/store/apps/details?id=com.rotary.erode",
     "featured": false
   },
@@ -986,7 +986,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "DRM Widevine",
       "AWS MediaLive"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2026/03/Portfolio-Image-2-300x300.jpg",
+    "image": "/images/portfolio/Portfolio-Image-2.jpg",
     "liveUrl": "https://play.google.com/store/apps/details?id=com.pepsoftware.rainbowtv",
     "featured": true
   },
@@ -1020,7 +1020,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "WebGL",
       "GLTF/GLB Shaders"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-15-at-12.52.10-PM-300x169.jpeg",
+    "image": "/images/portfolio/WhatsApp-Image-2025-05-15-at-12.52.10-PM.jpeg",
     "liveUrl": "#",
     "featured": true
   },
@@ -1054,7 +1054,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "React Three Fiber",
       "GLSL"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-15-at-4.27.10-PM-min-300x169.jpeg",
+    "image": "/images/portfolio/WhatsApp-Image-2025-05-15-at-4.27.10-PM-min.jpeg",
     "liveUrl": "#",
     "featured": true
   },
@@ -1088,7 +1088,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Blender",
       "WebXR"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-15-at-4.26.10-PM-min-300x169.jpeg",
+    "image": "/images/portfolio/WhatsApp-Image-2025-05-15-at-4.26.10-PM-min.jpeg",
     "liveUrl": "#",
     "featured": false
   },
@@ -1122,7 +1122,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "React Three Fiber",
       "WebGL"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-15-at-4.23.41-PM-min-300x169.jpeg",
+    "image": "/images/portfolio/WhatsApp-Image-2025-05-15-at-4.23.41-PM-min.jpeg",
     "liveUrl": "#",
     "featured": false
   },
@@ -1156,7 +1156,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Mapbox 3D Terrain",
       "GLTF"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-15-at-4.23.20-PM-min-300x169.jpeg",
+    "image": "/images/portfolio/WhatsApp-Image-2025-05-15-at-4.23.20-PM-min.jpeg",
     "liveUrl": "#",
     "featured": true
   },
@@ -1190,7 +1190,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Spatial Audio API",
       "Blender"
     ],
-    "image": "https://pepsoftwares.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-15-at-4.23.20-PM-1-min-300x169.jpeg",
+    "image": "/images/portfolio/WhatsApp-Image-2025-05-15-at-4.23.20-PM-1-min.jpeg",
     "liveUrl": "#",
     "featured": false
   }

@@ -63,13 +63,17 @@ export function ProcessStrip() {
   const userInteractedRef = useRef<number>(0);
   const [tilt, setTilt] = useState({ x: 0, y: 0, isHovered: false });
 
+  const sectionRef = useRef<HTMLElement>(null);
+
   // Synchronize the single neon light point with active card glow
   useEffect(() => {
     let animId: number;
     let startTime: number | null = null;
+    let isVisible = false;
+    let isRunning = false;
     const LOOP_DURATION = 12000; // 12 seconds per full loop (~2s per stage)
 
-    // Key tile coordinates on the new 3D hub (1024 x 682)
+    // Key tile coordinates on the 3D hub (1024 x 682)
     const targets = [
       { step: 0, x: 198, y: 245 }, // 01 Discovery (top-left)
       { step: 1, x: 518, y: 130 }, // 02 Strategy (top-center)
@@ -79,14 +83,18 @@ export function ProcessStrip() {
       { step: 5, x: 200, y: 498 }, // 06 Launch & Support (bottom-left)
     ];
 
+    let cachedLength = 0;
+
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = (elapsed % LOOP_DURATION) / LOOP_DURATION;
 
       if (pathRef.current && pointRef.current) {
-        const totalLength = pathRef.current.getTotalLength();
-        const pt = pathRef.current.getPointAtLength(progress * totalLength);
+        if (!cachedLength) {
+          cachedLength = pathRef.current.getTotalLength() || 1;
+        }
+        const pt = pathRef.current.getPointAtLength(progress * cachedLength);
         pointRef.current.setAttribute("transform", `translate(${pt.x}, ${pt.y})`);
 
         // Update active card to the tile currently reached by the neon point
@@ -106,11 +114,45 @@ export function ProcessStrip() {
         }
       }
 
-      animId = requestAnimationFrame(animate);
+      if (isVisible) {
+        animId = requestAnimationFrame(animate);
+      } else {
+        isRunning = false;
+      }
     };
 
-    animId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animId);
+    const startAnimation = () => {
+      if (!isRunning) {
+        isRunning = true;
+        animId = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopAnimation = () => {
+      isRunning = false;
+      cancelAnimationFrame(animId);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { rootMargin: "150px 0px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      stopAnimation();
+      observer.disconnect();
+    };
   }, []);
 
   const handleStepSelect = (idx: number) => {
@@ -136,7 +178,7 @@ export function ProcessStrip() {
   };
 
   return (
-    <section id="process" className="py-20 lg:py-28 bg-[#F7F8F8] relative overflow-hidden select-none">
+    <section ref={sectionRef} id="process" className="py-20 lg:py-28 bg-[#F7F8F8] relative overflow-hidden select-none">
       {/* Background Grid & Ambient Lighting Glows */}
       <div className="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none" />
       <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-[#502D6D]/[0.08] rounded-full blur-[160px] pointer-events-none" />
@@ -371,21 +413,6 @@ export function ProcessStrip() {
                         : "bg-[#FFFFFF] border border-[#E5E5E3] shadow-xs hover:border-[#502D6D]/40 hover:-translate-y-1 hover:shadow-md"
                       }`}
                   >
-                    {/* Step Number Top Pill with Reached Beacon */}
-                    <div className="relative mb-3 flex items-center justify-center">
-                      {isActive && (
-                        <span className="absolute -top-3 w-2.5 h-2.5 rounded-full bg-[#FCB116] shadow-[0_0_10px_#FCB116] animate-ping" />
-                      )}
-                      <span
-                        className={`inline-block px-3 py-0.5 rounded-full text-xs font-extrabold transition-all duration-300 ${isActive
-                            ? "bg-gradient-to-r from-[#502D6D] to-[#FCB116] text-white shadow-[0_0_16px_rgba(80,45,109,0.4)] scale-105"
-                            : "text-[#544643] bg-transparent"
-                          }`}
-                      >
-                        {step.num}
-                      </span>
-                    </div>
-
                     {/* Step Icon Squircle with Neon Aura */}
                     <div
                       className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3.5 transition-all duration-300 ${isActive

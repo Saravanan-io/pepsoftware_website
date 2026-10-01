@@ -19,12 +19,15 @@ export function useLenis() {
     const { ScrollTrigger } = registerGSAP();
 
     const lenis = new Lenis({
-      lerp: 0.1,
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
+      syncTouch: false, // Keep native 120Hz touch scrolling on mobile/touchpads
+      autoRaf: false,
     });
 
     lenisRef.current = lenis;
@@ -32,13 +35,12 @@ export function useLenis() {
     // Sync Lenis with ScrollTrigger on each scroll event
     lenis.on("scroll", ScrollTrigger.update);
 
-    // Drive Lenis through GSAP ticker to share a single RAF loop
-    // This prevents two competing requestAnimationFrame loops
+    // Drive Lenis through GSAP ticker to share a single unified RAF loop
     const onTick = (time: number) => {
       lenis.raf(time * 1000);
     };
     gsap.ticker.add(onTick);
-    gsap.ticker.lagSmoothing(0); // prevent large jumps after tab switch
+    gsap.ticker.lagSmoothing(500, 33); // Smooth recovery on frame hitch without hanging
 
     // Normalize all ScrollTrigger measurements once every trigger on the page
     // has been created (this hook's effect runs after all child effects) and

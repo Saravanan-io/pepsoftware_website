@@ -5,14 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   ExternalLink,
-  Play,
-  Pause,
-  Layers,
   Sparkles,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 import { ProjectItem } from "@/types";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
@@ -87,9 +83,14 @@ export function PortfolioTeaser() {
     [total]
   );
 
+  const activeIdxRef = useRef(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
   // Main 60-120fps Animation Loop with Direct DOM updates
   useEffect(() => {
     lastTimeRef.current = performance.now();
+    let isVisible = false;
+    let isRunning = false;
 
     const animate = (now: number) => {
       const dt = Math.min(now - lastTimeRef.current, 100);
@@ -121,7 +122,8 @@ export function PortfolioTeaser() {
       const roundedPos = Math.round(curPos);
       const normIdx = ((roundedPos % total) + total) % total;
 
-      if (normIdx !== activeIdx && Math.abs(curPos - roundedPos) < 0.3) {
+      if (normIdx !== activeIdxRef.current && Math.abs(curPos - roundedPos) < 0.3) {
+        activeIdxRef.current = normIdx;
         setActiveIdx(normIdx);
       }
 
@@ -135,14 +137,14 @@ export function PortfolioTeaser() {
         typeof window !== "undefined" && window.innerWidth >= 1400;
 
       const slotSpacingX = isMobile
-        ? 255
+        ? 295
         : isTablet
-        ? 320
+        ? 380
         : isLarge
-        ? 435
-        : 385;
-      const slotSpacingZ = isMobile ? 115 : isTablet ? 145 : 175;
-      const rotYFactor = isMobile ? 22 : 26;
+        ? 495
+        : 445;
+      const slotSpacingZ = isMobile ? 125 : isTablet ? 155 : 185;
+      const rotYFactor = isMobile ? 21 : 25;
 
       // Apply neat 3D cylindrical slot transforms to all card nodes
       cardElementsRef.current.forEach((el, i) => {
@@ -193,15 +195,47 @@ export function PortfolioTeaser() {
         }
       });
 
-      animFrameRef.current = requestAnimationFrame(animate);
+      if (isVisible) {
+        animFrameRef.current = requestAnimationFrame(animate);
+      } else {
+        isRunning = false;
+      }
     };
 
-    animFrameRef.current = requestAnimationFrame(animate);
+    const startAnimation = () => {
+      if (!isRunning) {
+        isRunning = true;
+        lastTimeRef.current = performance.now();
+        animFrameRef.current = requestAnimationFrame(animate);
+      }
+    };
 
-    return () => {
+    const stopAnimation = () => {
+      isRunning = false;
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
-  }, [total, activeIdx, isAutoPlay]);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { rootMargin: "150px 0px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      stopAnimation();
+      observer.disconnect();
+    };
+  }, [total, isAutoPlay]);
 
   // Pointer / Touch drag handlers for smooth tactile scrubbing
   const handlePointerDown = (e: React.PointerEvent) => {
@@ -235,10 +269,9 @@ export function PortfolioTeaser() {
     isDraggingRef.current = false;
   };
 
-  const currentProject = filteredProjects[activeIdx] || filteredProjects[0];
-
   return (
     <section
+      ref={sectionRef}
       id="work"
       className="py-16 sm:py-20 lg:py-24 bg-[#F7F8F8] relative overflow-hidden select-none w-full"
     >
@@ -284,35 +317,35 @@ export function PortfolioTeaser() {
           </RevealOnScroll>
         </div>
 
-        {/* Filter Pills with Counts */}
+        {/* Studio Exhibition Filter Navigation */}
         <RevealOnScroll delay={0.15}>
-          <div className="flex flex-wrap items-center gap-2.5">
+          <div className="inline-flex items-center p-1.5 rounded-full bg-white/95 backdrop-blur-2xl border border-[#C6C2C1]/70 shadow-[0_10px_30px_rgba(80,45,109,0.06),0_2px_8px_rgba(0,0,0,0.02)] gap-1">
             {categories.map((tab) => {
-              const count =
-                tab === "All"
-                  ? PORTFOLIO_DATA.length
-                  : PORTFOLIO_DATA.filter((p) => p.category === tab).length;
+              const isActive = activeTab === tab;
 
               return (
                 <button
                   key={tab}
                   type="button"
                   onClick={() => handleTabChange(tab)}
-                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer ${
-                    activeTab === tab
-                      ? "bg-[#502D6D] text-white border border-[#502D6D] shadow-lg shadow-[#502D6D]/25 ring-2 ring-[#FCB116]/40 scale-[1.02]"
-                      : "bg-[#FFFFFF] border border-[#E5E5E3] text-[#544643] hover:text-[#502D6D] hover:border-[#502D6D]/40 shadow-2xs hover:scale-[1.01]"
+                  className={`relative px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer z-10 select-none ${
+                    isActive
+                      ? "text-white"
+                      : "text-[#544643] hover:text-[#151515] hover:bg-black/[0.03]"
                   }`}
                 >
-                  <span>{tab}</span>
-                  <span
-                    className={`text-[11px] font-mono px-2 py-0.5 rounded-full ${
-                      activeTab === tab
-                        ? "bg-white/20 text-[#FCB116]"
-                        : "bg-[#F0EFEB] text-[#544643]"
-                    }`}
-                  >
-                    {count}
+                  {/* Sliding Luminous Brand Capsule */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activePortfolioTabPill"
+                      transition={{ type: "spring", stiffness: 420, damping: 30 }}
+                      className="absolute inset-0 rounded-full bg-gradient-to-r from-[#502D6D] via-[#68358F] to-[#502D6D] shadow-[0_6px_20px_rgba(80,45,109,0.32)] border border-[#FCB116]/40 -z-10"
+                    />
+                  )}
+
+                  {/* Clean Category Title */}
+                  <span className="font-syne tracking-wide whitespace-nowrap">
+                    {tab}
                   </span>
                 </button>
               );
@@ -329,81 +362,6 @@ export function PortfolioTeaser() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_65%,rgba(252,177,22,0.14),transparent_60%)] pointer-events-none" />
           <div className="absolute inset-0 bg-dot-light opacity-10 pointer-events-none" />
 
-          {/* Top Control Bar & Live Mode Status */}
-          <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 flex flex-wrap items-center justify-between gap-4">
-            {/* Left: Active Card Counter Badge */}
-            <div className="flex items-center gap-3">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 shadow-inner">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FCB116] animate-pulse" />
-                <span className="font-mono text-xs font-bold text-white">
-                  0{activeIdx + 1}
-                </span>
-                <span className="font-mono text-xs text-[#D4C7EC]/60">
-                  / 0{total}
-                </span>
-                <span className="text-xs font-semibold text-[#D4C7EC] ml-2 hidden sm:inline truncate max-w-[280px]">
-                  • {currentProject?.title}
-                </span>
-              </div>
-
-              {/* 3D Flow Badge */}
-              <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7C3AED]/20 border border-[#A855F7]/30 text-[11px] font-mono font-bold text-[#E9D5FF]">
-                <Layers className="w-3.5 h-3.5 text-[#FCB116]" />
-                <span>3D CINEMATIC FLOW</span>
-              </div>
-            </div>
-
-            {/* Right: Controls (Prev / Next & Auto-Play Toggle) */}
-            <div className="flex items-center gap-2.5">
-              <button
-                type="button"
-                onClick={() => setIsAutoPlay(!isAutoPlay)}
-                aria-label={isAutoPlay ? "Pause Auto-Flow" : "Resume Auto-Flow"}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 border cursor-pointer ${
-                  isCardHovered
-                    ? "bg-[#FCB116]/25 border-[#FCB116] text-[#FCB116] shadow-[0_0_15px_rgba(252,177,22,0.4)]"
-                    : isAutoPlay
-                    ? "bg-[#FCB116]/15 border-[#FCB116]/50 text-[#FCB116] hover:bg-[#FCB116]/25 shadow-[0_0_15px_rgba(252,177,22,0.35)]"
-                    : "bg-white/10 border-white/15 text-white/80 hover:bg-white/20"
-                }`}
-              >
-                {isCardHovered ? (
-                  <>
-                    <Pause className="w-3.5 h-3.5" />
-                    <span>PAUSED (HOVER)</span>
-                  </>
-                ) : isAutoPlay ? (
-                  <>
-                    <Pause className="w-3.5 h-3.5" />
-                    <span>AUTO FLOW</span>
-                  </>
-                ) : (
-                  <>
-                    <Play className="w-3.5 h-3.5" />
-                    <span>PAUSED</span>
-                  </>
-                )}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => step(-1)}
-                aria-label="Previous card in 3D cylinder"
-                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#7C3AED] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => step(1)}
-                aria-label="Next card in 3D cylinder"
-                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#7C3AED] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
 
           {/* ── 3D PERSPECTIVE STAGE VIEWPORT ─────────────────────────────────── */}
           <div
@@ -411,7 +369,7 @@ export function PortfolioTeaser() {
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}
             onPointerCancel={handlePointerUp}
-            className="relative w-full h-[540px] sm:h-[580px] lg:h-[620px] flex items-center justify-center overflow-visible cursor-grab active:cursor-grabbing touch-pan-y"
+            className="relative w-full h-[490px] sm:h-[535px] lg:h-[575px] flex items-center justify-center overflow-visible cursor-grab active:cursor-grabbing touch-pan-y"
             style={{
               perspective: "1500px",
               perspectiveOrigin: "50% 50%",
@@ -421,16 +379,16 @@ export function PortfolioTeaser() {
             <div
               className="absolute bottom-2 left-1/2 -translate-x-1/2 pointer-events-none"
               style={{
-                transform: "rotateX(75deg) translateZ(-160px)",
+                transform: "rotateX(75deg) translateZ(-145px)",
                 transformStyle: "preserve-3d",
               }}
             >
               {/* Outer Deep Floor Glow */}
-              <div className="w-[1100px] h-[330px] rounded-full bg-gradient-to-r from-[#502D6D]/0 via-[#A855F7]/35 to-[#502D6D]/0 blur-3xl" />
+              <div className="w-[1150px] h-[350px] rounded-full bg-gradient-to-r from-[#502D6D]/0 via-[#A855F7]/35 to-[#502D6D]/0 blur-3xl" />
               {/* Outer Glowing Neon Ring */}
-              <div className="absolute inset-0 w-[1000px] h-[280px] mx-auto rounded-full border border-[#A855F7]/40 shadow-[0_0_40px_rgba(168,85,247,0.35)]" />
+              <div className="absolute inset-0 w-[1040px] h-[300px] mx-auto rounded-full border border-[#A855F7]/40 shadow-[0_0_40px_rgba(168,85,247,0.35)]" />
               {/* Inner Glowing Gold Ring */}
-              <div className="absolute inset-0 w-[760px] h-[200px] mx-auto my-auto rounded-full border border-[#FCB116]/30 shadow-[0_0_25px_rgba(252,177,22,0.25)]" />
+              <div className="absolute inset-0 w-[800px] h-[220px] mx-auto my-auto rounded-full border border-[#FCB116]/30 shadow-[0_0_25px_rgba(252,177,22,0.25)]" />
             </div>
 
             {/* 3D Cylinder Container */}
@@ -443,6 +401,10 @@ export function PortfolioTeaser() {
               {filteredProjects.map((project, idx) => {
                 const isCenter = activeIdx === idx;
                 const hasLiveUrl = project.liveUrl && project.liveUrl !== "#";
+                const isMobileApp =
+                  project.category === "Mobile Apps" ||
+                  project.id.includes("app") ||
+                  project.image.toLowerCase().includes("mobile-app");
 
                 return (
                   <div
@@ -463,7 +425,7 @@ export function PortfolioTeaser() {
                       isCardHoveredRef.current = false;
                       setIsCardHovered(false);
                     }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[305px] sm:w-[355px] lg:w-[400px] xl:w-[415px] will-change-transform"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[335px] sm:w-[390px] lg:w-[435px] xl:w-[455px] will-change-transform"
                     style={{
                       transformStyle: "preserve-3d",
                       cursor: isCenter ? "default" : "pointer",
@@ -474,141 +436,93 @@ export function PortfolioTeaser() {
                       <div className="absolute -inset-4 bg-gradient-to-r from-[#7C3AED]/35 via-[#FCB116]/20 to-[#7C3AED]/35 rounded-[38px] blur-2xl pointer-events-none -z-10 animate-pulse" />
                     )}
 
-                    {/* Card Body - Opaque Solid Obsidian & Frosted Amethyst Base */}
+                    {/* Card Body - Luxury Crisp White Base */}
                     <div
-                      className={`group relative flex flex-col p-5 sm:p-6 lg:p-6.5 rounded-[28px] transition-all duration-300 overflow-hidden shadow-2xl ${
+                      className={`group relative flex flex-col p-3.5 sm:p-4 lg:p-4.5 rounded-[28px] transition-all duration-300 overflow-hidden shadow-2xl ${
                         isCenter
-                          ? "bg-[#120524] border border-[#A855F7]/75 ring-1 ring-white/20 shadow-[0_30px_70px_-10px_rgba(124,58,237,0.48),0_0_35px_rgba(252,177,22,0.15)]"
-                          : "bg-[#0E031B] border border-white/10 opacity-80 hover:opacity-100 hover:border-white/25"
+                          ? "bg-[#FFFFFF] border-2 border-[#502D6D] ring-4 ring-[#FCB116]/30 shadow-[0_25px_60px_-10px_rgba(80,45,109,0.35),0_0_35px_rgba(252,177,22,0.2)]"
+                          : "bg-[#FFFFFF]/95 backdrop-blur-xl border border-[#E5E5E3] shadow-[0_15px_40px_rgba(0,0,0,0.35)]"
                       }`}
                     >
                       {/* Top Edge Light Sheen */}
                       <div
-                        className={`absolute top-0 inset-x-0 h-[1.5px] pointer-events-none transition-opacity duration-300 ${
+                        className={`absolute top-0 inset-x-0 h-[2.5px] pointer-events-none transition-opacity duration-300 ${
                           isCenter
-                            ? "bg-gradient-to-r from-transparent via-[#FCB116] to-transparent opacity-95"
-                            : "bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-40"
+                            ? "bg-gradient-to-r from-[#502D6D] via-[#C86A28] to-[#FCB116] opacity-100"
+                            : "bg-gradient-to-r from-transparent via-[#502D6D]/30 to-transparent opacity-60"
                         }`}
                       />
 
-                      {/* Header Row: Category Badge + Year */}
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider bg-gradient-to-r from-[#7C3AED] to-[#502D6D] text-white px-3.5 py-1.5 rounded-full shadow-[0_0_12px_rgba(124,58,237,0.4)] border border-[#C084FC]/30">
-                            {project.category}
-                          </span>
-                        </div>
-
-                        <span className="text-xs font-mono font-bold text-[#FCB116] bg-[#FCB116]/10 px-3 py-0.5 rounded-full border border-[#FCB116]/30">
-                          {project.year}
+                      {/* Top Center Category Label */}
+                      <div className="flex items-center justify-center mb-3">
+                        <span className="font-syne text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.22em] text-[#502D6D]">
+                          {project.category}
                         </span>
                       </div>
 
                       {/* Browser / Device Mockup Screen */}
-                      <div className="relative w-full rounded-2xl overflow-hidden bg-[#070110] border border-white/15 p-2 mb-3.5 group-hover:border-[#A855F7]/50 transition-colors">
-                        {/* Browser Top Window Bar */}
-                        <div className="flex items-center justify-between mb-1.5 px-1">
-                          <div className="flex items-center gap-1.5">
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#FCB116]" />
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#A855F7]" />
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#38BDF8]" />
-                            <span className="text-[11px] sm:text-xs text-[#E9D5FF] ml-2 font-mono font-semibold tracking-tight truncate max-w-[160px]">
-                              {project.client}
-                            </span>
-                          </div>
+                      <div
+                        className="relative w-full rounded-2xl overflow-hidden bg-[#F5F4F2] border border-[#E5E5E3] p-2 group-hover:border-[#502D6D]/40 transition-colors block"
+                      >
+                        {/* Card Header Title Bar */}
+                        <div className="flex items-center justify-between mb-2.5 px-1.5 pt-0.5">
+                          <Link
+                            href={`/work/${project.slug}`}
+                            tabIndex={isCenter ? 0 : -1}
+                            className="font-syne text-sm sm:text-[15px] font-bold tracking-tight text-[#151515] hover:text-[#502D6D] truncate max-w-[270px] sm:max-w-[320px] transition-colors cursor-pointer"
+                            title={project.title}
+                          >
+                            {project.title}
+                          </Link>
 
-                          {hasLiveUrl && (
+                          {hasLiveUrl ? (
                             <a
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[#D4C7EC] hover:text-[#FCB116] transition-colors p-1"
+                              className="text-[#544643] hover:text-[#502D6D] transition-colors p-1 shrink-0"
                               title="Visit Live Site"
-                              onClick={(e) => e.stopPropagation()}
+                              tabIndex={isCenter ? 0 : -1}
                             >
                               <ExternalLink className="w-3.5 h-3.5" />
                             </a>
+                          ) : (
+                            <div className="text-[#544643] group-hover:text-[#502D6D] transition-colors p-1 shrink-0">
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </div>
                           )}
                         </div>
 
                         {/* Image Showcase */}
-                        <div className="relative h-34 sm:h-38 lg:h-42 w-full rounded-xl overflow-hidden bg-[#0A0216] border border-white/10 flex items-center justify-center">
+                        <Link
+                          href={`/work/${project.slug}`}
+                          tabIndex={isCenter ? 0 : -1}
+                          className={`relative h-72 sm:h-84 lg:h-[370px] w-full rounded-xl overflow-hidden border border-[#E5E5E3] flex items-center justify-center block cursor-pointer group/img ${
+                            isMobileApp ? "bg-[#F8F9FA] p-2" : "bg-[#FFFFFF]"
+                          }`}
+                        >
                           {project.image ? (
                             <Image
                               src={project.image}
                               alt={project.title}
                               fill
-                              sizes="(max-width: 768px) 310px, (max-width: 1200px) 360px, 415px"
-                              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                              quality={95}
+                              priority={idx <= 2}
+                              sizes="(max-width: 640px) 700px, (max-width: 1024px) 850px, 950px"
+                              className={
+                                isMobileApp
+                                  ? "object-contain object-center p-2 group-hover/img:scale-105 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)]"
+                                  : "object-cover object-top group-hover/img:scale-105 transition-transform duration-500"
+                              }
                             />
                           ) : (
-                            <div className="flex flex-col items-center justify-center gap-2 text-[#D4C7EC]/50">
+                            <div className="flex flex-col items-center justify-center gap-2 text-[#544643]">
                               <Sparkles className="w-6 h-6 text-[#FCB116]" />
                               <span className="text-xs font-mono">
                                 Interactive Project
                               </span>
                             </div>
                           )}
-
-                          {/* Gradient Vignette */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0E031B]/80 via-transparent to-transparent pointer-events-none" />
-                        </div>
-                      </div>
-
-                      {/* Card Title */}
-                      <h3
-                        className={`text-base sm:text-lg lg:text-xl font-black tracking-tight mb-1.5 transition-colors line-clamp-1 font-syne ${
-                          isCenter
-                            ? "text-white group-hover:text-[#FCB116]"
-                            : "text-white/85"
-                        }`}
-                      >
-                        {project.title}
-                      </h3>
-
-                      {/* Card Summary */}
-                      <p className="text-xs sm:text-[13px] text-[#D4C7EC]/80 leading-relaxed line-clamp-2 mb-3">
-                        {project.summary}
-                      </p>
-
-                      {/* Result Metrics: Spacious 2-Column Grid */}
-                      <div className="grid grid-cols-2 gap-3 py-2.5 mb-3 border-y border-white/10 bg-white/[0.03] rounded-xl px-3.5">
-                        {project.results.slice(0, 2).map((res) => (
-                          <div key={res.label} className="text-left">
-                            <div className="text-xl sm:text-2xl font-black bg-gradient-to-r from-[#FCB116] via-[#FFD066] to-[#FFFFFF] bg-clip-text text-transparent font-syne tracking-tight">
-                              {res.metric}
-                            </div>
-                            <div className="text-[10px] sm:text-[11px] text-[#D4C7EC]/70 font-semibold uppercase tracking-wider line-clamp-1 mt-0.5">
-                              {res.label}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Technologies & CTA Button */}
-                      <div className="flex items-center justify-between gap-2 mt-auto pt-1">
-                        <div className="flex flex-wrap gap-1.5">
-                          {project.technologies.slice(0, 3).map((t) => (
-                            <span
-                              key={t}
-                              className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/[0.06] border border-white/10 text-[#D4C7EC]"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-
-                        <Link
-                          href={`/work/${project.slug}`}
-                          tabIndex={isCenter ? 0 : -1}
-                          className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${
-                            isCenter
-                              ? "bg-gradient-to-r from-[#7C3AED] to-[#502D6D] hover:from-[#A855F7] hover:to-[#7C3AED] text-white border border-[#C084FC]/50 shadow-[0_0_14px_rgba(124,58,237,0.4)] group-hover:scale-105"
-                              : "bg-white/10 border border-white/15 text-[#D4C7EC] hover:bg-white/20 hover:text-white"
-                          }`}
-                        >
-                          <span>Case</span>
-                          <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                         </Link>
                       </div>
                     </div>
@@ -627,36 +541,7 @@ export function PortfolioTeaser() {
             </div>
           </div>
 
-          {/* ── BOTTOM INTERACTIVE STATUS DOCK ─────────────────────────────────── */}
-          <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-3 sm:mt-4">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-white/[0.05] backdrop-blur-xl border border-white/10">
-              {/* Interaction Hint */}
-              <div className="flex items-center gap-2.5 text-xs text-[#D4C7EC]/80 font-medium">
-                <span className="w-2 h-2 rounded-full bg-[#FCB116] animate-pulse" />
-                <span>Hover any card to pause • Drag to explore</span>
-              </div>
 
-              {/* Direct Card Navigation Dots / Progress Bar */}
-              <div className="flex items-center gap-1.5 flex-wrap justify-center">
-                {filteredProjects.slice(0, Math.min(filteredProjects.length, 14)).map((p, i) => {
-                  const isCurrent = activeIdx === i;
-                  return (
-                    <button
-                      key={`${p.id}-dot-${i}`}
-                      type="button"
-                      onClick={() => jumpToIndex(i)}
-                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        isCurrent
-                          ? "w-7 bg-gradient-to-r from-[#FCB116] to-[#A855F7] shadow-[0_0_8px_rgba(252,177,22,0.6)]"
-                          : "w-2 bg-white/25 hover:bg-white/50"
-                      }`}
-                      aria-label={`Jump to project ${p.title}`}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

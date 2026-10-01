@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight, MessageSquareQuote, Quote, CheckCircle2 } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, MessageSquareQuote, Quote } from "lucide-react";
 import { TESTIMONIALS_DATA } from "@/data/testimonials";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
 import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
@@ -82,8 +82,8 @@ export function Testimonials() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <RevealOnScroll className="max-w-2xl">
             <div className="inline-flex items-center gap-2.5 mb-3">
-              <MessageSquareQuote className="w-4 h-4 text-[#FCB116] shrink-0" />
-              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+              <MessageSquareQuote className="w-4 h-4 text-[#502D6D] shrink-0" />
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                 CLIENT TESTIMONIALS
               </span>
             </div>
@@ -91,7 +91,7 @@ export function Testimonials() {
               as="h2"
               text="Client Feedback & Reviews."
               gradientWords="Reviews."
-              gradientClassName="bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent"
+              gradientClassName="text-[#502D6D]"
               className="text-4xl sm:text-5xl font-extrabold text-[#151515] leading-tight tracking-tight"
             />
             <ParagraphReveal
@@ -154,17 +154,11 @@ export function Testimonials() {
                     <Quote className="absolute top-5 right-5 w-12 h-12 text-[#502D6D]/10 group-hover:text-[#502D6D]/20 transition-colors pointer-events-none" />
 
                     <div>
-                      {/* Top Bar: Stars + Category Pill */}
-                      <div className="flex items-center justify-between gap-2 mb-4">
-                        <div className="flex items-center gap-1">
-                          {[...Array(t.rating)].map((_, s) => (
-                            <Star key={s} className="w-4 h-4 text-[#FCB116] fill-[#FCB116]" />
-                          ))}
-                        </div>
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#502D6D]/[0.08] border border-[#502D6D]/20 text-[10px] font-bold uppercase tracking-wider text-[#502D6D]">
-                          <CheckCircle2 className="w-2.5 h-2.5 text-[#FCB116]" />
-                          {t.projectType}
-                        </span>
+                      {/* Top Bar: Stars */}
+                      <div className="flex items-center gap-1 mb-4">
+                        {[...Array(t.rating)].map((_, s) => (
+                          <Star key={s} className="w-4 h-4 text-[#FCB116] fill-[#FCB116]" />
+                        ))}
                       </div>
 
                       {/* Authentic Review Text */}
