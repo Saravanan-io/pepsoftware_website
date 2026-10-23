@@ -13,7 +13,7 @@ import { ModernWhyChooseSection } from "@/components/shared/ModernWhyChooseSecti
 export const metadata: Metadata = {
   title: "Services | PEP Software",
   description:
-    "Explore our complete range of digital services: Web Design & Development, UI/UX Design, Mobile App Development, and Graphic Design / AR.",
+    "Explore our complete range of digital services: Web Design & Development, UI/UX Design, Mobile App Development, and Digital Marketing.",
 };
 
 export default function ServicesPage() {

@@ -7,11 +7,11 @@ export const COMPANY_INFO = {
   subTagline: "Inspire Through Creative Design",
   description:
     "At Pep Softwares, we bring your ideas to life with boundless creativity. Our talented team of designers, artists, and professionals collaborate to deliver captivating visual designs and cutting-edge software solutions.",
-  phone: "+91 638-1010-282",
-  phoneRaw: "+916381010282",
+  phone: "+91 98841 41911",
+  phoneRaw: "+919884141911",
   email: "contact@pepsoftwares.com",
   emailSupport: "info@pepsoftwares.com",
-  address: "Marappa Street 1, Surampatti, Erode - 638009, Tamil Nadu, India",
+  address: "Erode, Tamil Nadu",
   city: "Erode",
   state: "Tamil Nadu",
   country: "India",
@@ -26,12 +26,12 @@ export const COMPANY_INFO = {
     github: "https://github.com/pepsoftwares",
   },
   stats: [
-    { value: "20+", label: "Years Established / Industry Experience" },
-    { value: "150+", label: "Projects Delivered" },
+    { value: "5+", label: "Years Experience" },
+    { value: "50+", label: "Projects Delivered" },
     { value: "50+", label: "Happy Global Clients" },
     { value: "30+", label: "Expert Designers & Engineers" },
     { value: "4.9", label: "Client Satisfaction Rating", isRating: true },
-    { value: "100%", label: "Client Focused Commitment" },
+    { value: "99.9%", label: "Client Satisfaction" },
   ],
 };
 
@@ -61,9 +61,9 @@ export const NAV_ITEMS: NavItem[] = [
         icon: "Smartphone",
       },
       {
-        label: "Graphic Design & AR/VR",
+        label: "Graphic Design",
         href: "/services/graphic-design",
-        description: "Captivating visual identities and immersive digital reality",
+        description: "Captivating visual identities and digital brand design",
         icon: "Palette",
       },
     ],

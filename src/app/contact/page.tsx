@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import {
-  MessageCircle,
   ArrowDown,
   Navigation,
   ExternalLink,
@@ -15,7 +14,7 @@ import { Contact3DVisual } from "@/components/contact/Contact3DVisual";
 export const metadata: Metadata = {
   title: "Contact Us | PEP Software",
   description:
-    "Get in touch with PEP Software. Marappa Street 1, Surampatti, Erode, TN-638009. Call +91 638-1010-282. Start your digital project today.",
+    "Get in touch with PEP Software. Erode, Tamil Nadu. Call +91 98841 41911. Start your digital project today.",
 };
 
 export default function ContactPage() {
@@ -50,7 +49,7 @@ export default function ContactPage() {
                 />
 
                 <ParagraphReveal
-                  text="Have a new project, need a redesign, or want to discuss design training? Reach out directly to our engineering and design team."
+                  text="Have a new project, need a redesign, or looking for custom software? Reach out directly to our engineering and design team."
                   delay={0.15}
                   className="text-base sm:text-lg text-[#544643] leading-relaxed max-w-xl mx-auto lg:mx-0 mt-4"
                 />
@@ -135,7 +134,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    {/* Phone / WhatsApp */}
+                    {/* Phone Number */}
                     <div className="flex items-start gap-4 p-2.5 -mx-2.5 rounded-2xl hover:bg-[#FCB116]/10 transition-colors group">
                       <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-white via-[#FFFBF2] to-[#FFF6E5] border border-[#FCB116]/25 shadow-sm p-1.5 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform duration-300">
                         <div className="relative w-full h-full">
@@ -150,7 +149,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <span className="font-bold text-[#151515] block">
-                          Phone / WhatsApp
+                          Phone Number
                         </span>
                         <a
                           href={`tel:${COMPANY_INFO.phoneRaw}`}
@@ -208,70 +207,92 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
-
-                  {/* WhatsApp Action Button with Brand / WhatsApp Styling */}
-                  <div className="pt-4 border-t border-[#E2E4E9]">
-                    <a
-                      href={COMPANY_INFO.whatsappCommunityLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-full flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white text-xs font-bold hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-0.5 active:scale-[0.99] transition-all shadow-sm"
-                    >
-                      <MessageCircle className="w-4 h-4 text-white" />
-                      <span>Join WhatsApp Community</span>
-                    </a>
-                  </div>
-                </div>
-              </RevealOnScroll>
-
-              {/* Official Google Maps Location Card matching pepsoftwares.com/contact-us/ */}
-              <RevealOnScroll delay={0.25}>
-                <div className="relative overflow-hidden p-6 sm:p-7 rounded-3xl bg-white/95 backdrop-blur-xl border border-[#502D6D]/15 shadow-[0_20px_60px_-15px_rgba(80,45,109,0.08)] space-y-4">
-                  {/* Brand Gradient Accent Line on Top */}
-                  <div className="h-1.5 w-full absolute top-0 left-0 bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-
-                  <div className="inline-flex items-center gap-2">
-                    <Navigation className="w-3.5 h-3.5 text-[#502D6D]" />
-                    <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#544643]">
-                      LOCATION PIN
-                    </span>
-                  </div>
-
-                  {/* Real Embedded Google Map from pepsoftwares.com/contact-us/ */}
-                  <div className="relative rounded-2xl overflow-hidden border border-[#502D6D]/20 shadow-inner group">
-                    <iframe
-                      src="https://maps.google.com/maps?q=8PJ8%2BC5%20Surampatty%2C%20Tamil%20Nadu&t=m&z=14&output=embed&iwloc=near"
-                      title="8PJ8+C5 Surampatty, Tamil Nadu - PEP Software Head Office"
-                      aria-label="8PJ8+C5 Surampatty, Tamil Nadu"
-                      className="w-full h-52 sm:h-56 rounded-2xl border-0 filter contrast-[1.02] saturate-[1.05]"
-                      loading="lazy"
-                      allowFullScreen
-                    />
-                  </div>
-
-                  {/* Head Office Address & Direct Directions */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-[#E2E4E9]">
-                    <div>
-                      <span className="text-xs font-extrabold text-[#151515] block">
-                        Head Office
-                      </span>
-                      <span className="text-[11px] text-[#544643] leading-relaxed">
-                        Marappa Street 1, Surampatti, Erode - 638009
-                      </span>
-                    </div>
-                    <a
-                      href="https://maps.google.com/maps?q=8PJ8%2BC5+Surampatty,+Tamil+Nadu"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#502D6D] hover:text-[#8A3DA8] transition-colors shrink-0"
-                    >
-                      <span>Get Directions</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-[#FCB116]" />
-                    </a>
-                  </div>
                 </div>
               </RevealOnScroll>
             </div>
+          </div>
+
+          {/* Full-Width Studio Location & Big Map Showcase */}
+          <div className="mt-14 sm:mt-18 lg:mt-20">
+            <RevealOnScroll delay={0.2}>
+              <div className="relative overflow-hidden p-6 sm:p-8 lg:p-10 rounded-3xl sm:rounded-[36px] bg-white/95 backdrop-blur-xl border border-[#502D6D]/15 shadow-[0_20px_60px_-15px_rgba(80,45,109,0.08)] space-y-6">
+                {/* Brand Gradient Accent Line on Top */}
+                <div className="h-1.5 w-full absolute top-0 left-0 bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116]" />
+
+                {/* Header with Title and Get Directions Button */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E2E4E9] pb-5">
+                  <div>
+                    <div className="inline-flex items-center gap-2 mb-1.5">
+                      <Navigation className="w-3.5 h-3.5 text-[#502D6D]" />
+                      <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#502D6D]">
+                        LOCATION PIN
+                      </span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#151515] tracking-tight">
+                      Visit Our Studio Headquarters
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#544643] mt-1">
+                      Located in Erode, Tamil Nadu. Find us on Google Maps or drop in during studio hours.
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://maps.google.com/maps?q=8PJ8%2BC5+Surampatty,+Tamil+Nadu"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#502D6D] to-[#68358F] text-white text-xs sm:text-sm font-bold hover:shadow-lg hover:shadow-[#502D6D]/25 hover:-translate-y-0.5 active:scale-[0.99] transition-all shrink-0 self-start sm:self-center shadow-md shadow-[#502D6D]/15"
+                  >
+                    <span>Get Directions</span>
+                    <ExternalLink className="w-4 h-4 text-[#FCB116]" />
+                  </a>
+                </div>
+
+                {/* Big Full-Size Width Embedded Google Map */}
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#502D6D]/20 shadow-inner group">
+                  <iframe
+                    src="https://maps.google.com/maps?q=8PJ8%2BC5%20Surampatty%2C%20Tamil%20Nadu&t=m&z=15&output=embed&iwloc=near"
+                    title="8PJ8+C5 Surampatty, Tamil Nadu - PEP Software Head Office"
+                    aria-label="8PJ8+C5 Surampatty, Tamil Nadu"
+                    className="w-full h-[420px] sm:h-[480px] lg:h-[540px] rounded-2xl sm:rounded-3xl border-0 filter contrast-[1.02] saturate-[1.05]"
+                    loading="lazy"
+                    allowFullScreen
+                  />
+                </div>
+
+                {/* Bottom Address & Direct Contact Info Ribbon */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA] border border-[#E2E4E9]">
+                    <span className="text-xs font-extrabold text-[#151515] block uppercase tracking-wider">
+                      Head Office Address
+                    </span>
+                    <span className="text-xs sm:text-sm text-[#544643] mt-1.5 block leading-relaxed">
+                      {COMPANY_INFO.address}
+                    </span>
+                  </div>
+
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA] border border-[#E2E4E9]">
+                    <span className="text-xs font-extrabold text-[#151515] block uppercase tracking-wider">
+                      Working Hours
+                    </span>
+                    <span className="text-xs sm:text-sm text-[#544643] mt-1.5 block leading-relaxed">
+                      {COMPANY_INFO.workingHours}
+                    </span>
+                  </div>
+
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA] border border-[#E2E4E9]">
+                    <span className="text-xs font-extrabold text-[#151515] block uppercase tracking-wider">
+                      Direct Phone
+                    </span>
+                    <a
+                      href={`tel:${COMPANY_INFO.phoneRaw}`}
+                      className="text-xs sm:text-sm font-bold text-[#502D6D] hover:text-[#8A3DA8] mt-1.5 block transition-colors"
+                    >
+                      {COMPANY_INFO.phone}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </RevealOnScroll>
           </div>
         </div>
       </section>

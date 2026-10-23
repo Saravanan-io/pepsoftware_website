@@ -14,7 +14,7 @@ import { ProjectItem } from "@/types";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
 import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
 
-const categories = ["All", "Websites", "Mobile Apps", "UI/UX", "AR/VR"];
+const categories = ["All", "Websites", "Mobile Apps", "UI/UX"];
 
 export function PortfolioTeaser() {
   const [activeTab, setActiveTab] = useState("All");

@@ -440,12 +440,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Accelerate your business with performance marketing, search engine optimization, and conversion-focused digital campaigns.",
     fullDescription:
-      "In a crowded digital ecosystem, visual distinction is your greatest competitive moat. We forge iconic brand identities, bespoke marketing collateral, 3D motion assets, and boundary-pushing Augmented & Virtual Reality spatial experiences.",
+      "In a crowded digital ecosystem, visual distinction is your greatest competitive moat. We forge iconic brand identities, bespoke marketing collateral, and engaging digital creative experiences.",
     features: [
       "Brand Identity & Visual Guidelines",
       "3D Modeling, Motion Graphics & WebGL Assets",
-      "Augmented Reality (AR) Filters & WebAR Experiences",
-      "Marketing Collateral & High-Conversion Ad Creatives",
+      "Social Media Ad Creatives & Brand Graphics",
+      "Marketing Collateral & High-Conversion Creatives",
       "Packaging Design & Vector Illustration Systems",
       "Interactive 3D Product Viewers & Configurator",
     ],
@@ -500,18 +500,18 @@ export const SERVICES_DATA: ServiceItem[] = [
       {
         step: "04",
         title: "Format Optimization",
-        description: "Packaging assets for web performance, multi-resolution print, and AR engines.",
+        description: "Packaging assets for web performance, multi-resolution print, and digital campaign platforms.",
       },
     ],
-    tools: ["Figma", "Photoshop", "Illustrator", "Blender", "After Effects", "Spark AR"],
+    tools: ["Figma", "Photoshop", "Illustrator", "Blender", "After Effects", "Google Ads"],
     whyChooseUs: [
       {
         title: "Distinctive Branding",
         description: "Stand out in crowded markets with memorable, high-craft visual assets.",
       },
       {
-        title: "Immersive Engagement",
-        description: "Interactive 3D and AR experiences that captivate users and boost dwell time.",
+        title: "High-Impact Visuals",
+        description: "Compelling graphic design and visual media that captivate audiences and boost engagement.",
       },
       {
         title: "Multi-Format Excellence",

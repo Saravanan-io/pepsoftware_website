@@ -33,7 +33,6 @@ export const metadata: Metadata = {
     "UI/UX Design",
     "Website Development",
     "Mobile App Development",
-    "AR/VR Design",
     "UI UX Design Course Erode",
     "Web Development Course",
     "Design Internship",

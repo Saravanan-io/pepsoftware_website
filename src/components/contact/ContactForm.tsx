@@ -13,7 +13,6 @@ const contactSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().min(8, "Please enter a valid phone number"),
   serviceType: z.string().min(1, "Please select an area of interest"),
-  budget: z.string().optional(),
   message: z.string().min(10, "Please provide more details (at least 10 characters)"),
 });
 
@@ -36,7 +35,6 @@ export function ContactForm() {
       email: "",
       phone: "",
       serviceType: "Website Design & Development",
-      budget: "$5,000 - $15,000 / Growth",
       message: "",
     },
   });
@@ -179,7 +177,7 @@ export function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-xs font-bold text-[#151515] uppercase tracking-wider mb-2">
-            Phone / WhatsApp <span className="text-[#FCB116]">*</span>
+            Phone Number <span className="text-[#FCB116]">*</span>
           </label>
           <input
             type="tel"
@@ -207,7 +205,6 @@ export function ContactForm() {
                 {s.title}
               </option>
             ))}
-            <option value="Design Training Academy">Design Training Academy</option>
             <option value="Other Consultation">Other Custom Consultation</option>
           </select>
           {errors.serviceType && (
@@ -218,23 +215,7 @@ export function ContactForm() {
         </div>
       </div>
 
-      {/* Row 3: Budget Range */}
-      <div>
-        <label className="block text-xs font-bold text-[#151515] uppercase tracking-wider mb-2">
-          Estimated Budget (Optional)
-        </label>
-        <select
-          {...register("budget")}
-          className="w-full px-4 py-3.5 rounded-xl bg-[#F8F9FA] hover:bg-[#F3F4F6] border border-[#E2E4E9] text-sm text-[#151515] outline-none focus:bg-white focus:border-[#502D6D] focus:ring-4 focus:ring-[#502D6D]/10 transition-all duration-200 cursor-pointer shadow-2xs"
-        >
-          <option value="< $5k">&lt; $5,000 / Starter</option>
-          <option value="$5k - $15k">$5,000 - $15,000 / Growth</option>
-          <option value="$15k - $50k">$15,000 - $50,000 / Scale</option>
-          <option value="$50k+">$50,000+ / Enterprise</option>
-        </select>
-      </div>
-
-      {/* Row 4: Message */}
+      {/* Row 3: Message */}
       <div>
         <label className="block text-xs font-bold text-[#151515] uppercase tracking-wider mb-2">
           Project Brief / Message <span className="text-[#FCB116]">*</span>
