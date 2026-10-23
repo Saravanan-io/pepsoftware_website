@@ -1,492 +1,352 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import {
-  Code2,
-  Layout,
-  Smartphone,
-  Palette,
-  Wrench,
-  ArrowRight,
-  Cpu,
-  TrendingUp,
-} from "lucide-react";
-import { SERVICES_DATA } from "@/data/services";
-import { ServiceItem } from "@/types";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { TechIcon } from "./TechIcons";
 
-const serviceIcons: Record<string, typeof Code2> = {
-  "website-design-development": Code2,
-  "ui-ux-design": Cpu,
-  "mobile-app-design-development": Smartphone,
-  "graphic-design": TrendingUp,
-};
+interface ServiceMetric {
+  value: string;
+  label: string;
+}
 
-const serviceShortLabels: Record<string, string> = {
-  "ui-ux-design": "Custom Software",
-  "website-design-development": "Web Development",
-  "mobile-app-design-development": "Mobile Apps",
-  "graphic-design": "Digital Marketing",
-};
-
-interface DeliverableCardItem {
+interface ServiceItemData {
   number: string;
+  id: string;
+  category: string;
+  shortName: string;
   title: string;
+  tagline: string;
   description: string;
+  route: string;
   image: string;
+  capabilities: string[];
+  techStack: string[];
+  metrics: ServiceMetric[];
+  statusPill: {
+    status: string;
+    detail: string;
+  };
+  reversed?: boolean;
 }
 
-interface ServiceProcessData {
-  badgeText: string;
-  titlePrefix: string;
-  titleHighlight: string;
-  titleSuffix: string;
-  subtitle: string;
-  deliverables: DeliverableCardItem[];
-}
-
-const serviceProcesses: Record<string, ServiceProcessData> = {
-  "ui-ux-design": {
-    badgeText: "WHAT WE DELIVER",
-    titlePrefix: "Our ",
-    titleHighlight: "Custom Software",
-    titleSuffix: " Process",
-    subtitle:
-      "From architectural design to full-stack engineering, we build bespoke software systems that automate workflows and accelerate growth.",
-    deliverables: [
-      {
-        number: "01",
-        title: "Architecture & System Design",
-        description:
-          "We architect robust, scalable software frameworks, data models, and system flows tailored to your enterprise operations.",
-        image: "/images/services/uiux-step-2-3d.png",
-      },
-      {
-        number: "02",
-        title: "Full-Stack Custom Development",
-        description:
-          "Bespoke backend APIs, cloud microservices, and reactive frontends engineered with clean, maintainable code standards.",
-        image: "/images/services/website-development-3d.png",
-      },
-      {
-        number: "03",
-        title: "Cloud & Database Integration",
-        description:
-          "Seamless integration with AWS, Azure, PostgreSQL, and high-throughput data pipelines for maximum uptime and security.",
-        image: "/images/services/uiux-step-3-3d.png",
-      },
-      {
-        number: "04",
-        title: "QA, DevOps & Deployment",
-        description:
-          "Rigorous automated testing, CI/CD pipeline automation, and containerized deployment ensuring zero-downtime scalability.",
-        image: "/images/services/uiux-step-4-3d.png",
-      },
+const SERVICES_LIST: ServiceItemData[] = [
+  {
+    number: "01",
+    id: "01",
+    category: "ENTERPRISE ARCHITECTURE",
+    shortName: "Custom Software",
+    title: "Custom Software Development",
+    tagline: "Tailored Architecture. Scalable Systems. Enterprise Stability.",
+    description:
+      "From architectural design to full-stack engineering, we build bespoke software systems that automate complex workflows, eliminate operational bottlenecks, and accelerate commercial growth.",
+    route: "/services/website-design-development",
+    image: "/images/services/custom-software-development-real.jpg",
+    capabilities: [
+      "Enterprise System Architecture & Data Modeling",
+      "Cloud Microservices & High-Throughput APIs",
+      "Database Optimization & Pipeline Engineering",
+      "Automated CI/CD DevOps & Ironclad Security",
     ],
-  },
-  "website-design-development": {
-    badgeText: "WHAT WE DELIVER",
-    titlePrefix: "Our ",
-    titleHighlight: "Web Development",
-    titleSuffix: " Process",
-    subtitle:
-      "From high-performance frontend architecture to custom CMS and eCommerce, we engineer lightning-fast digital solutions.",
-    deliverables: [
-      {
-        number: "01",
-        title: "Custom Website Design",
-        description:
-          "Tailored website designs blending visual brand identity with user-centered responsive layouts and high conversion flows.",
-        image: "/images/services/uiux-step-3-3d.png",
-      },
-      {
-        number: "02",
-        title: "Front-end Development",
-        description:
-          "Fast, clean, component-driven code using Next.js, React, and modern CSS—delivering pixel-perfect performance across devices.",
-        image: "/images/services/website-development-3d.png",
-      },
-      {
-        number: "03",
-        title: "Custom WordPress & CMS",
-        description:
-          "Empowering clients with flexible, secure CMS architectures for effortless content publishing and administration.",
-        image: "/images/services/uiux-step-2-3d.png",
-      },
-      {
-        number: "04",
-        title: "E-Commerce & Storefronts",
-        description:
-          "Scalable online stores built on Shopify and WooCommerce with frictionless checkouts and mobile commerce optimization.",
-        image: "/images/services/uiux-step-4-3d.png",
-      },
+    techStack: ["Node.js", "Python", "PostgreSQL", "AWS", "Docker", "Redis", "Next.js"],
+    metrics: [
+      { value: "99.99%", label: "Target Uptime SLA" },
+      { value: "10x", label: "Throughput Scale" },
+      { value: "<50ms", label: "Low-Latency APIs" },
     ],
+    statusPill: {
+      status: "Microservices Active",
+      detail: "14ms Latency • Enterprise Cloud",
+    },
+    reversed: false,
   },
-  "mobile-app-design-development": {
-    badgeText: "WHAT WE DELIVER",
-    titlePrefix: "Our ",
-    titleHighlight: "Mobile App",
-    titleSuffix: " Process",
-    subtitle:
-      "Native iOS, Android, and cross-platform mobile apps engineered for speed, touch ergonomics, and store-ready stability.",
-    deliverables: [
-      {
-        number: "01",
-        title: "iOS Native Development",
-        description:
-          "Engineered with Swift and SwiftUI for pristine Apple ecosystem performance, haptics, and App Store compliance.",
-        image: "/images/services/mobile-app-development-3d.png",
-      },
-      {
-        number: "02",
-        title: "Android App Development",
-        description:
-          "Built with Kotlin for maximum device compatibility, robust background processing, and modern Material UI.",
-        image: "/images/services/uiux-step-4-3d.png",
-      },
-      {
-        number: "03",
-        title: "Cross-Platform Engineering",
-        description:
-          "High-velocity Flutter & React Native codebases that deliver native performance across both iOS and Android simultaneously.",
-        image: "/images/services/uiux-step-3-3d.png",
-      },
-      {
-        number: "04",
-        title: "Touch UX & Performance",
-        description:
-          "Fluid micro-interactions, gesture navigation, offline-first data persistence, and battery-friendly background sync.",
-        image: "/images/services/uiux-step-1-3d.png",
-      },
+  {
+    number: "02",
+    id: "02",
+    category: "WEB ARCHITECTURE",
+    shortName: "Website Design & Dev",
+    title: "Website Design & Development",
+    tagline: "High Conversion. Blazing Speed. Pixel-Perfect Craft.",
+    description:
+      "From high-performance frontend engineering to custom headless CMS and eCommerce storefronts, we build responsive web platforms optimized for speed, search engines, and conversions.",
+    route: "/services/website-design-development",
+    image: "/images/services/website-development-real.jpg",
+    capabilities: [
+      "Custom UI/UX & Responsive Web Layouts",
+      "Modern Next.js & React Frontend Architecture",
+      "Headless WordPress & Secure Custom CMS Portals",
+      "High-Conversion eCommerce & Shopify Engines",
     ],
-  },
-  "graphic-design": {
-    badgeText: "WHAT WE DELIVER",
-    titlePrefix: "Our ",
-    titleHighlight: "Digital Marketing",
-    titleSuffix: " Process",
-    subtitle:
-      "Data-driven SEO, performance marketing campaigns, and creative content strategies that turn qualified visitors into loyal customers.",
-    deliverables: [
-      {
-        number: "01",
-        title: "SEO & Market Research",
-        description:
-          "In-depth keyword analysis, technical SEO auditing, and competitor positioning to capture top organic search rankings.",
-        image: "/images/services/uiux-step-1-3d.png",
-      },
-      {
-        number: "02",
-        title: "Performance & Paid Ads",
-        description:
-          "ROI-focused PPC and social advertising campaigns across Google, Meta, and LinkedIn with continuous A/B conversion optimization.",
-        image: "/images/services/graphic-design-3d.png",
-      },
-      {
-        number: "03",
-        title: "Content Strategy & Copywriting",
-        description:
-          "High-converting copywriting, visual storytelling, and brand assets that establish industry authority and engage audiences.",
-        image: "/images/services/uiux-step-3-3d.png",
-      },
-      {
-        number: "04",
-        title: "Analytics & Conversion Funnels",
-        description:
-          "Real-time tracking, conversion rate optimization (CRO), and attribution modeling to measure and maximize your marketing ROI.",
-        image: "/images/services/uiux-step-2-3d.png",
-      },
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "WordPress", "Shopify"],
+    metrics: [
+      { value: "<0.8s", label: "First Contentful Paint" },
+      { value: "100/100", label: "Core Web Vitals" },
+      { value: "+65%", label: "Avg Conversion Uplift" },
     ],
+    statusPill: {
+      status: "Edge CDN Live",
+      detail: "Global Edge Network • 100 Performance",
+    },
+    reversed: true,
   },
-};
-
-interface CardProps {
-  service: ServiceItem;
-  index: number;
-  total: number;
-  scrollYProgress: MotionValue<number>;
-}
-
-function StackCard({ service, index, total, scrollYProgress }: CardProps) {
-  const processData = serviceProcesses[service.id] || serviceProcesses["ui-ux-design"];
-
-  // Stacking calculation:
-  // Each card scales down slightly after user scrolls past to create a physical card stack
-  const rangeStart = (index + 0.8) / total;
-  const rangeEnd = Math.min(1, (index + 1.8) / total);
-  const targetScale = 1 - (total - 1 - index) * 0.035;
-
-  const scale = useTransform(
-    scrollYProgress,
-    [rangeStart, rangeEnd],
-    [1, targetScale]
-  );
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [rangeStart, rangeEnd],
-    [1, index === total - 1 ? 1 : 0.92]
-  );
-
-  return (
-    <div
-      id={`service-${service.id}`}
-      data-service-card
-      className="sticky top-24 sm:top-28 w-full mb-20 sm:mb-28 lg:mb-36"
-      style={{
-        top: `calc(90px + ${index * 16}px)`,
-        zIndex: 10 + index,
-      }}
-    >
-      <motion.div
-        style={{
-          scale,
-          opacity,
-          transformOrigin: "top center",
-          willChange: "transform, opacity",
-        }}
-        className="w-full rounded-[32px] sm:rounded-[40px] bg-[#FFFFFF] border border-[#C6C2C1] shadow-[0_20px_50px_rgba(21,21,21,0.08),0_2px_8px_rgba(21,21,21,0.04)] hover:border-[#C86A28]/60 transition-all duration-300 overflow-hidden transform-gpu group/stack"
-      >
-        {/* Top Header Strip with Index & Domain Badge */}
-        <div className="flex items-center justify-between px-6 sm:px-10 py-4 bg-[#EFF0EF]/80 border-b border-[#C6C2C1]/60">
-          <div className="flex items-center gap-3">
-            <span className="w-8 h-8 rounded-xl bg-[#151515] text-[#F7F8F8] font-mono text-xs font-black flex items-center justify-center shadow-xs">
-              0{index + 1}
-            </span>
-            <span className="text-xs font-black uppercase tracking-wider text-[#C86A28]">
-              {service.badge}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3 sm:gap-4">
-            <span className="text-[11px] font-mono font-semibold text-[#544643] hidden sm:inline">
-              0{index + 1} / 0{total} Core Domains
-            </span>
-            <Link
-              href={`/services/${service.slug}`}
-              className="group/btn hidden sm:inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#151515] hover:bg-[#C86A28] text-[#F7F8F8] hover:text-white text-[11px] font-extrabold transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer shrink-0"
-            >
-              <span>Explore</span>
-              <ArrowRight className="w-3 h-3 text-[#C86A28] group-hover/btn:text-white transition-colors" />
-            </Link>
-          </div>
-        </div>
-
-        {/* Card Main Body: Reference Showcase Style */}
-        <div className="p-6 sm:p-10 lg:p-12 space-y-8">
-          {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto space-y-2.5">
-            <div className="inline-flex items-center gap-2 mb-2">
-              <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-              <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#502D6D]">
-                {processData.badgeText}
-              </span>
-            </div>
-
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#151515] tracking-tight">
-              {processData.titlePrefix}
-              <span className="text-[#C86A28]">
-                {processData.titleHighlight}
-              </span>
-              {processData.titleSuffix}
-            </h3>
-
-            <p className="text-xs sm:text-sm text-[#544643] leading-relaxed max-w-xl mx-auto">
-              {processData.subtitle}
-            </p>
-
-            {/* Explore Full Service CTA Button at Top of Card */}
-            <div className="pt-2 flex justify-center">
-              <Link
-                href={`/services/${service.slug}`}
-                className="group/btn inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#151515] hover:bg-[#C86A28] text-[#F7F8F8] hover:text-white text-xs sm:text-sm font-extrabold transition-all duration-300 shadow-md shadow-[#151515]/10 hover:shadow-xl hover:gap-3.5 cursor-pointer"
-              >
-                <span>Explore Full {service.title}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#C86A28] group-hover/btn:text-white transition-colors" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 2x2 Grid of Organic 3D Fluid Glass Cards matching uploaded reference */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {processData.deliverables.map((item) => (
-              <Link
-                key={item.number}
-                href={`/services/${service.slug}`}
-                className="relative group/card cursor-pointer block"
-              >
-                {/* Layer 1: Organic 3D Amber Backing Plate */}
-                <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-[#FF9248]/35 via-[#E0782F]/25 to-[#C86A28]/20 border border-[#FF8A3D]/40 translate-x-1.5 translate-y-1.5 group-hover/card:translate-x-2.5 group-hover/card:translate-y-2.5 group-hover/card:from-[#FF8A3D]/50 group-hover/card:to-[#C86A28]/35 transition-all duration-300 pointer-events-none" />
-
-                {/* Floating Amber Metallic Glass Sphere Bead */}
-                <div className="absolute -top-1.5 right-12 w-4 h-4 rounded-full bg-gradient-to-br from-[#FFB17A] via-[#FF7A1A] to-[#C86A28] shadow-md pointer-events-none z-20 group-hover/card:scale-110 group-hover/card:-translate-y-0.5 transition-transform duration-300" />
-
-                {/* Layer 2: Main Glassmorphic Fluid Card Container */}
-                <div className="relative z-10 p-6 sm:p-7 rounded-[28px] bg-white/94 backdrop-blur-xl border border-white/95 shadow-[0_12px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(200,106,40,0.05)] group-hover/card:shadow-[0_20px_48px_rgba(200,106,40,0.18)] group-hover/card:-translate-y-1 transition-all duration-300 flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden min-h-[200px]">
-                  {/* Left Column: Number, Title, Description, Arrow Button */}
-                  <div className="flex-1 min-w-0 flex flex-col justify-between h-full space-y-3">
-                    <div>
-                      <span className="text-2xl sm:text-3xl font-black text-[#C86A28] block leading-none">
-                        {item.number}
-                      </span>
-                      <h4 className="text-base sm:text-lg font-black text-[#151515] tracking-tight leading-snug mt-1.5 group-hover/card:text-[#C86A28] transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-[#544643] leading-relaxed mt-1.5 line-clamp-3">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    {/* Circular Orange CTA Button */}
-                    <div className="pt-1">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-r from-[#FF7A1A] to-[#C86A28] text-white flex items-center justify-center shadow-md shadow-[#C86A28]/35 group-hover/card:scale-110 group-hover/card:shadow-lg transition-all duration-300 shrink-0">
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Column: Realistic 3D Transparent Illustration */}
-                  <div className="shrink-0 w-full sm:w-[190px] lg:w-[220px] flex items-center justify-center relative">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full max-h-[140px] sm:max-h-[170px] object-contain drop-shadow-[0_16px_28px_rgba(200,106,40,0.2)] transition-transform duration-500 ease-out group-hover/card:scale-108 group-hover/card:-translate-y-2 pointer-events-none select-none"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Footer Bar: Tech Stack & Tools Chips */}
-          {service.tools && service.tools.length > 0 && (
-            <div className="pt-4 border-t border-[#C6C2C1]/60 flex items-center gap-1.5 flex-wrap">
-              <span className="text-[11px] font-bold text-[#544643] mr-1 flex items-center gap-1">
-                <Wrench className="w-3 h-3 text-[#C86A28]" />
-                Tech Stack:
-              </span>
-              {service.tools.slice(0, 8).map((tool) => (
-                <span
-                  key={tool}
-                  className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#EFF0EF] text-[#151515] border border-[#C6C2C1]"
-                >
-                  {tool}
-                </span>
-              ))}
-              {service.tools.length > 8 && (
-                <span className="text-[10px] font-bold text-[#544643]">
-                  +{service.tools.length - 8} more
-                </span>
-              )}
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </div>
-  );
-}
+  {
+    number: "03",
+    id: "03",
+    category: "NATIVE IOS & ANDROID",
+    shortName: "Mobile Apps",
+    title: "Mobile App Development",
+    tagline: "Design with Purpose. Develop with Precision. Deliver with Impact.",
+    description:
+      "High-performance native iOS, Android, and cross-platform mobile apps engineered for speed, offline data persistence, touch ergonomics, and store-ready stability.",
+    route: "/services/mobile-app-design-development",
+    image: "/images/services/mobile-app-development-real.jpg",
+    capabilities: [
+      "Native iOS App Engineering (Swift & SwiftUI)",
+      "Native Android Development (Kotlin & Material UI)",
+      "Cross-Platform Codebases (Flutter & React Native)",
+      "Offline-First Architecture & Push Notification Sync",
+    ],
+    techStack: ["Swift", "Kotlin", "Flutter", "React Native", "Firebase", "App Store Connect"],
+    metrics: [
+      { value: "60 FPS", label: "Fluid Native UI" },
+      { value: "iOS & Android", label: "Feature Parity" },
+      { value: "Offline-First", label: "Local Data Sync" },
+    ],
+    statusPill: {
+      status: "Store Ready Build",
+      detail: "SwiftUI & Kotlin Engines • Verified",
+    },
+    reversed: false,
+  },
+  {
+    number: "04",
+    id: "04",
+    category: "GROWTH & ANALYTICS",
+    shortName: "Digital Marketing",
+    title: "Digital Marketing & Branding",
+    tagline: "Data-Driven Reach. Targeted SEO. Measurable ROI.",
+    description:
+      "ROI-focused PPC advertising campaigns, technical search engine optimization (SEO), and creative brand storytelling that turns qualified traffic into loyal paying customers.",
+    route: "/services/graphic-design",
+    image: "/images/services/digital-marketing-real.jpg",
+    capabilities: [
+      "Technical & On-Page SEO Auditing",
+      "High-ROI Performance Ads (Google & Meta)",
+      "Conversion Rate Optimization (CRO) & Funnels",
+      "Strategic Copywriting & Brand Identity Assets",
+    ],
+    techStack: ["Google Analytics 4", "Meta Ads", "Google Search Console", "SEMrush", "HubSpot"],
+    metrics: [
+      { value: "4.8x", label: "Average ROAS" },
+      { value: "+340%", label: "Organic Search Growth" },
+      { value: "Top 3", label: "SERP Rankings" },
+    ],
+    statusPill: {
+      status: "Live Funnel Active",
+      detail: "Multi-Touch Attribution • Real-Time",
+    },
+    reversed: true,
+  },
+];
 
 export function StickyServicesStack() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [activeDomain, setActiveDomain] = useState<string>("01");
+  const sectionRefs = useRef<Map<string, HTMLElement>>(new Map());
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Track active service tab index as user scrolls down the stack
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      const total = SERVICES_DATA.length;
-      const idx = Math.min(total - 1, Math.max(0, Math.floor(latest * total * 1.05)));
-      setActiveIdx((prev) => (prev !== idx ? idx : prev));
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
-  const scrollToService = (index: number) => {
-    const service = SERVICES_DATA[index];
-    if (!service) return;
-    const el = document.getElementById(`service-${service.id}`);
-    if (el) {
-      const topOffset = el.getBoundingClientRect().top + window.scrollY - 130;
-      window.scrollTo({ top: topOffset, behavior: "smooth" });
+  // Smooth scroll handler to jump directly to any service anchor
+  const scrollToService = (id: string) => {
+    setActiveDomain(id);
+    const element = document.getElementById(`service-pillar-${id}`);
+    if (element) {
+      const navOffset = 110;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navOffset,
+        behavior: "smooth",
+      });
     }
   };
 
+  // Sync active domain pill with user scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 220;
+      for (const service of SERVICES_LIST) {
+        const el = document.getElementById(`service-pillar-${service.id}`);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveDomain(service.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section ref={containerRef} className="relative py-12 lg:py-20 bg-[#F7F8F8]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header Intro */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+    <section className="py-20 lg:py-28 bg-[#F7F8F8] relative overflow-hidden select-none border-b border-[#C6C2C1]/40">
+      {/* Ambient Atmospheric Lighting Blobs */}
+      <div className="absolute top-1/4 -left-28 w-[600px] h-[600px] bg-[#502D6D]/[0.04] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-28 w-[600px] h-[600px] bg-[#FCB116]/[0.06] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute inset-0 bg-dot-light opacity-25 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* ── Section Header ──────────────────────────────────────────────── */}
+        <div className="text-left max-w-3xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-            <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
-              CORE CAPABILITIES
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#502D6D]">
+              OUR SERVICES & ENGINEERING EXPERTISE
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151515] tracking-tight mt-1">
-            Explore Our{" "}
-            <span className="text-[#502D6D]">Specialized</span>{" "}
-            <span className="text-[#FCB116]">Services</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151515] tracking-tight leading-[1.12]">
+            Engineered for Scale.{" "}
+            <span className="text-[#502D6D]">Designed</span> to{" "}
+            <span className="text-[#FCB116]">Inspire</span>.
           </h2>
-          <p className="text-sm sm:text-base text-[#544643] mt-3 max-w-xl mx-auto leading-relaxed">
-            Scroll to navigate through our 4 core domains—engineered for performance, craft, and scale.
+          <p className="text-base sm:text-lg text-[#544643] mt-4 leading-relaxed font-normal max-w-2xl">
+            We partner with forward-thinking enterprises and fast-moving brands across four specialized technical pillars.
           </p>
         </div>
 
-        {/* Sticky Interactive Service Navigation Pill Bar */}
-        <div className="sticky top-20 sm:top-24 z-30 mb-8 sm:mb-12 py-2.5 flex justify-center">
-          <div className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-[#FFFFFF]/95 border border-[#C6C2C1] shadow-md shadow-[#151515]/5 max-w-full overflow-x-auto scrollbar-none">
-            {SERVICES_DATA.map((service, i) => {
-              const isActive = activeIdx === i;
-              const shortLabel = serviceShortLabels[service.id] || service.badge;
+        {/* ── Sticky Quick-Jump Domain Anchor Bar ─────────────────────────── */}
+        <div className="sticky top-20 sm:top-24 z-30 mb-14 sm:mb-20 py-2 flex justify-start sm:justify-center">
+          <div className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#C6C2C1]/70 shadow-lg shadow-black/5 max-w-full overflow-x-auto scrollbar-none">
+            {SERVICES_LIST.map((service) => {
+              const isActive = activeDomain === service.id;
               return (
                 <button
                   key={service.id}
-                  onClick={() => scrollToService(i)}
-                  className={`relative px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 shrink-0 cursor-pointer ${
+                  onClick={() => scrollToService(service.id)}
+                  className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 shrink-0 cursor-pointer ${
                     isActive
-                      ? "bg-[#151515] text-[#F7F8F8] shadow-xs"
+                      ? "bg-[#151515] text-[#F7F8F8] shadow-sm"
                       : "text-[#544643] hover:text-[#151515] hover:bg-[#EFF0EF]"
                   }`}
                 >
-                  <span
-                    className={`font-mono text-[10px] ${
-                      isActive ? "text-[#C86A28]" : "text-[#544643]/70"
-                    }`}
-                  >
-                    0{i + 1}
-                  </span>
-                  <span>{shortLabel}</span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-service-dot"
-                      className="w-1.5 h-1.5 rounded-full bg-[#C86A28]"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
+                  <span>{service.shortName}</span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* The 4 Sticky Stacking Cards */}
-        <div className="relative pb-16 lg:pb-24">
-          {SERVICES_DATA.map((service, index) => (
-            <StackCard
-              key={service.id}
-              service={service}
-              index={index}
-              total={SERVICES_DATA.length}
-              scrollYProgress={scrollYProgress}
-            />
-          ))}
+        {/* ── The 4 Services: Open Modern Showcase (No Cards, No Box Containers) ── */}
+        <div className="space-y-24 lg:space-y-36">
+          {SERVICES_LIST.map((service) => {
+            const isReversed = service.reversed;
+
+            return (
+              <div
+                key={service.id}
+                id={`service-pillar-${service.id}`}
+                className={`pt-14 lg:pt-20 border-t border-[#C6C2C1]/60 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${
+                  isReversed ? "lg:grid-flow-dense" : ""
+                }`}
+              >
+                {/* ── Text Content Column ─────────────────────────────────── */}
+                <div
+                  className={`space-y-6 text-left ${
+                    isReversed ? "lg:col-span-6 lg:col-start-7" : "lg:col-span-6"
+                  }`}
+                >
+                  <div>
+                    {/* Category Row */}
+                    <div className="inline-flex items-center gap-2 mb-3">
+                      <span className="w-3.5 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
+                      <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#502D6D]">
+                        {service.category}
+                      </span>
+                    </div>
+
+                    {/* Service Title */}
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#151515] tracking-tight leading-tight">
+                      {service.title}
+                    </h3>
+
+                    {/* Tagline */}
+                    <p className="text-sm sm:text-base font-medium text-[#502D6D] mt-2 italic">
+                      {service.tagline}
+                    </p>
+
+                    {/* Detailed Paragraph */}
+                    <p className="text-sm sm:text-base text-[#544643] leading-relaxed mt-4 font-normal">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Technology Stack Row */}
+                  <div className="pt-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#151515] block mb-2">
+                      Core Technologies:
+                    </span>
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      {service.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-white text-[#151515] border border-[#C6C2C1]/60 shadow-2xs hover:border-[#502D6D]/40 transition-colors"
+                        >
+                          <TechIcon name={tech} className="w-5 h-5 shrink-0" />
+                          <span>{tech}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Clean Editorial Action Row */}
+                  <div className="pt-4 flex flex-wrap items-center gap-4">
+                    <Link
+                      href={service.route}
+                      className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#151515] hover:text-[#502D6D] transition-colors group cursor-pointer"
+                    >
+                      <span className="underline underline-offset-4 decoration-[#FCB116] group-hover:decoration-[#502D6D]">
+                        Explore Full {service.title}
+                      </span>
+                      <ArrowUpRight className="w-4 h-4 text-[#FCB116] group-hover:text-[#502D6D] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#151515] text-white text-xs font-bold hover:bg-[#502D6D] transition-all shadow-sm shadow-black/10 cursor-pointer"
+                    >
+                      <span>Get a Proposal</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* ── Visual Media Column (No Card Container) ─────────────── */}
+                <div
+                  className={`relative ${
+                    isReversed ? "lg:col-span-6 lg:col-start-1" : "lg:col-span-6"
+                  }`}
+                >
+                  {/* Ambient Lighting Ring */}
+                  <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-[#502D6D]/15 via-[#FCB116]/20 to-transparent blur-3xl pointer-events-none" />
+
+                  {/* Clean Borderless Floating Media Canvas */}
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#502D6D]/10 bg-white aspect-[16/10] sm:aspect-[16/9] group">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

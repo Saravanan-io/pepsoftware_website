@@ -47,11 +47,11 @@ export function CeoSection() {
               {/* CEO Identity Block */}
               <div className="pt-2">
                 <div className="flex items-center gap-3">
-                  <span className="font-syne text-xl sm:text-2xl font-extrabold text-[#151515] tracking-tight">
+                  <span className="text-xl sm:text-2xl font-bold text-[#151515] tracking-tight">
                     Shri Gowtham
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FCB116]" />
-                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#502D6D] bg-[#502D6D]/[0.08] px-3 py-1 rounded-full">
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#502D6D] bg-[#502D6D]/[0.08] px-3 py-1 rounded-full">
                     Founder & CEO
                   </span>
                 </div>
@@ -132,17 +132,17 @@ export function CeoSection() {
 
                   {/* Professional Executive Typography (Design Signature) */}
                   <div className="mt-5 text-center">
-                    <h3 className="font-syne text-2xl sm:text-3xl font-extrabold text-[#151515] tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#151515] tracking-tight">
                       Shri Gowtham
                     </h3>
                     <div className="flex items-center justify-center gap-2 mt-2">
                       <span className="w-5 h-[1.5px] bg-[#FCB116] rounded-full" />
-                      <p className="font-syne text-xs sm:text-[13px] font-extrabold text-[#502D6D] tracking-[0.24em] uppercase">
+                      <p className="text-xs sm:text-[13px] font-bold text-[#502D6D] tracking-wider uppercase">
                         Founder & Chief Executive Officer
                       </p>
                       <span className="w-5 h-[1.5px] bg-[#FCB116] rounded-full" />
                     </div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#544643]/80 mt-1.5">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#544643]/80 mt-1.5">
                       PEP Software • Erode, Tamil Nadu
                     </p>
                   </div>
