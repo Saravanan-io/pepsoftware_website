@@ -325,7 +325,7 @@ export function ProcessHowWeDevelop() {
             <RevealOnScroll>
               <div className="inline-flex items-center gap-2.5 mb-2">
                 <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                   OUR IMPACT
                 </span>
               </div>
@@ -333,7 +333,7 @@ export function ProcessHowWeDevelop() {
                 as="h2"
                 text="Numbers that build trust."
                 gradientWords="trust."
-                gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]"
+                gradientClassName="text-[#502D6D]"
                 className="text-4xl sm:text-5xl font-extrabold text-[#151515] leading-tight tracking-tight mt-4"
               />
               <ParagraphReveal

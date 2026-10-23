@@ -29,7 +29,7 @@ export default function WorkPage() {
                 as="h1"
                 text="Digital craftsmanship that drives business growth."
                 gradientWords="business growth."
-                gradientClassName="bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent"
+                gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
                 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#151515] leading-[1.08] tracking-tight"
               />
 

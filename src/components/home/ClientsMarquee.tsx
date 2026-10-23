@@ -54,7 +54,7 @@ export function ClientsMarquee() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12 text-center">
         <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
           A few of the amazing clients{" "}
-          <span className="bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE29A] bg-clip-text text-transparent">
+          <span className="text-[#FCB116]">
             we've worked with.
           </span>
         </h3>

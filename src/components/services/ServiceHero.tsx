@@ -61,7 +61,7 @@ export function ServiceHero({
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2.5">
               <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                 {badge}
               </span>
             </div>
@@ -70,7 +70,7 @@ export function ServiceHero({
               as="h1"
               text={[title, gradientText].filter(Boolean).join(" ")}
               gradientWords={gradientText}
-              gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]"
+              gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#151515] leading-[1.06]"
             />
 

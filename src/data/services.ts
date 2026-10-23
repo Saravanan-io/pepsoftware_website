@@ -4,12 +4,12 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: "ui-ux-design",
     slug: "ui-ux-design",
-    title: "UI/UX Design Services",
-    tagline: "Beautiful Interfaces. Meaningful Experiences.",
-    badge: "User Centered",
-    iconName: "Layout",
+    title: "Custom Software Development",
+    tagline: "Tailored Architecture. Scalable Systems.",
+    badge: "Custom Software",
+    iconName: "Cpu",
     shortDescription:
-      "Pep Software provides expert UI UX design services that help businesses build beautiful, user-friendly digital products. As a leading UI UX design company, we focus on both how your product looks and how it feels to use.",
+      "Pep Software provides bespoke custom software engineering that helps businesses automate operations, scale infrastructure, and solve complex workflow challenges.",
     fullDescription:
       "UI (User Interface) covers visuals like layout, colors, typography, and buttons—the elements users interact with. UX (User Experience) ensures the product is easy to use, with smooth navigation and logical flow that keeps users engaged. Together, UI and UX shape the overall experience—good UI grabs attention, great UX keeps users coming back.",
     features: [
@@ -433,12 +433,12 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: "graphic-design",
     slug: "graphic-design",
-    title: "Graphic Design & AR/VR",
-    tagline: "Captivating Visuals. Immersive Realities.",
-    badge: "Creative & Spatial",
-    iconName: "Palette",
+    title: "Digital Marketing Services",
+    tagline: "Data-Driven Strategy. Measurable Growth.",
+    badge: "Digital Marketing",
+    iconName: "TrendingUp",
     shortDescription:
-      "Enhance your brand with captivating visuals and stunning designs that leave a lasting impact. Our professional graphic design and AR services bring your ideas to life.",
+      "Accelerate your business with performance marketing, search engine optimization, and conversion-focused digital campaigns.",
     fullDescription:
       "In a crowded digital ecosystem, visual distinction is your greatest competitive moat. We forge iconic brand identities, bespoke marketing collateral, 3D motion assets, and boundary-pushing Augmented & Virtual Reality spatial experiences.",
     features: [
@@ -457,20 +457,28 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     subServices: [
       {
-        title: "Brand Identity Design",
-        description: "Logos, brand guidelines, color palettes, and typographic hierarchies that make your business unforgettable.",
+        title: "SEO & Search Engine Optimization",
+        description: "Technical SEO audits, keyword ranking strategies, and link building that drive sustained organic growth.",
       },
       {
-        title: "Marketing & Print Collateral",
-        description: "Brochures, flyers, business cards, banner designs, and trade show displays.",
+        title: "Performance & Paid Advertising",
+        description: "High-ROI PPC and social ad campaigns across Google, Meta, and LinkedIn with continuous conversion tracking.",
       },
       {
-        title: "3D Product Visualization",
-        description: "Photorealistic 3D product renders and interactive 3D web models.",
+        title: "Social Media Growth & Marketing",
+        description: "Engaging campaigns and community building across major social platforms to build brand loyalty and buzz.",
       },
       {
-        title: "Augmented Reality (AR) Experiences",
-        description: "Interactive WebAR filters and immersive brand engagements that wow customers on mobile.",
+        title: "Content Marketing & Copywriting",
+        description: "High-converting blogs, landing page copy, and creative storytelling that convert visitors into active leads.",
+      },
+      {
+        title: "Conversion Rate Optimization (CRO)",
+        description: "A/B testing, user journey heatmaps, and funnel optimization to maximize revenue from your existing traffic.",
+      },
+      {
+        title: "Analytics & Attribution Modeling",
+        description: "Data-driven marketing attribution, real-time KPI dashboards, and ROI measurement to scale your budget efficiently.",
       },
     ],
     timeline: [

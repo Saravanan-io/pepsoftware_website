@@ -38,7 +38,7 @@ export function HeroContent() {
         overflow: "hidden",
         background: "#F7F8F8",
       }}
-      className="flex flex-col justify-center pt-24 pb-16 lg:py-0 select-none"
+      className="flex flex-col justify-center pt-32 sm:pt-36 lg:py-0 select-none"
     >
       {/* Background shapes & PEP logo ambient glows */}
       <div
@@ -105,7 +105,7 @@ export function HeroContent() {
               as="h1"
               text="Digital Excellence Starts Here."
               gradientWords={["Excellence", "Here."]}
-              gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#502D6D] via-[#C86A28] to-[#FCB116]"
+              gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
               delay={0.15}
               staggerDelay={0.06}
               duration={0.65}

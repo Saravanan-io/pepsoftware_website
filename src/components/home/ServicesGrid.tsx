@@ -3,26 +3,15 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Layout, Code2, Smartphone, Layers, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Code2, Smartphone, ChevronLeft, ChevronRight, Cpu, TrendingUp } from "lucide-react";
 import { registerGSAP } from "@/lib/gsap";
 import type { ScrollTrigger as ScrollTriggerInstance } from "gsap/ScrollTrigger";
 import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
 
 const services = [
   {
-    id: "ui-ux-design",
-    num: "01",
-    icon: Layout,
-    label: "UI/UX Design",
-    desc: "Beautiful Interfaces. Meaningful Experiences. User-centered products crafted to elevate brands and maximize engagement.",
-    accent: "#502D6D", // PEP Royal Purple
-    href: "/services/ui-ux-design",
-    image: "/images/services/ui-ux-design-real.jpg",
-    tag: "Design & Research",
-  },
-  {
     id: "website-development",
-    num: "02",
+    num: "01",
     icon: Code2,
     label: "Website Development",
     desc: "Inspired Design. Intelligent Development. Responsive, lightning-fast web solutions that perform seamlessly across all devices.",
@@ -33,7 +22,7 @@ const services = [
   },
   {
     id: "mobile-app",
-    num: "03",
+    num: "02",
     icon: Smartphone,
     label: "Mobile App Development",
     desc: "Design with Purpose. Develop with Precision. Deliver with Impact. High-performance native and cross-platform apps.",
@@ -43,15 +32,26 @@ const services = [
     tag: "iOS & Android",
   },
   {
-    id: "ar-vr",
+    id: "custom-software-development",
+    num: "03",
+    icon: Cpu,
+    label: "Custom Software Development",
+    desc: "Tailored Architecture. Robust Engineering. High-performance enterprise software solutions engineered to automate and scale your business.",
+    accent: "#502D6D", // PEP Royal Purple
+    href: "/services",
+    image: "/images/services/custom-software-development-real.jpg",
+    tag: "Custom Solutions",
+  },
+  {
+    id: "digital-marketing",
     num: "04",
-    icon: Layers,
-    label: "AR/VR Design",
-    desc: "Captivating Visuals. Immersive Realities. Boundary-pushing 3D modeling, interactive WebAR, and spatial experiences.",
+    icon: TrendingUp,
+    label: "Digital Marketing",
+    desc: "Targeted Growth. High Conversion. Data-driven SEO, performance marketing, and creative campaigns that turn visitors into loyal customers.",
     accent: "#7C3AED", // Royal Purple Accent
-    href: "/services/graphic-design",
-    image: "/images/services/ar-vr-design-real.jpg",
-    tag: "Spatial Computing",
+    href: "/services",
+    image: "/images/services/digital-marketing-real.jpg",
+    tag: "Growth & Marketing",
   },
 ];
 
@@ -272,7 +272,7 @@ export function ServicesGrid() {
               <div className="flex items-center gap-3 mb-2">
                 <div className="inline-flex items-center gap-2">
                   <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#D4C7EC] to-[#A855F7]" />
-                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#FFFFFF] via-[#E9D5FF] to-[#C084FC] bg-clip-text text-transparent">
+                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#FCB116]">
                     OUR SERVICES
                   </span>
                 </div>
@@ -282,7 +282,7 @@ export function ServicesGrid() {
                 as="h2"
                 text="Digital solutions for a smarter tomorrow."
                 gradientWords="tomorrow."
-                gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-[#E9D5FF] to-[#C084FC]"
+                gradientClassName="text-[#FCB116]"
                 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight"
               />
               <ParagraphReveal

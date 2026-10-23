@@ -78,7 +78,7 @@ export function WhyChooseUs() {
               {/* Stylish Section Kicker */}
               <div className="inline-flex items-center gap-2.5">
                 <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                   WHY CHOOSE US?
                 </span>
               </div>
@@ -88,7 +88,7 @@ export function WhyChooseUs() {
                 as="h2"
                 text="Smart Solutions, Real Results — Built Around Your Vision"
                 gradientWords="Built Around Your Vision"
-                gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#502D6D] via-[#C86A28] to-[#FCB116]"
+                gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
                 className="text-4xl sm:text-5xl lg:text-[46px] font-black leading-[1.15] tracking-tight text-[#151515]"
               />
 

@@ -35,7 +35,7 @@ export function ContactCTA() {
               <div className="lg:col-span-8 space-y-6">
                 <div className="inline-flex items-center gap-2.5">
                   <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#D79EFF] to-[#FCB116]" />
-                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE8A3] bg-clip-text text-transparent">
+                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#FCB116]">
                     LET&apos;S WORK TOGETHER
                   </span>
                 </div>
@@ -44,7 +44,7 @@ export function ContactCTA() {
                   as="h2"
                   text="Ready to bring your ideas to life?"
                   gradientWords="ideas to life?"
-                  gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE8A3]"
+                  gradientClassNames={["text-[#D79EFF]", "text-[#FCB116]", "text-[#FFE8A3]"]}
                   className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#F7F8F8] leading-[1.05] tracking-tight"
                 />
 

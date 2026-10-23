@@ -119,7 +119,7 @@ export function ContactForm() {
       <div className="border-b border-[#E2E4E9] pb-5 relative">
         <div className="inline-flex items-center gap-2 mb-1.5">
           <span className="w-3.5 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-          <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.22em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+          <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#502D6D]">
             DIRECT INQUIRY DESK
           </span>
         </div>

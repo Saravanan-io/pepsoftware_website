@@ -51,10 +51,8 @@ export function SectionHeading({
           />
           <span
             className={cn(
-              "font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-clip-text text-transparent",
-              light
-                ? "bg-gradient-to-r from-[#D79EFF] via-[#F3C68F] to-[#FCB116]"
-                : "bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116]"
+              "font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em]",
+              light ? "text-[#FCB116]" : "text-[#502D6D]"
             )}
           >
             {badge}
@@ -66,12 +64,11 @@ export function SectionHeading({
         as="h2"
         text={[title, gradientWord, titleSuffix].filter(Boolean).join(" ")}
         gradientWords={gradientWord}
-        gradientClassName={cn(
-          "text-transparent bg-clip-text",
+        gradientClassNames={
           light
-            ? "bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE29A]"
-            : "bg-gradient-to-r from-[#544643] to-[#C86A28]"
-        )}
+            ? ["text-[#D79EFF]", "text-[#FCB116]", "text-[#FFE29A]"]
+            : ["text-[#502D6D]", "text-[#FCB116]"]
+        }
         className={cn(
           "text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12]",
           light ? "text-white" : "text-[#151515]"

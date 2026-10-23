@@ -17,7 +17,7 @@ export function ServiceProcessTimeline({
         <RevealOnScroll className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="w-5 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-            <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+            <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
               Methodology
             </span>
             <span className="w-5 h-[2px] rounded-full bg-gradient-to-r from-[#FCB116] to-[#502D6D]" />

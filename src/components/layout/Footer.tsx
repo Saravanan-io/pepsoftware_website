@@ -54,7 +54,7 @@ export function Footer() {
                     Software
                   </span>
                 </div>
-                <span className="text-[10px] font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#502D6D] to-[#FCB116] bg-clip-text text-transparent mt-1.5">
+                <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#502D6D] mt-1.5">
                   Engineering Digital Growth
                 </span>
               </div>

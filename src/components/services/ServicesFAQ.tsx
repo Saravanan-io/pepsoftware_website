@@ -53,15 +53,14 @@ export function ServicesFAQ() {
           <RevealOnScroll>
             <div className="inline-flex items-center gap-2.5 mb-3">
               <HelpCircle className="w-4 h-4 text-[#FCB116] shrink-0" />
-              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                 FREQUENTLY ASKED QUESTIONS
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151515] leading-tight tracking-tight mt-2">
               Common Questions &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]">
-                Clear Answers.
-              </span>
+              <span className="text-[#502D6D]">Clear</span>{" "}
+              <span className="text-[#FCB116]">Answers.</span>
             </h2>
             <p className="text-sm sm:text-base text-[#544643] mt-3">
               Everything you need to know about our web development, UI/UX design, and mobile app services.

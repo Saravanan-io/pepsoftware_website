@@ -11,7 +11,7 @@ import {
   useMotionValue,
   MotionValue,
 } from "framer-motion";
-import { ArrowRight, ShieldCheck, ChevronDown, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, ChevronDown } from "lucide-react";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
 import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
 import { cn } from "@/lib/utils";
@@ -318,12 +318,11 @@ function Cinematic3DLogo({ progress }: { progress: MotionValue<number> }) {
             className="flex flex-col items-center mt-5 text-center"
             style={{ transform: "translateZ(25px)" }}
           >
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#FCB116] animate-spin" style={{ animationDuration: "6s" }} />
-              <h3 className="font-syne font-black text-2xl sm:text-3xl tracking-[0.24em] uppercase bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent drop-shadow-xs">
-                PEP SOFTWARE
+            <div className="flex items-center justify-center">
+              <h3 className="font-syne font-black text-2xl sm:text-3xl tracking-[0.24em] uppercase drop-shadow-xs">
+                <span className="text-[#502D6D]">PEP</span>{" "}
+                <span className="text-[#FCB116]">SOFTWARE</span>
               </h3>
-              <Sparkles className="w-4 h-4 text-[#502D6D]" />
             </div>
 
             {/* Interactive Scroll Cue Button */}
@@ -674,7 +673,7 @@ export function ModernWhyChooseSection({
             <RevealOnScroll>
               <div className="inline-flex items-center gap-2 mb-2">
                 <ShieldCheck className="w-4 h-4 text-[#FCB116] shrink-0" />
-                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                   {badge}
                 </span>
               </div>
@@ -683,7 +682,7 @@ export function ModernWhyChooseSection({
                 as="h2"
                 text={`${title} ${gradientWord}`}
                 gradientWords={gradientWord}
-                gradientClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#502D6D] via-[#C86A28] to-[#FCB116]"
+                gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
                 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-[#151515] leading-[1.12] tracking-tight mt-0.5"
               />
 

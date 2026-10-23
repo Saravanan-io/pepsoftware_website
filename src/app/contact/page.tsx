@@ -36,7 +36,7 @@ export default function ContactPage() {
               <RevealOnScroll>
                 <div className="inline-flex items-center gap-2.5 mb-2">
                   <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                     GET IN TOUCH
                   </span>
                 </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                   as="h1"
                   text="Let's build something extraordinary together."
                   gradientWords="extraordinary together."
-                  gradientClassName="bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent"
+                  gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
                   className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#151515] leading-[1.08] mt-4"
                 />
 
@@ -101,7 +101,7 @@ export default function ContactPage() {
                     <div className="mb-1">
                       <div className="inline-flex items-center gap-2">
                         <span className="w-3.5 h-[2px] rounded-full bg-gradient-to-r from-[#FCB116] to-[#502D6D]" />
-                        <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.22em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                        <span className="font-syne text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#502D6D]">
                           STUDIO HEADQUARTERS
                         </span>
                       </div>

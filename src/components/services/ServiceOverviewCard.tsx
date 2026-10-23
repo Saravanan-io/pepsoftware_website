@@ -6,6 +6,7 @@ interface ServiceOverviewCardProps {
   features: string[];
   deliverables: string[];
   subServices?: { title: string; description: string }[];
+  serviceTitle?: string;
   tools?: string[];
   whyChooseUs?: { title: string; description: string }[];
 }
@@ -14,6 +15,7 @@ export function ServiceOverviewCard({
   features,
   deliverables,
   subServices,
+  serviceTitle,
   tools,
   whyChooseUs,
 }: ServiceOverviewCardProps) {
@@ -21,7 +23,9 @@ export function ServiceOverviewCard({
     <section className="py-10 sm:py-14 bg-[#F7F8F8] border-y border-[#C6C2C1]/40 space-y-10 sm:space-y-12">
       {/* Row 1: Interactive Deliverables Hub & Spoke Showcase (if subServices provided) */}
       {subServices && subServices.length > 0 && (
-        <DeliverablesHubShowcase subServices={subServices} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DeliverablesHubShowcase subServices={subServices} serviceTitle={serviceTitle} />
+        </div>
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">

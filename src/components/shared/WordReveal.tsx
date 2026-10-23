@@ -7,11 +7,20 @@ import { cn } from "@/lib/utils";
 export interface WordItem {
   word: string;
   isGradient: boolean;
+  colorClass?: string;
 }
+
+const DEFAULT_BRAND_COLORS = ["text-[#502D6D]", "text-[#FCB116]"];
+const DEFAULT_LIGHT_BRAND_COLORS = ["text-[#D79EFF]", "text-[#FCB116]", "text-[#FFE29A]"];
 
 export function parseTextToWords(
   text: string,
-  gradientWords?: string | string[]
+  gradientWords?: string | string[],
+  options?: {
+    gradientClassName?: string | string[];
+    gradientClassNames?: string[];
+    wordColors?: Record<string, string>;
+  }
 ): WordItem[] {
   if (!text) return [];
 
@@ -40,10 +49,49 @@ export function parseTextToWords(
       });
   }
 
+  // Determine color palette (single solid color per word)
+  let colorPalette: string[] = [];
+  if (options?.gradientClassNames && options.gradientClassNames.length > 0) {
+    colorPalette = options.gradientClassNames;
+  } else if (Array.isArray(options?.gradientClassName) && options.gradientClassName.length > 0) {
+    colorPalette = options.gradientClassName;
+  } else if (typeof options?.gradientClassName === "string" && options.gradientClassName.trim()) {
+    const cls = options.gradientClassName.trim();
+    if (cls.includes("gradient") || cls.includes("bg-clip-text")) {
+      // Don't apply multi-gradient to a single word; use solid logo colors instead
+      if (cls.includes("#D79EFF") || cls.includes("#FFFFFF") || cls.includes("white")) {
+        colorPalette = DEFAULT_LIGHT_BRAND_COLORS;
+      } else {
+        colorPalette = DEFAULT_BRAND_COLORS;
+      }
+    } else {
+      colorPalette = [cls];
+    }
+  } else {
+    colorPalette = DEFAULT_BRAND_COLORS;
+  }
+
+  let gradientMatchIndex = 0;
+
   return rawWords.map((word) => {
     const cleanWord = word.toLowerCase().replace(/[.,!?;:—\-]/g, "");
-    const isGradient = targets.length > 0 && targets.includes(cleanWord);
-    return { word, isGradient };
+    const isTarget = targets.length > 0 && targets.includes(cleanWord);
+
+    let colorClass: string | undefined = undefined;
+    if (isTarget) {
+      if (options?.wordColors && options.wordColors[cleanWord]) {
+        colorClass = options.wordColors[cleanWord];
+      } else if (colorPalette.length > 0) {
+        colorClass = colorPalette[gradientMatchIndex % colorPalette.length];
+        gradientMatchIndex++;
+      }
+    }
+
+    return {
+      word,
+      isGradient: isTarget,
+      colorClass,
+    };
   });
 }
 
@@ -76,7 +124,9 @@ export interface WordRevealProps {
   text?: string;
   children?: ReactNode;
   gradientWords?: string | string[];
-  gradientClassName?: string;
+  gradientClassName?: string | string[];
+  gradientClassNames?: string[];
+  wordColors?: Record<string, string>;
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
   className?: string;
   wordClassName?: string;
@@ -92,6 +142,8 @@ export function WordReveal({
   children,
   gradientWords,
   gradientClassName,
+  gradientClassNames,
+  wordColors,
   as: Tag = "div",
   className,
   wordClassName,
@@ -111,8 +163,13 @@ export function WordReveal({
       : "";
 
   const words = useMemo(
-    () => parseTextToWords(rawText, gradientWords),
-    [rawText, gradientWords]
+    () =>
+      parseTextToWords(rawText, gradientWords, {
+        gradientClassName,
+        gradientClassNames,
+        wordColors,
+      }),
+    [rawText, gradientWords, gradientClassName, gradientClassNames, wordColors]
   );
 
   const Component = motion[Tag];
@@ -138,7 +195,7 @@ export function WordReveal({
             className={cn(
               "inline-block",
               wordClassName,
-              item.isGradient && gradientClassName
+              item.colorClass
             )}
           >
             {item.word}

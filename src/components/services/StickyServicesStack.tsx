@@ -10,22 +10,24 @@ import {
   Palette,
   Wrench,
   ArrowRight,
+  Cpu,
+  TrendingUp,
 } from "lucide-react";
 import { SERVICES_DATA } from "@/data/services";
 import { ServiceItem } from "@/types";
 
 const serviceIcons: Record<string, typeof Code2> = {
   "website-design-development": Code2,
-  "ui-ux-design": Layout,
+  "ui-ux-design": Cpu,
   "mobile-app-design-development": Smartphone,
-  "graphic-design": Palette,
+  "graphic-design": TrendingUp,
 };
 
 const serviceShortLabels: Record<string, string> = {
-  "ui-ux-design": "UI/UX Design",
+  "ui-ux-design": "Custom Software",
   "website-design-development": "Web Development",
   "mobile-app-design-development": "Mobile Apps",
-  "graphic-design": "Graphic & AR/VR",
+  "graphic-design": "Digital Marketing",
 };
 
 interface DeliverableCardItem {
@@ -48,37 +50,37 @@ const serviceProcesses: Record<string, ServiceProcessData> = {
   "ui-ux-design": {
     badgeText: "WHAT WE DELIVER",
     titlePrefix: "Our ",
-    titleHighlight: "UI/UX Design",
+    titleHighlight: "Custom Software",
     titleSuffix: " Process",
     subtitle:
-      "From strategy to stunning interfaces, we craft user experiences that are intuitive, engaging, and conversion-driven.",
+      "From architectural design to full-stack engineering, we build bespoke software systems that automate workflows and accelerate growth.",
     deliverables: [
       {
         number: "01",
-        title: "User Research & Insights",
+        title: "Architecture & System Design",
         description:
-          "We explore user behavior, pain points, and goals through surveys, interviews, and competitor analysis to design meaningful experiences.",
-        image: "/images/services/uiux-step-1-3d.png",
-      },
-      {
-        number: "02",
-        title: "UX Strategy & Wireframing",
-        description:
-          "From journey mapping to wireframing, we build intuitive flows and logical structures that form the backbone of usable products.",
+          "We architect robust, scalable software frameworks, data models, and system flows tailored to your enterprise operations.",
         image: "/images/services/uiux-step-2-3d.png",
       },
       {
-        number: "03",
-        title: "UI Design & Visual Identity",
+        number: "02",
+        title: "Full-Stack Custom Development",
         description:
-          "We design clean, responsive, and visually stunning interfaces that reflect your brand with pixel-perfect precision.",
+          "Bespoke backend APIs, cloud microservices, and reactive frontends engineered with clean, maintainable code standards.",
+        image: "/images/services/website-development-3d.png",
+      },
+      {
+        number: "03",
+        title: "Cloud & Database Integration",
+        description:
+          "Seamless integration with AWS, Azure, PostgreSQL, and high-throughput data pipelines for maximum uptime and security.",
         image: "/images/services/uiux-step-3-3d.png",
       },
       {
         number: "04",
-        title: "Prototyping & Interaction Design",
+        title: "QA, DevOps & Deployment",
         description:
-          "Interactive prototypes and smooth micro-interactions bring your product to life and offer early user feedback before development.",
+          "Rigorous automated testing, CI/CD pipeline automation, and containerized deployment ensuring zero-downtime scalability.",
         image: "/images/services/uiux-step-4-3d.png",
       },
     ],
@@ -162,37 +164,37 @@ const serviceProcesses: Record<string, ServiceProcessData> = {
   "graphic-design": {
     badgeText: "WHAT WE DELIVER",
     titlePrefix: "Our ",
-    titleHighlight: "Graphic & Spatial",
+    titleHighlight: "Digital Marketing",
     titleSuffix: " Process",
     subtitle:
-      "Forging iconic brand identities, bespoke 3D motion graphics, and boundary-pushing Augmented & Virtual Reality spatial experiences.",
+      "Data-driven SEO, performance marketing campaigns, and creative content strategies that turn qualified visitors into loyal customers.",
     deliverables: [
       {
         number: "01",
-        title: "Brand Identity Design",
+        title: "SEO & Market Research",
         description:
-          "Logos, comprehensive brand styleguides, custom color systems, and typographic hierarchies that make your business unforgettable.",
-        image: "/images/services/graphic-design-3d.png",
+          "In-depth keyword analysis, technical SEO auditing, and competitor positioning to capture top organic search rankings.",
+        image: "/images/services/uiux-step-1-3d.png",
       },
       {
         number: "02",
-        title: "3D Modeling & Motion",
+        title: "Performance & Paid Ads",
         description:
-          "Photorealistic 3D product renders, WebGL interactive assets, and motion graphics that elevate digital experiences.",
-        image: "/images/services/uiux-step-3-3d.png",
+          "ROI-focused PPC and social advertising campaigns across Google, Meta, and LinkedIn with continuous A/B conversion optimization.",
+        image: "/images/services/graphic-design-3d.png",
       },
       {
         number: "03",
-        title: "Augmented Reality (AR)",
+        title: "Content Strategy & Copywriting",
         description:
-          "Interactive WebAR filters and immersive spatial brand engagements that wow customers on mobile without apps.",
-        image: "/images/services/uiux-step-4-3d.png",
+          "High-converting copywriting, visual storytelling, and brand assets that establish industry authority and engage audiences.",
+        image: "/images/services/uiux-step-3-3d.png",
       },
       {
         number: "04",
-        title: "Marketing & Print Collateral",
+        title: "Analytics & Conversion Funnels",
         description:
-          "From high-conversion digital ad creatives to packaging and trade show collateral, crafted with vector precision.",
+          "Real-time tracking, conversion rate optimization (CRO), and attribution modeling to measure and maximize your marketing ROI.",
         image: "/images/services/uiux-step-2-3d.png",
       },
     ],
@@ -257,10 +259,17 @@ function StackCard({ service, index, total, scrollYProgress }: CardProps) {
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 sm:gap-4">
             <span className="text-[11px] font-mono font-semibold text-[#544643] hidden sm:inline">
               0{index + 1} / 0{total} Core Domains
             </span>
+            <Link
+              href={`/services/${service.slug}`}
+              className="group/btn hidden sm:inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#151515] hover:bg-[#C86A28] text-[#F7F8F8] hover:text-white text-[11px] font-extrabold transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer shrink-0"
+            >
+              <span>Explore</span>
+              <ArrowRight className="w-3 h-3 text-[#C86A28] group-hover/btn:text-white transition-colors" />
+            </Link>
           </div>
         </div>
 
@@ -277,7 +286,7 @@ function StackCard({ service, index, total, scrollYProgress }: CardProps) {
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#151515] tracking-tight">
               {processData.titlePrefix}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A1A] to-[#C86A28]">
+              <span className="text-[#C86A28]">
                 {processData.titleHighlight}
               </span>
               {processData.titleSuffix}
@@ -286,6 +295,17 @@ function StackCard({ service, index, total, scrollYProgress }: CardProps) {
             <p className="text-xs sm:text-sm text-[#544643] leading-relaxed max-w-xl mx-auto">
               {processData.subtitle}
             </p>
+
+            {/* Explore Full Service CTA Button at Top of Card */}
+            <div className="pt-2 flex justify-center">
+              <Link
+                href={`/services/${service.slug}`}
+                className="group/btn inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#151515] hover:bg-[#C86A28] text-[#F7F8F8] hover:text-white text-xs sm:text-sm font-extrabold transition-all duration-300 shadow-md shadow-[#151515]/10 hover:shadow-xl hover:gap-3.5 cursor-pointer"
+              >
+                <span>Explore Full {service.title}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#C86A28] group-hover/btn:text-white transition-colors" />
+              </Link>
+            </div>
           </div>
 
           {/* 2x2 Grid of Organic 3D Fluid Glass Cards matching uploaded reference */}
@@ -307,7 +327,7 @@ function StackCard({ service, index, total, scrollYProgress }: CardProps) {
                   {/* Left Column: Number, Title, Description, Arrow Button */}
                   <div className="flex-1 min-w-0 flex flex-col justify-between h-full space-y-3">
                     <div>
-                      <span className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A1A] to-[#C86A28] block leading-none">
+                      <span className="text-2xl sm:text-3xl font-black text-[#C86A28] block leading-none">
                         {item.number}
                       </span>
                       <h4 className="text-base sm:text-lg font-black text-[#151515] tracking-tight leading-snug mt-1.5 group-hover/card:text-[#C86A28] transition-colors">
@@ -340,40 +360,28 @@ function StackCard({ service, index, total, scrollYProgress }: CardProps) {
             ))}
           </div>
 
-          {/* Footer Bar: Tech Stack & Tools Chips + Explore Full Service CTA */}
-          <div className="pt-4 border-t border-[#C6C2C1]/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            {/* Tools chips */}
-            {service.tools && service.tools.length > 0 && (
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-[11px] font-bold text-[#544643] mr-1 flex items-center gap-1">
-                  <Wrench className="w-3 h-3 text-[#C86A28]" />
-                  Tech Stack:
+          {/* Footer Bar: Tech Stack & Tools Chips */}
+          {service.tools && service.tools.length > 0 && (
+            <div className="pt-4 border-t border-[#C6C2C1]/60 flex items-center gap-1.5 flex-wrap">
+              <span className="text-[11px] font-bold text-[#544643] mr-1 flex items-center gap-1">
+                <Wrench className="w-3 h-3 text-[#C86A28]" />
+                Tech Stack:
+              </span>
+              {service.tools.slice(0, 8).map((tool) => (
+                <span
+                  key={tool}
+                  className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#EFF0EF] text-[#151515] border border-[#C6C2C1]"
+                >
+                  {tool}
                 </span>
-                {service.tools.slice(0, 6).map((tool) => (
-                  <span
-                    key={tool}
-                    className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#EFF0EF] text-[#151515] border border-[#C6C2C1]"
-                  >
-                    {tool}
-                  </span>
-                ))}
-                {service.tools.length > 6 && (
-                  <span className="text-[10px] font-bold text-[#544643]">
-                    +{service.tools.length - 6} more
-                  </span>
-                )}
-              </div>
-            )}
-
-            {/* Explore Full Service CTA Button */}
-            <Link
-              href={`/services/${service.slug}`}
-              className="group/btn inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#151515] hover:bg-[#C86A28] text-[#F7F8F8] hover:text-white text-xs font-extrabold transition-all duration-300 shadow-md shadow-[#151515]/10 hover:shadow-xl hover:gap-3 cursor-pointer shrink-0"
-            >
-              <span>Explore Full {service.title}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#C86A28] group-hover/btn:text-white transition-colors" />
-            </Link>
-          </div>
+              ))}
+              {service.tools.length > 8 && (
+                <span className="text-[10px] font-bold text-[#544643]">
+                  +{service.tools.length - 8} more
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </motion.div>
     </div>
@@ -416,15 +424,14 @@ export function StickyServicesStack() {
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-            <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+            <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
               CORE CAPABILITIES
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151515] tracking-tight mt-1">
             Explore Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#544643] to-[#C86A28]">
-              Specialized Services
-            </span>
+            <span className="text-[#502D6D]">Specialized</span>{" "}
+            <span className="text-[#FCB116]">Services</span>
           </h2>
           <p className="text-sm sm:text-base text-[#544643] mt-3 max-w-xl mx-auto leading-relaxed">
             Scroll to navigate through our 4 core domains—engineered for performance, craft, and scale.

@@ -288,7 +288,7 @@ export function PortfolioTeaser() {
           <RevealOnScroll className="max-w-2xl">
             <div className="inline-flex items-center gap-2.5 mb-3">
               <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                 OUR WORK
               </span>
             </div>
@@ -296,7 +296,7 @@ export function PortfolioTeaser() {
               as="h2"
               text="Projects that speak for themselves"
               gradientWords="themselves"
-              gradientClassName="bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent"
+              gradientClassName="text-[#502D6D]"
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#151515] leading-tight tracking-tight"
             />
             <ParagraphReveal

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, ReactNode } from "react";
+import { useState, useRef, useMemo, ReactNode } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Layers,
   Search,
@@ -14,6 +15,18 @@ import {
   Code2,
   MousePointer,
   Pencil,
+  Globe,
+  ShoppingCart,
+  Layout,
+  BarChart3,
+  TrendingUp,
+  Megaphone,
+  RotateCcw,
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  Cpu,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -25,6 +38,7 @@ interface SubServiceItem {
 interface DeliverablesHubShowcaseProps {
   subServices: SubServiceItem[];
   serviceTitle?: string;
+  serviceSlug?: string;
   className?: string;
 }
 
@@ -47,7 +61,7 @@ function VisualResearch() {
           <div className="w-3/5 h-1 rounded bg-[#C86A28]/40" />
         </div>
       </div>
-      <div className="absolute -top-1 -right-1 w-9 h-9 rounded-full border-2 border-[#C86A28] bg-white/95 shadow-sm flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+      <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full border-2 border-[#C86A28] bg-white/95 shadow-sm flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
         <Search className="w-4 h-4 text-[#C86A28]" />
       </div>
       <div className="absolute -bottom-1 -left-1 w-5 h-5 rounded-md bg-gradient-to-br from-[#FF8A3D] to-[#C86A28] text-white flex items-center justify-center shadow-xs">
@@ -210,6 +224,58 @@ function VisualDeveloperHandoff() {
   );
 }
 
+function VisualEcommerce() {
+  return (
+    <div className="relative w-20 h-16 shrink-0 flex items-center justify-center transform-gpu">
+      <div className="w-15 h-12 rounded-xl bg-white border border-[#C6C2C1]/80 shadow-xs p-1.5 flex flex-col justify-between">
+        <div className="flex items-center justify-between">
+          <span className="text-[8px] font-black text-[#C86A28]">$129</span>
+          <div className="w-2 h-2 rounded-full bg-green-500" />
+        </div>
+        <div className="w-full h-1.5 rounded bg-[#EFF0EF]" />
+        <div className="w-3/4 h-1.5 rounded bg-[#FF8A3D]/40" />
+      </div>
+      <div className="absolute -top-1 -right-1 w-7 h-7 rounded-lg bg-gradient-to-br from-[#FF8A3D] to-[#C86A28] text-white flex items-center justify-center shadow-xs">
+        <ShoppingCart className="w-3.5 h-3.5" />
+      </div>
+    </div>
+  );
+}
+
+function VisualAnalytics() {
+  return (
+    <div className="relative w-20 h-16 shrink-0 flex items-center justify-center transform-gpu">
+      <div className="w-15 h-12 rounded-xl bg-[#151515] p-1.5 shadow-xs border border-[#333] flex items-end justify-between gap-1">
+        <div className="w-2 h-4 rounded-t bg-white/20" />
+        <div className="w-2 h-6 rounded-t bg-[#FF8A3D]/60" />
+        <div className="w-2 h-8 rounded-t bg-[#C86A28]" />
+        <div className="w-2 h-10 rounded-t bg-gradient-to-t from-[#C86A28] to-[#FF8A3D]" />
+      </div>
+      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-br from-[#FF8A3D] to-[#C86A28] text-white flex items-center justify-center shadow-xs">
+        <TrendingUp className="w-3.5 h-3.5" />
+      </div>
+    </div>
+  );
+}
+
+function VisualMobile() {
+  return (
+    <div className="relative w-20 h-16 shrink-0 flex items-center justify-center transform-gpu">
+      <div className="w-9 h-14 rounded-xl bg-[#151515] p-1 shadow-xs border border-[#333] flex flex-col items-center justify-between">
+        <div className="w-2.5 h-0.5 rounded-full bg-white/30" />
+        <div className="w-full h-9 rounded bg-[#252525] p-1 space-y-1">
+          <div className="w-full h-2 rounded bg-gradient-to-r from-[#FF8A3D] to-[#C86A28]" />
+          <div className="w-4/5 h-1 rounded bg-white/30" />
+        </div>
+        <div className="w-2 h-0.5 rounded-full bg-white/20" />
+      </div>
+      <div className="absolute -bottom-1 -left-1 w-6 h-6 rounded-md bg-gradient-to-br from-[#FF8A3D] to-[#C86A28] text-white flex items-center justify-center shadow-xs">
+        <Smartphone className="w-3.5 h-3.5" />
+      </div>
+    </div>
+  );
+}
+
 function getCardVisual(title: string, index: number): ReactNode {
   const t = title.toLowerCase();
   if (t.includes("research") || t.includes("insight")) return <VisualResearch />;
@@ -217,11 +283,14 @@ function getCardVisual(title: string, index: number): ReactNode {
   if (t.includes("visual") || t.includes("identity") || t.includes("brand")) return <VisualUIDesign />;
   if (t.includes("prototype") || t.includes("interact")) return <VisualPrototyping />;
   if (t.includes("design system") || t.includes("component")) return <VisualDesignSystems />;
-  if (t.includes("writing") || t.includes("microcopy") || t.includes("copy")) return <VisualUXWriting />;
-  if (t.includes("web & app") || t.includes("app") || t.includes("cross-platform")) return <VisualWebAppUI />;
-  if (t.includes("handoff") || t.includes("developer") || t.includes("front-end") || t.includes("development")) return <VisualDeveloperHandoff />;
+  if (t.includes("writing") || t.includes("microcopy") || t.includes("copy") || t.includes("content")) return <VisualUXWriting />;
+  if (t.includes("web & app") || t.includes("cross-platform")) return <VisualWebAppUI />;
+  if (t.includes("handoff") || t.includes("developer") || t.includes("front-end") || t.includes("development") || t.includes("code")) return <VisualDeveloperHandoff />;
+  if (t.includes("commerce") || t.includes("shop") || t.includes("cart")) return <VisualEcommerce />;
+  if (t.includes("analytics") || t.includes("seo") || t.includes("funnel") || t.includes("growth") || t.includes("marketing")) return <VisualAnalytics />;
+  if (t.includes("app") || t.includes("android") || t.includes("ios") || t.includes("mobile")) return <VisualMobile />;
 
-  const visuals = [
+  const fallbackVisuals = [
     <VisualResearch key={0} />,
     <VisualWireframing key={1} />,
     <VisualUIDesign key={2} />,
@@ -231,12 +300,12 @@ function getCardVisual(title: string, index: number): ReactNode {
     <VisualWebAppUI key={6} />,
     <VisualDeveloperHandoff key={7} />,
   ];
-  return visuals[index % visuals.length];
+  return fallbackVisuals[index % fallbackVisuals.length];
 }
 
 /* ─────────────────────────────────────────────────────────────
-   STATIC PRECOMPUTED 60FPS VECTOR PRESETS
-   Precomputed mathematically: 0 DOM measurements, 0 reflows!
+   PRECOMPUTED BÉZIER CONDUITS & LAYOUT CONFIGURATIONS
+   Zero DOM measurements, butter-smooth 60fps SVG curves
 ───────────────────────────────────────────────────────────── */
 
 interface ConduitDef {
@@ -261,8 +330,8 @@ function getPrecomputedLayout(count: number): LayoutConfig {
       stageHeight: 520,
       hubYPercent: 50,
       positions: [
-        "top-[5%] left-[3%] w-[33%]",
-        "top-[5%] right-[3%] w-[33%]",
+        "top-[6%] left-[3%] w-[33%]",
+        "top-[6%] right-[3%] w-[33%]",
         "top-[58%] left-[3%] w-[33%]",
         "top-[58%] right-[3%] w-[33%]",
       ],
@@ -276,7 +345,7 @@ function getPrecomputedLayout(count: number): LayoutConfig {
   }
 
   if (count === 5) {
-    // 5 items (Web Design & Dev): 2 top, 2 mid, 1 center-bottom!
+    // 5 items (Web Design & Dev): 2 top, 2 mid, 1 center-bottom
     return {
       stageHeight: 580,
       hubYPercent: 44,
@@ -298,7 +367,7 @@ function getPrecomputedLayout(count: number): LayoutConfig {
   }
 
   if (count === 6) {
-    // 6 items (Mobile App): 2 top, 2 mid, 2 bottom!
+    // 6 items (Mobile App / Digital Marketing): 2 top, 2 mid, 2 bottom
     return {
       stageHeight: 600,
       hubYPercent: 44,
@@ -321,7 +390,7 @@ function getPrecomputedLayout(count: number): LayoutConfig {
     };
   }
 
-  // 8 items (UI/UX Design): 2 top, 2 mid, 4 bottom
+  // 8 items (UI/UX Design / Custom Software): 2 top, 2 mid, 4 bottom
   return {
     stageHeight: 650,
     hubYPercent: 41,
@@ -348,49 +417,131 @@ function getPrecomputedLayout(count: number): LayoutConfig {
   };
 }
 
+/* Ambient Orbiting Particles around the Central Orb (matching Panel 2) */
+const AMBIENT_PARTICLES = [
+  { x: -95, y: -80, size: 5, delay: 0.25 },
+  { x: 92, y: -75, size: 4.5, delay: 0.35 },
+  { x: -115, y: 15, size: 4, delay: 0.45 },
+  { x: 110, y: 20, size: 5.5, delay: 0.3 },
+  { x: -80, y: 95, size: 4, delay: 0.5 },
+  { x: 85, y: 90, size: 4.5, delay: 0.4 },
+  { x: 0, y: -118, size: 5, delay: 0.2 },
+  { x: 0, y: 120, size: 4, delay: 0.6 },
+];
+
 /* ─────────────────────────────────────────────────────────────
-   MAIN COMPONENT
+   MAIN COMPONENT WITH 8-STAGE PROGRESSIVE FLOW ANIMATION
 ───────────────────────────────────────────────────────────── */
 
 export function DeliverablesHubShowcase({
   subServices,
   serviceTitle = "UI/UX Design",
+  serviceSlug,
   className,
 }: DeliverablesHubShowcaseProps) {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [replayKey, setReplayKey] = useState(0);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   const cardCount = subServices.length;
   const layout = useMemo(() => getPrecomputedLayout(cardCount), [cardCount]);
 
+  /* Timing orchestrator matching the 8 storyboard stages:
+     Stage 1 & 2: Center appears (0s - 0.5s)
+     Stage 3: Card 01 conduit draws -> Card 01 pops in (0.5s - 0.95s)
+     Stage 4: Card 02 conduit draws -> Card 02 pops in (1.0s - 1.45s)
+     Stage 5: Cards 03 & 04 conduits draw -> pop in (1.5s - 2.0s)
+     Stage 6: Bottom cards 05-08 conduits draw -> pop in (2.1s - 2.9s)
+     Stage 7: All cards active with traveling energy pulses (3.0s+)
+     Stage 8: Interactive hover effect on any card
+  */
+  const getStageDelays = (idx: number) => {
+    if (cardCount === 8) {
+      // Precise mappings matching the 8 storyboard frames
+      switch (idx) {
+        case 0:
+          return { conduit: 0.45, card: 0.8 };
+        case 1:
+          return { conduit: 0.95, card: 1.3 };
+        case 2:
+          return { conduit: 1.45, card: 1.8 };
+        case 3:
+          return { conduit: 1.65, card: 2.0 };
+        case 4:
+          return { conduit: 2.1, card: 2.45 };
+        case 5:
+          return { conduit: 2.25, card: 2.6 };
+        case 6:
+          return { conduit: 2.4, card: 2.75 };
+        case 7:
+          return { conduit: 2.55, card: 2.9 };
+        default:
+          return { conduit: 0.5 + idx * 0.3, card: 0.8 + idx * 0.3 };
+      }
+    }
+
+    // Proportional delays for 4, 5, or 6 items
+    const conduit = 0.45 + idx * 0.38;
+    const card = conduit + 0.32;
+    return { conduit, card };
+  };
+
+  const isAnimated = isInView;
+
   return (
-    <section
+    <div
+      ref={containerRef}
+      key={replayKey}
       className={cn(
-        "relative w-full py-6 sm:py-8 bg-[#F7F8F8] overflow-hidden select-none",
+        "relative w-full py-4 sm:py-6 bg-[#F7F8F8] rounded-[28px] overflow-hidden select-none",
         className
       )}
     >
-      {/* Pure CSS hardware-accelerated conduit dash flow */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      {/* Pure CSS hardware-accelerated continuous energy dash stream */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
           @keyframes conduitFlow {
             0% { stroke-dashoffset: 0; }
-            100% { stroke-dashoffset: -44; }
+            100% { stroke-dashoffset: -48; }
           }
           .conduit-stream {
             stroke-dasharray: 8 36;
-            animation: conduitFlow 2.8s linear infinite;
+            animation: conduitFlow 2.6s linear infinite;
           }
           .conduit-stream-active {
-            stroke-dasharray: 10 32;
-            animation: conduitFlow 1.4s linear infinite;
+            stroke-dasharray: 12 28;
+            animation: conduitFlow 1.2s linear infinite;
           }
         `,
-      }} />
+        }}
+      />
+
+      {/* Header Bar with Replay Flow Trigger */}
+      <div className="flex items-center justify-between px-4 sm:px-8 mb-2 z-30 relative">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#FF7A1A] animate-ping" />
+          <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#C86A28]">
+            Interactive Deliverables Flow
+          </span>
+        </div>
+
+        <button
+          onClick={() => setReplayKey((k) => k + 1)}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#C6C2C1]/70 text-[#544643] hover:text-[#C86A28] text-xs font-bold shadow-xs hover:shadow-sm transition-all duration-200 cursor-pointer"
+          title="Replay flow animation"
+        >
+          <RotateCcw className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">Replay Flow</span>
+        </button>
+      </div>
 
       {/* ─────────────────────────────────────────────────────────
-          DESKTOP SHOWCASE (lg:block) - Butter-smooth 60fps
+          DESKTOP SHOWCASE (lg:block) - 60fps Radial Flow Animation
       ───────────────────────────────────────────────────────── */}
-      <div className="hidden lg:block relative w-full max-w-[1240px] mx-auto px-4">
+      <div className="hidden lg:block relative w-full max-w-[1240px] mx-auto px-2">
         <div
           className="relative w-full transform-gpu"
           style={{
@@ -403,61 +554,142 @@ export function DeliverablesHubShowcase({
             className="absolute inset-0 w-full h-full pointer-events-none z-10"
             preserveAspectRatio="none"
           >
+            <defs>
+              <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
             {layout.conduits.map((c) => {
               if (c.id >= cardCount) return null;
               const isHovered = activeCard === c.id;
+              const hasHover = activeCard !== null;
+              const delays = getStageDelays(c.id);
+
               return (
-                <g key={c.id}>
-                  {/* Outer Ambient Glow Line */}
-                  <path
+                <g
+                  key={c.id}
+                  className="transition-opacity duration-300"
+                  style={{
+                    opacity: hasHover && !isHovered ? 0.35 : 1,
+                  }}
+                >
+                  {/* Outer Ambient Glow Line (Stages 3-6 progressive draw) */}
+                  <motion.path
                     d={c.path}
                     fill="none"
-                    stroke="#FF8A3D"
-                    strokeWidth={isHovered ? 4 : 2.5}
-                    strokeOpacity={isHovered ? 0.75 : 0.25}
-                    className="transition-all duration-200"
+                    stroke={isHovered ? "#FF7A1A" : "#FF9248"}
+                    strokeWidth={isHovered ? 5.5 : 3}
+                    strokeOpacity={isHovered ? 0.85 : 0.3}
+                    filter={isHovered ? "url(#glow-orange)" : undefined}
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={
+                      isAnimated
+                        ? { pathLength: 1, opacity: 1 }
+                        : { pathLength: 0, opacity: 0 }
+                    }
+                    transition={{
+                      pathLength: {
+                        duration: 0.5,
+                        delay: delays.conduit,
+                        ease: [0.16, 1, 0.3, 1],
+                      },
+                      opacity: { duration: 0.2, delay: delays.conduit },
+                    }}
                   />
 
-                  {/* Inner Crisp Conduit */}
-                  <path
+                  {/* Inner Crisp Conduit (Stage 3-6 draw) */}
+                  <motion.path
                     d={c.path}
                     fill="none"
-                    stroke="#C86A28"
-                    strokeWidth={isHovered ? 2.5 : 1.5}
-                    strokeOpacity={isHovered ? 0.95 : 0.55}
-                    className="transition-all duration-200"
+                    stroke={isHovered ? "#FF7A1A" : "#C86A28"}
+                    strokeWidth={isHovered ? 3 : 1.8}
+                    strokeOpacity={isHovered ? 1 : 0.65}
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={
+                      isAnimated
+                        ? { pathLength: 1, opacity: 1 }
+                        : { pathLength: 0, opacity: 0 }
+                    }
+                    transition={{
+                      pathLength: {
+                        duration: 0.45,
+                        delay: delays.conduit,
+                        ease: [0.16, 1, 0.3, 1],
+                      },
+                      opacity: { duration: 0.2, delay: delays.conduit },
+                    }}
                   />
 
-                  {/* CSS-Accelerated Traveling Energy Pulse */}
-                  <path
+                  {/* CSS-Accelerated Traveling Energy Pulse (Stage 7 continuous flow) */}
+                  <motion.path
                     d={c.path}
                     fill="none"
-                    stroke="#FFB17A"
-                    strokeWidth={isHovered ? 3 : 2}
-                    className={isHovered ? "conduit-stream-active" : "conduit-stream"}
-                    opacity={isHovered ? 1 : 0.75}
+                    stroke={isHovered ? "#FFF2E5" : "#FFB17A"}
+                    strokeWidth={isHovered ? 3.5 : 2.2}
+                    className={
+                      isHovered ? "conduit-stream-active" : "conduit-stream"
+                    }
+                    initial={{ opacity: 0 }}
+                    animate={
+                      isAnimated
+                        ? { opacity: isHovered ? 1 : 0.85 }
+                        : { opacity: 0 }
+                    }
+                    transition={{
+                      duration: 0.35,
+                      delay: delays.conduit + 0.35,
+                    }}
                   />
 
-                  {/* Hub Edge Node */}
-                  <circle
+                  {/* Hub Edge Node Circle */}
+                  <motion.circle
                     cx={c.startX}
                     cy={c.startY}
-                    r={isHovered ? 5.5 : 4}
-                    fill="#FF7A1A"
+                    r={isHovered ? 6.5 : 4.5}
+                    fill={isHovered ? "#FF7A1A" : "#C86A28"}
                     stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                    className="transition-all duration-200"
+                    strokeWidth={isHovered ? 2 : 1.5}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={
+                      isAnimated
+                        ? { scale: 1, opacity: 1 }
+                        : { scale: 0, opacity: 0 }
+                    }
+                    transition={{
+                      duration: 0.25,
+                      delay: delays.conduit,
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 18,
+                    }}
                   />
 
-                  {/* Card Anchor Node */}
-                  <circle
+                  {/* Card Anchor Node Circle */}
+                  <motion.circle
                     cx={c.endX}
                     cy={c.endY}
-                    r={isHovered ? 5 : 3.5}
-                    fill="#C86A28"
+                    r={isHovered ? 6 : 4}
+                    fill={isHovered ? "#FF7A1A" : "#C86A28"}
                     stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                    className="transition-all duration-200"
+                    strokeWidth={isHovered ? 2 : 1.5}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={
+                      isAnimated
+                        ? { scale: 1, opacity: 1 }
+                        : { scale: 0, opacity: 0 }
+                    }
+                    transition={{
+                      duration: 0.25,
+                      delay: delays.conduit + 0.32,
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 18,
+                    }}
                   />
                 </g>
               );
@@ -465,7 +697,7 @@ export function DeliverablesHubShowcase({
           </svg>
 
           {/* ─────────────────────────────────────────────────────────
-              CENTER HUB ("DOMAIN SPECIALIZATION - What We Deliver")
+              CENTER HUB (Stage 1 & 2: Center Appears with Glowing Aura & Particles)
           ───────────────────────────────────────────────────────── */}
           <div
             className="absolute left-[50%] -translate-x-1/2 -translate-y-1/2 z-20 w-[240px] h-[240px] rounded-full flex items-center justify-center p-2 transform-gpu pointer-events-none"
@@ -473,59 +705,146 @@ export function DeliverablesHubShowcase({
               top: `${layout.hubYPercent}%`,
             }}
           >
-            {/* Outer Amber Glowing Aura */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#FF7A1A]/25 via-[#C86A28]/20 to-transparent blur-md" />
+            {/* Ambient Particle Dots (matching storyboard Panel 2) */}
+            {AMBIENT_PARTICLES.map((p, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-[#FF7A1A] pointer-events-none shadow-[0_0_8px_#FF7A1A]"
+                style={{
+                  width: `${p.size}px`,
+                  height: `${p.size}px`,
+                  left: `calc(50% + ${p.x}px)`,
+                  top: `calc(50% + ${p.y}px)`,
+                }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={
+                  isAnimated
+                    ? {
+                        scale: [0, 1.2, 1],
+                        opacity: [0, 0.9, 0.7],
+                        y: [0, (i % 2 === 0 ? -4 : 4), 0],
+                      }
+                    : { scale: 0, opacity: 0 }
+                }
+                transition={{
+                  scale: { duration: 0.5, delay: p.delay },
+                  opacity: { duration: 0.5, delay: p.delay },
+                  y: {
+                    repeat: Infinity,
+                    duration: 3 + (i % 3),
+                    ease: "easeInOut",
+                    delay: p.delay,
+                  },
+                }}
+              />
+            ))}
+
+            {/* Glowing Warm Aura Pulse (Panel 2) */}
+            <motion.div
+              className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#FF7A1A]/35 via-[#C86A28]/25 to-transparent blur-xl pointer-events-none"
+              initial={{ scale: 0.6, opacity: 0 }}
+              animate={
+                isAnimated
+                  ? {
+                      scale: [1, 1.14, 1],
+                      opacity: [0.4, 0.75, 0.4],
+                    }
+                  : { scale: 0.6, opacity: 0 }
+              }
+              transition={{
+                scale: { repeat: Infinity, duration: 3.5, ease: "easeInOut" },
+                opacity: { repeat: Infinity, duration: 3.5, ease: "easeInOut" },
+              }}
+            />
 
             {/* Outer Metallic Ring */}
-            <div className="absolute inset-0 rounded-full border-2 border-[#C86A28]/60 shadow-[0_0_25px_rgba(200,106,40,0.2),inset_0_0_15px_rgba(200,106,40,0.1)]" />
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-[#C86A28]/60 shadow-[0_0_30px_rgba(200,106,40,0.25),inset_0_0_18px_rgba(200,106,40,0.12)]"
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={
+                isAnimated
+                  ? { scale: 1, opacity: 1 }
+                  : { scale: 0.7, opacity: 0 }
+              }
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            />
 
             {/* Inner Glass Sphere */}
-            <div className="relative w-full h-full rounded-full bg-white border border-white shadow-md flex flex-col items-center justify-center p-4 text-center overflow-hidden">
-              <div className="absolute -top-4 -left-4 w-28 h-28 rounded-full bg-gradient-to-br from-white/90 via-white/30 to-transparent pointer-events-none" />
+            <motion.div
+              className="relative w-full h-full rounded-full bg-white border border-white/90 shadow-[0_8px_32px_rgba(200,106,40,0.18)] flex flex-col items-center justify-center p-4 text-center overflow-hidden"
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={
+                isAnimated
+                  ? { scale: 1, opacity: 1 }
+                  : { scale: 0.7, opacity: 0 }
+              }
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-gradient-to-br from-white/95 via-white/40 to-transparent pointer-events-none" />
 
               {/* Center Icon Badge */}
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF7A1A] to-[#C86A28] text-white flex items-center justify-center shadow-xs mb-1.5 z-10">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF7A1A] to-[#C86A28] text-white flex items-center justify-center shadow-sm mb-1.5 z-10">
                 <Layers className="w-5 h-5" />
               </div>
 
               {/* Subheading */}
-              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#C86A28] block mb-0.5 z-10">
-                Domain Specialization
+              <span className="text-[9px] font-black uppercase tracking-[0.22em] text-[#C86A28] block mb-0.5 z-10">
+                DOMAIN SPECIALIZATION
               </span>
 
               {/* Main Heading */}
-              <h3 className="text-lg font-black text-[#151515] leading-tight tracking-tight z-10">
+              <h3 className="text-base sm:text-lg font-black text-[#151515] leading-tight tracking-tight z-10">
                 What We Deliver
               </h3>
               <p className="text-xs font-extrabold text-[#C86A28] tracking-tight z-10">
-                in This Service
+                In This Service
               </p>
 
               {/* Bottom Accent Bar */}
               <div className="w-8 h-1 rounded-full bg-gradient-to-r from-[#FF7A1A] to-[#C86A28] mt-2 z-10" />
-            </div>
+            </motion.div>
           </div>
 
           {/* ─────────────────────────────────────────────────────────
-              SURROUNDING CARDS (Balanced according to item count)
+              SURROUNDING CARDS (Progressively animated through Stages 3-6)
           ───────────────────────────────────────────────────────── */}
           {subServices.map((sub, idx) => {
             const isHovered = activeCard === idx;
+            const hasHover = activeCard !== null;
             const numberBadge = String(idx + 1).padStart(2, "0");
             const posClass = layout.positions[idx] || "top-0 left-0";
+            const delays = getStageDelays(idx);
 
             return (
-              <div
+              <motion.div
                 key={idx}
                 onMouseEnter={() => setActiveCard(idx)}
                 onMouseLeave={() => setActiveCard(null)}
+                initial={{ opacity: 0, scale: 0.85, y: 14 }}
+                animate={
+                  isAnimated
+                    ? {
+                        opacity: hasHover && !isHovered ? 0.5 : 1,
+                        scale: isHovered ? 1.03 : 1,
+                        y: isHovered ? -4 : 0,
+                      }
+                    : { opacity: 0, scale: 0.85, y: 14 }
+                }
+                transition={
+                  isAnimated
+                    ? isHovered || hasHover
+                      ? { duration: 0.22, ease: "easeOut" }
+                      : {
+                          duration: 0.45,
+                          delay: delays.card,
+                          ease: [0.22, 1, 0.36, 1],
+                        }
+                    : { duration: 0.2 }
+                }
                 className={cn(
-                  "absolute z-20 group cursor-pointer transition-transform duration-200 transform-gpu",
+                  "absolute z-20 group cursor-pointer transform-gpu",
                   posClass
                 )}
-                style={{
-                  transform: isHovered ? "translateY(-3px)" : "none",
-                }}
               >
                 {/* 3D Angled Orange Backing Plate */}
                 <div
@@ -533,7 +852,7 @@ export function DeliverablesHubShowcase({
                     "absolute inset-0 rounded-2xl transition-transform duration-200 pointer-events-none",
                     "bg-gradient-to-br from-[#FF9248]/35 via-[#E0782F]/25 to-[#C86A28]/20 border border-[#FF8A3D]/40",
                     isHovered
-                      ? "translate-x-1.5 translate-y-1.5 from-[#FF8A3D]/50 to-[#C86A28]/35 shadow-xs"
+                      ? "translate-x-1.5 translate-y-1.5 from-[#FF8A3D]/55 to-[#C86A28]/40 shadow-xs"
                       : "translate-x-1 translate-y-1"
                   )}
                 />
@@ -541,19 +860,31 @@ export function DeliverablesHubShowcase({
                 {/* Main Glassmorphic Card Container */}
                 <div
                   className={cn(
-                    "relative z-10 p-3.5 sm:p-4 rounded-2xl bg-white border border-[#C6C2C1]/80 transition-all duration-200 flex items-center justify-between gap-3",
+                    "relative z-10 p-3.5 sm:p-4 rounded-2xl bg-white border transition-all duration-200 flex items-center justify-between gap-3",
                     isHovered
-                      ? "shadow-md border-[#FF8A3D]"
-                      : "shadow-xs"
+                      ? "border-[#FF7A1A] shadow-[0_12px_28px_rgba(255,122,26,0.18)]"
+                      : "border-[#C6C2C1]/80 shadow-xs hover:border-[#FF8A3D]/80"
                   )}
                 >
                   {/* Left Column: Number Badge, Title, Description */}
                   <div className="flex-1 min-w-0 pr-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#FF7A1A] to-[#C86A28] text-white font-black text-[11px] flex items-center justify-center shrink-0 shadow-xs">
+                      <span
+                        className={cn(
+                          "w-6 h-6 rounded-full text-white font-black text-[11px] flex items-center justify-center shrink-0 shadow-xs transition-colors duration-200",
+                          isHovered
+                            ? "bg-[#FF7A1A]"
+                            : "bg-gradient-to-br from-[#FF7A1A] to-[#C86A28]"
+                        )}
+                      >
                         {numberBadge}
                       </span>
-                      <h4 className="text-xs sm:text-sm font-extrabold text-[#151515] leading-snug tracking-tight group-hover:text-[#C86A28] transition-colors line-clamp-1">
+                      <h4
+                        className={cn(
+                          "text-xs sm:text-sm font-extrabold leading-snug tracking-tight transition-colors line-clamp-1",
+                          isHovered ? "text-[#C86A28]" : "text-[#151515]"
+                        )}
+                      >
                         {sub.title}
                       </h4>
                     </div>
@@ -568,56 +899,98 @@ export function DeliverablesHubShowcase({
                     {getCardVisual(sub.title, idx)}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
       </div>
 
       {/* ─────────────────────────────────────────────────────────
-          MOBILE & TABLET SHOWCASE (< lg) - High Performance
+          MOBILE & TABLET SHOWCASE (< lg) - High Performance Progressive Reveal
       ───────────────────────────────────────────────────────── */}
-      <div className="lg:hidden max-w-2xl mx-auto px-4 sm:px-6 relative space-y-5">
+      <div className="lg:hidden max-w-2xl mx-auto px-3 sm:px-6 relative space-y-4">
         {/* Central Hub Header */}
-        <div className="mx-auto w-full max-w-sm rounded-2xl bg-white border border-[#C6C2C1]/80 p-5 text-center shadow-xs relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={
+            isAnimated
+              ? { opacity: 1, scale: 1 }
+              : { opacity: 0, scale: 0.9 }
+          }
+          transition={{ duration: 0.5 }}
+          className="mx-auto w-full max-w-sm rounded-2xl bg-white border border-[#C6C2C1]/80 p-4 sm:p-5 text-center shadow-xs relative overflow-hidden"
+        >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF7A1A] to-[#C86A28] text-white flex items-center justify-center shadow-xs mx-auto mb-2">
             <Layers className="w-5 h-5" />
           </div>
           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#C86A28] block mb-0.5">
-            Domain Specialization
+            DOMAIN SPECIALIZATION
           </span>
           <h3 className="text-base font-extrabold text-[#151515]">
             What We Deliver in This Service
           </h3>
           <div className="w-8 h-1 rounded-full bg-gradient-to-r from-[#FF7A1A] to-[#C86A28] mx-auto mt-2" />
-        </div>
+        </motion.div>
 
         {/* Vertical Connected Conduit Spine */}
-        <div className="relative pl-6 sm:pl-8 space-y-3.5 border-l-2 border-[#C86A28]/30 ml-3 sm:ml-4">
+        <div className="relative pl-6 sm:pl-8 space-y-3.5 border-l-2 border-[#C86A28]/40 ml-3 sm:ml-4">
           {subServices.map((sub, idx) => {
             const numberBadge = String(idx + 1).padStart(2, "0");
+            const isHovered = activeCard === idx;
 
             return (
-              <div key={idx} className="relative group">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -12 }}
+                animate={
+                  isAnimated
+                    ? { opacity: 1, x: 0 }
+                    : { opacity: 0, x: -12 }
+                }
+                transition={{
+                  duration: 0.4,
+                  delay: 0.2 + idx * 0.12,
+                  ease: "easeOut",
+                }}
+                onClick={() => setActiveCard(activeCard === idx ? null : idx)}
+                className="relative group cursor-pointer"
+              >
                 {/* Horizontal branch spur */}
                 <div className="absolute -left-[26px] sm:-left-[34px] top-5 w-5 sm:w-7 h-0.5 bg-[#C86A28]/60" />
-                <div className="absolute -left-[30px] sm:-left-[38px] top-4 w-2 h-2 rounded-full bg-[#FF7A1A] border-2 border-white shadow-xs" />
+                <div
+                  className={cn(
+                    "absolute -left-[30px] sm:-left-[38px] top-4 w-2.5 h-2.5 rounded-full border-2 border-white shadow-xs transition-colors duration-200",
+                    isHovered ? "bg-[#FF7A1A] scale-125" : "bg-[#C86A28]"
+                  )}
+                />
 
                 {/* 3D Layered Tab */}
                 <div className="absolute inset-0 translate-x-1 translate-y-1 rounded-xl bg-gradient-to-br from-[#FF9248]/30 to-[#C86A28]/20 border border-[#FF8A3D]/40 pointer-events-none" />
 
                 {/* Main Card */}
-                <div className="relative z-10 p-3.5 sm:p-4 rounded-xl bg-white border border-[#C6C2C1]/80 shadow-xs flex items-center justify-between gap-3">
+                <div
+                  className={cn(
+                    "relative z-10 p-3.5 sm:p-4 rounded-xl bg-white border shadow-xs flex items-center justify-between gap-3 transition-all duration-200",
+                    isHovered
+                      ? "border-[#FF7A1A] shadow-md"
+                      : "border-[#C6C2C1]/80 hover:border-[#FF8A3D]"
+                  )}
+                >
                   <div className="flex-1 min-w-0 pr-1">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#FF7A1A] to-[#C86A28] text-white font-extrabold text-[10px] flex items-center justify-center shrink-0">
                         {numberBadge}
                       </span>
-                      <h4 className="text-xs sm:text-sm font-extrabold text-[#151515] leading-snug">
+                      <h4
+                        className={cn(
+                          "text-xs sm:text-sm font-extrabold leading-snug transition-colors",
+                          isHovered ? "text-[#C86A28]" : "text-[#151515]"
+                        )}
+                      >
                         {sub.title}
                       </h4>
                     </div>
-                    <p className="text-[11px] text-[#544643] leading-relaxed">
+                    <p className="text-[11px] text-[#544643] leading-relaxed line-clamp-2">
                       {sub.description}
                     </p>
                   </div>
@@ -625,11 +998,11 @@ export function DeliverablesHubShowcase({
                     {getCardVisual(sub.title, idx)}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

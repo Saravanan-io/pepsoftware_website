@@ -50,7 +50,7 @@ export default function AboutPage() {
             <RevealOnScroll className="lg:col-span-7 space-y-6 pointer-events-auto">
               <div className="inline-flex items-center gap-2.5">
                 <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#D79EFF] to-[#FCB116]" />
-                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE8A3] bg-clip-text text-transparent">
+                <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#FCB116]">
                   SOLUTIONS THAT EMPOWER
                 </span>
               </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                 as="h2"
                 text="Crafting digital experiences that stand out in an increasingly crowded world."
                 gradientWords="increasingly crowded world."
-                gradientClassName="bg-gradient-to-r from-[#D79EFF] via-[#FCB116] to-[#FFE29A] bg-clip-text text-transparent"
+                gradientClassNames={["text-[#D79EFF]", "text-[#FCB116]", "text-[#FFE29A]"]}
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.12] tracking-tight"
               />
 
@@ -92,7 +92,7 @@ export default function AboutPage() {
                     {/* Hover inner stardust glow */}
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,177,22,0.18),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                    <div className="relative z-10 text-3xl sm:text-4xl font-black bg-gradient-to-r from-white via-[#FCB116] to-[#FFD573] bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                    <div className="relative z-10 text-3xl sm:text-4xl font-black text-[#FCB116] group-hover:scale-105 transition-transform duration-300">
                       <AnimatedCounter value={stat.value} />
                     </div>
                     <div className="relative z-10 text-xs font-semibold text-[#D4C7EC] mt-2.5 group-hover:text-white transition-colors leading-tight">

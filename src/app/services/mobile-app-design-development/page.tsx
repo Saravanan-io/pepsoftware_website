@@ -35,6 +35,7 @@ export default function MobileAppDevPage() {
         features={service.features}
         deliverables={service.deliverables}
         subServices={service.subServices}
+        serviceTitle={service.title}
         tools={service.tools}
       />
       <ServiceProcessTimeline timeline={service.timeline} />

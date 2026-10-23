@@ -35,7 +35,7 @@ export default function ServicesPage() {
               <RevealOnScroll>
                 <div className="inline-flex items-center gap-2.5 mb-2">
                   <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                     FULL SUITE SERVICES
                   </span>
                 </div>
@@ -43,7 +43,7 @@ export default function ServicesPage() {
                   as="h1"
                   text="Digital solutions engineered for maximum impact."
                   gradientWords="maximum impact."
-                  gradientClassName="bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent"
+                  gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
                   className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#151515] leading-[1.08] mt-4"
                 />
                 <ParagraphReveal

@@ -68,7 +68,8 @@ export const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  { label: "Portfolio", href: "/work" },
+  { label: "Products", href: "/products" },
+  { label: "Projects", href: "/work" },
   { label: "Process", href: "/#process" },
   { label: "Contact", href: "/contact" },
 ];

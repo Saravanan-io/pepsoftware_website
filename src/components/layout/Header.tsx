@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import { NavBarMascot } from "./NavBarMascot";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,21 +33,27 @@ export function Header() {
     { label: "Home", href: "/" },
     { label: "About us", href: "/about" },
     { label: "Services", href: "/services", hasDropdown: true },
-    { label: "Our Portfolio", href: "/work" },
-    { label: "Contact us", href: "/contact" },
+    { label: "Products", href: "/products" },
+    { label: "Projects", href: "/work" },
   ];
+
+  const isHome = pathname === "/";
 
   return (
     <>
       <header
-        className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 flex justify-center px-4`}
+        className={`fixed ${
+          scrolled ? "top-3 sm:top-4" : isHome ? "top-10 sm:top-14 md:top-16" : "top-3 sm:top-4"
+        } left-0 right-0 z-50 transition-all duration-500 ease-out flex justify-center px-4`}
         style={{ transform: "translateZ(0)", willChange: "transform" }}
       >
         <div
-          className={`w-full max-w-[1200px] mx-auto rounded-[40px] flex items-center justify-between px-6 py-3 transition-all duration-300 bg-[#F7F8F8] shadow-sm border border-[#C6C2C1]/40 ${
+          className={`relative w-full max-w-[1200px] mx-auto rounded-[40px] flex items-center justify-between px-6 py-3 transition-all duration-300 bg-[#F7F8F8] shadow-sm border border-[#C6C2C1]/40 ${
             scrolled ? "shadow-md bg-[#F7F8F8]/95 backdrop-blur-md border-[#C6C2C1]/60" : ""
           }`}
         >
+          {/* Animated 3D Boy Mascot on Home Page */}
+          <NavBarMascot scrolled={scrolled} />
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
             <div className="relative w-11 h-11">
@@ -94,7 +101,7 @@ export function Header() {
               href="/contact"
               className="hidden sm:flex items-center gap-3 px-2 py-2 pr-6 rounded-full bg-[#151515] text-[#F7F8F8] hover:bg-[#502D6D] transition-all duration-300 group shadow-lg shadow-[#151515]/10 hover:shadow-[#502D6D]/25 border border-transparent hover:border-[#FCB116]/35"
             >
-              <span className="pl-4 text-[15px] font-semibold">Get Started</span>
+              <span className="pl-4 text-[15px] font-semibold">Contact us</span>
               <div className="w-7 h-7 rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116] flex items-center justify-center text-white group-hover:scale-105 group-hover:translate-x-0.5 transition-all shadow-xs">
                 <ArrowRight className="w-4 h-4" />
               </div>

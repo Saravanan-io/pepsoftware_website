@@ -670,15 +670,14 @@ export function CaseStudy3DSlider() {
           <RevealOnScroll>
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
+              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
                 CASE STUDY
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-black text-[#151515] tracking-tight">
               Featured{" "}
-              <span className="bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116] bg-clip-text text-transparent">
-                Case Studies
-              </span>
+              <span className="text-[#502D6D]">Case</span>{" "}
+              <span className="text-[#FCB116]">Studies</span>
             </h2>
             <p className="text-sm sm:text-base text-[#544643] font-normal leading-relaxed mt-4 max-w-2xl mx-auto">
               &ldquo;We redesigned a healthcare dashboard and reduced task completion time by 40%. Users loved the clarity and flow.&rdquo;
