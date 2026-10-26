@@ -110,7 +110,60 @@ body {
 }
 
 .font-syne {
-  font-family: var(--font-syne), var(--font-sans), sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* ─── 3D Orbital Hero Rotation Animations ─── */
+@keyframes orbital-spin-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes orbital-counter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbital-pulse-glow {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-orbital-spin {
+  animation: orbital-spin-ccw 22s linear infinite;
+  will-change: transform;
+}
+
+.animate-orbital-counter {
+  animation: orbital-counter-spin 22s linear infinite;
+  will-change: transform;
+}
+
+.animate-orbital-pulse {
+  animation: orbital-pulse-glow 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbital-spin,
+  .animate-orbital-counter,
+  .animate-orbital-pulse {
+    animation: none !important;
+  }
 }
 
 /* ─── Gradient Utilities ─── */
@@ -531,4 +584,64 @@ body {
 /* When the chart wrapper is in view, run bar animations */
 .bars-animate .bar-chart-item {
   animation-play-state: running !important;
+}
+
+/* ─── Services Flow Roadmap Animations ─── */
+@keyframes flowDash {
+  from {
+    stroke-dashoffset: 140;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-flow-dash {
+  stroke-dasharray: 20 120;
+  animation: flowDash 3s linear infinite;
+}
+
+@keyframes chevronPulseRight {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+}
+
+.animate-chevron-right {
+  animation: chevronPulseRight 1.6s ease-in-out infinite;
+}
+
+@keyframes chevronPulseLeft {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-3px);
+    opacity: 1;
+  }
+}
+
+.animate-chevron-left {
+  animation: chevronPulseLeft 1.6s ease-in-out infinite;
+}
+
+@keyframes pulseGlowRing {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 14px currentColor);
+  }
+}
+
+.animate-bead-glow {
+  animation: pulseGlowRing 2s ease-in-out infinite;
 }

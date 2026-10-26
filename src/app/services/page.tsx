@@ -1,96 +1,59 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
-import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
-import { CaseStudy3DSlider } from "@/components/services/CaseStudy3DSlider";
-import { ServicesFAQ } from "@/components/services/ServicesFAQ";
-import { ServiceFeaturesVisual } from "@/components/services/ServiceFeaturesVisual";
-import { StickyServicesStack } from "@/components/services/StickyServicesStack";
-import { ContactCTA } from "@/components/home/ContactCTA";
-import { ModernWhyChooseSection } from "@/components/shared/ModernWhyChooseSection";
+import { ServicesHeroSection } from "@/components/services/ServicesHeroSection";
+import { ServicesOverviewSection } from "@/components/services/ServicesOverviewSection";
+import { ServicesDetailedShowcase } from "@/components/services/ServicesDetailedShowcase";
+import { ServicesSolutionFinder } from "@/components/services/ServicesSolutionFinder";
+import { ServicesProcessSection } from "@/components/services/ServicesProcessSection";
+import { ServicesWhyUsSection } from "@/components/services/ServicesWhyUsSection";
+import { ServicesSelectedWorkSection } from "@/components/services/ServicesSelectedWorkSection";
+import { ServicesFinalCTASection } from "@/components/services/ServicesFinalCTASection";
 
 export const metadata: Metadata = {
-  title: "Services | PEP Software",
+  title: "Services | Digital Solutions for Real Business Needs — PEP Software",
   description:
-    "Explore our complete range of digital services: Web Design & Development, UI/UX Design, Mobile App Development, and Digital Marketing.",
+    "We design, develop and deliver digital solutions that help businesses work smarter, serve customers better and grow: UI/UX Design, Websites & Web Apps, Mobile Apps, Custom Software, SaaS Products, and Digital Marketing.",
+  openGraph: {
+    title: "Digital Solutions for Real Business Needs | PEP Software Services",
+    description:
+      "Explore PEP Software's full suite of digital services: UI/UX Design, Website & Web Apps, Mobile App Development, Custom Enterprise Software, SaaS Development, and Digital Marketing.",
+    url: "https://pepsoftwares.com/services",
+    siteName: "PEP Software",
+  },
 };
 
 export default function ServicesPage() {
-
   return (
-    <div className="w-full bg-[#F7F8F8] select-none">
-      {/* Hero Header */}
-      <section className="pt-20 sm:pt-24 pb-16 lg:pb-20 bg-[#F7F8F8] border-b border-[#C6C2C1]/40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-dot-light opacity-30 pointer-events-none" />
+    <div className="w-full bg-[#F7F8F8]">
+      {/* 01. Hero Section — Hero / Introduction */}
+      <ServicesHeroSection />
 
-        {/* Ambient Logo-Themed Glow Orbs */}
-        <div className="absolute -top-24 -right-20 w-[550px] h-[550px] bg-[#502D6D]/[0.06] rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute -bottom-24 -left-20 w-[550px] h-[550px] bg-[#FCB116]/[0.08] rounded-full blur-[140px] pointer-events-none" />
+      {/* 02. Services Overview — What We Do */}
+      <ServicesOverviewSection />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
-              <RevealOnScroll>
-                <div className="inline-flex items-center gap-2.5 mb-2">
-                  <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116]" />
-                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-[#502D6D]">
-                    FULL SUITE SERVICES
-                  </span>
-                </div>
-                <WordReveal
-                  as="h1"
-                  text="Digital solutions engineered for maximum impact."
-                  gradientWords="maximum impact."
-                  gradientClassNames={["text-[#502D6D]", "text-[#FCB116]"]}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#151515] leading-[1.08] mt-4"
-                />
-                <ParagraphReveal
-                  text="From high-converting websites and native mobile apps to bespoke design systems and scalable software architectures, our studio delivers end-to-end excellence."
-                  delay={0.15}
-                  className="text-base sm:text-lg text-[#544643] leading-relaxed max-w-xl mx-auto lg:mx-0 mt-4"
-                />
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#151515] text-[#F7F8F8] font-bold text-sm hover:bg-[#502D6D] shadow-md shadow-[#151515]/10 hover:shadow-[#502D6D]/20 transition-all cursor-pointer"
-                  >
-                    <span>Get a Free Quote</span>
-                    <ArrowRight className="w-4 h-4 text-[#FCB116]" />
-                  </Link>
-                  <Link
-                    href="/work"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#EFF0EF] border border-[#C6C2C1] text-[#151515] font-semibold text-sm hover:border-[#502D6D]/40 hover:text-[#502D6D] shadow-xs transition-all cursor-pointer"
-                  >
-                    <span>View Our Work</span>
-                  </Link>
-                </div>
-              </RevealOnScroll>
-            </div>
+      {/* 03 to 08. Detailed Service Showcases:
+          03 — UI/UX Design
+          04 — Website & Web Apps
+          05 — Mobile Apps
+          06 — Custom Software
+          07 — SaaS Products
+          08 — Digital Marketing
+      */}
+      <ServicesDetailedShowcase />
 
-            {/* Right: 3D Animated Feature Highlights Visual */}
-            <div className="lg:col-span-6 flex items-center justify-center">
-              <ServiceFeaturesVisual />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 09. How We Choose the Right Solution — Solution Finder */}
+      <ServicesSolutionFinder />
 
-      {/* Scroll-Driven Sticky Stacking Services Showcase */}
-      <StickyServicesStack />
+      {/* 10. Our Process — How We Work */}
+      <ServicesProcessSection />
 
-      {/* 3D Cylindrical Curved Case Study Slider (matching pepsoftwares.com) */}
-      <CaseStudy3DSlider />
+      {/* 11. Why Choose Pep Software? — Why Us */}
+      <ServicesWhyUsSection />
 
-      {/* Why Choose Pep Software Section - Modern 3D Card Design */}
-      <ModernWhyChooseSection />
+      {/* 12. Selected Work — Our Projects */}
+      <ServicesSelectedWorkSection />
 
-      {/* Interactive FAQ Accordion with categories */}
-      <ServicesFAQ />
-
-      {/* Ready to Bring Your Ideas to Life Banner */}
-      <ContactCTA />
+      {/* 13. Final CTA — Project CTA */}
+      <ServicesFinalCTASection />
     </div>
   );
 }

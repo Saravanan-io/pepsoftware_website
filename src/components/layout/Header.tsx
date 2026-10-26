@@ -35,6 +35,7 @@ export function Header() {
     { label: "Services", href: "/services", hasDropdown: true },
     { label: "Products", href: "/products" },
     { label: "Projects", href: "/work" },
+    { label: "Testimonials", href: "/testimonials" },
   ];
 
   const isHome = pathname === "/";
@@ -48,7 +49,7 @@ export function Header() {
         style={{ transform: "translateZ(0)", willChange: "transform" }}
       >
         <div
-          className={`relative w-full max-w-[1200px] mx-auto rounded-[40px] flex items-center justify-between px-6 py-3 transition-all duration-300 bg-[#F7F8F8] shadow-sm border border-[#C6C2C1]/40 ${
+          className={`relative w-full max-w-[1220px] mx-auto rounded-[40px] flex items-center justify-between px-5 sm:px-6 py-3 transition-all duration-300 bg-[#F7F8F8] shadow-sm border border-[#C6C2C1]/40 ${
             scrolled ? "shadow-md bg-[#F7F8F8]/95 backdrop-blur-md border-[#C6C2C1]/60" : ""
           }`}
         >
@@ -56,7 +57,7 @@ export function Header() {
           <NavBarMascot scrolled={scrolled} />
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative w-11 h-11">
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11">
               <Image
                 src="/pep-icon.png"
                 alt="Pep Software Logo Icon"
@@ -66,13 +67,13 @@ export function Header() {
                 className="object-contain"
               />
             </div>
-            <span className="font-semibold text-[26px] text-[#151515] ml-1 tracking-tight">
+            <span className="font-semibold text-[23px] sm:text-[26px] text-[#151515] ml-1 tracking-tight">
               Pep Software
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
             {navLinks.map((item) => {
               const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
 
@@ -80,7 +81,7 @@ export function Header() {
                 <div key={item.label} className="relative group">
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1.5 text-[15px] transition-colors ${
+                    className={`flex items-center gap-1.5 text-[14px] xl:text-[15px] transition-colors ${
                       isActive ? "text-[#502D6D] font-bold" : "text-[#151515]/75 hover:text-[#502D6D] font-medium"
                     }`}
                   >

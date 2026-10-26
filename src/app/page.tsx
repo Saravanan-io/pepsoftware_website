@@ -7,6 +7,7 @@ import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { PortfolioTeaser } from "@/components/home/PortfolioTeaser";
 import { ProcessHowWeDevelop } from "@/components/home/ProcessHowWeDevelop";
 import { Testimonials } from "@/components/home/Testimonials";
+import { ModernWhyChooseSection } from "@/components/shared/ModernWhyChooseSection";
 import { ContactCTA } from "@/components/home/ContactCTA";
 
 export default function HomePage() {
@@ -38,6 +39,9 @@ export default function HomePage() {
 
       {/* Client Testimonials Slider */}
       <Testimonials />
+
+      {/* Built for Quality. Engineered to Scale. (Modern Why Choose Section) */}
+      <ModernWhyChooseSection id="built-for-quality" />
 
       {/* Ready to Bring Your Ideas to Life Banner */}
       <ContactCTA />
