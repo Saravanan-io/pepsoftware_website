@@ -7,6 +7,7 @@ import {
   MessageSquare,
   Cpu,
   HeartHandshake,
+  LucideIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -16,7 +17,7 @@ interface WhyUsPillar {
   number: string;
   title: string;
   description: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
   iconBg: string;
   iconColor: string;
 }

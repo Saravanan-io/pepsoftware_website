@@ -10,6 +10,7 @@ import {
   Check,
   Rocket,
   ArrowRight,
+  LucideIcon,
 } from "lucide-react";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
 
@@ -21,7 +22,7 @@ interface ProcessStep {
   color: string;
   iconBg: string;
   iconColor: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
   position: "top" | "bottom";
   targetProgress: number; // 0 to 1 along curve
   cardX: number; // Left coordinate on desktop canvas

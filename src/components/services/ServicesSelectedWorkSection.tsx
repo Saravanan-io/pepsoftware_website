@@ -16,6 +16,7 @@ import {
   Globe,
   TrendingUp,
   Cpu,
+  LucideIcon,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
@@ -34,10 +35,10 @@ interface ProjectShowcase {
   badgeBg: string;
   badgeText: string;
   badgeBorder: string;
-  badgeIcon: React.ElementType;
+  badgeIcon: LucideIcon;
   badgeLabel: string;
   features: {
-    icon: React.ElementType;
+    icon: LucideIcon;
     label: string;
   }[];
   buttonBg: string;
