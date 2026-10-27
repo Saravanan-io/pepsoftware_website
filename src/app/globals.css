@@ -17,6 +17,45 @@
   filter: grayscale(0%) contrast(100%);
 }
 
+/* ─── Product Detail Hero 3D Laptop & Orbit Animations ─── */
+@keyframes hero-laptop-float {
+  0%, 100% {
+    transform: perspective(1200px) rotateY(-6deg) rotateX(4deg) translateY(0px);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(-4deg) rotateX(2deg) translateY(-8px);
+  }
+}
+
+@keyframes radar-pulse-wave {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes trajectory-dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-hero-laptop {
+  animation: hero-laptop-float 6s ease-in-out infinite;
+}
+
+.animate-radar-wave {
+  animation: radar-pulse-wave 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-trajectory-flow {
+  animation: trajectory-dash-flow 1.8s linear infinite;
+}
+
 /* ─── Lenis Smooth Scroll Engine Specifications ─── */
 html.lenis,
 html.lenis body {
