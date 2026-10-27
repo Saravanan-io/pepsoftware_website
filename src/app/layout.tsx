@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Syne } from "next/font/google";
+import { Plus_Jakarta_Sans, Syne, Caveat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -18,6 +18,13 @@ const syne = Syne({
   variable: "--font-syne",
   display: "swap",
   weight: ["700", "800"],
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+  weight: ["600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -65,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${syne.variable} font-sans`}>
+    <html lang="en" className={`${jakarta.variable} ${syne.variable} ${caveat.variable} font-sans`}>
       <body className="min-h-screen flex flex-col bg-[#F7F8F8] text-[#151515] antialiased selection:bg-[#C86A28] selection:text-white">
         <Preloader />
         <ScrollProgressBar />

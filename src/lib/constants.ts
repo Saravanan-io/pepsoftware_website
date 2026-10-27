@@ -68,7 +68,36 @@ export const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  { label: "Products", href: "/products" },
+  {
+    label: "Products",
+    href: "/products",
+    children: [
+      {
+        label: "Attendance Tracking System",
+        href: "/products/attendance-tracking-system",
+        description: "Employee attendance, location-aware checks, and workforce management",
+        icon: "Clock",
+      },
+      {
+        label: "Business Club App",
+        href: "/products/business-club-app",
+        description: "Networking, meetings, referrals, and Thank You Notes",
+        icon: "Briefcase",
+      },
+      {
+        label: "Network Club App",
+        href: "/products/network-club-app",
+        description: "Association directories, committee governance, and events",
+        icon: "Users",
+      },
+      {
+        label: "Matrimony Application",
+        href: "/products/matrimony-application",
+        description: "B2B partner discovery, profiles, and operator subscription management",
+        icon: "Heart",
+      },
+    ],
+  },
   { label: "Projects", href: "/work" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Process", href: "/#process" },

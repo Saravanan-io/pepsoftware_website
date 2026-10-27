@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -19,6 +20,7 @@ const contactSchema = z.object({
 type FormData = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -27,6 +29,7 @@ export function ContactForm() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(contactSchema),
@@ -38,6 +41,36 @@ export function ContactForm() {
       message: "",
     },
   });
+
+  useEffect(() => {
+    const productParam = searchParams.get("product");
+    if (productParam) {
+      const productMap: Record<string, { service: string; message: string }> = {
+        "attendance-tracking-system": {
+          service: "Demo: Attendance Tracking System",
+          message: "Hello PEP Software team, I would like to request a demo for the Attendance Tracking System to discuss our workforce attendance and operational requirements.",
+        },
+        "business-club-app": {
+          service: "Demo: Business Club App",
+          message: "Hello PEP Software team, I would like to request a demo for the Business Club App to review chapter networking, meeting management, and referral workflows.",
+        },
+        "network-club-app": {
+          service: "Demo: Network Club App",
+          message: "Hello PEP Software team, I would like to request a demo for the Network Club App to review member directory, committee governance, and event management features.",
+        },
+        "matrimony-application": {
+          service: "Demo: Matrimony Application",
+          message: "Hello PEP Software team, I would like to request a demo for the Matrimony Application to discuss our business or association service operations.",
+        },
+      };
+
+      const matched = productMap[productParam];
+      if (matched) {
+        setValue("serviceType", matched.service);
+        setValue("message", matched.message);
+      }
+    }
+  }, [searchParams, setValue]);
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -200,12 +233,20 @@ export function ContactForm() {
             {...register("serviceType")}
             className="w-full px-4 py-3.5 rounded-xl bg-[#F8F9FA] hover:bg-[#F3F4F6] border border-[#E2E4E9] text-sm text-[#151515] outline-none focus:bg-white focus:border-[#502D6D] focus:ring-4 focus:ring-[#502D6D]/10 transition-all duration-200 cursor-pointer shadow-2xs"
           >
-            {SERVICES_DATA.map((s) => (
-              <option key={s.id} value={s.title}>
-                {s.title}
-              </option>
-            ))}
-            <option value="Other Consultation">Other Custom Consultation</option>
+            <optgroup label="Product Demonstrations">
+              <option value="Demo: Attendance Tracking System">Demo: Attendance Tracking System</option>
+              <option value="Demo: Business Club App">Demo: Business Club App</option>
+              <option value="Demo: Network Club App">Demo: Network Club App</option>
+              <option value="Demo: Matrimony Application">Demo: Matrimony Application</option>
+            </optgroup>
+            <optgroup label="Services & Solutions">
+              {SERVICES_DATA.map((s) => (
+                <option key={s.id} value={s.title}>
+                  {s.title}
+                </option>
+              ))}
+              <option value="Other Consultation">Other Custom Consultation</option>
+            </optgroup>
           </select>
           {errors.serviceType && (
             <p className="text-xs text-red-500 mt-1 font-medium">

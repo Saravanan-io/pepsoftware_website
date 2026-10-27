@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Star, ShieldCheck, Sparkles, MessageSquareQuote } from "lucide-react";
+import { ArrowRight, Star, ShieldCheck, MessageSquareQuote } from "lucide-react";
 import { motion } from "framer-motion";
 import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
@@ -165,38 +165,6 @@ export function TestimonialsHero() {
                   priority
                   className="w-full h-auto object-contain drop-shadow-[0_20px_45px_rgba(80,45,109,0.22)] select-none pointer-events-none"
                 />
-
-                {/* Floating Glassmorphic Badge: Top Left */}
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.35 }}
-                  className="absolute top-4 -left-2 sm:left-2 backdrop-blur-md bg-white/90 border border-purple-200/80 shadow-xl rounded-2xl px-3.5 py-2 flex items-center gap-2.5 z-20 pointer-events-auto"
-                >
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#A855F7] flex items-center justify-center text-white shadow-xs shrink-0">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-xs font-black text-[#151515] leading-none">120+ Projects</div>
-                    <div className="text-[10px] text-slate-500 font-medium mt-0.5">Delivered with Impact</div>
-                  </div>
-                </motion.div>
-
-                {/* Floating Glassmorphic Badge: Bottom Right */}
-                <motion.div
-                  initial={{ opacity: 0, y: -15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="absolute bottom-4 right-0 sm:right-2 backdrop-blur-md bg-white/90 border border-purple-200/80 shadow-xl rounded-2xl px-3.5 py-2 flex items-center gap-2.5 z-20 pointer-events-auto"
-                >
-                  <div className="w-8 h-8 rounded-full bg-[#10B981]/15 text-[#059669] flex items-center justify-center shrink-0">
-                    <Star className="w-4 h-4 fill-[#059669]" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-xs font-black text-[#151515] leading-none">98% Success Rate</div>
-                    <div className="text-[10px] text-slate-500 font-medium mt-0.5">Verified Client Results</div>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           </div>

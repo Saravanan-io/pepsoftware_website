@@ -3,8 +3,8 @@ import { AboutHeroSection } from "@/components/about/AboutHeroSection";
 import { AboutStorySection } from "@/components/about/AboutStorySection";
 import { AboutValuesSection } from "@/components/about/AboutValuesSection";
 import { AboutExpertiseSection } from "@/components/about/AboutExpertiseSection";
+import { CeoSection } from "@/components/about/CeoSection";
 import { AboutTeamSection } from "@/components/about/AboutTeamSection";
-import { AboutProcessSection } from "@/components/about/AboutProcessSection";
 import { AboutIndustriesSection } from "@/components/about/AboutIndustriesSection";
 import { AboutWhyUsSection } from "@/components/about/AboutWhyUsSection";
 import { AboutImpactSection } from "@/components/about/AboutImpactSection";
@@ -32,13 +32,13 @@ export default function AboutPage() {
       {/* 06. Our Expertise: One Team. Multiple Digital Capabilities */}
       <AboutExpertiseSection />
 
-      {/* 07. Our Team: A Team of Designers, Developers & Problem Solvers (incorporating CEO & Leadership) */}
+      {/* 07. Leadership & Vision: Pioneering Technology with Purpose (CEO Shri Gowtham) */}
+      <CeoSection />
+
+      {/* 08. Our Team: A Team of Designers, Developers & Problem Solvers */}
       <AboutTeamSection />
 
-      {/* 08. How We Work: A Clear Process From Idea to Launch */}
-      <AboutProcessSection />
-
-      {/* 09. Industries We Serve: Technology for Different Businesses */}
+      {/* 08. Industries We Serve: Technology for Different Businesses */}
       <AboutIndustriesSection />
 
       {/* 10. Why Pep Software?: Why Businesses Choose Pep Software */}

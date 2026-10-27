@@ -82,7 +82,7 @@ export function NavBarMascot({ scrolled = false }: { scrolled?: boolean }) {
   return (
     <div
       onClick={handleInteraction}
-      className={`hidden md:flex absolute bottom-[calc(100%-4px)] right-[150px] sm:right-[165px] lg:right-[180px] z-20 items-end pointer-events-auto cursor-pointer group select-none ${
+      className={`hidden md:flex absolute bottom-[calc(100%-4px)] left-4 sm:left-6 lg:left-8 z-20 items-end pointer-events-auto cursor-pointer group select-none ${
         scrolled ? "pointer-events-none" : ""
       }`}
       title="Click to say hello!"

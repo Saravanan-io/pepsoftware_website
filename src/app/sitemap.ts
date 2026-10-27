@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { SERVICES_DATA } from "@/data/services";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
+import { PRODUCTS_CATALOG } from "@/data/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://pepsoftwares.com";
@@ -20,6 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1.0 : 0.8,
   }));
 
+  const productPages = PRODUCTS_CATALOG.map((product) => ({
+    url: `${baseUrl}/products/${product.slug}/`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   const servicePages = SERVICES_DATA.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
     lastModified: new Date(),
@@ -34,5 +42,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...servicePages, ...workPages];
+  return [...staticPages, ...productPages, ...servicePages, ...workPages];
 }

@@ -33,7 +33,7 @@ export function Header() {
     { label: "Home", href: "/" },
     { label: "About us", href: "/about" },
     { label: "Services", href: "/services", hasDropdown: true },
-    { label: "Products", href: "/products" },
+    { label: "Products", href: "/products", hasDropdown: true },
     { label: "Projects", href: "/work" },
     { label: "Testimonials", href: "/testimonials" },
   ];
@@ -81,15 +81,92 @@ export function Header() {
                 <div key={item.label} className="relative group">
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1.5 text-[14px] xl:text-[15px] transition-colors ${
+                    className={`flex items-center gap-1.5 text-[14px] xl:text-[15px] transition-colors py-2 ${
                       isActive ? "text-[#502D6D] font-bold" : "text-[#151515]/75 hover:text-[#502D6D] font-medium"
                     }`}
                   >
                     {item.label}
-                    {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
+                    {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" />}
                   </Link>
                   {isActive && (
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-5 h-1 bg-gradient-to-r from-[#502D6D] to-[#FCB116] rounded-full shadow-[0_0_8px_rgba(252,177,22,0.5)]" />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-1 bg-gradient-to-r from-[#502D6D] to-[#FCB116] rounded-full shadow-[0_0_8px_rgba(252,177,22,0.5)]" />
+                  )}
+
+                  {/* Products Dropdown Menu */}
+                  {item.label === "Products" && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                      <div className="w-80 bg-white rounded-2xl p-2.5 shadow-2xl border border-[#502D6D]/15 space-y-1">
+                        <Link
+                          href="/products/attendance-tracking-system"
+                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-purple-50/70 transition-colors group/sub"
+                        >
+                          <div className="w-2 h-2 rounded-full bg-[#502D6D] shrink-0 mt-1.5" />
+                          <div>
+                            <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#502D6D] block leading-tight">
+                              Attendance Tracking System
+                            </span>
+                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                              Workforce, shifts & location-aware checks
+                            </span>
+                          </div>
+                        </Link>
+
+                        <Link
+                          href="/products/business-club-app"
+                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/70 transition-colors group/sub"
+                        >
+                          <div className="w-2 h-2 rounded-full bg-[#B45309] shrink-0 mt-1.5" />
+                          <div>
+                            <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#B45309] block leading-tight">
+                              Business Club App
+                            </span>
+                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                              Meetings, referrals & Thank You Notes
+                            </span>
+                          </div>
+                        </Link>
+
+                        <Link
+                          href="/products/network-club-app"
+                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50/70 transition-colors group/sub"
+                        >
+                          <div className="w-2 h-2 rounded-full bg-[#1D4ED8] shrink-0 mt-1.5" />
+                          <div>
+                            <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#1D4ED8] block leading-tight">
+                              Network Club App
+                            </span>
+                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                              Association directory, committees & events
+                            </span>
+                          </div>
+                        </Link>
+
+                        <Link
+                          href="/products/matrimony-application"
+                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-rose-50/70 transition-colors group/sub"
+                        >
+                          <div className="w-2 h-2 rounded-full bg-[#BE123C] shrink-0 mt-1.5" />
+                          <div>
+                            <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#BE123C] block leading-tight">
+                              Matrimony Application
+                            </span>
+                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                              B2B profiles, discovery & match administration
+                            </span>
+                          </div>
+                        </Link>
+
+                        <div className="pt-1.5 border-t border-slate-100">
+                          <Link
+                            href="/products"
+                            className="text-[11px] font-bold text-[#502D6D] hover:text-[#3F1E5C] flex items-center justify-between p-2 rounded-lg hover:bg-purple-50/50"
+                          >
+                            <span>Explore All Products</span>
+                            <ArrowRight className="w-3.5 h-3.5 text-[#FCB116]" />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   )}
                 </div>
               );

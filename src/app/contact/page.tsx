@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Metadata } from "next";
+import { Suspense } from "react";
 import {
   ArrowDown,
   Navigation,
@@ -83,7 +84,15 @@ export default function ContactPage() {
             {/* Left Column: Contact Form */}
             <div className="lg:col-span-7">
               <RevealOnScroll>
-                <ContactForm />
+                <Suspense
+                  fallback={
+                    <div className="p-12 rounded-3xl bg-white border border-[#502D6D]/15 text-center text-sm text-[#544643] animate-pulse">
+                      Loading inquiry form...
+                    </div>
+                  }
+                >
+                  <ContactForm />
+                </Suspense>
               </RevealOnScroll>
             </div>
 
