@@ -384,7 +384,7 @@ export function ServicesGrid() {
                     <div
                       className={`absolute top-3 right-3 w-10 h-10 rounded-xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 ${
                         isCenter
-                          ? "bg-gradient-to-br from-[#502D6D] to-[#68358F] border-white/25 text-white shadow-[0_4px_16px_rgba(80,45,109,0.4)]"
+                          ? "bg-[#502D6D] border-white/25 text-white shadow-[0_4px_16px_rgba(80,45,109,0.4)]"
                           : "bg-white/85 border-[#E5E5E3] text-[#502D6D] shadow-sm"
                       }`}
                     >

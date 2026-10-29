@@ -242,10 +242,10 @@ export function TestimonialsByServiceSection() {
 
               <Link
                 href="/contact"
-                className="relative z-10 shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116] text-white font-bold text-sm hover:opacity-95 shadow-lg shadow-[#FCB116]/20 transition-all hover:scale-105 active:scale-95"
+                className="relative z-10 shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#FCB116] text-[#151515] font-extrabold text-sm hover:bg-white shadow-lg shadow-[#FCB116]/20 transition-all hover:scale-105 active:scale-95"
               >
                 <span>Let&apos;s discuss it</span>
-                <ArrowRight className="w-4 h-4 text-white" />
+                <ArrowRight className="w-4 h-4 text-[#151515]" />
               </Link>
             </div>
           </RevealOnScroll>

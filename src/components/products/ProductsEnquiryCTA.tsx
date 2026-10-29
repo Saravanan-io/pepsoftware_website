@@ -74,10 +74,7 @@ export function ProductsEnquiryCTA({
 
               {/* Operational Reassurance Badges */}
               <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-white/70">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#FCB116]" />
-                  <span>Response within 24 business hours</span>
-                </div>
+
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-[#059669]" />
                   <span>Verified workflow walk-through</span>

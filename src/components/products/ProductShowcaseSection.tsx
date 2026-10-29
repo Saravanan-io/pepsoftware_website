@@ -473,7 +473,7 @@ export function ProductShowcaseSection({
                             Today, 28 Oct 2026
                           </span>
                         </div>
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#502D6D] via-[#7C3AED] to-[#A855F7] flex items-center justify-center text-white font-extrabold text-xs shadow-sm ring-2 ring-purple-100">
+                        <div className="w-8 h-8 rounded-full bg-[#502D6D] flex items-center justify-center text-white font-extrabold text-xs shadow-sm ring-2 ring-purple-100">
                           P
                         </div>
                       </div>

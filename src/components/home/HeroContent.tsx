@@ -137,7 +137,7 @@ export function HeroContent() {
                 <span className="pl-6 text-[16px] font-semibold">
                   Our Portfolio
                 </span>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116] flex items-center justify-center text-white group-hover:scale-105 group-hover:translate-x-0.5 transition-all shadow-xs">
+                <div className="w-10 h-10 rounded-full bg-[#FCB116] flex items-center justify-center text-[#151515] group-hover:scale-105 group-hover:translate-x-0.5 transition-all shadow-xs">
                   <ArrowRight className="w-5 h-5" />
                 </div>
               </Link>

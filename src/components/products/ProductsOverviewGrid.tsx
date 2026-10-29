@@ -152,7 +152,7 @@ export function ProductsOverviewGrid() {
                   <div>
                     {/* Top Row: Icon, Category Badge, Module Count */}
                     <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#502D6D]/10 to-[#FCB116]/20 border border-[#502D6D]/15 flex items-center justify-center text-[#502D6D] group-hover:scale-105 group-hover:bg-[#502D6D] group-hover:text-white transition-all duration-300 shadow-sm">
+                      <div className="w-14 h-14 rounded-2xl bg-[#502D6D]/10 border border-[#502D6D]/15 flex items-center justify-center text-[#502D6D] group-hover:scale-105 group-hover:bg-[#502D6D] group-hover:text-white transition-all duration-300 shadow-sm">
                         <Icon className="w-7 h-7" />
                       </div>
 

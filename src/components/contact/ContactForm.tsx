@@ -116,7 +116,7 @@ export function ContactForm() {
       <div className="relative overflow-hidden p-8 sm:p-12 rounded-3xl bg-white/95 backdrop-blur-xl border border-[#502D6D]/15 text-center shadow-[0_20px_60px_-15px_rgba(80,45,109,0.12)] space-y-5">
         <div className="h-1.5 w-full absolute top-0 left-0 bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116]" />
         
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#502D6D]/10 to-[#FCB116]/20 text-[#502D6D] border border-[#502D6D]/20 flex items-center justify-center mx-auto shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-[#502D6D]/10 text-[#502D6D] border border-[#502D6D]/20 flex items-center justify-center mx-auto shadow-sm">
           <CheckCircle2 className="w-8 h-8 text-[#502D6D]" />
         </div>
         <h3 className="text-2xl font-extrabold text-[#151515] tracking-tight">
@@ -127,7 +127,7 @@ export function ContactForm() {
         </p>
         <button
           onClick={() => setIsSubmitted(false)}
-          className="mt-4 px-7 py-3 rounded-full bg-gradient-to-r from-[#502D6D] to-[#68358F] text-white font-bold text-xs hover:shadow-lg hover:shadow-[#502D6D]/25 transition-all cursor-pointer"
+          className="mt-4 px-7 py-3 rounded-full bg-[#502D6D] hover:bg-[#3D2253] text-white font-bold text-xs hover:shadow-lg hover:shadow-[#502D6D]/25 transition-all cursor-pointer"
         >
           Send Another Message
         </button>
@@ -278,7 +278,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-full bg-gradient-to-r from-[#502D6D] via-[#68358F] to-[#502D6D] text-white font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-[#502D6D]/25 hover:-translate-y-0.5 active:scale-[0.99] disabled:opacity-70 disabled:pointer-events-none transition-all duration-200 cursor-pointer shadow-md group"
+        className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-full bg-[#502D6D] hover:bg-[#3D2253] text-white font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-[#502D6D]/25 hover:-translate-y-0.5 active:scale-[0.99] disabled:opacity-70 disabled:pointer-events-none transition-all duration-200 cursor-pointer shadow-md group"
       >
         {isSubmitting ? (
           <>

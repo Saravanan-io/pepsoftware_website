@@ -148,7 +148,7 @@ export function ProductDemoModal({
 
         {isSubmitted ? (
           <div className="py-8 text-center space-y-5">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#502D6D]/10 to-[#FCB116]/20 text-[#502D6D] border border-[#502D6D]/20 flex items-center justify-center mx-auto shadow-sm">
+            <div className="w-16 h-16 rounded-2xl bg-[#502D6D]/10 text-[#502D6D] border border-[#502D6D]/20 flex items-center justify-center mx-auto shadow-sm">
               <CheckCircle2 className="w-8 h-8 text-[#502D6D]" />
             </div>
             <h3 className="text-2xl font-black text-[#151515] tracking-tight">
@@ -162,7 +162,7 @@ export function ProductDemoModal({
                 setIsSubmitted(false);
                 onClose();
               }}
-              className="mt-4 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#502D6D] to-[#68358F] text-white font-bold text-sm shadow-md hover:shadow-xl hover:shadow-[#502D6D]/20 transition-all cursor-pointer"
+              className="mt-4 px-8 py-3.5 rounded-full bg-[#502D6D] hover:bg-[#3D2253] text-white font-bold text-sm shadow-md hover:shadow-xl hover:shadow-[#502D6D]/20 transition-all cursor-pointer"
             >
               Close Window
             </button>
@@ -286,7 +286,7 @@ export function ProductDemoModal({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-gradient-to-r from-[#502D6D] via-[#68358F] to-[#502D6D] text-white font-bold text-sm hover:shadow-xl hover:shadow-[#502D6D]/25 active:scale-[0.99] disabled:opacity-70 transition-all cursor-pointer shadow-md"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#502D6D] hover:bg-[#3D2253] text-white font-bold text-sm hover:shadow-xl hover:shadow-[#502D6D]/25 active:scale-[0.99] disabled:opacity-70 transition-all cursor-pointer shadow-md"
               >
                 {isSubmitting ? (
                   <>

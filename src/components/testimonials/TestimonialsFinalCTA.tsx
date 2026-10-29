@@ -48,10 +48,10 @@ export function TestimonialsFinalCTA() {
               <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116] text-white font-bold text-sm hover:opacity-95 shadow-xl shadow-[#FCB116]/20 transition-all hover:scale-105 active:scale-95 group"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#FCB116] text-[#151515] font-extrabold text-sm hover:bg-white shadow-xl shadow-[#FCB116]/20 transition-all hover:scale-105 active:scale-95 group"
                 >
                   <span>Start a Project</span>
-                  <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 text-[#151515] transition-transform group-hover:translate-x-1" />
                 </Link>
 
                 <a

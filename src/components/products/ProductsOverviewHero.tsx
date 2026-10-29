@@ -42,7 +42,7 @@ interface ProductPod {
     ringGradient: string;
     ringShadow: string;
     accentColor: string;
-    buttonGradient: string;
+    buttonBg: string;
     buttonHover: string;
     iconBg: string;
     iconBorder: string;
@@ -71,8 +71,8 @@ const PRODUCT_PODS: ProductPod[] = [
       ringGradient: "from-[#8B5CF6] via-[#C084FC]/40 to-purple-100/30",
       ringShadow: "shadow-[0_20px_50px_-10px_rgba(139,92,246,0.35)]",
       accentColor: "text-[#7C3AED]",
-      buttonGradient: "from-[#6D28D9] via-[#7C3AED] to-[#8B5CF6]",
-      buttonHover: "hover:from-[#5B21B6] hover:to-[#7C3AED]",
+      buttonBg: "bg-[#7C3AED]",
+      buttonHover: "hover:bg-[#6D28D9]",
       iconBg: "bg-purple-50",
       iconBorder: "border-purple-200/80",
       iconColor: "text-[#7C3AED]",
@@ -102,8 +102,8 @@ const PRODUCT_PODS: ProductPod[] = [
       ringGradient: "from-[#F59E0B] via-[#FDBA74]/40 to-amber-100/30",
       ringShadow: "shadow-[0_20px_50px_-10px_rgba(245,158,11,0.35)]",
       accentColor: "text-[#EA580C]",
-      buttonGradient: "from-[#EA580C] via-[#F97316] to-[#F59E0B]",
-      buttonHover: "hover:from-[#C2410C] hover:to-[#D97706]",
+      buttonBg: "bg-[#EA580C]",
+      buttonHover: "hover:bg-[#C2410C]",
       iconBg: "bg-amber-50",
       iconBorder: "border-amber-200/80",
       iconColor: "text-[#EA580C]",
@@ -133,8 +133,8 @@ const PRODUCT_PODS: ProductPod[] = [
       ringGradient: "from-[#14B8A6] via-[#5EEAD4]/40 to-teal-100/30",
       ringShadow: "shadow-[0_20px_50px_-10px_rgba(20,184,166,0.35)]",
       accentColor: "text-[#0D9488]",
-      buttonGradient: "from-[#0D9488] via-[#0F766E] to-[#14B8A6]",
-      buttonHover: "hover:from-[#0F766E] hover:to-[#0D9488]",
+      buttonBg: "bg-[#0D9488]",
+      buttonHover: "hover:bg-[#0F766E]",
       iconBg: "bg-teal-50",
       iconBorder: "border-teal-200/80",
       iconColor: "text-[#0D9488]",
@@ -164,8 +164,8 @@ const PRODUCT_PODS: ProductPod[] = [
       ringGradient: "from-[#F43F5E] via-[#FDA4AF]/40 to-rose-100/30",
       ringShadow: "shadow-[0_20px_50px_-10px_rgba(244,63,94,0.35)]",
       accentColor: "text-[#E11D48]",
-      buttonGradient: "from-[#E11D48] via-[#F43F5E] to-[#FB7185]",
-      buttonHover: "hover:from-[#BE123C] hover:to-[#E11D48]",
+      buttonBg: "bg-[#E11D48]",
+      buttonHover: "hover:bg-[#BE123C]",
       iconBg: "bg-rose-50",
       iconBorder: "border-rose-200/80",
       iconColor: "text-[#E11D48]",
@@ -350,7 +350,7 @@ export function ProductsOverviewHero() {
                           {/* Explore Product Button */}
                           <Link
                             href={pod.route}
-                            className={`inline-flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r ${pod.theme.buttonGradient} ${pod.theme.buttonHover} shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer`}
+                            className={`inline-flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold text-white ${pod.theme.buttonBg} ${pod.theme.buttonHover} shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer`}
                           >
                             <span>Explore Product</span>
                             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

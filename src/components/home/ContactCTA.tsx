@@ -6,11 +6,6 @@ import { COMPANY_INFO } from "@/lib/constants";
 import { RevealOnScroll } from "../shared/RevealOnScroll";
 import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
 
-const proofItems = [
-  { icon: "🎨", label: "Creative Innovation", sub: "Award-winning craft" },
-  { icon: "⚡", label: "Long-Term Partnership", sub: "Always by your side" },
-  { icon: "📊", label: "Real Business Impact", sub: "Measurable growth" },
-];
 
 export function ContactCTA() {
   return (
@@ -57,10 +52,10 @@ export function ContactCTA() {
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <Link
                     href="/contact"
-                    className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#502D6D] to-[#68358F] text-white font-bold text-base hover:from-[#68358F] hover:to-[#502D6D] border border-[#FCB116]/40 shadow-lg shadow-[#502D6D]/30 transition-all"
+                    className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#FCB116] text-[#151515] font-extrabold text-base hover:bg-white shadow-lg shadow-[#FCB116]/20 transition-all transform hover:-translate-y-0.5"
                   >
                     <span>Get a Free Quote</span>
-                    <ArrowRight className="w-4 h-4 text-[#FCB116] transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 text-[#151515] transition-transform group-hover:translate-x-1" />
                   </Link>
 
                   <a
@@ -72,18 +67,6 @@ export function ContactCTA() {
                   </a>
                 </div>
 
-                {/* Social proof mini badges */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 max-w-2xl">
-                  {proofItems.map((item) => (
-                    <div key={item.label} className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#502D6D]/20 border border-[#502D6D]/30 hover:border-[#FCB116]/40 transition-colors">
-                      <span className="text-lg">{item.icon}</span>
-                      <div>
-                        <span className="text-xs font-bold text-[#F7F8F8] block">{item.label}</span>
-                        <span className="text-[10px] text-[#C6C2C1] block">{item.sub}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               {/* Right: Contact info card */}

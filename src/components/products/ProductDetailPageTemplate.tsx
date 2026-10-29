@@ -19,24 +19,27 @@ interface ProductDetailPageTemplateProps {
 
 export function ProductDetailPageTemplate({ product }: ProductDetailPageTemplateProps) {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const isSimplifiedProduct = product.modules.some((m) => !!m.image);
 
   return (
     <div className="w-full bg-[#FFFFFF]">
       {/* 01. Product Hero */}
       <ProductDetailHero
         product={product}
-        onOpenDemo={() => setIsDemoModalOpen(true)}
+        onOpenDemo={isSimplifiedProduct ? undefined : () => setIsDemoModalOpen(true)}
       />
 
       {/* 02. Business Challenges Section */}
       <ProductChallengesSection challenges={product.challenges} />
 
-      {/* 03. Application Showcase Section */}
-      <ProductShowcaseSection
-        showcase={product.showcase}
-        productName={product.name}
-        onOpenDemo={() => setIsDemoModalOpen(true)}
-      />
+      {/* 03. Application Showcase (Rendered for products without screenshot modules) */}
+      {!isSimplifiedProduct && product.showcase && (
+        <ProductShowcaseSection
+          showcase={product.showcase}
+          productName={product.name}
+          onOpenDemo={() => setIsDemoModalOpen(true)}
+        />
+      )}
 
       {/* 04. Product Modules Section */}
       <ProductModulesSection
@@ -44,43 +47,49 @@ export function ProductDetailPageTemplate({ product }: ProductDetailPageTemplate
         productName={product.name}
       />
 
-      {/* 05 & 06. How It Works (Dual User & Admin Workflows) */}
+      {/* 05. How It Works (Dual User & Admin Workflows) */}
       <ProductWorkflowsSection
         workflow={product.workflow}
         productName={product.name}
       />
 
-      {/* 07. Organizational Use Cases */}
-      <ProductUseCasesSection
-        useCases={product.useCases}
-        productName={product.name}
-      />
+      {/* 06. Organizational Fit (Omitted on simplified view for clean UI) */}
+      {!isSimplifiedProduct && product.useCases && (
+        <ProductUseCasesSection
+          useCases={product.useCases}
+          productName={product.name}
+        />
+      )}
 
-      {/* 08. Administration & Operational Oversight */}
-      <ProductAdminOverviewSection
-        administration={product.administration}
-        productName={product.name}
-      />
+      {/* 07. Centralized Governance / Administration (Omitted on simplified view for clean UI) */}
+      {!isSimplifiedProduct && product.administration && (
+        <ProductAdminOverviewSection
+          administration={product.administration}
+          productName={product.name}
+        />
+      )}
 
-      {/* 09. FAQs Section */}
+      {/* 08. FAQs Section (Reliably tailored for verified modules) */}
       <ProductFAQSection
         faqs={product.faqs}
         productName={product.name}
       />
 
-      {/* 10. Final Request a Demo CTA */}
+      {/* 09. Final CTA (Send Enquiry is primary) */}
       <ProductFinalCTA
         finalCta={product.finalCta}
         productSlug={product.slug}
-        onOpenDemo={() => setIsDemoModalOpen(true)}
+        onOpenDemo={isSimplifiedProduct ? undefined : () => setIsDemoModalOpen(true)}
       />
 
-      {/* Interactive Demo Request Modal */}
-      <ProductDemoModal
-        isOpen={isDemoModalOpen}
-        onClose={() => setIsDemoModalOpen(false)}
-        productName={product.name}
-      />
+      {/* Interactive Demo Request Modal (Omitted for simplified direct enquiry flow) */}
+      {!isSimplifiedProduct && (
+        <ProductDemoModal
+          isOpen={isDemoModalOpen}
+          onClose={() => setIsDemoModalOpen(false)}
+          productName={product.name}
+        />
+      )}
     </div>
   );
 }

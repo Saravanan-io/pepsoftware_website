@@ -45,7 +45,7 @@ export function ProductsWhyUsSection() {
   return (
     <section className="py-20 lg:py-28 bg-[#F7F8F8] relative overflow-hidden border-t border-[#C6C2C1]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <RevealOnScroll>
@@ -96,10 +96,7 @@ export function ProductsWhyUsSection() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-[#502D6D]">
-                    <CheckCircle2 className="w-4 h-4 text-[#FCB116]" />
-                    <span>Verified in documented software modules</span>
-                  </div>
+
                 </div>
               </RevealOnScroll>
             );

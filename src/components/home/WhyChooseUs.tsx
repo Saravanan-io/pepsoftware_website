@@ -121,7 +121,7 @@ export function WhyChooseUs() {
                     <div
                       className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${
                         isActive
-                          ? "bg-gradient-to-tr from-[#502D6D] to-[#FCB116] text-white shadow-[0_0_20px_rgba(80,45,109,0.35)] scale-105"
+                          ? "bg-[#502D6D] text-white shadow-[0_0_20px_rgba(80,45,109,0.35)] scale-105"
                           : "bg-[#502D6D]/10 border border-[#502D6D]/20 text-[#502D6D] group-hover:scale-105"
                       }`}
                     >

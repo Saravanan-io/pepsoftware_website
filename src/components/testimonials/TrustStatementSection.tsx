@@ -290,10 +290,10 @@ export function TrustStatementSection() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full bg-gradient-to-r from-[#502D6D] via-[#5D327F] to-[#68358F] text-white font-bold text-sm shadow-xl shadow-[#502D6D]/25 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all group"
+              className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full bg-[#FCB116] text-[#151515] font-extrabold text-sm hover:bg-white shadow-xl shadow-[#FCB116]/20 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all group"
             >
               <span>Let&apos;s Build Together</span>
-              <ArrowRight className="w-4 h-4 text-[#FCB116] transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-[#151515] transition-transform group-hover:translate-x-1" />
             </Link>
 
             <span className="text-[#FCB116] text-xs font-bold select-none tracking-widest hidden sm:inline">

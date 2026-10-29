@@ -233,7 +233,7 @@ export function ProcessStrip() {
                     End-to-end digital excellence
                   </span>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#502D6D]/15 to-[#FCB116]/20 border border-[#502D6D]/30 flex items-center justify-center text-[#502D6D] ml-auto group-hover:bg-[#502D6D] group-hover:text-white transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-[#FCB116] border border-[#FCB116] flex items-center justify-center text-[#151515] ml-auto group-hover:bg-[#502D6D] group-hover:border-[#502D6D] group-hover:text-white transition-all duration-300">
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </Link>
@@ -416,7 +416,7 @@ export function ProcessStrip() {
                     {/* Step Icon Squircle with Neon Aura */}
                     <div
                       className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3.5 transition-all duration-300 ${isActive
-                          ? "bg-gradient-to-tr from-[#FF7700] to-[#FFA500] text-white shadow-[0_0_24px_rgba(255,119,0,0.6)] scale-110"
+                          ? "bg-[#FF7700] text-white shadow-[0_0_24px_rgba(255,119,0,0.6)] scale-110"
                           : "bg-[#FDF2EC] border border-[#F4D3C2] text-[#C86A28] group-hover:scale-105"
                         }`}
                     >

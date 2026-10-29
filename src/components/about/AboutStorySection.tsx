@@ -39,7 +39,7 @@ export function AboutStorySection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Top Content Grid: Text Narrative Left + 3D Flow Ribbon Right */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-16 lg:mb-24">
-            
+
             {/* Left Narrative Column */}
             <div className="lg:col-span-6 space-y-5">
               <RevealOnScroll>
@@ -231,7 +231,7 @@ export function AboutStorySection() {
           ───────────────────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
             <RevealOnScroll>
@@ -254,7 +254,7 @@ export function AboutStorySection() {
 
           {/* Dual Mission & Vision Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            
+
             {/* Mission Card */}
             <RevealOnScroll delay={0.1}>
               <div className="relative rounded-[32px] p-8 sm:p-12 bg-gradient-to-br from-white via-purple-50/20 to-white border border-purple-100 shadow-[0_20px_50px_rgba(80,45,109,0.06)] hover:shadow-2xl hover:border-purple-300 transition-all duration-300 group h-full flex flex-col justify-between">
@@ -276,10 +276,7 @@ export function AboutStorySection() {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-purple-100 flex items-center gap-2 text-xs font-bold text-[#502D6D]">
-                  <CheckCircle2 className="w-4 h-4 text-[#FCB116]" />
-                  <span>Simplify Operations • Elevate Experience • Accelerate Growth</span>
-                </div>
+
               </div>
             </RevealOnScroll>
 
@@ -304,10 +301,7 @@ export function AboutStorySection() {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-amber-100 flex items-center gap-2 text-xs font-bold text-[#B45309]">
-                  <CheckCircle2 className="w-4 h-4 text-[#FCB116]" />
-                  <span>Meaningful Products • Scalable Innovations • Long-Term Value</span>
-                </div>
+
               </div>
             </RevealOnScroll>
 

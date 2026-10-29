@@ -86,7 +86,7 @@ export function ProductAdminOverviewSection({
               <RevealOnScroll key={cap.title} delay={idx * 0.08}>
                 <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xs hover:shadow-xl hover:border-[#502D6D]/30 transition-all duration-300 h-full flex flex-col justify-between group">
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#502D6D]/10 to-[#FCB116]/20 border border-[#502D6D]/15 text-[#502D6D] flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:bg-[#502D6D] group-hover:text-white transition-all duration-300 mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-[#502D6D]/10 border border-[#502D6D]/15 text-[#502D6D] flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:bg-[#502D6D] group-hover:text-white transition-all duration-300 mb-5">
                       <Icon className="w-6 h-6" />
                     </div>
 

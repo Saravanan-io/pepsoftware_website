@@ -249,7 +249,7 @@ export default function ContactPage() {
                     href="https://maps.google.com/maps?q=8PJ8%2BC5+Surampatty,+Tamil+Nadu"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#502D6D] to-[#68358F] text-white text-xs sm:text-sm font-bold hover:shadow-lg hover:shadow-[#502D6D]/25 hover:-translate-y-0.5 active:scale-[0.99] transition-all shrink-0 self-start sm:self-center shadow-md shadow-[#502D6D]/15"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#502D6D] hover:bg-[#3D2253] text-white text-xs sm:text-sm font-bold hover:shadow-lg hover:shadow-[#502D6D]/25 hover:-translate-y-0.5 active:scale-[0.99] transition-all shrink-0 self-start sm:self-center shadow-md shadow-[#502D6D]/15"
                   >
                     <span>Get Directions</span>
                     <ExternalLink className="w-4 h-4 text-[#FCB116]" />

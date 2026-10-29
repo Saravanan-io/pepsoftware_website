@@ -65,7 +65,7 @@ export function IntroStatement() {
                 className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#151515] hover:bg-[#502D6D] text-[#F7F8F8] font-bold text-sm transition-all duration-300 shadow-md shadow-[#151515]/10 hover:shadow-[#502D6D]/20 border border-transparent hover:border-[#FCB116]/35 group"
               >
                 <span>Our Services</span>
-                <span className="w-6 h-6 rounded-full bg-gradient-to-r from-[#502D6D] to-[#FCB116] flex items-center justify-center text-white transition-transform group-hover:scale-105 group-hover:translate-x-0.5">
+                <span className="w-6 h-6 rounded-full bg-[#FCB116] flex items-center justify-center text-[#151515] transition-transform group-hover:scale-105 group-hover:translate-x-0.5">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </Link>

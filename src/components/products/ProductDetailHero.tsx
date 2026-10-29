@@ -22,7 +22,7 @@ import { ProductDetailData } from "@/data/products";
 
 interface ProductDetailHeroProps {
   product: ProductDetailData;
-  onOpenDemo: () => void;
+  onOpenDemo?: () => void;
 }
 
 export function ProductDetailHero({ product, onOpenDemo }: ProductDetailHeroProps) {
@@ -135,13 +135,23 @@ export function ProductDetailHero({ product, onOpenDemo }: ProductDetailHeroProp
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <button
-                  onClick={onOpenDemo}
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#502D6D] via-[#68358F] to-[#7C3AED] text-white font-extrabold text-sm shadow-[0_10px_25px_rgba(104,53,143,0.3)] hover:shadow-[0_14px_30px_rgba(104,53,143,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer group"
-                >
-                  <span>{product.hero.primaryCtaLabel}</span>
-                  <ArrowRight className="w-4 h-4 text-[#FCB116] group-hover:translate-x-1.5 transition-transform" />
-                </button>
+                {onOpenDemo && product.hero.primaryCtaLabel !== "Send Enquiry" ? (
+                  <button
+                    onClick={onOpenDemo}
+                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#FCB116] text-[#151515] font-extrabold text-sm shadow-[0_10px_25px_rgba(252,177,22,0.3)] hover:bg-white hover:shadow-[0_14px_30px_rgba(252,177,22,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer group"
+                  >
+                    <span>{product.hero.primaryCtaLabel}</span>
+                    <ArrowRight className="w-4 h-4 text-[#151515] group-hover:translate-x-1.5 transition-transform" />
+                  </button>
+                ) : (
+                  <Link
+                    href={`/contact?product=${product.slug}`}
+                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#FCB116] text-[#151515] font-extrabold text-sm shadow-[0_10px_25px_rgba(252,177,22,0.3)] hover:bg-white hover:shadow-[0_14px_30px_rgba(252,177,22,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer group"
+                  >
+                    <span>{product.hero.primaryCtaLabel || "Send Enquiry"}</span>
+                    <ArrowRight className="w-4 h-4 text-[#151515] group-hover:translate-x-1.5 transition-transform" />
+                  </Link>
+                )}
 
                 <a
                   href="#product-modules"

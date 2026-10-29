@@ -82,8 +82,8 @@ export function Contact3DVisual({ className = "" }: Contact3DVisualProps) {
           }}
           className="absolute bottom-10 left-0 sm:left-4 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#EFF0EF]/90 backdrop-blur-md border border-white/80 shadow-lg shadow-[#151515]/5"
         >
-          <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-[#502D6D] to-[#FCB116] flex items-center justify-center text-white shrink-0 shadow-xs">
-            <PhoneCall className="w-3.5 h-3.5" />
+          <div className="w-7 h-7 rounded-xl bg-[#502D6D] flex items-center justify-center text-white shrink-0 shadow-xs">
+            <PhoneCall className="w-3.5 h-3.5 text-[#FCB116]" />
           </div>
           <div className="flex flex-col">
             <span className="text-[10px] text-[#544643] leading-tight">
