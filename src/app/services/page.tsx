@@ -4,7 +4,6 @@ import { ServicesOverviewSection } from "@/components/services/ServicesOverviewS
 import { ServicesDetailedShowcase } from "@/components/services/ServicesDetailedShowcase";
 import { ServicesSolutionFinder } from "@/components/services/ServicesSolutionFinder";
 import { ServicesProcessSection } from "@/components/services/ServicesProcessSection";
-import { ServicesWhyUsSection } from "@/components/services/ServicesWhyUsSection";
 import { ServicesSelectedWorkSection } from "@/components/services/ServicesSelectedWorkSection";
 import { ServicesFinalCTASection } from "@/components/services/ServicesFinalCTASection";
 
@@ -46,8 +45,6 @@ export default function ServicesPage() {
       {/* 10. Our Process — How We Work */}
       <ServicesProcessSection />
 
-      {/* 11. Why Choose Pep Software? — Why Us */}
-      <ServicesWhyUsSection />
 
       {/* 12. Selected Work — Our Projects */}
       <ServicesSelectedWorkSection />

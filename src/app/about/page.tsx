@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { AboutHeroSection } from "@/components/about/AboutHeroSection";
 import { AboutStorySection } from "@/components/about/AboutStorySection";
 import { AboutValuesSection } from "@/components/about/AboutValuesSection";
-import { AboutExpertiseSection } from "@/components/about/AboutExpertiseSection";
 import { CeoSection } from "@/components/about/CeoSection";
 import { AboutTeamSection } from "@/components/about/AboutTeamSection";
 import { AboutIndustriesSection } from "@/components/about/AboutIndustriesSection";
@@ -29,8 +28,6 @@ export default function AboutPage() {
       {/* 05. Our Values: The Principles Behind Our Work */}
       <AboutValuesSection />
 
-      {/* 06. Our Expertise: One Team. Multiple Digital Capabilities */}
-      <AboutExpertiseSection />
 
       {/* 07. Leadership & Vision: Pioneering Technology with Purpose (CEO Shri Gowtham) */}
       <CeoSection />

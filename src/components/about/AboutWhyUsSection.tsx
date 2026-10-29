@@ -4,132 +4,177 @@ import React from "react";
 import {
   Briefcase,
   Layers,
-  Wrench,
   MessageSquare,
-  TrendingUp,
+  Cpu,
   HeartHandshake,
-  CheckCircle2,
+  LucideIcon,
 } from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
 
-const WHY_POINTS = [
+interface WhyUsPillar {
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  iconBg: string;
+  iconColor: string;
+}
+
+const WHY_US_PILLARS: WhyUsPillar[] = [
   {
-    num: "01",
-    title: "Business Understanding",
-    desc: "We take time to understand the business problem before recommending a technical solution.",
+    number: "01",
+    title: "Business First",
+    description: "We understand your business before choosing the technology.",
     icon: Briefcase,
-    bgColor: "bg-purple-100",
-    color: "text-[#7C3AED]",
+    iconBg: "bg-[#F3E8FF]",
+    iconColor: "text-[#7C3AED]",
   },
   {
-    num: "02",
-    title: "Design + Development Under One Roof",
-    desc: "From UI/UX to development, you can work with one integrated team.",
+    number: "02",
+    title: "Design + Development",
+    description: "Design and development work together under one team.",
     icon: Layers,
-    bgColor: "bg-blue-100",
-    color: "text-blue-600",
+    iconBg: "bg-[#EFF6FF]",
+    iconColor: "text-[#2563EB]",
   },
   {
-    num: "03",
-    title: "Practical Solutions",
-    desc: "We focus on building solutions that are useful in the real world — not technology for technology's sake.",
-    icon: Wrench,
-    bgColor: "bg-amber-100",
-    color: "text-amber-600",
-  },
-  {
-    num: "04",
-    title: "Transparent Communication",
-    desc: "You stay informed throughout the project with clear communication and progress updates.",
+    number: "03",
+    title: "Clear Communication",
+    description: "Stay informed at every stage of your project.",
     icon: MessageSquare,
-    bgColor: "bg-emerald-100",
-    color: "text-emerald-600",
+    iconBg: "bg-[#ECFDF5]",
+    iconColor: "text-[#059669]",
   },
   {
-    num: "05",
-    title: "Scalable Technology",
-    desc: "We build with the future in mind, so your product can evolve as your business grows.",
-    icon: TrendingUp,
-    bgColor: "bg-indigo-100",
-    color: "text-indigo-600",
+    number: "04",
+    title: "Practical Technology",
+    description: "We choose technology that fits your needs, not just trends.",
+    icon: Cpu,
+    iconBg: "bg-[#FEF3C7]",
+    iconColor: "text-[#D97706]",
   },
   {
-    num: "06",
+    number: "05",
     title: "Long-Term Support",
-    desc: "Our relationship doesn't have to end when the project launches. We can continue supporting and improving your digital solution.",
+    description: "We help your digital product evolve beyond launch.",
     icon: HeartHandshake,
-    bgColor: "bg-rose-100",
-    color: "text-rose-600",
+    iconBg: "bg-[#F5F3FF]",
+    iconColor: "text-[#8B5CF6]",
   },
 ];
 
 export function AboutWhyUsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-[#FFFFFF] relative overflow-hidden border-b border-[#C6C2C1]/30">
+    <section className="py-20 lg:py-28 bg-[#FFFFFF] border-b border-[#C6C2C1]/30 relative overflow-hidden">
+      {/* Background Ambient Lighting Elements */}
+      <div className="absolute top-1/4 left-6 w-[550px] h-[550px] bg-purple-100/30 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-12 left-1/3 w-[450px] h-[450px] bg-amber-100/25 rounded-full blur-[130px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <RevealOnScroll>
-            <div className="inline-flex items-center gap-2.5 mb-2">
-              <span className="w-5 sm:w-6 h-[2px] rounded-full bg-gradient-to-r from-orange-400 to-[#7C3AED]" />
-              <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#502D6D]">
-                Why Choose Us
-              </span>
-              <span className="w-5 sm:w-6 h-[2px] rounded-full bg-gradient-to-r from-[#7C3AED] to-orange-400" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
+          
+          {/* ── Left Column: Headline, Subtitle, and 3D Architectural Composition ── */}
+          <div className="lg:col-span-6 flex flex-col justify-between">
+            <div>
+              <RevealOnScroll>
+                {/* Tagline Badge: "— WHY CHOOSE US —" */}
+                <div className="flex items-center gap-2.5 mb-4">
+                  <span className="w-5 sm:w-6 h-[2px] rounded-full bg-gradient-to-r from-orange-400 to-[#7C3AED]" />
+                  <span className="font-syne text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#502D6D]">
+                    Why Choose Us
+                  </span>
+                  <span className="w-5 sm:w-6 h-[2px] rounded-full bg-gradient-to-r from-[#7C3AED] to-orange-400" />
+                </div>
+
+                {/* Main Headline */}
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-black text-[#151515] tracking-tight leading-[1.12]">
+                  More Than Just a<br className="hidden sm:inline" />{" "}
+                  <span className="text-[#502D6D] bg-gradient-to-r from-[#502D6D] via-[#7C3AED] to-[#9333EA] bg-clip-text text-transparent">
+                    Development Team.
+                  </span>
+                </h2>
+
+                {/* Subtitle */}
+                <p className="mt-4 sm:mt-5 text-sm sm:text-base text-[#544643] leading-relaxed max-w-lg">
+                  We combine business understanding, design, technology and long-term support to build solutions that create real value for your business.
+                </p>
+              </RevealOnScroll>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#151515] tracking-tight leading-tight mt-1">
-              Why Businesses Choose{" "}
-              <span className="text-[#502D6D] bg-gradient-to-r from-[#502D6D] via-[#7C3AED] to-[#9333EA] bg-clip-text text-transparent">
-                Pep Software.
-              </span>
-            </h2>
+            {/* 3D Thinking Character with Golden Question Mark */}
+            <div className="mt-6 sm:mt-8">
+              <RevealOnScroll delay={0.15}>
+                <div className="relative max-w-[420px] sm:max-w-[460px] mx-auto lg:mx-0 select-none">
+                  {/* Ambient Warm Golden Glow behind question mark */}
+                  <div className="absolute top-4 right-6 w-40 sm:w-48 h-40 sm:h-48 bg-amber-300/35 rounded-full blur-3xl pointer-events-none" />
+                  {/* Ambient Purple Glow behind character */}
+                  <div className="absolute bottom-6 left-8 w-48 sm:w-56 h-48 sm:h-56 bg-purple-200/35 rounded-full blur-3xl pointer-events-none" />
+                  
+                  {/* Floating Motion Animation */}
+                  <motion.div
+                    animate={{ y: [-4, 4, -4] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative z-10"
+                  >
+                    <Image
+                      src="/images/services/why-us-character.png"
+                      alt="Why Choose Pep Software - Your Thoughtful Digital Partner"
+                      width={1024}
+                      height={682}
+                      className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(80,45,109,0.12)]"
+                      priority
+                    />
+                  </motion.div>
 
-            <p className="mt-4 text-base sm:text-lg text-[#544643] leading-relaxed max-w-2xl mx-auto">
-              We partner with forward-thinking leaders who value engineering craftsmanship, transparent communication, and software built for commercial longevity.
-            </p>
-          </RevealOnScroll>
-        </div>
-
-        {/* 6 Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {WHY_POINTS.map((point, idx) => {
-            const Icon = point.icon;
-            return (
-              <RevealOnScroll key={point.title} delay={idx * 0.08}>
-                <div className="p-7 sm:p-8 rounded-3xl bg-slate-50/70 hover:bg-white border border-slate-200/80 hover:border-purple-200 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group h-full flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div
-                        className={`w-12 h-12 rounded-2xl ${point.bgColor} ${point.color} flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform`}
-                      >
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-2xl font-black text-slate-300 group-hover:text-purple-300 font-mono transition-colors">
-                        {point.num}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-[#151515] tracking-tight group-hover:text-[#502D6D] transition-colors">
-                      {point.title}
-                    </h3>
-
-                    <p className="text-sm sm:text-base text-[#544643] leading-relaxed mt-2.5">
-                      {point.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-[#502D6D] transition-colors">
-                    <CheckCircle2 className="w-4 h-4 text-[#FCB116]" />
-                    <span>Verified Differentiator</span>
-                  </div>
+                  {/* Soft Floor Contact Shadow */}
+                  <div className="w-3/4 h-4 bg-gradient-to-r from-transparent via-slate-400/20 to-transparent blur-md mx-auto -mt-2 rounded-full" />
                 </div>
               </RevealOnScroll>
-            );
-          })}
-        </div>
+            </div>
+          </div>
 
+          {/* ── Right Column: 5 Stacked Milestone Rows with Divider Lines ── */}
+          <div className="lg:col-span-6">
+            <div className="divide-y divide-slate-100/90 border-t sm:border-t-0 border-slate-100/90">
+              {WHY_US_PILLARS.map((pillar, idx) => {
+                const Icon = pillar.icon;
+                return (
+                  <RevealOnScroll key={pillar.title} delay={idx * 0.08}>
+                    <div className="py-5 sm:py-6 group flex items-start sm:items-center gap-4 sm:gap-6 transition-all duration-300 hover:bg-purple-50/25 -mx-3 px-3 sm:-mx-4 sm:px-4 rounded-2xl cursor-default">
+                      {/* Stylized Number 01..05 in sleek sans-serif */}
+                      <span className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#DDD6FE] tracking-tight shrink-0 select-none group-hover:text-[#A78BFA] transition-colors leading-none w-12 sm:w-14">
+                        {pillar.number}
+                      </span>
+
+                      {/* Thin Vertical Divider Bar */}
+                      <span className="h-10 sm:h-12 w-[1px] bg-slate-200/90 shrink-0 self-center" />
+
+                      {/* Soft Pastel Icon Badge */}
+                      <div
+                        className={`w-12 h-12 rounded-2xl ${pillar.iconBg} ${pillar.iconColor} flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-110`}
+                      >
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                      </div>
+
+                      {/* Content: Title & Description */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base sm:text-lg font-bold text-[#151515] tracking-tight group-hover:text-[#502D6D] transition-colors">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#544643] leading-relaxed mt-1">
+                          {pillar.description}
+                        </p>
+                      </div>
+                    </div>
+                  </RevealOnScroll>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
