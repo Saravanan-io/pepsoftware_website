@@ -68,7 +68,7 @@ export interface ProjectItem {
   id: string;
   slug: string;
   title: string;
-  category: "Websites" | "Mobile Apps" | "UI/UX" | "Archived";
+  category: "Websites" | "E-Commerce" | "Mobile Apps" | "UI/UX" | "Archived";
   client: string;
   year: string;
   summary: string;

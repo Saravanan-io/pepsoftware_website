@@ -31,15 +31,49 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Framer Motion"
     ],
-    "image": "/images/portfolio/Website-1.png",
+    "image": "/images/portfolio/rio-packs.png",
     "liveUrl": "http://riopacks.com",
+    "featured": true
+  },
+  {
+    "id": "the-little-placket",
+    "slug": "the-little-placket",
+    "title": "The Little Placket",
+    "category": "E-Commerce",
+    "client": "The Little Placket Apparel",
+    "year": "2024",
+    "summary": "Artisanal boutique children's fashion label featuring pure organic cotton infant wear, playful seasonal rompers, and delicate newborn clothing.",
+    "challenge": "Presenting handcrafted boutique baby apparel with the warmth, gentleness, and trust that new parents seek online.",
+    "solution": "Designed a delightful pastel digital storefront with infant age-sizing guides, fabric certification badges, and gift wrapping options.",
+    "results": [
+      {
+        "metric": "+185%",
+        "label": "Online Sales"
+      },
+      {
+        "metric": "4.9/5",
+        "label": "Parent Reviews"
+      },
+      {
+        "metric": "100%",
+        "label": "Mobile Optimized"
+      }
+    ],
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "image": "/images/portfolio/the-little-placket.png",
+    "liveUrl": "https://littleplacket.web.app/",
     "featured": true
   },
   {
     "id": "smart-bakers-mart",
     "slug": "smart-bakers-mart",
     "title": "Smart Bakers Mart",
-    "category": "Websites",
+    "category": "E-Commerce",
     "client": "Smart Bakers Mart",
     "year": "2024",
     "summary": "Omnichannel bakery raw materials, confectionery supplies, and ingredient wholesale marketplace with dynamic inventory and instant B2B dispatch.",
@@ -99,7 +133,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "SEO Engine"
     ],
-    "image": "/images/portfolio/Website-2.png",
+    "image": "/images/portfolio/ssp-infra-projects.png",
     "liveUrl": "http://sspinfraprojects.co.in",
     "featured": true
   },
@@ -141,7 +175,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     "id": "vedhas-culture",
     "slug": "vedhas-culture",
     "title": "Vedhas Culture",
-    "category": "Websites",
+    "category": "E-Commerce",
     "client": "Vedhas Culture Handlooms",
     "year": "2024",
     "summary": "Heritage ethnic apparel and traditional handloom fashion storefront featuring artisan sarees, handcrafted kurtis, and secure digital checkout.",
@@ -167,7 +201,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Stripe API"
     ],
-    "image": "/images/portfolio/WhatsApp-Image-2025-05-15-at-4.23.20-PM-min.jpeg",
+    "image": "/images/portfolio/vedhas-culture.png",
     "liveUrl": "http://vedhasculture.com",
     "featured": true
   },
@@ -175,7 +209,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     "id": "vaibhav-collections",
     "slug": "vaibhav-collections",
     "title": "Vaibhav Collections",
-    "category": "Websites",
+    "category": "E-Commerce",
     "client": "Vaibhav Collections",
     "year": "2024",
     "summary": "Curated bridal fashion, ethnic attire, and premium jewelry collection platform offering interactive catalog galleries and personal stylist booking.",
@@ -201,7 +235,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Framer Motion"
     ],
-    "image": "/images/portfolio/ChatGPT-Image-Mar-27-2026-01_16_21-PM.png",
+    "image": "/images/portfolio/vaibhav-collections.png",
     "liveUrl": "http://vaibhavcollections.com",
     "featured": true
   },
@@ -311,7 +345,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     "id": "growth-gifts",
     "slug": "growth-gifts",
     "title": "Growth Gifts",
-    "category": "Websites",
+    "category": "E-Commerce",
     "client": "Growth Gifts Merchandise",
     "year": "2024",
     "summary": "Corporate promotional merchandising and bespoke executive gifting portal with live brand logo mockups, quantity tiered pricing, and bulk logistics.",
@@ -337,7 +371,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Framer Motion"
     ],
-    "image": "/images/portfolio/Vainavi-Goodies-1.png",
+    "image": "/images/portfolio/growth-gifts.png",
     "liveUrl": "http://growthgifts.in",
     "featured": true
   },
@@ -371,7 +405,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
       "Tailwind CSS",
       "Dynamic Forms"
     ],
-    "image": "/images/portfolio/Portfolio-Image-2.jpg",
+    "image": "/images/portfolio/ds-power-point.png",
     "liveUrl": "http://dspowerpoint.in",
     "featured": true
   },
@@ -546,44 +580,10 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     "featured": true
   },
   {
-    "id": "the-little-placket",
-    "slug": "the-little-placket",
-    "title": "The Little Placket",
-    "category": "Websites",
-    "client": "The Little Placket Apparel",
-    "year": "2024",
-    "summary": "Artisanal boutique children's fashion label featuring pure organic cotton infant wear, playful seasonal rompers, and delicate newborn clothing.",
-    "challenge": "Presenting handcrafted boutique baby apparel with the warmth, gentleness, and trust that new parents seek online.",
-    "solution": "Designed a delightful pastel digital storefront with infant age-sizing guides, fabric certification badges, and gift wrapping options.",
-    "results": [
-      {
-        "metric": "+185%",
-        "label": "Online Sales"
-      },
-      {
-        "metric": "4.9/5",
-        "label": "Parent Reviews"
-      },
-      {
-        "metric": "100%",
-        "label": "Mobile Optimized"
-      }
-    ],
-    "technologies": [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion"
-    ],
-    "image": "/images/portfolio/ChatGPT-Image-Mar-27-2026-01_21_20-PM.png",
-    "liveUrl": "http://thelittleplacket.com",
-    "featured": true
-  },
-  {
     "id": "dhyanalinga-foods",
     "slug": "dhyanalinga-foods",
     "title": "Dhyanalinga Foods",
-    "category": "Websites",
+    "category": "E-Commerce",
     "client": "Dhyanalinga Agro Foods",
     "year": "2024",
     "summary": "Traditional farm-to-table natural food brand showcasing stone ground flours, cold-pressed wood-churned oils, organic pulses, and doorstep delivery.",
@@ -1236,7 +1236,7 @@ export const PORTFOLIO_DATA: ProjectItem[] = [
     "id": "pettagam-ecommerce",
     "slug": "pettagam-ecommerce",
     "title": "Pettagam (E-Commerce)",
-    "category": "Archived",
+    "category": "E-Commerce",
     "client": "Pettagam Traditional Foods",
     "year": "2024",
     "summary": "Authentic traditional gourmet food and organic products e-commerce store with high-speed checkout, real-time inventory, and pan-India doorstep delivery.",

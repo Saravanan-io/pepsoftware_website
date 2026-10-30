@@ -6,6 +6,7 @@ import Image from "next/image";
 import {
   Globe,
   Smartphone,
+  ShoppingBag,
   Palette,
   ArrowRight,
   ExternalLink,
@@ -28,6 +29,7 @@ interface CategoryTab {
 const CATEGORY_TABS: CategoryTab[] = [
   { id: "All", label: "All", icon: Sparkles },
   { id: "Websites", label: "Websites", icon: Globe },
+  { id: "E-Commerce", label: "E-Commerce", icon: ShoppingBag },
   { id: "Mobile Apps", label: "Apps", icon: Smartphone },
 ];
 
@@ -302,7 +304,12 @@ function getProjectTags(project: ProjectItem): string[] {
   if (project.id === "pettagam-ecommerce") return ["Website", "E-commerce", "UI/UX"];
 
   // Smart derivation for remaining projects
-  const tag1 = project.category === "Mobile Apps" ? "Mobile App" : "Website";
+  const tag1 =
+    project.category === "Mobile Apps"
+      ? "Mobile App"
+      : project.category === "E-Commerce"
+      ? "E-Commerce"
+      : "Website";
   
   let tag2 = "Digital Solution";
   const titleLower = project.title.toLowerCase();
@@ -335,7 +342,10 @@ export function PortfolioTeaser() {
   const filteredProjects: ProjectItem[] = useMemo(() => {
     if (activeTab === "All") {
       return PORTFOLIO_DATA.filter(
-        (p) => p.category === "Websites" || p.category === "Mobile Apps"
+        (p) =>
+          p.category === "Websites" ||
+          p.category === "E-Commerce" ||
+          p.category === "Mobile Apps"
       );
     }
     return PORTFOLIO_DATA.filter((p) => p.category === activeTab);
