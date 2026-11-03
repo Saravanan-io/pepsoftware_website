@@ -1,37 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { Clients3DBackground } from "@/components/home/Clients3DBackground";
-
-interface ClientBrand {
-  name: string;
-  imageSrc?: string;
-  isTextBrand?: boolean;
-  color?: string;
-  tagline?: string;
-}
+import { CLIENTS_DATA } from "@/data/clients";
+import { ClientLogoCard } from "@/components/shared/ClientLogoCard";
 
 export function ClientLogoWallSection() {
-  const customClients: ClientBrand[] = [
-    { name: "Pettagam", imageSrc: "/clients/client-1.png" },
-    { name: "Smart Baker's Mart", imageSrc: "/clients/client-2.png" },
-    { name: "ISDA Clothing", imageSrc: "/clients/client-3.png" },
-    { name: "KYRO Steels", imageSrc: "/clients/client-4.png" },
-    { name: "Navi's Studio", imageSrc: "/clients/client-5.png" },
-    { name: "Mochooo TV", imageSrc: "/clients/client-6.png" },
-    { name: "Lenient Technologies", isTextBrand: true, color: "text-[#502D6D]", tagline: "IT & Services" },
-    { name: "Pravin Bottelings", isTextBrand: true, color: "text-[#C86A28]", tagline: "Manufacturing" },
-    { name: "Hakir Pharmaceuticals", isTextBrand: true, color: "text-[#0D9488]", tagline: "Healthcare" },
-    { name: "The Elite Mutual Funds", isTextBrand: true, color: "text-[#1D4ED8]", tagline: "FinTech" },
-  ];
-
-  // 4x duplication ensures perfectly smooth infinite -50% marquee loop with larger cards
-  const marqueeItems = [
-    ...customClients,
-    ...customClients,
-    ...customClients,
-    ...customClients,
-  ];
+  // Duplication ensures a perfectly smooth infinite -50% marquee loop with all 33 clients
+  const marqueeItems = [...CLIENTS_DATA, ...CLIENTS_DATA];
 
   return (
     <section className="relative z-10 py-20 lg:py-28 bg-[#0C0418] border-y border-[#502D6D]/50 overflow-hidden select-none">
@@ -64,42 +39,15 @@ export function ClientLogoWallSection() {
         <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-[#0C0418] via-[#0C0418]/85 to-transparent z-20 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-[#0C0418] via-[#0C0418]/85 to-transparent z-20 pointer-events-none" />
 
-        <div className="flex items-center gap-7 sm:gap-9 w-max animate-marquee py-3 hover:[animation-play-state:paused]">
+        <div
+          className="flex items-center gap-7 sm:gap-9 w-max animate-marquee py-3 hover:[animation-play-state:paused]"
+          style={{ animationDuration: "65s" }}
+        >
           {marqueeItems.map((client, idx) => (
-            <div
+            <ClientLogoCard
               key={`${client.name}-${idx}`}
-              className="flex items-center justify-center w-[230px] sm:w-[270px] h-[98px] sm:h-[114px] rounded-2xl sm:rounded-3xl bg-[#FFFFFF] border-2 border-[#502D6D]/45 hover:border-[#FCB116] shadow-xl shadow-black/50 hover:shadow-2xl hover:shadow-[#502D6D]/40 hover:-translate-y-2.5 hover:scale-[1.04] transition-all duration-300 shrink-0 px-6 py-4 overflow-hidden relative group cursor-pointer"
-            >
-              {/* Subtle ambient card glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#502D6D]/[0.08] to-[#FCB116]/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-              {/* Corner starlight glint */}
-              <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#FCB116] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#FCB116]" />
-
-              {client.imageSrc ? (
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
-                    src={client.imageSrc}
-                    alt={client.name}
-                    width={210}
-                    height={75}
-                    loading="lazy"
-                    className="max-h-[64px] sm:max-h-[74px] w-auto max-w-[88%] object-contain contrast-110 filter group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ) : (
-                <div className="text-center px-2">
-                  <span className={`font-syne font-extrabold text-sm sm:text-base tracking-tight ${client.color || "text-[#151515]"} transition-colors leading-snug block`}>
-                    {client.name}
-                  </span>
-                  {client.tagline && (
-                    <span className="text-[10px] font-bold text-slate-500 tracking-wider uppercase mt-1 block">
-                      {client.tagline}
-                    </span>
-                  )}
-                </div>
-              )}
-            </div>
+              client={client}
+            />
           ))}
         </div>
       </div>

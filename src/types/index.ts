@@ -98,8 +98,11 @@ export interface TestimonialItem {
 
 export interface ClientItem {
   name: string;
-  logo: string;
-  industry: string;
+  hasLiveSite: boolean;
+  liveUrl?: string;
+  domain?: string;
+  imageSrc?: string;
+  industry?: string;
 }
 
 export interface ContactFormData {

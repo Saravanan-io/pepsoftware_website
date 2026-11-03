@@ -1,25 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
+import { CLIENTS_DATA } from "@/data/clients";
+import { ClientLogoCard } from "@/components/shared/ClientLogoCard";
 
 export function AboutClientsSection() {
-  const customClients = [
-    { name: "Pettagam", imageSrc: "/clients/client-1.png" },
-    { name: "Client 2", imageSrc: "/clients/client-2.png" },
-    { name: "ISDA", imageSrc: "/clients/client-3.png" },
-    { name: "KYRO", imageSrc: "/clients/client-4.png" },
-    { name: "Navi's Studio", imageSrc: "/clients/client-5.png" },
-    { name: "Client 6", imageSrc: "/clients/client-6.png" },
-  ];
+  const [showAll, setShowAll] = useState(false);
+  const displayedClients = showAll ? CLIENTS_DATA : CLIENTS_DATA.slice(0, 18);
 
   return (
     <section className="py-20 lg:py-28 bg-[#FFFFFF] relative overflow-hidden border-b border-[#C6C2C1]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
           <RevealOnScroll>
@@ -39,43 +33,47 @@ export function AboutClientsSection() {
             </h2>
 
             <p className="mt-4 text-base sm:text-lg text-[#544643] leading-relaxed max-w-2xl mx-auto">
-              We are proud to work with businesses, organizations and entrepreneurs who trust us to bring their digital ideas to life.
+              We are proud to work with businesses, organizations, and entrepreneurs who trust us to bring their digital ideas to life.
             </p>
           </RevealOnScroll>
         </div>
 
         {/* Client Logo Grid Wall */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-          {customClients.map((client, idx) => (
-            <RevealOnScroll key={idx} delay={idx * 0.05}>
-              <div className="h-28 sm:h-32 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-purple-200 p-4 flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
-                <div className="relative w-full h-full flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
-                  <Image
-                    src={client.imageSrc}
-                    alt={client.name}
-                    width={140}
-                    height={50}
-                    className="max-h-12 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-5 justify-items-center">
+          {displayedClients.map((client, idx) => (
+            <RevealOnScroll key={`${client.name}-${idx}`} delay={(idx % 6) * 0.05}>
+              <ClientLogoCard
+                client={client}
+                className="w-full max-w-[240px] sm:max-w-none h-[96px] shadow-sm hover:shadow-lg border-slate-200/90"
+              />
             </RevealOnScroll>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <RevealOnScroll delay={0.2}>
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#151515] hover:bg-[#502D6D] text-white font-bold text-sm shadow-md transition-all cursor-pointer group"
+        {/* Action Controls */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {CLIENTS_DATA.length > 18 && (
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-[#151515] font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
             >
-              <span>View Our Projects</span>
-              <ArrowRight className="w-4 h-4 text-[#FCB116] group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </RevealOnScroll>
-        </div>
+              <span>{showAll ? "Show Less" : `View All ${CLIENTS_DATA.length} Clients`}</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  showAll ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          )}
 
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#151515] hover:bg-[#502D6D] text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer group"
+          >
+            <span>View Our Case Studies</span>
+            <ArrowRight className="w-4 h-4 text-[#FCB116] group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
     </section>
   );
