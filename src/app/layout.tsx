@@ -1,11 +1,40 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Syne, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Preloader } from "@/components/layout/Preloader";
 import { ScrollProgressBar } from "@/components/shared/ScrollProgressBar";
+import { WhatsAppFloatingButton } from "@/components/shared/WhatsAppFloatingButton";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
+
+const clashDisplay = localFont({
+  src: [
+    {
+      path: "../../public/fonts/ClashDisplay-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/ClashDisplay-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/ClashDisplay-Semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/ClashDisplay-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-clash",
+  display: "swap",
+});
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -55,7 +84,15 @@ export const metadata: Metadata = {
       "We design and develop modern websites, mobile applications, and immersive digital solutions that help businesses grow in the real world and beyond.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+      { url: "/pep-icon.png", type: "image/png", sizes: "328x328" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
@@ -72,10 +109,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${syne.variable} ${caveat.variable} font-sans`}>
+    <html lang="en" className={`${jakarta.variable} ${syne.variable} ${caveat.variable} ${clashDisplay.variable} font-sans`}>
       <body className="min-h-screen flex flex-col bg-[#F7F8F8] text-[#151515] antialiased selection:bg-[#C86A28] selection:text-white">
         <Preloader />
         <ScrollProgressBar />
+        <WhatsAppFloatingButton />
         <SmoothScrollProvider>
           <Header />
           <main className="flex-1">{children}</main>

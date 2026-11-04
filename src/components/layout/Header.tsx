@@ -67,7 +67,7 @@ export function Header() {
                 className="object-contain"
               />
             </div>
-            <span className="font-semibold text-[23px] sm:text-[26px] text-[#151515] ml-1 tracking-tight">
+            <span className="font-medium text-[23px] sm:text-[26px] text-[#151515] ml-1 tracking-tight font-clash">
               Pep Software
             </span>
           </Link>
@@ -215,7 +215,7 @@ export function Header() {
               className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#F7F8F8] z-[70] flex flex-col shadow-2xl border-l border-[#C6C2C1]"
             >
               <div className="flex items-center justify-between p-6 border-b border-[#C6C2C1]/40">
-                <span className="font-extrabold text-xl text-[#151515]">Pep Software</span>
+                <span className="font-medium text-xl text-[#151515] font-clash">Pep Software</span>
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="p-2 rounded-full bg-[#EFF0EF] text-[#151515] hover:bg-[#E9E8E6] transition-colors"

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUp, MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { COMPANY_INFO, NAV_ITEMS } from "@/lib/constants";
 import { AsteroidSpaceBackground } from "./AsteroidSpaceBackground";
 
@@ -59,11 +59,11 @@ export function Footer() {
                   className="object-contain p-0.5 drop-shadow-md"
                 />
               </div>
-              <div className="flex items-baseline gap-1.5 leading-none">
-                <span className="font-extrabold text-[28px] tracking-tight bg-gradient-to-r from-white via-zinc-100 to-[#FCB116] bg-clip-text text-transparent font-syne group-hover:to-amber-300 transition-all">
-                  PEP
+              <div className="flex items-baseline gap-1.5 leading-none font-clash">
+                <span className="font-medium text-[28px] tracking-tight bg-gradient-to-r from-white via-zinc-100 to-[#FCB116] bg-clip-text text-transparent group-hover:to-amber-300 transition-all">
+                  Pep
                 </span>
-                <span className="font-semibold text-[28px] tracking-tight text-zinc-100 group-hover:text-white transition-colors font-syne">
+                <span className="font-medium text-[28px] tracking-tight text-zinc-100 group-hover:text-white transition-colors">
                   Software
                 </span>
               </div>
@@ -177,20 +177,20 @@ export function Footer() {
 
           {/* Contact Us Column */}
           <div className="lg:col-span-3 space-y-5">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-100 font-syne relative pb-2.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-7 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-transparent">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-100 font-syne relative pb-2.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-7 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-[#FCB116] after:to-transparent">
               Contact Us
             </h4>
             <ul className="space-y-4">
               {/* Address */}
               <li className="flex items-start gap-3 group">
-                <div className="w-9 h-9 rounded-xl bg-[#502D6D]/20 border border-[#A855F7]/30 flex items-center justify-center text-[#C084FC] shrink-0 mt-0.5 group-hover:border-[#C084FC]/60 group-hover:bg-[#502D6D]/35 transition-all duration-200">
-                  <MapPin className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-xl bg-[#502D6D]/30 border border-[#A855F7]/30 flex items-center justify-center text-[#FCB116] shrink-0 mt-0.5 group-hover:border-[#FCB116]/60 group-hover:bg-[#502D6D]/50 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(252,177,22,0.25)] transition-all duration-200 backdrop-blur-sm">
+                  <MapPin className="w-4 h-4 text-[#FCB116]" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500 font-syne">
                     Location
                   </span>
-                  <span className="text-sm text-zinc-300 font-medium leading-snug">
+                  <span className="text-sm text-zinc-300 group-hover:text-white font-medium leading-snug transition-colors">
                     {COMPANY_INFO.address}
                   </span>
                 </div>
@@ -198,8 +198,8 @@ export function Footer() {
 
               {/* Email */}
               <li className="flex items-start gap-3 group">
-                <div className="w-9 h-9 rounded-xl bg-[#FCB116]/15 border border-[#FCB116]/30 flex items-center justify-center text-[#FCB116] shrink-0 mt-0.5 group-hover:border-[#FCB116]/60 group-hover:bg-[#FCB116]/25 transition-all duration-200">
-                  <Mail className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-xl bg-[#502D6D]/30 border border-[#A855F7]/30 flex items-center justify-center text-[#FCB116] shrink-0 mt-0.5 group-hover:border-[#FCB116]/60 group-hover:bg-[#502D6D]/50 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(252,177,22,0.25)] transition-all duration-200 backdrop-blur-sm">
+                  <Mail className="w-4 h-4 text-[#FCB116]" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500 font-syne">
@@ -216,19 +216,13 @@ export function Footer() {
 
               {/* Phone */}
               <li className="flex items-start gap-3 group">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5 group-hover:border-emerald-400/60 group-hover:bg-emerald-500/25 transition-all duration-200">
-                  <Phone className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-xl bg-[#502D6D]/30 border border-[#A855F7]/30 flex items-center justify-center text-[#FCB116] shrink-0 mt-0.5 group-hover:border-[#FCB116]/60 group-hover:bg-[#502D6D]/50 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(252,177,22,0.25)] transition-all duration-200 backdrop-blur-sm">
+                  <Phone className="w-4 h-4 text-[#FCB116]" />
                 </div>
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500 font-syne">
-                      Direct Line
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold text-emerald-400 bg-emerald-400/10 border border-emerald-400/20">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Available
-                    </span>
-                  </div>
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-500 font-syne">
+                    Direct Line
+                  </span>
                   <a
                     href={`tel:${COMPANY_INFO.phoneRaw}`}
                     className="text-sm font-bold text-white hover:text-[#FCB116] transition-colors mt-0.5 tracking-wide"
@@ -260,13 +254,6 @@ export function Footer() {
             >
               Terms & Conditions
             </Link>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] border border-white/10 hover:border-[#FCB116]/60 hover:bg-white/[0.1] text-xs font-semibold text-zinc-200 hover:text-white transition-all shadow-sm group cursor-pointer"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-[#FCB116] transition-transform duration-200 group-hover:-translate-y-0.5" />
-            </button>
           </div>
         </div>
       </div>

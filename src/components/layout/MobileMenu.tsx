@@ -45,7 +45,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <div className="w-8 h-8 rounded-lg bg-[#151515] flex items-center justify-center text-[#C86A28] font-bold text-lg shadow-sm border border-[#544643]">
                   P
                 </div>
-                <span className="font-bold text-lg text-[#151515]">PEP Software</span>
+                <span className="font-medium text-lg text-[#151515] font-clash">Pep Software</span>
               </div>
               <button
                 onClick={onClose}

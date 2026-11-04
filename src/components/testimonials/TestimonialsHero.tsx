@@ -28,15 +28,6 @@ export function TestimonialsHero() {
           
           {/* Left Content Column */}
           <div className="lg:col-span-7 text-center lg:text-left space-y-6">
-            
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200/80 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#7C3AED]" />
-              <span className="text-xs font-bold text-[#151515] tracking-wide uppercase">
-                Client Success Stories
-              </span>
-            </div>
-
             {/* Main Heading */}
             <WordReveal
               as="h1"

@@ -58,15 +58,6 @@ export function AboutClosingCTA() {
               <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#502D6D] group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
-
-          {/* Trust Footnote */}
-          <div className="mt-8 pt-6 border-t border-slate-200/60 flex items-center justify-center gap-6 text-xs text-slate-500 font-semibold">
-            <span>⚡ Rapid Response within 24h</span>
-            <span>•</span>
-            <span>🔒 Confidential & NDA-backed</span>
-            <span>•</span>
-            <span>📍 Erode, Tamil Nadu, India</span>
-          </div>
         </RevealOnScroll>
       </div>
     </section>

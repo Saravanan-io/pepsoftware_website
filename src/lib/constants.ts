@@ -17,6 +17,8 @@ export const COMPANY_INFO = {
   country: "India",
   pincode: "638009",
   whatsappCommunityLink: "https://chat.whatsapp.com/pepsoftware-community",
+  whatsappNumber: "6381010282",
+  whatsappLink: "https://wa.me/916381010282",
   workingHours: "Mon - Sat: 9:30 AM - 6:30 PM IST",
   socials: {
     linkedin: "https://linkedin.com/company/pepsoftwares",

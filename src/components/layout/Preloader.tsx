@@ -63,10 +63,10 @@ export function Preloader() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="flex items-baseline gap-2"
+              className="flex items-baseline gap-1.5 font-clash"
             >
-              <span className="text-2xl font-black tracking-tight text-[#151515]">PEP</span>
-              <span className="text-2xl font-light tracking-tight text-[#C86A28]">Software</span>
+              <span className="text-2xl font-medium tracking-tight text-[#151515]">Pep</span>
+              <span className="text-2xl font-medium tracking-tight text-[#502D6D]">Software</span>
             </motion.div>
 
             {/* Progress track */}
