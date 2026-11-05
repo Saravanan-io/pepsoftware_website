@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
+import { JsonLd, getBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { RevealOnScroll } from "@/components/shared/RevealOnScroll";
 import { ContactCTA } from "@/components/home/ContactCTA";
 
@@ -25,8 +26,25 @@ export async function generateMetadata({
   if (!project) return { title: "Case Study Not Found" };
 
   return {
-    title: `${project.title} Case Study | PEP Software`,
+    title: `${project.title} Case Study | PEP Software Portfolio`,
     description: project.summary,
+    alternates: {
+      canonical: `https://pepsoftwares.com/work/${slug}`,
+    },
+    openGraph: {
+      title: `${project.title} Case Study | PEP Software`,
+      description: project.summary,
+      url: `https://pepsoftwares.com/work/${slug}`,
+      siteName: "PEP Software",
+      images: [
+        {
+          url: project.image.startsWith("http")
+            ? project.image
+            : `https://pepsoftwares.com${project.image}`,
+          alt: `${project.title} Showcase`,
+        },
+      ],
+    },
   };
 }
 
@@ -42,8 +60,36 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
   const nextProject =
     PORTFOLIO_DATA[(projectIndex + 1) % PORTFOLIO_DATA.length];
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: `${project.title} Case Study`,
+    headline: project.title,
+    description: project.summary,
+    creator: {
+      "@type": "Organization",
+      name: "PEP Software",
+      url: "https://pepsoftwares.com",
+    },
+    image: project.image.startsWith("http")
+      ? project.image
+      : `https://pepsoftwares.com${project.image}`,
+    keywords: project.technologies.join(", "),
+  };
+
+  const breadcrumbsSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://pepsoftwares.com" },
+    { name: "Portfolio", url: "https://pepsoftwares.com/work" },
+    {
+      name: project.title,
+      url: `https://pepsoftwares.com/work/${slug}`,
+    },
+  ]);
+
   return (
     <div className="w-full bg-[#F7F8F8]">
+      <JsonLd schema={projectSchema} />
+      <JsonLd schema={breadcrumbsSchema} />
       {/* Hero Header */}
       <section className="pt-24 pb-20 bg-[#F7F8F8] border-b border-[#C6C2C1]/40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

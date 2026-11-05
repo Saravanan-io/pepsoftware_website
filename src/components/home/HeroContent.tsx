@@ -113,7 +113,7 @@ export function HeroContent() {
             />
 
             <ParagraphReveal
-              text="We build powerful web, mobile and software solutions that help businesses grow, automate and stay ahead in the digital world."
+              text="PEP Software builds high-performance web applications, mobile apps, and custom enterprise software in Erode, Coimbatore, and across Tamil Nadu — helping businesses automate workflows and accelerate growth."
               delay={0.35}
               duration={0.6}
               staggerDelay={0.018}

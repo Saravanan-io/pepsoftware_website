@@ -6,9 +6,19 @@ import { PortfolioHeroCardsShowcase } from "@/components/work/PortfolioHeroCards
 import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Case Studies | PEP Software",
+  title: "Portfolio & Case Studies | PEP Software Solutions",
   description:
-    "Explore our carefully curated portfolio, showcasing our expertise in creating websites, mobile applications, and digital products for various industries.",
+    "Explore verified client case studies, custom web applications, mobile apps, and enterprise software engineered by PEP Software in Tamil Nadu.",
+  alternates: {
+    canonical: "https://pepsoftwares.com/work",
+  },
+  openGraph: {
+    title: "Portfolio & Case Studies | PEP Software Solutions",
+    description:
+      "Explore verified client case studies, custom web applications, mobile apps, and enterprise software engineered by PEP Software in Tamil Nadu.",
+    url: "https://pepsoftwares.com/work",
+    siteName: "PEP Software",
+  },
 };
 
 export default function WorkPage() {
