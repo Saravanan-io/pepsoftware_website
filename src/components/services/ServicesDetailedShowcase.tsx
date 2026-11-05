@@ -303,9 +303,9 @@ export function ServicesDetailedShowcase() {
       </section>
 
       {/* ========================================================
-          04. SERVICE 04 — SAAS PRODUCTS
+          04. SERVICE 04 — ERP & CRM SOFTWARE DEVELOPMENT
           ======================================================== */}
-      <section id="service-04" className="py-20 lg:py-28 bg-white border-b border-[#C6C2C1]/40 scroll-mt-20">
+      <section id="service-erp-crm" className="py-20 lg:py-28 bg-white border-b border-[#C6C2C1]/40 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Visual (Alternating) */}
@@ -314,18 +314,18 @@ export function ServicesDetailedShowcase() {
                 <div className="relative rounded-3xl overflow-hidden bg-[#F7F8F8] border border-[#C6C2C1]/60 shadow-xl shadow-[#151515]/5 group">
                   <div className="relative h-[320px] sm:h-[400px] w-full overflow-hidden">
                     <Image
-                      src="/images/case-studies/healthcare-dashboard.jpg"
-                      alt="SaaS Cloud Product Architecture"
+                      src="/images/services/erp-crm-software-development-real.jpg"
+                      alt="ERP & CRM Software Development"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6 right-6 text-white">
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#C084FC] font-bold block mb-1">
-                        Multi-Tenant & Cloud Scalable
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#A78BFA] font-bold block mb-1">
+                        Enterprise Operations & Pipelines
                       </span>
                       <p className="text-lg font-bold text-white tracking-tight">
-                        SaaS MVP to Enterprise Production Architecture
+                        Custom ERP, CRM & Workflow Automation Platforms
                       </p>
                     </div>
                   </div>
@@ -338,9 +338,76 @@ export function ServicesDetailedShowcase() {
               <RevealOnScroll>
                 {/* Clean Section Name */}
                 <div className="flex items-center gap-2 mb-2">
+                  <span className="w-5 h-[2px] rounded-full bg-[#68358F]" />
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#68358F]">
+                    Service 04 — ERP & CRM Software Development
+                  </span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151515] tracking-[-0.03em] leading-tight">
+                  Unify Operations with Intelligent ERP & CRM.
+                </h2>
+
+                <p className="text-base sm:text-lg text-[#544643] leading-relaxed">
+                  Centralize your critical business data, automate lead conversion pipelines, and streamline complex multi-department operations with custom-built enterprise systems.
+                </p>
+
+                {/* What We Deliver List */}
+                <div className="pt-2">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-[#151515] mb-3">
+                    What We Deliver:
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {[
+                      "Custom CRM Pipelines",
+                      "Enterprise Resource Planning (ERP)",
+                      "Sales & Lead Automation",
+                      "Inventory & Warehouse Tracking",
+                      "Customer Support & Helpdesk Portals",
+                      "Financial Analytics & Invoicing",
+                      "Role-Based Access & Security",
+                      "Multi-Branch & Cloud Database Sync",
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-2.5 text-sm sm:text-base text-[#151515]">
+                        <div className="w-5 h-5 rounded-full bg-[#68358F]/10 flex items-center justify-center shrink-0">
+                          <Check className="w-3 h-3 text-[#68358F] stroke-[3]" />
+                        </div>
+                        <span className="font-medium">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Direct CTA */}
+                <div className="pt-4">
+                  <Link
+                    href="/contact?service=erp-crm"
+                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#68358F] text-white font-bold text-sm hover:bg-[#151515] shadow-md shadow-[#68358F]/15 transition-all cursor-pointer"
+                  >
+                    <span>Discuss My ERP / CRM Project</span>
+                    <ArrowRight className="w-4 h-4 text-[#FCB116]" />
+                  </Link>
+                </div>
+              </RevealOnScroll>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          05. SERVICE 05 — SAAS PRODUCTS
+          ======================================================== */}
+      <section id="service-04" className="py-20 lg:py-28 bg-[#F7F8F8] border-b border-[#C6C2C1]/40 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-6 space-y-6">
+              <RevealOnScroll>
+                {/* Clean Section Name */}
+                <div className="flex items-center gap-2 mb-2">
                   <span className="w-5 h-[2px] rounded-full bg-[#7C3AED]" />
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#7C3AED]">
-                    Service 04 — SaaS Products
+                    Service 05 — SaaS Products
                   </span>
                 </div>
 
@@ -390,24 +457,74 @@ export function ServicesDetailedShowcase() {
                 </div>
               </RevealOnScroll>
             </div>
+
+            {/* Right Visual */}
+            <div className="lg:col-span-6">
+              <RevealOnScroll delay={0.2}>
+                <div className="relative rounded-3xl overflow-hidden bg-white border border-[#C6C2C1]/60 shadow-xl shadow-[#151515]/5 group">
+                  <div className="relative h-[320px] sm:h-[400px] w-full overflow-hidden">
+                    <Image
+                      src="/images/case-studies/healthcare-dashboard.jpg"
+                      alt="SaaS Cloud Product Architecture"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#C084FC] font-bold block mb-1">
+                        Multi-Tenant & Cloud Scalable
+                      </span>
+                      <p className="text-lg font-bold text-white tracking-tight">
+                        SaaS MVP to Enterprise Production Architecture
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          05. SERVICE 05 — UI/UX DESIGN
+          06. SERVICE 06 — UI/UX DESIGN
           ======================================================== */}
-      <section id="service-05" className="py-20 lg:py-28 bg-[#F7F8F8] border-b border-[#C6C2C1]/40 scroll-mt-20">
+      <section id="service-05" className="py-20 lg:py-28 bg-white border-b border-[#C6C2C1]/40 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6">
+            {/* Left Visual (Alternating) */}
+            <div className="lg:col-span-6 order-2 lg:order-1">
+              <RevealOnScroll delay={0.2}>
+                <div className="relative rounded-3xl overflow-hidden bg-[#F7F8F8] border border-[#C6C2C1]/60 shadow-xl shadow-[#151515]/5 group">
+                  <div className="relative h-[320px] sm:h-[400px] w-full overflow-hidden">
+                    <Image
+                      src="/images/services/ui-ux-design-real.jpg"
+                      alt="UI/UX Design Studio Services"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#FCB116] font-bold block mb-1">
+                        Intuitive & Frictionless
+                      </span>
+                      <p className="text-lg font-bold text-white tracking-tight">
+                        Human-Centered Design Systems & Wireframes
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            </div>
+
+            {/* Right Content */}
+            <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
               <RevealOnScroll>
                 {/* Clean Section Name - No Pill Badge */}
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-5 h-[2px] rounded-full bg-[#502D6D]" />
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#502D6D]">
-                    Service 05 — UI/UX Design
+                    Service 06 — UI/UX Design
                   </span>
                 </div>
 
@@ -473,74 +590,24 @@ export function ServicesDetailedShowcase() {
                 </div>
               </RevealOnScroll>
             </div>
-
-            {/* Right Visual */}
-            <div className="lg:col-span-6">
-              <RevealOnScroll delay={0.2}>
-                <div className="relative rounded-3xl overflow-hidden bg-white border border-[#C6C2C1]/60 shadow-xl shadow-[#151515]/5 group">
-                  <div className="relative h-[320px] sm:h-[400px] w-full overflow-hidden">
-                    <Image
-                      src="/images/services/ui-ux-design-real.jpg"
-                      alt="UI/UX Design Studio Services"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6 text-white">
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#FCB116] font-bold block mb-1">
-                        Intuitive & Frictionless
-                      </span>
-                      <p className="text-lg font-bold text-white tracking-tight">
-                        Human-Centered Design Systems & Wireframes
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </RevealOnScroll>
-            </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          06. SERVICE 06 — DIGITAL MARKETING
+          07. SERVICE 07 — DIGITAL MARKETING
           ======================================================== */}
-      <section id="service-06" className="py-20 lg:py-28 bg-white border-b border-[#C6C2C1]/40 scroll-mt-20">
+      <section id="service-06" className="py-20 lg:py-28 bg-[#F7F8F8] border-b border-[#C6C2C1]/40 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Visual (Alternating) */}
-            <div className="lg:col-span-6 order-2 lg:order-1">
-              <RevealOnScroll delay={0.2}>
-                <div className="relative rounded-3xl overflow-hidden bg-[#F7F8F8] border border-[#C6C2C1]/60 shadow-xl shadow-[#151515]/5 group">
-                  <div className="relative h-[320px] sm:h-[400px] w-full overflow-hidden">
-                    <Image
-                      src="/images/services/digital-marketing-real.jpg"
-                      alt="Digital Marketing and SEO Services"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6 text-white">
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#FB7185] font-bold block mb-1">
-                        Measurable ROI & Growth
-                      </span>
-                      <p className="text-lg font-bold text-white tracking-tight">
-                        SEO, Google Ads, Meta Ads & Conversion Strategy
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </RevealOnScroll>
-            </div>
-
-            {/* Right Content */}
-            <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
+            {/* Left Content */}
+            <div className="lg:col-span-6 space-y-6">
               <RevealOnScroll>
                 {/* Clean Section Name */}
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-5 h-[2px] rounded-full bg-[#E11D48]" />
                   <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E11D48]">
-                    Service 06 — Digital Marketing
+                    Service 07 — Digital Marketing
                   </span>
                 </div>
 
@@ -586,6 +653,31 @@ export function ServicesDetailedShowcase() {
                     <span>Grow My Business</span>
                     <ArrowRight className="w-4 h-4 text-white" />
                   </Link>
+                </div>
+              </RevealOnScroll>
+            </div>
+
+            {/* Right Visual */}
+            <div className="lg:col-span-6">
+              <RevealOnScroll delay={0.2}>
+                <div className="relative rounded-3xl overflow-hidden bg-white border border-[#C6C2C1]/60 shadow-xl shadow-[#151515]/5 group">
+                  <div className="relative h-[320px] sm:h-[400px] w-full overflow-hidden">
+                    <Image
+                      src="/images/services/digital-marketing-real.jpg"
+                      alt="Digital Marketing and SEO Services"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#FB7185] font-bold block mb-1">
+                        Measurable ROI & Growth
+                      </span>
+                      <p className="text-lg font-bold text-white tracking-tight">
+                        SEO, Google Ads, Meta Ads & Conversion Strategy
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </RevealOnScroll>
             </div>
