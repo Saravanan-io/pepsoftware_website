@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code2, Smartphone, Cpu, TrendingUp } from "lucide-react";
+import { ArrowRight, Code2, Smartphone, Cpu, Database, TrendingUp } from "lucide-react";
 import { registerGSAP } from "@/lib/gsap";
 import type { ScrollTrigger as ScrollTriggerInstance } from "gsap/ScrollTrigger";
 import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
@@ -43,8 +43,19 @@ const services = [
     tag: "Custom Solutions",
   },
   {
-    id: "digital-marketing",
+    id: "erp-crm-development",
     num: "04",
+    icon: Database,
+    label: "ERP & CRM Software Development",
+    desc: "Intelligent Automation. Seamless Operations. Custom ERP and CRM platforms designed to unify workflows, sales pipelines, and enterprise data.",
+    accent: "#68358F", // Vibrant Violet
+    href: "/services",
+    image: "/images/services/erp-crm-software-development-real.jpg",
+    tag: "ERP & CRM Systems",
+  },
+  {
+    id: "digital-marketing",
+    num: "05",
     icon: TrendingUp,
     label: "Digital Marketing",
     desc: "Targeted Growth. High Conversion. Data-driven SEO, performance marketing, and creative campaigns that turn visitors into loyal customers.",
@@ -116,7 +127,7 @@ export function ServicesGrid() {
     applyCardPositions(0, window.innerWidth);
 
     const ctx = gsap.context(() => {
-      const PIN_SCROLL = Math.max(window.innerHeight * 2.0, 1800);
+      const PIN_SCROLL = Math.max(window.innerHeight * 2.4, 2200);
 
       const tl = gsap.timeline({
         scrollTrigger: {
