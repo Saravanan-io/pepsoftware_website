@@ -18,7 +18,7 @@
 
 ## 2. FILES MODIFIED
 1. `src/lib/constants.ts` — Updated company address to full verified headquarters: `47, Marappa 1st Street, Main Rd, Surampatty, Erode, Tamil Nadu 638009`.
-2. `next.config.ts` — Added 301 redirects for non-canonical hosts (`pepsoftwarewebsite.vercel.app`, `www.pepsoftwares.com`), removed production `no-store` caching bottleneck, enabled immutable caching for static assets, and added security headers.
+2. `next.config.ts` — Added 301 redirects for non-canonical hosts (`www.pepsoftwares.com`), removed production `no-store` caching bottleneck, enabled immutable caching for static assets, and added security headers.
 3. `src/app/sitemap.ts` — Normalized trailing slashes (changed `/products/${slug}/` to `/products/${slug}`), synchronized `baseUrl` to `SEO_CONFIG.siteUrl`, updated priorities.
 4. `src/app/robots.ts` — Synchronized sitemap URL and explicitly permitted modern AI search crawlers (`GPTBot`, `PerplexityBot`, `ClaudeBot`, `Google-Extended`).
 5. `src/app/layout.tsx` — Fixed 404 dead icon paths, removed outdated course/internship keywords, added Open Graph & Twitter card configurations, injected global `Organization`, `LocalBusiness`, and `WebSite` JSON-LD schemas.

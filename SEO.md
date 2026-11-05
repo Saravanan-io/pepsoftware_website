@@ -88,7 +88,7 @@ Each product detail page features:
 ## 9. TECHNICAL SEO
 - **Official Domain:** Strict enforcement of `https://pepsoftwares.com`.
 - **Trailing Slash Normalization:** Standardized to no trailing slash across routes, sitemaps, and canonical tags.
-- **Edge 301 Redirects:** Configured in `next.config.ts` to redirect `pepsoftwarewebsite.vercel.app` and `www.pepsoftwares.com` permanently to `https://pepsoftwares.com`.
+- **Edge 301 Redirects:** Configured in `next.config.ts` to redirect `www.pepsoftwares.com` permanently to `https://pepsoftwares.com`.
 - **Security Headers:** Added `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, and `Referrer-Policy: strict-origin-when-cross-origin`.
 - **Caching Restoration:** Removed harmful `Cache-Control: no-store` from production static assets, enabling 1-year immutable caching on `/images/` and `/fonts/`.
 - **Icons Fixed:** Resolved 404s for favicon/touch icons by linking to verified `/icon-192.png` and `/pep-icon.png`.
