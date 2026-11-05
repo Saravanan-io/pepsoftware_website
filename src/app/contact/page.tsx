@@ -13,9 +13,19 @@ import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
 import { Contact3DVisual } from "@/components/contact/Contact3DVisual";
 
 export const metadata: Metadata = {
-  title: "Contact Us | PEP Software",
+  title: "Contact PEP Software | Software Company in Erode & Coimbatore",
   description:
-    "Get in touch with PEP Software. Erode, Tamil Nadu. Call +91 98841 41911. Start your digital project today.",
+    "Connect with PEP Software. Office at 47 Marappa St, Surampatty, Erode, Tamil Nadu 638009. Call +91 98841 41911 or WhatsApp +91 6381010282 for software inquiries.",
+  alternates: {
+    canonical: "https://pepsoftwares.com/contact",
+  },
+  openGraph: {
+    title: "Contact PEP Software | Software Company in Erode & Coimbatore",
+    description:
+      "Connect with PEP Software. Head office at 47 Marappa St, Surampatty, Erode, Tamil Nadu 638009. Software development, web apps, and mobile solutions.",
+    url: "https://pepsoftwares.com/contact",
+    siteName: "PEP Software",
+  },
 };
 
 export default function ContactPage() {

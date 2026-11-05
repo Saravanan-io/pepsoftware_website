@@ -10,13 +10,16 @@ import { TestimonialProjectsSection } from "@/components/testimonials/Testimonia
 import { TestimonialsFinalCTA } from "@/components/testimonials/TestimonialsFinalCTA";
 
 export const metadata: Metadata = {
-  title: "Testimonials | Trusted by Businesses. Recommended by Clients — PEP Software",
+  title: "Client Testimonials & Reviews | PEP Software Erode",
   description:
-    "The best way to understand our work is to hear from the people we've worked with. Verified testimonials, case studies, and client stories for websites, mobile apps, and custom software by Pep Software.",
+    "Read verified client testimonials, case studies, and business reviews for websites, mobile applications, and custom software delivered by PEP Software.",
+  alternates: {
+    canonical: "https://pepsoftwares.com/testimonials",
+  },
   openGraph: {
     title: "Client Testimonials & Verified Stories | PEP Software",
     description:
-      "From websites and digital experiences to custom software, hear what our clients have to say about working with Pep Software.",
+      "Hear what founders, directors, and business leaders have to say about working with PEP Software in Tamil Nadu.",
     url: "https://pepsoftwares.com/testimonials",
     siteName: "PEP Software",
   },

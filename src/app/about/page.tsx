@@ -11,9 +11,19 @@ import { AboutClientsSection } from "@/components/about/AboutClientsSection";
 import { AboutClosingCTA } from "@/components/about/AboutClosingCTA";
 
 export const metadata: Metadata = {
-  title: "About Us | PEP Software — Software & Digital Product Development",
+  title: "About PEP Software | Software Engineering Team in Erode, Tamil Nadu",
   description:
-    "We Build Digital Solutions That Move Businesses Forward. Learn about PEP Software's story, philosophy, mission, values, team, capabilities, and verified impact.",
+    "Learn about PEP Software, an Erode-headquartered software company led by CEO Shri Gowtham. We engineer custom web, mobile, and enterprise digital solutions.",
+  alternates: {
+    canonical: "https://pepsoftwares.com/about",
+  },
+  openGraph: {
+    title: "About PEP Software | Software Engineering Team in Erode, Tamil Nadu",
+    description:
+      "Learn about PEP Software, an Erode-headquartered software company led by CEO Shri Gowtham. Engineering custom web, mobile, and enterprise digital solutions.",
+    url: "https://pepsoftwares.com/about",
+    siteName: "PEP Software",
+  },
 };
 
 export default function AboutPage() {

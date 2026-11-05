@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { HeroContent } from "@/components/home/HeroContent";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
@@ -9,6 +10,34 @@ import { ProcessHowWeDevelop } from "@/components/home/ProcessHowWeDevelop";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ModernWhyChooseSection } from "@/components/shared/ModernWhyChooseSection";
 import { ContactCTA } from "@/components/home/ContactCTA";
+
+export const metadata: Metadata = {
+  title: "PEP Software | Software Company in Erode & Coimbatore, Tamil Nadu",
+  description:
+    "PEP Software is a premier software development company in Erode & Coimbatore, Tamil Nadu. We build custom software, web applications, and mobile apps for growing businesses.",
+  keywords: [
+    "Software company in Erode",
+    "Best software company in Erode",
+    "IT company in Erode",
+    "Software company in Coimbatore",
+    "Top IT company in Coimbatore",
+    "Software company in Tamil Nadu",
+    "Software development company near me",
+    "Custom software development",
+    "Web application development company",
+    "Mobile app development company",
+  ],
+  alternates: {
+    canonical: "https://pepsoftwares.com",
+  },
+  openGraph: {
+    title: "PEP Software | Software Company in Erode & Coimbatore, Tamil Nadu",
+    description:
+      "PEP Software builds high-performance web applications, mobile apps, and custom enterprise software in Erode, Coimbatore, and across Tamil Nadu.",
+    url: "https://pepsoftwares.com",
+    siteName: "PEP Software",
+  },
+};
 
 export default function HomePage() {
   return (
