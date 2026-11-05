@@ -13,6 +13,7 @@ export const COMPANY_INFO = {
   emailSupport: "info@pepsoftwares.com",
   address: "47, Marappa 1st Street, Main Rd, Surampatty, Erode, Tamil Nadu 638009",
   fullAddress: "47, Marappa 1st Street, Main Rd, Surampatty, Erode, Tamil Nadu 638009",
+  locations: "Coimbatore, Erode",
   city: "Erode",
   state: "Tamil Nadu",
   country: "India",

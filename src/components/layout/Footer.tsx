@@ -191,7 +191,7 @@ export function Footer() {
                     Location
                   </span>
                   <span className="text-sm text-zinc-300 group-hover:text-white font-medium leading-snug transition-colors">
-                    {COMPANY_INFO.address}
+                    {COMPANY_INFO.locations}
                   </span>
                 </div>
               </li>
