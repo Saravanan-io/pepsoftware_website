@@ -81,9 +81,9 @@ export const SEO_CONFIG = {
   // Social Links for Schema sameAs & External Validation
   socials: {
     linkedin: "https://linkedin.com/company/pepsoftwares",
-    instagram: "https://instagram.com/pepsoftwares",
-    facebook: "https://facebook.com/pepsoftwares",
-    youtube: "https://youtube.com/@pepsoftwares",
+    instagram: "https://www.instagram.com/pep_software/",
+    facebook: "https://www.facebook.com/pepsoftware",
+    youtube: "https://www.youtube.com/@pep_software",
     github: "https://github.com/pepsoftwares",
   },
 

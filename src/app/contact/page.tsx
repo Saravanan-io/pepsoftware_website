@@ -282,7 +282,7 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                   <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA] border border-[#E2E4E9]">
                     <span className="text-xs font-extrabold text-[#151515] block uppercase tracking-wider">
-                      Head Office Address
+                      Office Address
                     </span>
                     <span className="text-xs sm:text-sm text-[#544643] mt-1.5 block leading-relaxed">
                       {COMPANY_INFO.address}

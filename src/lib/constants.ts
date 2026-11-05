@@ -11,7 +11,7 @@ export const COMPANY_INFO = {
   phoneRaw: "+919884141911",
   email: "contact@pepsoftwares.com",
   emailSupport: "info@pepsoftwares.com",
-  address: "47, Marappa 1st Street, Main Rd, Surampatty, Erode, Tamil Nadu 638009",
+  address: "Coimbatore, Erode",
   fullAddress: "47, Marappa 1st Street, Main Rd, Surampatty, Erode, Tamil Nadu 638009",
   locations: "Coimbatore, Erode",
   city: "Erode",
@@ -24,9 +24,9 @@ export const COMPANY_INFO = {
   workingHours: "Mon - Sat: 9:30 AM - 6:30 PM IST",
   socials: {
     linkedin: "https://linkedin.com/company/pepsoftwares",
-    instagram: "https://instagram.com/pepsoftwares",
-    facebook: "https://facebook.com/pepsoftwares",
-    youtube: "https://youtube.com/@pepsoftwares",
+    instagram: "https://www.instagram.com/pep_software/",
+    facebook: "https://www.facebook.com/pepsoftware",
+    youtube: "https://www.youtube.com/@pep_software",
     github: "https://github.com/pepsoftwares",
   },
   stats: [
@@ -73,7 +73,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
-    label: "Products",
+    label: "SaaS Products",
     href: "/products",
     children: [
       {

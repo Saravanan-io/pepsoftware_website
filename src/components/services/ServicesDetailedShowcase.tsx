@@ -462,22 +462,14 @@ export function ServicesDetailedShowcase() {
             <div className="lg:col-span-6">
               <RevealOnScroll delay={0.2}>
                 <div className="relative rounded-3xl overflow-hidden bg-white border border-[#C6C2C1]/60 shadow-xl shadow-[#151515]/5 group">
-                  <div className="relative h-[320px] sm:h-[400px] w-full overflow-hidden">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
                     <Image
-                      src="/images/case-studies/healthcare-dashboard.jpg"
-                      alt="SaaS Cloud Product Architecture"
+                      src="/images/services/saas-product-development-real.jpg"
+                      alt="SaaS Products — Scalable Cloud-Based Software"
                       fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6 text-white">
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#C084FC] font-bold block mb-1">
-                        Multi-Tenant & Cloud Scalable
-                      </span>
-                      <p className="text-lg font-bold text-white tracking-tight">
-                        SaaS MVP to Enterprise Production Architecture
-                      </p>
-                    </div>
                   </div>
                 </div>
               </RevealOnScroll>

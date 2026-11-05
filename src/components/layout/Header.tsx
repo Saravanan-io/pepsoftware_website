@@ -33,7 +33,7 @@ export function Header() {
     { label: "Home", href: "/" },
     { label: "About us", href: "/about" },
     { label: "Services", href: "/services", hasDropdown: true },
-    { label: "Products", href: "/products", hasDropdown: true },
+    { label: "SaaS Products", href: "/products", hasDropdown: true },
     { label: "Projects", href: "/work" },
     { label: "Testimonials", href: "/testimonials" },
   ];
@@ -93,7 +93,7 @@ export function Header() {
                   )}
 
                   {/* Products Dropdown Menu */}
-                  {item.label === "Products" && (
+                  {(item.label === "SaaS Products" || item.href === "/products") && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
                       <div className="w-80 bg-white rounded-2xl p-2.5 shadow-2xl border border-[#502D6D]/15 space-y-1">
                         <Link
