@@ -5,7 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import {
+  ChevronDown,
+  ArrowRight,
+  Menu,
+  X,
+  UserCheck,
+  Briefcase,
+  Users,
+  HeartHandshake,
+  ChevronRight,
+} from "lucide-react";
 import { NavBarMascot } from "./NavBarMascot";
 
 export function Header() {
@@ -95,73 +105,85 @@ export function Header() {
                   {/* Products Dropdown Menu */}
                   {(item.label === "SaaS Products" || item.href === "/products") && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
-                      <div className="w-80 bg-white rounded-2xl p-2.5 shadow-2xl border border-[#502D6D]/15 space-y-1">
+                      <div className="w-[340px] bg-white rounded-2xl p-2.5 shadow-2xl border border-[#502D6D]/15 space-y-1">
                         <Link
                           href="/products/attendance-tracking-system"
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-purple-50/70 transition-colors group/sub"
+                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-purple-50/70 transition-colors group/sub"
                         >
-                          <div className="w-2 h-2 rounded-full bg-[#502D6D] shrink-0 mt-1.5" />
-                          <div>
+                          <div className="w-8 h-8 rounded-xl bg-[#502D6D]/10 border border-[#502D6D]/20 text-[#502D6D] flex items-center justify-center shrink-0 group-hover/sub:bg-[#502D6D] group-hover/sub:text-[#FCB116] group-hover/sub:scale-105 group-hover/sub:shadow-[0_0_12px_rgba(80,45,109,0.3)] transition-all duration-200">
+                            <UserCheck className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
                             <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#502D6D] block leading-tight">
                               Attendance Tracking System
                             </span>
-                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                            <span className="text-[10px] text-[#544643] block mt-0.5 truncate">
                               Workforce, shifts & location-aware checks
                             </span>
                           </div>
+                          <ChevronRight className="w-3.5 h-3.5 text-zinc-400 opacity-0 -translate-x-1 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 group-hover/sub:text-[#502D6D] transition-all duration-200 shrink-0" />
                         </Link>
 
                         <Link
                           href="/products/business-club-app"
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/70 transition-colors group/sub"
+                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/70 transition-colors group/sub"
                         >
-                          <div className="w-2 h-2 rounded-full bg-[#B45309] shrink-0 mt-1.5" />
-                          <div>
+                          <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[#B45309] flex items-center justify-center shrink-0 group-hover/sub:bg-[#B45309] group-hover/sub:text-white group-hover/sub:scale-105 group-hover/sub:shadow-[0_0_12px_rgba(180,83,9,0.3)] transition-all duration-200">
+                            <Briefcase className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
                             <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#B45309] block leading-tight">
                               Business Club App
                             </span>
-                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                            <span className="text-[10px] text-[#544643] block mt-0.5 truncate">
                               Meetings, referrals & Thank You Notes
                             </span>
                           </div>
+                          <ChevronRight className="w-3.5 h-3.5 text-zinc-400 opacity-0 -translate-x-1 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 group-hover/sub:text-[#B45309] transition-all duration-200 shrink-0" />
                         </Link>
 
                         <Link
                           href="/products/network-club-app"
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50/70 transition-colors group/sub"
+                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/70 transition-colors group/sub"
                         >
-                          <div className="w-2 h-2 rounded-full bg-[#1D4ED8] shrink-0 mt-1.5" />
-                          <div>
+                          <div className="w-8 h-8 rounded-xl bg-blue-500/10 border border-blue-500/20 text-[#1D4ED8] flex items-center justify-center shrink-0 group-hover/sub:bg-[#1D4ED8] group-hover/sub:text-white group-hover/sub:scale-105 group-hover/sub:shadow-[0_0_12px_rgba(29,78,216,0.3)] transition-all duration-200">
+                            <Users className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
                             <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#1D4ED8] block leading-tight">
                               Network Club App
                             </span>
-                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                            <span className="text-[10px] text-[#544643] block mt-0.5 truncate">
                               Association directory, committees & events
                             </span>
                           </div>
+                          <ChevronRight className="w-3.5 h-3.5 text-zinc-400 opacity-0 -translate-x-1 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 group-hover/sub:text-[#1D4ED8] transition-all duration-200 shrink-0" />
                         </Link>
 
                         <Link
                           href="/products/matrimony-application"
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-rose-50/70 transition-colors group/sub"
+                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-rose-50/70 transition-colors group/sub"
                         >
-                          <div className="w-2 h-2 rounded-full bg-[#BE123C] shrink-0 mt-1.5" />
-                          <div>
+                          <div className="w-8 h-8 rounded-xl bg-rose-500/10 border border-rose-500/20 text-[#BE123C] flex items-center justify-center shrink-0 group-hover/sub:bg-[#BE123C] group-hover/sub:text-white group-hover/sub:scale-105 group-hover/sub:shadow-[0_0_12px_rgba(190,18,60,0.3)] transition-all duration-200">
+                            <HeartHandshake className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
                             <span className="text-xs font-bold text-[#151515] group-hover/sub:text-[#BE123C] block leading-tight">
                               Matrimony Application
                             </span>
-                            <span className="text-[10px] text-[#544643] block mt-0.5">
+                            <span className="text-[10px] text-[#544643] block mt-0.5 truncate">
                               B2B profiles, discovery & match administration
                             </span>
                           </div>
+                          <ChevronRight className="w-3.5 h-3.5 text-zinc-400 opacity-0 -translate-x-1 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 group-hover/sub:text-[#BE123C] transition-all duration-200 shrink-0" />
                         </Link>
 
                         <div className="pt-1.5 border-t border-slate-100">
                           <Link
                             href="/products"
-                            className="text-[11px] font-bold text-[#502D6D] hover:text-[#3F1E5C] flex items-center justify-between p-2 rounded-lg hover:bg-purple-50/50"
+                            className="text-[11px] font-bold text-[#502D6D] hover:text-[#3F1E5C] flex items-center justify-between p-2 rounded-lg hover:bg-purple-50/50 transition-colors"
                           >
-                            <span>Explore All Products</span>
+                            <span>Explore All SaaS Products</span>
                             <ArrowRight className="w-3.5 h-3.5 text-[#FCB116]" />
                           </Link>
                         </div>

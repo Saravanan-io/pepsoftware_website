@@ -27,20 +27,9 @@ const nextConfig: NextConfig = {
   // Compress assets
   compress: true,
 
-  // Host redirects to protect canonical domain https://pepsoftwares.com
+  // Host redirects
   async redirects() {
     return [
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "pepsoftwarewebsite.vercel.app",
-          },
-        ],
-        destination: "https://pepsoftwares.com/:path*",
-        permanent: true,
-      },
       {
         source: "/:path*",
         has: [

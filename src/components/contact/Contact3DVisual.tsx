@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShieldCheck, PhoneCall, Sparkles } from "lucide-react";
-import { COMPANY_INFO } from "@/lib/constants";
 
 interface Contact3DVisualProps {
   className?: string;
@@ -41,78 +39,6 @@ export function Contact3DVisual({ className = "" }: Contact3DVisualProps) {
             className="object-contain drop-shadow-[0_24px_38px_rgba(21,21,21,0.14)]"
           />
         </div>
-
-        {/* Realtime Floating Glassmorphic Micro-Badge: Live Response */}
-        <motion.div
-          animate={{
-            y: [0, -8, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-          className="absolute -top-2 right-2 sm:right-6 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#EFF0EF]/90 backdrop-blur-md border border-white/80 shadow-lg shadow-[#151515]/5"
-        >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-          </span>
-          <div className="flex flex-col">
-            <span className="text-[11px] font-bold text-[#151515] leading-tight">
-              Live Response
-            </span>
-            <span className="text-[10px] text-[#544643]">
-              Avg. &lt; 2 Hours
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Realtime Floating Glassmorphic Micro-Badge: Direct Hotline */}
-        <motion.div
-          animate={{
-            y: [0, 8, 0],
-          }}
-          transition={{
-            duration: 4.6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-10 left-0 sm:left-4 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#EFF0EF]/90 backdrop-blur-md border border-white/80 shadow-lg shadow-[#151515]/5"
-        >
-          <div className="w-7 h-7 rounded-xl bg-[#502D6D] flex items-center justify-center text-white shrink-0 shadow-xs">
-            <PhoneCall className="w-3.5 h-3.5 text-[#FCB116]" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] text-[#544643] leading-tight">
-              Direct Reach
-            </span>
-            <span className="text-[11px] font-bold text-[#151515]">
-              {COMPANY_INFO.phone}
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Realtime Floating Glassmorphic Micro-Badge: Confidentiality */}
-        <motion.div
-          animate={{
-            y: [0, -6, 0],
-          }}
-          transition={{
-            duration: 4.2,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.5,
-          }}
-          className="hidden sm:flex absolute top-1/2 -right-3 z-20 items-center gap-2 px-3 py-1.5 rounded-xl bg-white/85 backdrop-blur-md border border-[#C6C2C1]/60 shadow-md shadow-[#151515]/5"
-        >
-          <ShieldCheck className="w-3.5 h-3.5 text-[#C86A28]" />
-          <span className="text-[10px] font-bold text-[#151515]">
-            Strict NDA Protected
-          </span>
-        </motion.div>
       </motion.div>
 
       {/* Realtime Synchronized Ground Contact Shadow */}
