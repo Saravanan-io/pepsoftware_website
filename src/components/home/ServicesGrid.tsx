@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code2, Smartphone, ChevronLeft, ChevronRight, Cpu, TrendingUp } from "lucide-react";
+import { ArrowRight, Code2, Smartphone, Cpu, TrendingUp } from "lucide-react";
 import { registerGSAP } from "@/lib/gsap";
 import type { ScrollTrigger as ScrollTriggerInstance } from "gsap/ScrollTrigger";
 import { WordReveal, ParagraphReveal } from "../shared/WordReveal";
@@ -182,15 +182,6 @@ export function ServicesGrid() {
     }
   };
 
-  const handlePrev = () => {
-    const prev = (activeIdx - 1 + services.length) % services.length;
-    scrollToCard(prev);
-  };
-
-  const handleNext = () => {
-    const next = (activeIdx + 1) % services.length;
-    scrollToCard(next);
-  };
 
   return (
     <div ref={containerRef} className="w-full relative bg-[#F7F8F8]">
@@ -267,8 +258,7 @@ export function ServicesGrid() {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center gap-2 sm:gap-3">
             {/* Section Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-1.5 sm:mb-2 gap-3">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl mb-1.5 sm:mb-2">
               <div className="flex items-center gap-3 mb-2">
                 <div className="inline-flex items-center gap-2">
                   <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-[#D4C7EC] to-[#A855F7]" />
@@ -291,27 +281,6 @@ export function ServicesGrid() {
                 className="mt-1 text-xs sm:text-sm text-[#D4C7EC] leading-relaxed font-normal"
               />
             </div>
-
-            {/* Navigation Arrows */}
-            <div className="flex items-center gap-2 shrink-0">
-              <button
-                type="button"
-                onClick={handlePrev}
-                aria-label="Previous service"
-                className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label="Next service"
-                className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#A855F7] flex items-center justify-center text-white hover:bg-[#68358F] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
 
           {/* ── 3D Perspective Carousel Stage ────────────────────────────── */}
         <div
