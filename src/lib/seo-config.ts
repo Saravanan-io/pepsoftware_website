@@ -128,3 +128,4 @@ export const SEO_CONFIG = {
     ],
   },
 } as const;
+

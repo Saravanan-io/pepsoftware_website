@@ -155,3 +155,4 @@ Generated via `src/components/seo/JsonLd.tsx`:
 - Set up and claim Google Business Profile (GBP) for PEP Software Erode and verify the postcard/video.
 - Confirm exact street address for Coimbatore branch once finalized.
 - Connect GA4 Measurement ID in `seo-config.ts` if analytics tracking is desired.
+
