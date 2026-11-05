@@ -36,7 +36,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/[0.08]">
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-6 relative">
-            {/* Signature PEP Software Logo Watermark directly behind brand text */}
+            {/* Signature Pep Software Logo Watermark directly behind brand text */}
             <div className="absolute -top-10 -left-10 w-72 h-72 opacity-[0.06] pointer-events-none select-none z-0">
               <Image
                 src="/pep-icon.png"

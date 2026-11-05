@@ -6,7 +6,7 @@ export default function Loading() {
         <div className="absolute w-4 h-4 rounded-full bg-[#151515]" />
       </div>
       <p className="mt-4 text-xs font-bold text-[#544643] tracking-widest uppercase">
-        Loading PEP Software...
+        Loading Pep Software...
       </p>
     </div>
   );

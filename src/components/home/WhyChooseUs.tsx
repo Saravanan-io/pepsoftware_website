@@ -111,19 +111,17 @@ export function WhyChooseUs() {
                     key={pillar.id}
                     onClick={() => setActiveIdx(idx)}
                     onMouseEnter={() => setActiveIdx(idx)}
-                    className={`group relative flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-[24px] cursor-pointer transition-all duration-300 ${
-                      isActive
+                    className={`group relative flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-[24px] cursor-pointer transition-all duration-300 ${isActive
                         ? "bg-[#FFFFFF] border-2 border-[#502D6D] ring-4 ring-[#FCB116]/25 shadow-[0_12px_32px_rgba(80,45,109,0.14)] -translate-y-1 scale-[1.01]"
                         : "bg-[#FFFFFF]/60 border border-[#E5E5E3] hover:border-[#502D6D]/40 hover:bg-[#FFFFFF] hover:shadow-sm"
-                    }`}
+                      }`}
                   >
                     {/* Icon Squircle */}
                     <div
-                      className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${
-                        isActive
+                      className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${isActive
                           ? "bg-[#502D6D] text-white shadow-[0_0_20px_rgba(80,45,109,0.35)] scale-105"
                           : "bg-[#502D6D]/10 border border-[#502D6D]/20 text-[#502D6D] group-hover:scale-105"
-                      }`}
+                        }`}
                     >
                       <Icon className="w-5 h-5 stroke-[2.2]" />
                     </div>
@@ -132,9 +130,8 @@ export function WhyChooseUs() {
                     <div className="flex-1 min-w-0 pr-4">
                       <div className="flex items-center gap-2.5 mb-1">
                         <h3
-                          className={`text-base sm:text-lg font-black transition-colors ${
-                            isActive ? "text-[#151515]" : "text-[#151515] group-hover:text-[#502D6D]"
-                          }`}
+                          className={`text-base sm:text-lg font-black transition-colors ${isActive ? "text-[#151515]" : "text-[#151515] group-hover:text-[#502D6D]"
+                            }`}
                         >
                           {pillar.title}
                         </h3>
@@ -146,11 +143,10 @@ export function WhyChooseUs() {
 
                     {/* Right Arrow / Check Circle */}
                     <div
-                      className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 self-center ${
-                        isActive
+                      className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 self-center ${isActive
                           ? "bg-[#FF7700] text-white scale-110 shadow-sm"
                           : "text-[#C6C2C1] group-hover:text-[#C86A28]"
-                      }`}
+                        }`}
                     >
                       {isActive ? (
                         <Check className="w-4 h-4 stroke-[3]" />
@@ -183,7 +179,7 @@ export function WhyChooseUs() {
                 >
                   <Image
                     src="/images/home/why-choose-team.png"
-                    alt="PEP Software team collaborating on digital solutions with proven results"
+                    alt="Pep Software team collaborating on digital solutions with proven results"
                     width={1024}
                     height={682}
                     priority

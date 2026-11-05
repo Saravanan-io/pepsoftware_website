@@ -14,7 +14,7 @@ const product = PRODUCTS_CATALOG.find(
 );
 
 export const metadata: Metadata = {
-  title: "Matrimony Application Software in Tamil Nadu | PEP Software",
+  title: "Matrimony Application Software in Tamil Nadu | Pep Software",
   description:
     "Turnkey matrimony application software platform for businesses and community networks in Tamil Nadu. Includes verified profiles, horoscope matching, and secure chat.",
   keywords: [
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/products/matrimony-application",
   },
   openGraph: {
-    title: "Matrimony Application Software in Tamil Nadu | PEP Software",
+    title: "Matrimony Application Software in Tamil Nadu | Pep Software",
     description:
-      "Turnkey matrimony application software platform for businesses and community networks in Tamil Nadu by PEP Software.",
+      "Turnkey matrimony application software platform for businesses and community networks in Tamil Nadu by Pep Software.",
     url: "https://pepsoftwares.com/products/matrimony-application",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

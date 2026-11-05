@@ -1,5 +1,5 @@
 /**
- * Central SEO, Entity & LocalBusiness Configuration for PEP Software
+ * Central SEO, Entity & LocalBusiness Configuration for Pep Software
  * Official Production Domain: https://pepsoftwares.com
  * Single source of truth for metadata, JSON-LD schemas, and business citations.
  */
@@ -7,7 +7,7 @@
 export const SEO_CONFIG = {
   domain: "https://pepsoftwares.com",
   siteUrl: "https://pepsoftwares.com",
-  siteName: "PEP Software",
+  siteName: "Pep Software",
   legalName: "Pep Softwares Pvt. Ltd.",
   foundingYear: "2020",
   founder: {
@@ -17,14 +17,14 @@ export const SEO_CONFIG = {
   },
   tagline: "Digital Experiences, Engineered for Growth",
   shortDescription:
-    "PEP Software is a top software development company in Erode & Coimbatore, Tamil Nadu. We engineer custom enterprise software, high-speed web applications, and iOS/Android mobile apps.",
+    "Pep Software is a top software development company in Erode & Coimbatore, Tamil Nadu. We engineer custom enterprise software, high-speed web applications, and iOS/Android mobile apps.",
   defaultOgImage: "https://pepsoftwares.com/hero-brain-showcase.png",
   logoUrl: "https://pepsoftwares.com/pep-logo.png",
   iconUrl: "https://pepsoftwares.com/pep-icon.png",
 
   // Verified Physical Office & Local SEO Information
   headquarters: {
-    name: "PEP Software - Head Office",
+    name: "Pep Software - Head Office",
     streetAddress: "47, Marappa 1st Street, Main Rd, Surampatty",
     locality: "Erode",
     region: "Tamil Nadu",

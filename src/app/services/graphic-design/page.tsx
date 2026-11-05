@@ -11,9 +11,9 @@ import { ServiceProcessTimeline } from "@/components/services/ServiceProcessTime
 import { ContactCTA } from "@/components/home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Graphic Design & Digital Marketing Services | PEP Software",
+  title: "Graphic Design & Digital Marketing Services | Pep Software",
   description:
-    "Transform your brand presence with PEP Software's professional graphic design, digital marketing campaigns, brand identity systems, and visual marketing assets.",
+    "Transform your brand presence with Pep Software's professional graphic design, digital marketing campaigns, brand identity systems, and visual marketing assets.",
   keywords: [
     "Graphic design services",
     "Digital marketing services",
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/services/graphic-design",
   },
   openGraph: {
-    title: "Graphic Design & Digital Marketing Services | PEP Software",
+    title: "Graphic Design & Digital Marketing Services | Pep Software",
     description:
-      "Transform your brand presence with PEP Software's professional graphic design, digital marketing, and visual identity systems in Tamil Nadu.",
+      "Transform your brand presence with Pep Software's professional graphic design, digital marketing, and visual identity systems in Tamil Nadu.",
     url: "https://pepsoftwares.com/services/graphic-design",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

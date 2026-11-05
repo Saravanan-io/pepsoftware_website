@@ -229,7 +229,7 @@ export function ProductShowcaseSection({
 
   return (
     <section className="py-20 lg:py-28 bg-[#FFFFFF] relative overflow-hidden select-none border-b border-[#C6C2C1]/30">
-      
+
       {/* ── Background Organic Champagne Fluid Waves & Ambience ─────────────── */}
       <div className="absolute top-0 inset-x-0 h-[700px] bg-gradient-to-b from-[#FFF9F2] via-[#FFF3E8] to-[#FFFFFF] pointer-events-none -z-10" />
       <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-amber-100/40 rounded-full blur-[150px] pointer-events-none -z-10" />
@@ -246,7 +246,7 @@ export function ProductShowcaseSection({
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* ── Section Header (Exact Style from Image 2) ─────────────────────── */}
         <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
           <RevealOnScroll>
@@ -280,7 +280,7 @@ export function ProductShowcaseSection({
         {/* ── Centered Two-Row Category Filter Pills (Exact Image 2 Layout) ──── */}
         <RevealOnScroll delay={0.1}>
           <div className="flex flex-col items-center gap-3 mb-12 sm:mb-16">
-            
+
             {/* Row 1: First 3 Categories */}
             <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
               {showcase.screenGroups.slice(0, 3).map((group, idx) => {
@@ -292,11 +292,10 @@ export function ProductShowcaseSection({
                     key={group.id}
                     type="button"
                     onClick={() => setActiveTabIdx(idx)}
-                    className={`relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer select-none ${
-                      isActive
+                    className={`relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer select-none ${isActive
                         ? "bg-[#064E3B] text-white shadow-lg shadow-[#064E3B]/25 border border-[#047857] scale-[1.02]"
                         : "bg-white/95 text-[#475569] hover:text-[#0F172A] border border-[#E2E8F0] shadow-xs hover:border-[#064E3B]/40 hover:bg-white"
-                    }`}
+                      }`}
                   >
                     {isActive && (
                       <motion.div
@@ -326,11 +325,10 @@ export function ProductShowcaseSection({
                     key={group.id}
                     type="button"
                     onClick={() => setActiveTabIdx(actualIdx)}
-                    className={`relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer select-none ${
-                      isActive
+                    className={`relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer select-none ${isActive
                         ? "bg-[#064E3B] text-white shadow-lg shadow-[#064E3B]/25 border border-[#047857] scale-[1.02]"
                         : "bg-white/95 text-[#475569] hover:text-[#0F172A] border border-[#E2E8F0] shadow-xs hover:border-[#064E3B]/40 hover:bg-white"
-                    }`}
+                      }`}
                   >
                     {isActive && (
                       <motion.div
@@ -353,7 +351,7 @@ export function ProductShowcaseSection({
 
         {/* ── Main Showcase Grid (Left: Highlights | Right: Dual Device Mockup) ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
+
           {/* ── Left Column: Title, Subtitle, and 3 Feature Cards ─────────────── */}
           <div className="lg:col-span-5 xl:col-span-4 flex flex-col justify-between">
             <AnimatePresence mode="wait">
@@ -427,7 +425,7 @@ export function ProductShowcaseSection({
           {/* ── Right Column: Dual Device Mockup (Phone + Tablet Dashboard) ──── */}
           <div className="lg:col-span-7 xl:col-span-8 relative">
             <RevealOnScroll delay={0.15}>
-              
+
               {/* Botanical Leaves Peeking Behind Mockup Window (z-index behind so it never blocks table) */}
               <div className="absolute -bottom-10 -right-10 pointer-events-none hidden sm:block -z-10 opacity-75">
                 <TropicalLeaves className="w-40 sm:w-48 h-auto drop-shadow-md" />
@@ -435,7 +433,7 @@ export function ProductShowcaseSection({
 
               {/* Overlapping Dual Device Stage with Balanced Alignment */}
               <div className="relative flex flex-col lg:flex-row items-center lg:items-start justify-center pt-2 pb-6">
-                
+
                 {/* ── FOREGROUND: Smartphone Mockup ─────────────────────────── */}
                 <motion.div
                   key={`phone-${activeGroup.id}`}
@@ -446,7 +444,7 @@ export function ProductShowcaseSection({
                 >
                   {/* Phone Screen Glass Base */}
                   <div className="rounded-[34px] bg-[#F8FAFC] overflow-hidden flex flex-col justify-between border border-slate-200/50 min-h-[485px] p-4 text-[#151515]">
-                    
+
                     {/* Top Notch & Status Bar */}
                     <div>
                       <div className="w-20 h-3.5 bg-black rounded-full mx-auto mb-2" />
@@ -659,10 +657,10 @@ export function ProductShowcaseSection({
                         {activeTabIdx === 0
                           ? "Check Out"
                           : activeTabIdx === 1
-                          ? "Verify Current GPS"
-                          : activeTabIdx === 2
-                          ? "Submit Request"
-                          : "Review Queue"}
+                            ? "Verify Current GPS"
+                            : activeTabIdx === 2
+                              ? "Submit Request"
+                              : "Review Queue"}
                       </button>
 
                       {/* Mobile App Bottom Tab Bar */}
@@ -686,7 +684,7 @@ export function ProductShowcaseSection({
                   className="w-full flex-1 min-w-0 z-10"
                 >
                   <div className="rounded-[26px] sm:rounded-[30px] bg-white border border-slate-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col">
-                    
+
                     {/* Mockup Top Navigation Bar */}
                     <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-slate-100 bg-[#FAFBFD]">
                       {/* Logo & Brand */}
@@ -705,7 +703,7 @@ export function ProductShowcaseSection({
                         <span className="truncate">Search employees, location...</span>
                       </div>
 
-                      {/* User Profile (PEP Software) */}
+                      {/* User Profile (Pep Software) */}
                       <div className="flex items-center gap-2.5">
                         <Bell className="w-4 h-4 text-slate-400 hover:text-slate-600 cursor-pointer" />
                         <div className="flex items-center gap-2 text-xs">
@@ -714,7 +712,7 @@ export function ProductShowcaseSection({
                           </span>
                           <div className="hidden sm:block text-left leading-none">
                             <span className="font-bold text-[#151515] block">
-                              PEP Software
+                              Pep Software
                             </span>
                             <span className="text-[9px] text-slate-400">
                               Administrator
@@ -726,7 +724,7 @@ export function ProductShowcaseSection({
 
                     {/* Window Body: Left Sidebar + Main Content Area */}
                     <div className="flex flex-1 min-w-0">
-                      
+
                       {/* Left Dark-Green Sidebar Menu (as seen in Image 2) */}
                       <div className="hidden md:flex flex-col w-36 lg:w-40 bg-[#064E3B] text-white p-3 space-y-1 shrink-0 text-xs select-none">
                         <div className="bg-[#047857] text-white font-bold rounded-lg px-2.5 py-1.5 flex items-center gap-2">
@@ -761,7 +759,7 @@ export function ProductShowcaseSection({
 
                       {/* Main Dashboard Panel */}
                       <div className="flex-1 min-w-0 bg-white">
-                        
+
                         {/* Sub-Header Breadcrumb & Title */}
                         <div className="px-4 sm:px-6 py-3.5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2">
                           <div>
@@ -846,11 +844,10 @@ export function ProductShowcaseSection({
                                   <div className="mt-2 pt-1.5 border-t border-slate-100/80 flex items-center justify-between">
                                     {stat.change ? (
                                       <span
-                                        className={`inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-md border ${
-                                          stat.change.includes("Requires") || stat.change.includes("Alert")
+                                        className={`inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-md border ${stat.change.includes("Requires") || stat.change.includes("Alert")
                                             ? "bg-rose-50 text-rose-700 border-rose-200/70"
                                             : "bg-emerald-50 text-[#059669] border-emerald-200/70"
-                                        }`}
+                                          }`}
                                       >
                                         {stat.change.includes("90.6%") && (
                                           <TrendingUp className="w-2.5 h-2.5" />
@@ -984,13 +981,12 @@ export function ProductShowcaseSection({
                                       </td>
                                       <td className="py-2.5 text-right">
                                         <span
-                                          className={`inline-block px-2.5 py-0.5 rounded-md font-bold text-[10px] ${
-                                            rec.status.includes("Alert")
+                                          className={`inline-block px-2.5 py-0.5 rounded-md font-bold text-[10px] ${rec.status.includes("Alert")
                                               ? "bg-rose-100 text-rose-800"
                                               : rec.status.includes("Approved") || rec.status.includes("Active") || rec.status.includes("Issued")
-                                              ? "bg-emerald-100 text-emerald-800"
-                                              : "bg-slate-100 text-slate-700"
-                                          }`}
+                                                ? "bg-emerald-100 text-emerald-800"
+                                                : "bg-slate-100 text-slate-700"
+                                            }`}
                                         >
                                           {rec.status}
                                         </span>

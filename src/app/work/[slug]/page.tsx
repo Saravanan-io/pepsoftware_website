@@ -26,16 +26,16 @@ export async function generateMetadata({
   if (!project) return { title: "Case Study Not Found" };
 
   return {
-    title: `${project.title} Case Study | PEP Software Portfolio`,
+    title: `${project.title} Case Study | Pep Software Portfolio`,
     description: project.summary,
     alternates: {
       canonical: `https://pepsoftwares.com/work/${slug}`,
     },
     openGraph: {
-      title: `${project.title} Case Study | PEP Software`,
+      title: `${project.title} Case Study | Pep Software`,
       description: project.summary,
       url: `https://pepsoftwares.com/work/${slug}`,
-      siteName: "PEP Software",
+      siteName: "Pep Software",
       images: [
         {
           url: project.image.startsWith("http")
@@ -68,7 +68,7 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
     description: project.summary,
     creator: {
       "@type": "Organization",
-      name: "PEP Software",
+      name: "Pep Software",
       url: "https://pepsoftwares.com",
     },
     image: project.image.startsWith("http")

@@ -12,9 +12,9 @@ import { CaseStudy3DSlider } from "@/components/services/CaseStudy3DSlider";
 import { ContactCTA } from "@/components/home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Website Development Company in Erode & Tamil Nadu | PEP Software",
+  title: "Website Development Company in Erode & Tamil Nadu | Pep Software",
   description:
-    "Custom website design & modern web application development by PEP Software. High-speed, responsive, SEO-ready Next.js web applications engineered for business growth.",
+    "Custom website design & modern web application development by Pep Software. High-speed, responsive, SEO-ready Next.js web applications engineered for business growth.",
   keywords: [
     "Website development company",
     "Website development company in Erode",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/services/website-design-development",
   },
   openGraph: {
-    title: "Website Development Company in Erode & Tamil Nadu | PEP Software",
+    title: "Website Development Company in Erode & Tamil Nadu | Pep Software",
     description:
-      "High-speed, responsive, SEO-ready Next.js web applications engineered for business growth by PEP Software.",
+      "High-speed, responsive, SEO-ready Next.js web applications engineered for business growth by Pep Software.",
     url: "https://pepsoftwares.com/services/website-design-development",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

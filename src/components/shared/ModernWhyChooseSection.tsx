@@ -91,7 +91,7 @@ const JUMP_RANGES = [
 ];
 
 /**
- * 3D Cinematic PEP Software Logo Showcase
+ * 3D Cinematic Pep Software Logo Showcase
  * - When user enters the page / section: triggers a dramatic 3D cinematic reveal animation
  *   (deep perspective scale-in, holographic orbit ignition, light flare, typography assemble).
  * - While idling: continuous floating levitation, dual rotating 3D orbit rings, expanding energy pulses,
@@ -294,14 +294,14 @@ function Cinematic3DLogo({ progress }: { progress: MotionValue<number> }) {
               className="absolute inset-0 rounded-full border-2 border-[#FCB116]/50 pointer-events-none"
             />
 
-            {/* 3D Floating PEP Software Emblem with Depth */}
+            {/* 3D Floating Pep Software Emblem with Depth */}
             <div
               className="relative w-24 h-24 sm:w-28 sm:h-28 drop-shadow-[0_12px_24px_rgba(80,45,109,0.25)] transition-transform duration-300 group-hover:scale-105"
               style={{ transform: "translateZ(38px)" }}
             >
               <Image
                 src="/pep-icon.png"
-                alt="PEP Software Official 3D Emblem"
+                alt="Pep Software Official 3D Emblem"
                 fill
                 sizes="120px"
                 priority
@@ -696,7 +696,7 @@ export function ModernWhyChooseSection({
 
           {/* Cards & 3D Cinematic Logo Stage */}
           <div className="relative flex items-center justify-center min-h-[440px] sm:min-h-[460px]">
-            {/* 3D Cinematic PEP Software Logo: Displays in center before cards jump in, then zooms & dissolves when cards arrive */}
+            {/* 3D Cinematic Pep Software Logo: Displays in center before cards jump in, then zooms & dissolves when cards arrive */}
             <Cinematic3DLogo progress={smoothProgress} />
 
             {/* 4 Cards Grid - Centered in viewport, cards jump in 2 from left & 2 from right while user is on section */}

@@ -147,7 +147,7 @@ export function TestimonialsByServiceSection() {
       >
         {/* Sticky Viewport Container */}
         <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 pb-6 sm:pb-8">
-          
+
           {/* Background ambient lighting */}
           <div className="absolute top-1/4 -right-20 w-[550px] h-[550px] bg-[#502D6D]/[0.05] rounded-full blur-[140px] pointer-events-none" />
           <div className="absolute bottom-10 -left-20 w-[550px] h-[550px] bg-[#FCB116]/[0.07] rounded-full blur-[140px] pointer-events-none" />
@@ -172,7 +172,7 @@ export function TestimonialsByServiceSection() {
           </div>
 
           {/* Rotary Wheel Stage with vertical gradient mask */}
-          <div 
+          <div
             className="relative flex-1 w-full max-w-[1440px] mx-auto flex items-center justify-start overflow-visible px-4 sm:px-6 lg:px-8 mt-2 [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
           >
             {/* Giant Circular Wheel Disc on the Left (Solid clean white disc with NO border) */}
@@ -315,17 +315,15 @@ function RotaryCard({
         zIndex: isCurrentActive ? 60 : 10 + index * 5,
       }}
       onClick={onSelect}
-      className={`absolute left-0 w-[340px] sm:w-[560px] md:w-[640px] lg:w-[730px] rounded-3xl p-5 sm:p-6 lg:p-7 cursor-pointer transition-shadow duration-300 select-none ${
-        card.bgClass
-      } ${
-        isCurrentActive
+      className={`absolute left-0 w-[340px] sm:w-[560px] md:w-[640px] lg:w-[730px] rounded-3xl p-5 sm:p-6 lg:p-7 cursor-pointer transition-shadow duration-300 select-none ${card.bgClass
+        } ${isCurrentActive
           ? "shadow-[0_30px_70px_rgba(0,0,0,0.28)]"
           : "shadow-xl"
-      }`}
+        }`}
     >
       {/* Top Header of Card: Logo + 0X Number + Category Tag (NO BORDER DIVIDER) */}
       <div className="flex items-center justify-between pb-2 mb-3 sm:mb-4">
-        {/* Left: PEP Software Logo */}
+        {/* Left: Pep Software Logo */}
         <div className="flex items-center gap-2">
           <div className="relative w-5 h-5 sm:w-6 sm:h-6 shrink-0">
             <Image

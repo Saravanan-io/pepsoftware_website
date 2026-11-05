@@ -14,9 +14,9 @@ const product = PRODUCTS_CATALOG.find(
 );
 
 export const metadata: Metadata = {
-  title: "Attendance Management Software in Erode & Tamil Nadu | PEP Software",
+  title: "Attendance Management Software in Erode & Tamil Nadu | Pep Software",
   description:
-    "Complete employee attendance tracker and workforce management software by PEP Software. Features GPS location verification, leave workflows, and automated payroll reports.",
+    "Complete employee attendance tracker and workforce management software by Pep Software. Features GPS location verification, leave workflows, and automated payroll reports.",
   keywords: [
     "Attendance management software",
     "Employee attendance tracker",
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/products/attendance-tracking-system",
   },
   openGraph: {
-    title: "Attendance Management Software in Erode & Tamil Nadu | PEP Software",
+    title: "Attendance Management Software in Erode & Tamil Nadu | Pep Software",
     description:
-      "Complete employee attendance tracker and workforce management software by PEP Software. GPS verification, leave workflows, and payroll integration.",
+      "Complete employee attendance tracker and workforce management software by Pep Software. GPS verification, leave workflows, and payroll integration.",
     url: "https://pepsoftwares.com/products/attendance-tracking-system",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

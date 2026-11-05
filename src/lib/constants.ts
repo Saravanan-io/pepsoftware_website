@@ -1,7 +1,7 @@
 import { NavItem } from "@/types";
 
 export const COMPANY_INFO = {
-  name: "PEP Software",
+  name: "Pep Software",
   legalName: "Pep Softwares Pvt. Ltd.",
   tagline: "Digital Experiences, Engineered for Growth",
   subTagline: "Inspire Through Creative Design",
@@ -104,6 +104,5 @@ export const NAV_ITEMS: NavItem[] = [
   },
   { label: "Projects", href: "/work" },
   { label: "Testimonials", href: "/testimonials" },
-  { label: "Process", href: "/#process" },
   { label: "Contact", href: "/contact" },
 ];

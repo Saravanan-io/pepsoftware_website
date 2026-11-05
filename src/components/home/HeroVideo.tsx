@@ -234,7 +234,7 @@ export function HeroVideo() {
           <div className="relative w-full">
             <Image
               src="/hero-brain-showcase.png"
-              alt="PEP Software – AI Brain on Robotic Hand Holographic Display"
+              alt="Pep Software – AI Brain on Robotic Hand Holographic Display"
               width={1024}
               height={576}
               priority

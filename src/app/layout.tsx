@@ -66,13 +66,13 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(SEO_CONFIG.siteUrl),
   title: {
-    default: "PEP Software | Software Company in Erode & Coimbatore, Tamil Nadu",
-    template: "%s | PEP Software",
+    default: "Pep Software | Software Company in Erode & Coimbatore, Tamil Nadu",
+    template: "%s | Pep Software",
   },
   description:
-    "PEP Software is a top software development company in Erode & Coimbatore, Tamil Nadu. We engineer custom enterprise software, high-speed web applications, and iOS/Android mobile apps.",
+    "Pep Software is a top software development company in Erode & Coimbatore, Tamil Nadu. We engineer custom enterprise software, high-speed web applications, and iOS/Android mobile apps.",
   keywords: [
-    "PEP Software",
+    "Pep Software",
     "Software Company in Erode",
     "Best software company in Erode",
     "IT Company in Erode",
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: SEO_CONFIG.siteUrl,
     siteName: SEO_CONFIG.siteName,
-    title: "PEP Software | Software Company in Erode & Coimbatore, Tamil Nadu",
+    title: "Pep Software | Software Company in Erode & Coimbatore, Tamil Nadu",
     description:
       "We engineer custom enterprise software, high-speed web applications, and iOS/Android mobile apps that help businesses automate operations and scale in Tamil Nadu.",
     images: [
@@ -105,13 +105,13 @@ export const metadata: Metadata = {
         url: SEO_CONFIG.defaultOgImage,
         width: 1200,
         height: 630,
-        alt: "PEP Software - Digital Experiences Engineered for Growth",
+        alt: "Pep Software - Digital Experiences Engineered for Growth",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PEP Software | Software Company in Erode & Coimbatore, Tamil Nadu",
+    title: "Pep Software | Software Company in Erode & Coimbatore, Tamil Nadu",
     description:
       "Custom software engineering, mobile application development, and high-performance web systems in Tamil Nadu.",
     images: [SEO_CONFIG.defaultOgImage],

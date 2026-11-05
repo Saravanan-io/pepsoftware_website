@@ -113,7 +113,7 @@ export function HeroContent() {
             />
 
             <ParagraphReveal
-              text="PEP Software builds high-performance web applications, mobile apps, and custom enterprise software in Erode, Coimbatore, and across Tamil Nadu — helping businesses automate workflows and accelerate growth."
+              text="Pep Software builds high-performance web applications, mobile apps, and custom enterprise software in Erode, Coimbatore, and across Tamil Nadu — helping businesses automate workflows and accelerate growth."
               delay={0.35}
               duration={0.6}
               staggerDelay={0.018}
@@ -228,7 +228,7 @@ export function HeroContent() {
                   )}
                 </button>
 
-                {/* PEP Software Logo Watermark Overlay */}
+                {/* Pep Software Logo Watermark Overlay */}
                 <div
                   className="absolute z-20 pointer-events-none select-none w-[5.6%] aspect-square min-w-[32px] max-w-[58px] drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
                   style={{
@@ -236,11 +236,11 @@ export function HeroContent() {
                     top: "82.0%",
                     transform: "translate(-50%, -50%)",
                   }}
-                  aria-label="PEP Software Logo"
+                  aria-label="Pep Software Logo"
                 >
                   <Image
                     src="/pep-icon.png"
-                    alt="PEP Software Logo"
+                    alt="Pep Software Logo"
                     fill
                     sizes="58px"
                     priority

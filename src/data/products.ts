@@ -618,9 +618,9 @@ export const PRODUCTS_CATALOG: ProductDetailData[] = [
       ctaLabel: "Send Enquiry",
     },
     seo: {
-      title: "Employee Attendance Tracking System | PEP Software",
+      title: "Employee Attendance Tracking System | Pep Software",
       description:
-        "Explore employee attendance tracking, working-time records, leave workflows, location-aware attendance and workforce-management capabilities with PEP Software.",
+        "Explore employee attendance tracking, working-time records, leave workflows, location-aware attendance and workforce-management capabilities with Pep Software.",
       keywords: [
         "Employee attendance tracking system",
         "Attendance management software",
@@ -1076,7 +1076,7 @@ export const PRODUCTS_CATALOG: ProductDetailData[] = [
       ctaLabel: "Send Enquiry",
     },
     seo: {
-      title: "Business Club Management App | PEP Software",
+      title: "Business Club Management App | Pep Software",
       description:
         "Explore a business club management app for member profiles, meetings, attendance, referrals, Thank You Notes and club administration.",
       keywords: [
@@ -1528,7 +1528,7 @@ export const PRODUCTS_CATALOG: ProductDetailData[] = [
       ctaLabel: "Send Enquiry",
     },
     seo: {
-      title: "Association and Network Club App | PEP Software",
+      title: "Association and Network Club App | Pep Software",
       description:
         "Explore association management features for member directories, business profiles, committee information, events and membership administration.",
       keywords: [
@@ -2005,7 +2005,7 @@ export const PRODUCTS_CATALOG: ProductDetailData[] = [
       ctaLabel: "Send Enquiry",
     },
     seo: {
-      title: "Matrimony Application Software for Businesses | PEP Software",
+      title: "Matrimony Application Software for Businesses | Pep Software",
       description:
         "Explore matrimony application software with profile registration, partner search, member interactions, membership administration and management tools.",
       keywords: [

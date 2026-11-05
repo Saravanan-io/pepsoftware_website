@@ -11,7 +11,7 @@ interface ServiceFeaturesVisualProps {
 
 export function ServiceFeaturesVisual({
   imageSrc = "/images/services/service-features-pillars.png",
-  alt = "PEP Software Features - Modern Technologies, Responsive Design, SEO Optimized, Scalable Architecture",
+  alt = "Pep Software Features - Modern Technologies, Responsive Design, SEO Optimized, Scalable Architecture",
 }: ServiceFeaturesVisualProps = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);

@@ -504,7 +504,7 @@ export function PortfolioHeroCardsShowcase() {
           <div className="relative w-full h-full">
             <Image
               src="/hero-brain-showcase.png"
-              alt="PEP Software – AI Robotic Hand and Neural Core"
+              alt="Pep Software – AI Robotic Hand and Neural Core"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 860px"
@@ -539,8 +539,8 @@ export function PortfolioHeroCardsShowcase() {
                 animate={
                   isAnimationSettled
                     ? {
-                        y: [0, -7, 0],
-                      }
+                      y: [0, -7, 0],
+                    }
                     : {}
                 }
                 transition={{

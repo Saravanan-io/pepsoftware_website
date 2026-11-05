@@ -41,7 +41,7 @@ export function PortfolioHeroVideo() {
           Your browser does not support the video tag.
         </video>
 
-        {/* PEP Software Logo Watermark - Placed directly over the Gemini watermark to hide it */}
+        {/* Pep Software Logo Watermark - Placed directly over the Gemini watermark to hide it */}
         <div
           className="absolute z-20 pointer-events-none select-none w-[5.6%] aspect-square min-w-[32px] max-w-[58px] drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
           style={{
@@ -49,11 +49,11 @@ export function PortfolioHeroVideo() {
             top: "82.0%",
             transform: "translate(-50%, -50%)",
           }}
-          aria-label="PEP Software Logo"
+          aria-label="Pep Software Logo"
         >
           <Image
             src="/pep-icon.png"
-            alt="PEP Software Logo"
+            alt="Pep Software Logo"
             fill
             sizes="58px"
             priority

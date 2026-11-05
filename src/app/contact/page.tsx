@@ -13,18 +13,18 @@ import { WordReveal, ParagraphReveal } from "@/components/shared/WordReveal";
 import { Contact3DVisual } from "@/components/contact/Contact3DVisual";
 
 export const metadata: Metadata = {
-  title: "Contact PEP Software | Software Company in Erode & Coimbatore",
+  title: "Contact Pep Software | Software Company in Erode & Coimbatore",
   description:
-    "Connect with PEP Software. Office at 47 Marappa St, Surampatty, Erode, Tamil Nadu 638009. Call +91 98841 41911 or WhatsApp +91 6381010282 for software inquiries.",
+    "Connect with Pep Software. Office at 47 Marappa St, Surampatty, Erode, Tamil Nadu 638009. Call +91 98841 41911 or WhatsApp +91 6381010282 for software inquiries.",
   alternates: {
     canonical: "https://pepsoftwares.com/contact",
   },
   openGraph: {
-    title: "Contact PEP Software | Software Company in Erode & Coimbatore",
+    title: "Contact Pep Software | Software Company in Erode & Coimbatore",
     description:
-      "Connect with PEP Software. Head office at 47 Marappa St, Surampatty, Erode, Tamil Nadu 638009. Software development, web apps, and mobile solutions.",
+      "Connect with Pep Software. Head office at 47 Marappa St, Surampatty, Erode, Tamil Nadu 638009. Software development, web apps, and mobile solutions.",
     url: "https://pepsoftwares.com/contact",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 
@@ -270,7 +270,7 @@ export default function ContactPage() {
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#502D6D]/20 shadow-inner group">
                   <iframe
                     src="https://maps.google.com/maps?q=8PJ8%2BC5%20Surampatty%2C%20Tamil%20Nadu&t=m&z=15&output=embed&iwloc=near"
-                    title="8PJ8+C5 Surampatty, Tamil Nadu - PEP Software Head Office"
+                    title="8PJ8+C5 Surampatty, Tamil Nadu - Pep Software Head Office"
                     aria-label="8PJ8+C5 Surampatty, Tamil Nadu"
                     className="w-full h-[420px] sm:h-[480px] lg:h-[540px] rounded-2xl sm:rounded-3xl border-0 filter contrast-[1.02] saturate-[1.05]"
                     loading="lazy"

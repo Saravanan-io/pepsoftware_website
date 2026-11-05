@@ -14,7 +14,7 @@ const product = PRODUCTS_CATALOG.find(
 );
 
 export const metadata: Metadata = {
-  title: "Association & Network Club Management App | PEP Software",
+  title: "Association & Network Club Management App | Pep Software",
   description:
     "Modern association and community networking software for professional networks, trade bodies, and alumni clubs. Features digital member directories and event hubs.",
   keywords: [
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/products/network-club-app",
   },
   openGraph: {
-    title: "Association & Network Club Management App | PEP Software",
+    title: "Association & Network Club Management App | Pep Software",
     description:
-      "Modern association and community networking software for professional networks, trade bodies, and alumni clubs by PEP Software.",
+      "Modern association and community networking software for professional networks, trade bodies, and alumni clubs by Pep Software.",
     url: "https://pepsoftwares.com/products/network-club-app",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

@@ -470,7 +470,7 @@ export function AboutLogoShowcase() {
             style={{ transform: "translateZ(-40px)" }}
           />
 
-          {/* High-Resolution PEP Software Logo Image with Dynamic Drop Shadow */}
+          {/* High-Resolution Pep Software Logo Image with Dynamic Drop Shadow */}
           <div style={{ transform: "translateZ(30px)" }}>
             <Image
               src="/pep-logo.png"

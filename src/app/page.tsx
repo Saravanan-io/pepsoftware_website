@@ -12,9 +12,9 @@ import { ModernWhyChooseSection } from "@/components/shared/ModernWhyChooseSecti
 import { ContactCTA } from "@/components/home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "PEP Software | Software Company in Erode & Coimbatore, Tamil Nadu",
+  title: "Pep Software | Software Company in Erode & Coimbatore, Tamil Nadu",
   description:
-    "PEP Software is a premier software development company in Erode & Coimbatore, Tamil Nadu. We build custom software, web applications, and mobile apps for growing businesses.",
+    "Pep Software is a premier software development company in Erode & Coimbatore, Tamil Nadu. We build custom software, web applications, and mobile apps for growing businesses.",
   keywords: [
     "Software company in Erode",
     "Best software company in Erode",
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com",
   },
   openGraph: {
-    title: "PEP Software | Software Company in Erode & Coimbatore, Tamil Nadu",
+    title: "Pep Software | Software Company in Erode & Coimbatore, Tamil Nadu",
     description:
-      "PEP Software builds high-performance web applications, mobile apps, and custom enterprise software in Erode, Coimbatore, and across Tamil Nadu.",
+      "Pep Software builds high-performance web applications, mobile apps, and custom enterprise software in Erode, Coimbatore, and across Tamil Nadu.",
     url: "https://pepsoftwares.com",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 
@@ -48,7 +48,7 @@ export default function HomePage() {
       {/* Infinite Logo Marquee */}
       <ClientsMarquee />
 
-      {/* About PEP Software & Metrics Cards (Who We Are) */}
+      {/* About Pep Software & Metrics Cards (Who We Are) */}
       <IntroStatement />
 
       {/* Services Grid (4 Core Services with 3D Tilt Hover - Our Services) */}

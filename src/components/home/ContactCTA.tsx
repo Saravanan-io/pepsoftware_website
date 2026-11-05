@@ -44,7 +44,7 @@ export function ContactCTA() {
                 />
 
                 <ParagraphReveal
-                  text="Partner with PEP Software and take your business to the next level with innovative digital solutions. Big ideas. Brighter tomorrow."
+                  text="Partner with Pep Software and take your business to the next level with innovative digital solutions. Big ideas. Brighter tomorrow."
                   delay={0.12}
                   className="text-base sm:text-lg text-[#E7EBEA]/80 leading-relaxed max-w-2xl"
                 />
@@ -82,7 +82,7 @@ export function ContactCTA() {
                     </div>
                     <div>
                       <span className="block text-xs font-bold text-[#F7F8F8] mb-0.5">Location</span>
-                      <span className="text-xs leading-relaxed text-[#C6C2C1]">{COMPANY_INFO.city}, {COMPANY_INFO.state}</span>
+                      <span className="text-xs leading-relaxed text-[#C6C2C1]">{COMPANY_INFO.locations}</span>
                     </div>
                   </div>
 

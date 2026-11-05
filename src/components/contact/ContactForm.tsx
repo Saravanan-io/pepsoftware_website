@@ -48,19 +48,19 @@ export function ContactForm() {
       const productMap: Record<string, { service: string; message: string }> = {
         "attendance-tracking-system": {
           service: "Demo: Attendance Tracking System",
-          message: "Hello PEP Software team, I would like to request a demo for the Attendance Tracking System to discuss our workforce attendance and operational requirements.",
+          message: "Hello Pep Software team, I would like to request a demo for the Attendance Tracking System to discuss our workforce attendance and operational requirements.",
         },
         "business-club-app": {
           service: "Demo: Business Club App",
-          message: "Hello PEP Software team, I would like to request a demo for the Business Club App to review chapter networking, meeting management, and referral workflows.",
+          message: "Hello Pep Software team, I would like to request a demo for the Business Club App to review chapter networking, meeting management, and referral workflows.",
         },
         "network-club-app": {
           service: "Demo: Network Club App",
-          message: "Hello PEP Software team, I would like to request a demo for the Network Club App to review member directory, committee governance, and event management features.",
+          message: "Hello Pep Software team, I would like to request a demo for the Network Club App to review member directory, committee governance, and event management features.",
         },
         "matrimony-application": {
           service: "Demo: Matrimony Application",
-          message: "Hello PEP Software team, I would like to request a demo for the Matrimony Application to discuss our business or association service operations.",
+          message: "Hello Pep Software team, I would like to request a demo for the Matrimony Application to discuss our business or association service operations.",
         },
       };
 
@@ -115,7 +115,7 @@ export function ContactForm() {
     return (
       <div className="relative overflow-hidden p-8 sm:p-12 rounded-3xl bg-white/95 backdrop-blur-xl border border-[#502D6D]/15 text-center shadow-[0_20px_60px_-15px_rgba(80,45,109,0.12)] space-y-5">
         <div className="h-1.5 w-full absolute top-0 left-0 bg-gradient-to-r from-[#502D6D] via-[#8A3DA8] to-[#FCB116]" />
-        
+
         <div className="w-16 h-16 rounded-2xl bg-[#502D6D]/10 text-[#502D6D] border border-[#502D6D]/20 flex items-center justify-center mx-auto shadow-sm">
           <CheckCircle2 className="w-8 h-8 text-[#502D6D]" />
         </div>
@@ -123,7 +123,7 @@ export function ContactForm() {
           Project Inquiry Received!
         </h3>
         <p className="text-sm text-[#544643] max-w-md mx-auto leading-relaxed">
-          Thank you for reaching out to PEP Software. Our engineering and design leads will review your inquiry and get back to you within 24 business hours.
+          Thank you for reaching out to Pep Software. Our engineering and design leads will review your inquiry and get back to you within 24 business hours.
         </p>
         <button
           onClick={() => setIsSubmitted(false)}

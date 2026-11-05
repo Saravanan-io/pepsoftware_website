@@ -5,9 +5,9 @@ import { ProductsWhyUsSection } from "@/components/products/ProductsWhyUsSection
 import { ProductsEnquiryCTA } from "@/components/products/ProductsEnquiryCTA";
 
 export const metadata: Metadata = {
-  title: "Software Products & Business Applications | PEP Software",
+  title: "Software Products & Business Applications | Pep Software",
   description:
-    "Discover PEP Software's readymade business applications: employee attendance tracking systems, business club apps, association portals, and matrimony platforms.",
+    "Discover Pep Software's readymade business applications: employee attendance tracking systems, business club apps, association portals, and matrimony platforms.",
   keywords: [
     "Attendance tracking system",
     "Business club management app",
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/products",
   },
   openGraph: {
-    title: "Software Products & Business Applications | PEP Software",
+    title: "Software Products & Business Applications | Pep Software",
     description:
-      "Proprietary software applications for attendance tracking, business networking clubs, association governance, and matrimonial matchmaking by PEP Software.",
+      "Proprietary software applications for attendance tracking, business networking clubs, association governance, and matrimonial matchmaking by Pep Software.",
     url: "https://pepsoftwares.com/products",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

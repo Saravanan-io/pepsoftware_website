@@ -103,10 +103,10 @@ export function AboutPhilosophySection() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* ─── Top Row: Philosophy Heading & 3D Idea Orb ─── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 lg:mb-20">
-          
+
           {/* Left Column: Heading and Narrative */}
           <div className="lg:col-span-7">
             {/* Tagline Pill */}
@@ -193,7 +193,7 @@ export function AboutPhilosophySection() {
               >
                 <Image
                   src="/images/about/philosophy-developer.png"
-                  alt="PEP Software Developer Engineering Modern Digital Solutions"
+                  alt="Pep Software Developer Engineering Modern Digital Solutions"
                   width={1024}
                   height={682}
                   priority
@@ -207,7 +207,7 @@ export function AboutPhilosophySection() {
 
         {/* ─── Middle Section: 4-Step Connected Journey ─── */}
         <div className="relative pt-6 pb-4">
-          
+
           {/* Continuous Connected Purple Road Curve (Visible on LG screens) */}
           <div className="hidden lg:block absolute top-0 left-0 w-full h-[180px] pointer-events-none -z-0">
             <svg

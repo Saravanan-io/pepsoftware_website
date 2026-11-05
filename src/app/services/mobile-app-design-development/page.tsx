@@ -12,9 +12,9 @@ import { CaseStudy3DSlider } from "@/components/services/CaseStudy3DSlider";
 import { ContactCTA } from "@/components/home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development Company in Coimbatore & Erode | PEP Software",
+  title: "Mobile App Development Company in Coimbatore & Erode | Pep Software",
   description:
-    "Native and cross-platform Flutter, Android, and iOS mobile application development services by PEP Software for enterprises and startups in Coimbatore and Tamil Nadu.",
+    "Native and cross-platform Flutter, Android, and iOS mobile application development services by Pep Software for enterprises and startups in Coimbatore and Tamil Nadu.",
   keywords: [
     "Mobile application development company",
     "Mobile app development in Coimbatore",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/services/mobile-app-design-development",
   },
   openGraph: {
-    title: "Mobile App Development Company in Coimbatore & Erode | PEP Software",
+    title: "Mobile App Development Company in Coimbatore & Erode | Pep Software",
     description:
-      "Native and cross-platform Flutter, Android, and iOS mobile application development by PEP Software in Tamil Nadu.",
+      "Native and cross-platform Flutter, Android, and iOS mobile application development by Pep Software in Tamil Nadu.",
     url: "https://pepsoftwares.com/services/mobile-app-design-development",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

@@ -69,6 +69,18 @@ const FLOW_SERVICES: FlowServiceCard[] = [
   },
   {
     number: "05",
+    title: "ERP & CRM Software",
+    description: "Custom ERP, CRM pipelines and unified enterprise workflows.",
+    pedestalImage: "/images/services/pedestal_erp_crm.png",
+    targetId: "service-erp-crm",
+    accentColor: "text-[#6366F1]",
+    accentBg: "bg-[#6366F1]",
+    glowColor: "rgba(99, 102, 241, 0.45)",
+    hoverShadow: "group-hover:shadow-[0_20px_45px_rgba(99,102,241,0.16)]",
+    hoverText: "group-hover:text-[#6366F1]",
+  },
+  {
+    number: "06",
     title: "UI/UX Design",
     description: "Simple, intuitive and user-friendly digital experiences.",
     pedestalImage: "/images/services/pedestal_01_uiux.png",
@@ -80,7 +92,7 @@ const FLOW_SERVICES: FlowServiceCard[] = [
     hoverText: "group-hover:text-[#A855F7]",
   },
   {
-    number: "06",
+    number: "07",
     title: "Digital Marketing",
     description: "Digital strategies that help your business reach the right audience.",
     pedestalImage: "/images/services/pedestal_06_marketing.png",
@@ -143,7 +155,7 @@ export function ServicesFlowRoadmap() {
         </svg>
       </div>
 
-      {/* Floating Glossy 3D Lavender Sphere (from reference top-right) */}
+      {/* Floating Glossy 3D Lavender Sphere */}
       <div className="absolute top-28 right-[12%] hidden lg:block w-14 h-14 rounded-full bg-gradient-to-br from-[#F5F3FF] via-[#DDD6FE] to-[#8B5CF6] shadow-[0_16px_32px_rgba(139,92,246,0.32),inset_0_2px_4px_white] pointer-events-none animate-float-medium" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -174,12 +186,12 @@ export function ServicesFlowRoadmap() {
           </RevealOnScroll>
         </div>
 
-        {/* ─── Desktop View: 2-Column Serpentine Flow Roadmap ─── */}
-        <div className="hidden lg:block relative max-w-[1040px] h-[590px] mx-auto">
+        {/* ─── Desktop View: 2-Column Serpentine Flow Roadmap with 7 Milestones ─── */}
+        <div className="hidden lg:block relative max-w-[1040px] h-[790px] mx-auto">
           {/* SVG Connecting Flow Tubes with Animated Gradient Strokes */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none z-0"
-            viewBox="0 0 1040 590"
+            viewBox="0 0 1040 790"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -205,17 +217,24 @@ export function ServicesFlowRoadmap() {
                 <stop offset="100%" stopColor="#7C3AED" />
               </linearGradient>
 
-              {/* Row 3 return loop (04 Purple to 05 Violet) */}
+              {/* Row 3 return loop (04 Purple to 05 Indigo) */}
               <linearGradient id="flowGrad4" x1="600" y1="370" x2="75" y2="450" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#7C3AED" />
+                <stop offset="60%" stopColor="#6366F1" />
+                <stop offset="100%" stopColor="#6366F1" />
+              </linearGradient>
+
+              {/* Row 3 -> Row 4 gradient (05 Indigo to 06 Violet) */}
+              <linearGradient id="flowGrad5" x1="450" y1="495" x2="600" y2="535" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#6366F1" />
                 <stop offset="60%" stopColor="#A855F7" />
                 <stop offset="100%" stopColor="#A855F7" />
               </linearGradient>
 
-              {/* Row 3 -> Row 4 gradient (05 Violet to 06 Rose) */}
-              <linearGradient id="flowGrad5" x1="450" y1="495" x2="600" y2="495" gradientUnits="userSpaceOnUse">
+              {/* Row 4 return loop to centered Card 07 (06 Violet to 07 Rose) */}
+              <linearGradient id="flowGrad6" x1="600" y1="570" x2="370" y2="650" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#A855F7" />
-                <stop offset="70%" stopColor="#F43F5E" />
+                <stop offset="60%" stopColor="#F43F5E" />
                 <stop offset="100%" stopColor="#E11D48" />
               </linearGradient>
             </defs>
@@ -268,7 +287,7 @@ export function ServicesFlowRoadmap() {
               className="animate-flow-dash"
             />
 
-            {/* Path 4: Card 04 (SaaS Products) -> Card 05 (UI/UX Design) Looping back left underneath */}
+            {/* Path 4: Card 04 (SaaS Products) -> Card 05 (ERP & CRM) Looping back left underneath */}
             <path
               d="M 585 355 C 570 380 540 395 500 395 H 120 C 90 395 75 420 75 450"
               stroke="url(#flowGrad4)"
@@ -284,16 +303,32 @@ export function ServicesFlowRoadmap() {
               className="animate-flow-dash"
             />
 
-            {/* Path 5: Card 05 (UI/UX Design) -> Card 06 (Digital Marketing) Pedestal */}
+            {/* Path 5: Card 05 (ERP & CRM) -> Card 06 (UI/UX Design) Pedestal */}
             <path
-              d="M 450 495 H 590"
+              d="M 450 495 H 575 C 600 495 605 530 585 555"
               stroke="url(#flowGrad5)"
               strokeWidth="5"
               strokeLinecap="round"
               className="opacity-90"
             />
             <path
-              d="M 450 495 H 590"
+              d="M 450 495 H 575 C 600 495 605 530 585 555"
+              stroke="#FFFFFF"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              className="animate-flow-dash"
+            />
+
+            {/* Path 6: Card 06 (UI/UX Design) -> Card 07 (Digital Marketing) Looping down to Center */}
+            <path
+              d="M 585 555 C 570 580 540 595 480 595 H 410 C 380 595 370 620 370 650"
+              stroke="url(#flowGrad6)"
+              strokeWidth="5"
+              strokeLinecap="round"
+              className="opacity-85"
+            />
+            <path
+              d="M 585 555 C 570 580 540 595 480 595 H 410 C 380 595 370 620 370 650"
               stroke="#FFFFFF"
               strokeWidth="2.5"
               strokeLinecap="round"
@@ -301,24 +336,19 @@ export function ServicesFlowRoadmap() {
             />
 
             {/* ─── Glowing Connection Beads (Color matched to each milestone) ─── */}
-            {/* Bead 1 (Card 01 Tip): Blue */}
             <circle cx="450" cy="95" r="7" fill="#3B82F6" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #3B82F6)" />
-            {/* Bead 2 (Card 02 Pedestal Entry): Teal */}
             <circle cx="585" cy="115" r="7" fill="#10B981" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #10B981)" />
 
-            {/* Bead 3 (Card 03 Pedestal Entry): Amber */}
             <circle cx="75" cy="250" r="7" fill="#F59E0B" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #F59E0B)" />
-            {/* Bead 4 (Card 03 Tip): Amber */}
             <circle cx="450" cy="295" r="7" fill="#F59E0B" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #F59E0B)" />
-            {/* Bead 5 (Card 04 Pedestal Entry): Purple */}
             <circle cx="585" cy="315" r="7" fill="#8B5CF6" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #8B5CF6)" />
 
-            {/* Bead 6 (Card 05 Pedestal Entry): Violet */}
-            <circle cx="75" cy="450" r="7" fill="#A855F7" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #A855F7)" />
-            {/* Bead 7 (Card 05 Tip): Violet */}
-            <circle cx="450" cy="495" r="7" fill="#A855F7" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #A855F7)" />
-            {/* Bead 8 (Card 06 Pedestal Entry): Rose */}
-            <circle cx="590" cy="495" r="7" fill="#F43F5E" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #F43F5E)" />
+            <circle cx="75" cy="450" r="7" fill="#6366F1" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #6366F1)" />
+            <circle cx="450" cy="495" r="7" fill="#6366F1" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #6366F1)" />
+            <circle cx="585" cy="515" r="7" fill="#A855F7" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #A855F7)" />
+
+            <circle cx="370" cy="650" r="7" fill="#F43F5E" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #F43F5E)" />
+            <circle cx="745" cy="695" r="7" fill="#F43F5E" stroke="#FFFFFF" strokeWidth="3" filter="drop-shadow(0 0 8px #F43F5E)" />
           </svg>
 
           {/* ─── Animated Flow Directional Chevrons Overlay ─── */}
@@ -340,25 +370,31 @@ export function ServicesFlowRoadmap() {
             <ChevronRight className="w-5 h-5 stroke-[3]" />
           </div>
 
-          {/* Chevron 4: Loop 2 Return << (Violet) */}
-          <div className="absolute left-[310px] top-[383px] pointer-events-none flex items-center text-[#A855F7] animate-chevron-left z-10">
+          {/* Chevron 4: Loop 2 Return << (Indigo) */}
+          <div className="absolute left-[310px] top-[383px] pointer-events-none flex items-center text-[#6366F1] animate-chevron-left z-10">
             <ChevronLeft className="w-5 h-5 -mr-2.5 stroke-[3]" />
             <ChevronLeft className="w-5 h-5 stroke-[3]" />
           </div>
 
-          {/* Chevron 5: Row 3 Bridge >> (Rose) */}
-          <div className="absolute left-[505px] top-[483px] pointer-events-none flex items-center text-[#F43F5E] animate-chevron-right z-10">
+          {/* Chevron 5: Row 3 Bridge >> (Violet) */}
+          <div className="absolute left-[505px] top-[483px] pointer-events-none flex items-center text-[#A855F7] animate-chevron-right z-10">
             <ChevronRight className="w-5 h-5 -mr-2.5 stroke-[3]" />
             <ChevronRight className="w-5 h-5 stroke-[3]" />
           </div>
 
-          {/* Exit Chevron: Right of Card 06 >> (Rose) */}
-          <div className="absolute left-[1025px] top-[483px] pointer-events-none flex items-center text-[#F43F5E] animate-chevron-right z-10">
+          {/* Chevron 6: Loop 3 Return to Center << (Rose) */}
+          <div className="absolute left-[440px] top-[583px] pointer-events-none flex items-center text-[#F43F5E] animate-chevron-left z-10">
+            <ChevronLeft className="w-5 h-5 -mr-2.5 stroke-[3]" />
+            <ChevronLeft className="w-5 h-5 stroke-[3]" />
+          </div>
+
+          {/* Exit Chevron: Right of Centered Card 07 >> (Rose) */}
+          <div className="absolute left-[750px] top-[683px] pointer-events-none flex items-center text-[#F43F5E] animate-chevron-right z-10">
             <ChevronRight className="w-6 h-6 -mr-3 stroke-[3]" />
             <ChevronRight className="w-6 h-6 stroke-[3]" />
           </div>
 
-          {/* ─── 6 Service Cards Placed at Exact Milestone Positions ─── */}
+          {/* ─── 7 Service Cards Placed at Exact Milestone Positions ─── */}
           {/* ═══ ROW 1: 01 (Left) & 02 (Right) ═══ */}
           {/* Card 01: Website & Web Apps */}
           <div className="absolute left-0 top-[25px] w-[450px] h-[140px] z-20">
@@ -367,7 +403,6 @@ export function ServicesFlowRoadmap() {
                 onClick={() => scrollToService(FLOW_SERVICES[0].targetId)}
                 className="group relative w-full h-[140px] flex items-center cursor-pointer"
               >
-                {/* 3D Circular Pedestal Icon */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-[128px] h-[128px]">
                   <div
                     className="absolute inset-2 rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
@@ -385,16 +420,12 @@ export function ServicesFlowRoadmap() {
                   </div>
                 </div>
 
-                {/* White Capsule Pill Card */}
                 <div className={`absolute left-[52px] right-0 top-0 bottom-0 rounded-[38px] bg-white/95 border border-white/90 shadow-[0_16px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02),inset_0_1px_2px_white] ${FLOW_SERVICES[0].hoverShadow} transition-all duration-300 transform group-hover:-translate-y-1 pl-20 pr-6 py-4 flex flex-col justify-between`}>
                   <div>
-                    <div className={`text-sm font-extrabold ${FLOW_SERVICES[0].accentColor} font-mono leading-none mb-1`}>
-                      {FLOW_SERVICES[0].number}
-                    </div>
                     <h3 className={`text-xl font-bold text-[#111827] font-sans tracking-tight leading-tight ${FLOW_SERVICES[0].hoverText} transition-colors`}>
                       {FLOW_SERVICES[0].title}
                     </h3>
-                    <p className="text-xs text-[#4B5563] leading-snug mt-1 line-clamp-2">
+                    <p className="text-xs text-[#4B5563] leading-snug mt-1.5 line-clamp-2">
                       {FLOW_SERVICES[0].description}
                     </p>
                   </div>
@@ -416,7 +447,6 @@ export function ServicesFlowRoadmap() {
                 onClick={() => scrollToService(FLOW_SERVICES[1].targetId)}
                 className="group relative w-full h-[140px] flex items-center cursor-pointer"
               >
-                {/* 3D Circular Pedestal Icon */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-[128px] h-[128px]">
                   <div
                     className="absolute inset-2 rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
@@ -434,16 +464,12 @@ export function ServicesFlowRoadmap() {
                   </div>
                 </div>
 
-                {/* White Capsule Pill Card */}
                 <div className={`absolute left-[52px] right-0 top-0 bottom-0 rounded-[38px] bg-white/95 border border-white/90 shadow-[0_16px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02),inset_0_1px_2px_white] ${FLOW_SERVICES[1].hoverShadow} transition-all duration-300 transform group-hover:-translate-y-1 pl-20 pr-6 py-4 flex flex-col justify-between`}>
                   <div>
-                    <div className={`text-sm font-extrabold ${FLOW_SERVICES[1].accentColor} font-mono leading-none mb-1`}>
-                      {FLOW_SERVICES[1].number}
-                    </div>
                     <h3 className={`text-xl font-bold text-[#111827] font-sans tracking-tight leading-tight ${FLOW_SERVICES[1].hoverText} transition-colors`}>
                       {FLOW_SERVICES[1].title}
                     </h3>
-                    <p className="text-xs text-[#4B5563] leading-snug mt-1 line-clamp-2">
+                    <p className="text-xs text-[#4B5563] leading-snug mt-1.5 line-clamp-2">
                       {FLOW_SERVICES[1].description}
                     </p>
                   </div>
@@ -466,7 +492,6 @@ export function ServicesFlowRoadmap() {
                 onClick={() => scrollToService(FLOW_SERVICES[2].targetId)}
                 className="group relative w-full h-[140px] flex items-center cursor-pointer"
               >
-                {/* 3D Circular Pedestal Icon */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-[128px] h-[128px]">
                   <div
                     className="absolute inset-2 rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
@@ -483,16 +508,12 @@ export function ServicesFlowRoadmap() {
                   </div>
                 </div>
 
-                {/* White Capsule Pill Card */}
                 <div className={`absolute left-[52px] right-0 top-0 bottom-0 rounded-[38px] bg-white/95 border border-white/90 shadow-[0_16px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02),inset_0_1px_2px_white] ${FLOW_SERVICES[2].hoverShadow} transition-all duration-300 transform group-hover:-translate-y-1 pl-20 pr-6 py-4 flex flex-col justify-between`}>
                   <div>
-                    <div className={`text-sm font-extrabold ${FLOW_SERVICES[2].accentColor} font-mono leading-none mb-1`}>
-                      {FLOW_SERVICES[2].number}
-                    </div>
                     <h3 className={`text-xl font-bold text-[#111827] font-sans tracking-tight leading-tight ${FLOW_SERVICES[2].hoverText} transition-colors`}>
                       {FLOW_SERVICES[2].title}
                     </h3>
-                    <p className="text-xs text-[#4B5563] leading-snug mt-1 line-clamp-2">
+                    <p className="text-xs text-[#4B5563] leading-snug mt-1.5 line-clamp-2">
                       {FLOW_SERVICES[2].description}
                     </p>
                   </div>
@@ -514,7 +535,6 @@ export function ServicesFlowRoadmap() {
                 onClick={() => scrollToService(FLOW_SERVICES[3].targetId)}
                 className="group relative w-full h-[140px] flex items-center cursor-pointer"
               >
-                {/* 3D Circular Pedestal Icon */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-[128px] h-[128px]">
                   <div
                     className="absolute inset-2 rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
@@ -531,16 +551,12 @@ export function ServicesFlowRoadmap() {
                   </div>
                 </div>
 
-                {/* White Capsule Pill Card */}
                 <div className={`absolute left-[52px] right-0 top-0 bottom-0 rounded-[38px] bg-white/95 border border-white/90 shadow-[0_16px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02),inset_0_1px_2px_white] ${FLOW_SERVICES[3].hoverShadow} transition-all duration-300 transform group-hover:-translate-y-1 pl-20 pr-6 py-4 flex flex-col justify-between`}>
                   <div>
-                    <div className={`text-sm font-extrabold ${FLOW_SERVICES[3].accentColor} font-mono leading-none mb-1`}>
-                      {FLOW_SERVICES[3].number}
-                    </div>
                     <h3 className={`text-xl font-bold text-[#111827] font-sans tracking-tight leading-tight ${FLOW_SERVICES[3].hoverText} transition-colors`}>
                       {FLOW_SERVICES[3].title}
                     </h3>
-                    <p className="text-xs text-[#4B5563] leading-snug mt-1 line-clamp-2">
+                    <p className="text-xs text-[#4B5563] leading-snug mt-1.5 line-clamp-2">
                       {FLOW_SERVICES[3].description}
                     </p>
                   </div>
@@ -555,15 +571,14 @@ export function ServicesFlowRoadmap() {
             </RevealOnScroll>
           </div>
 
-          {/* ═══ ROW 3: 05 (Left) & 06 (Right) ═══ */}
-          {/* Card 05: UI/UX Design */}
+          {/* ═══ ROW 3: 05 ERP & CRM (Left) & 06 UI/UX (Right) ═══ */}
+          {/* Card 05: ERP & CRM Software Development */}
           <div className="absolute left-0 top-[425px] w-[450px] h-[140px] z-20">
             <RevealOnScroll delay={0.45}>
               <div
                 onClick={() => scrollToService(FLOW_SERVICES[4].targetId)}
                 className="group relative w-full h-[140px] flex items-center cursor-pointer"
               >
-                {/* 3D Circular Pedestal Icon */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-[128px] h-[128px]">
                   <div
                     className="absolute inset-2 rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
@@ -580,16 +595,12 @@ export function ServicesFlowRoadmap() {
                   </div>
                 </div>
 
-                {/* White Capsule Pill Card */}
                 <div className={`absolute left-[52px] right-0 top-0 bottom-0 rounded-[38px] bg-white/95 border border-white/90 shadow-[0_16px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02),inset_0_1px_2px_white] ${FLOW_SERVICES[4].hoverShadow} transition-all duration-300 transform group-hover:-translate-y-1 pl-20 pr-6 py-4 flex flex-col justify-between`}>
                   <div>
-                    <div className={`text-sm font-extrabold ${FLOW_SERVICES[4].accentColor} font-mono leading-none mb-1`}>
-                      {FLOW_SERVICES[4].number}
-                    </div>
                     <h3 className={`text-xl font-bold text-[#111827] font-sans tracking-tight leading-tight ${FLOW_SERVICES[4].hoverText} transition-colors`}>
                       {FLOW_SERVICES[4].title}
                     </h3>
-                    <p className="text-xs text-[#4B5563] leading-snug mt-1 line-clamp-2">
+                    <p className="text-xs text-[#4B5563] leading-snug mt-1.5 line-clamp-2">
                       {FLOW_SERVICES[4].description}
                     </p>
                   </div>
@@ -604,14 +615,13 @@ export function ServicesFlowRoadmap() {
             </RevealOnScroll>
           </div>
 
-          {/* Card 06: Digital Marketing */}
+          {/* Card 06: UI/UX Design */}
           <div className="absolute left-[570px] top-[425px] w-[450px] h-[140px] z-20">
             <RevealOnScroll delay={0.55}>
               <div
                 onClick={() => scrollToService(FLOW_SERVICES[5].targetId)}
                 className="group relative w-full h-[140px] flex items-center cursor-pointer"
               >
-                {/* 3D Circular Pedestal Icon */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-[128px] h-[128px]">
                   <div
                     className="absolute inset-2 rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
@@ -628,16 +638,12 @@ export function ServicesFlowRoadmap() {
                   </div>
                 </div>
 
-                {/* White Capsule Pill Card */}
                 <div className={`absolute left-[52px] right-0 top-0 bottom-0 rounded-[38px] bg-white/95 border border-white/90 shadow-[0_16px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02),inset_0_1px_2px_white] ${FLOW_SERVICES[5].hoverShadow} transition-all duration-300 transform group-hover:-translate-y-1 pl-20 pr-6 py-4 flex flex-col justify-between`}>
                   <div>
-                    <div className={`text-sm font-extrabold ${FLOW_SERVICES[5].accentColor} font-mono leading-none mb-1`}>
-                      {FLOW_SERVICES[5].number}
-                    </div>
                     <h3 className={`text-xl font-bold text-[#111827] font-sans tracking-tight leading-tight ${FLOW_SERVICES[5].hoverText} transition-colors`}>
                       {FLOW_SERVICES[5].title}
                     </h3>
-                    <p className="text-xs text-[#4B5563] leading-snug mt-1 line-clamp-2">
+                    <p className="text-xs text-[#4B5563] leading-snug mt-1.5 line-clamp-2">
                       {FLOW_SERVICES[5].description}
                     </p>
                   </div>
@@ -651,12 +657,55 @@ export function ServicesFlowRoadmap() {
               </div>
             </RevealOnScroll>
           </div>
+
+          {/* ═══ ROW 4: 07 Digital Marketing (Centered) ═══ */}
+          <div className="absolute left-[295px] top-[625px] w-[450px] h-[140px] z-20">
+            <RevealOnScroll delay={0.65}>
+              <div
+                onClick={() => scrollToService(FLOW_SERVICES[6].targetId)}
+                className="group relative w-full h-[140px] flex items-center cursor-pointer"
+              >
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-[128px] h-[128px]">
+                  <div
+                    className="absolute inset-2 rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity"
+                    style={{ backgroundColor: FLOW_SERVICES[6].glowColor }}
+                  />
+                  <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-105">
+                    <Image
+                      src={FLOW_SERVICES[6].pedestalImage}
+                      alt={FLOW_SERVICES[6].title}
+                      fill
+                      sizes="128px"
+                      className="object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]"
+                    />
+                  </div>
+                </div>
+
+                <div className={`absolute left-[52px] right-0 top-0 bottom-0 rounded-[38px] bg-white/95 border border-white/90 shadow-[0_16px_36px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02),inset_0_1px_2px_white] ${FLOW_SERVICES[6].hoverShadow} transition-all duration-300 transform group-hover:-translate-y-1 pl-20 pr-6 py-4 flex flex-col justify-between`}>
+                  <div>
+                    <h3 className={`text-xl font-bold text-[#111827] font-sans tracking-tight leading-tight ${FLOW_SERVICES[6].hoverText} transition-colors`}>
+                      {FLOW_SERVICES[6].title}
+                    </h3>
+                    <p className="text-xs text-[#4B5563] leading-snug mt-1.5 line-clamp-2">
+                      {FLOW_SERVICES[6].description}
+                    </p>
+                  </div>
+                  <div className={`flex items-center gap-1.5 text-xs font-bold ${FLOW_SERVICES[6].accentColor} pt-1`}>
+                    <span>Explore Details</span>
+                    <span className={`w-5 h-5 rounded-full ${FLOW_SERVICES[6].accentBg} text-white flex items-center justify-center transition-transform group-hover:translate-x-1`}>
+                      <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </RevealOnScroll>
+          </div>
         </div>
 
         {/* ─── Mobile / Tablet Responsive View: Vertical Connected Flow ─── */}
         <div className="lg:hidden relative space-y-6 max-w-md mx-auto pt-4">
           {/* Vertical connecting line */}
-          <div className="absolute left-8 top-10 bottom-10 w-[3px] bg-gradient-to-b from-[#3B82F6] via-[#F59E0B] to-[#F43F5E] opacity-40 pointer-events-none" />
+          <div className="absolute left-8 top-10 bottom-10 w-[3px] bg-gradient-to-b from-[#3B82F6] via-[#F59E0B] via-[#6366F1] to-[#F43F5E] opacity-40 pointer-events-none" />
 
           {FLOW_SERVICES.map((service, index) => (
             <RevealOnScroll key={service.number} delay={index * 0.08}>
@@ -683,9 +732,6 @@ export function ServicesFlowRoadmap() {
 
                 {/* Card Content */}
                 <div className="flex-1">
-                  <div className={`text-sm font-extrabold ${service.accentColor} font-mono`}>
-                    {service.number}
-                  </div>
                   <h3 className="text-lg font-bold text-[#111827] font-sans tracking-tight mb-1">
                     {service.title}
                   </h3>

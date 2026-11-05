@@ -23,7 +23,7 @@ export function CeoSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* ── LEFT COLUMN: CEO Vision & Narrative Content ─────────────────── */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <RevealOnScroll>
@@ -67,7 +67,7 @@ export function CeoSection() {
 
               {/* Bio Narrative */}
               <ParagraphReveal
-                text="Under Shri Gowtham's guidance, PEP Software has evolved from a boutique engineering practice into a full-service creative digital agency in Erode, Tamil Nadu. With over 5+ years of strategic leadership, he has spearheaded the delivery of 50+ enterprise-grade web, mobile, and cloud platforms for international startups and established enterprises."
+                text="Under Shri Gowtham's guidance, Pep Software has evolved from a boutique engineering practice into a full-service creative digital agency in Erode, Tamil Nadu. With over 5+ years of strategic leadership, he has spearheaded the delivery of 50+ enterprise-grade web, mobile, and cloud platforms for international startups and established enterprises."
                 delay={0.12}
                 className="text-sm sm:text-base text-[#544643] leading-relaxed font-normal"
               />
@@ -111,18 +111,18 @@ export function CeoSection() {
           <div className="lg:col-span-5 flex items-center justify-center">
             <RevealOnScroll delay={0.2} className="w-full max-w-[420px] sm:max-w-[460px]">
               <div className="relative group">
-                
+
                 {/* Ambient Backlight Glow Ring */}
                 <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#502D6D]/20 via-[#FCB116]/25 to-[#502D6D]/15 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 {/* Transparent CEO Silhouette with Ambient Backglow */}
                 <div className="relative w-full flex flex-col items-center">
-                  
+
                   {/* High-Resolution Transparent CEO Cutout */}
                   <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-square flex items-center justify-center">
                     <Image
                       src="/images/about/ceo.png"
-                      alt="Shri Gowtham – Founder & CEO of PEP Software"
+                      alt="Shri Gowtham – Founder & CEO of Pep Software"
                       width={640}
                       height={640}
                       priority
@@ -143,7 +143,7 @@ export function CeoSection() {
                       <span className="w-5 h-[1.5px] bg-[#FCB116] rounded-full" />
                     </div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-[#544643]/80 mt-1.5">
-                      PEP Software • Erode, Tamil Nadu
+                      Pep Software • Erode, Tamil Nadu
                     </p>
                   </div>
                 </div>

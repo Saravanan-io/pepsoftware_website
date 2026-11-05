@@ -14,9 +14,9 @@ const product = PRODUCTS_CATALOG.find(
 );
 
 export const metadata: Metadata = {
-  title: "Business Club Management Software & Networking App | PEP Software",
+  title: "Business Club Management Software & Networking App | Pep Software",
   description:
-    "Empower business networking organizations with PEP Software's business club management app. Manage members, track 1-to-1s, log referrals, and automate meeting attendance.",
+    "Empower business networking organizations with Pep Software's business club management app. Manage members, track 1-to-1s, log referrals, and automate meeting attendance.",
   keywords: [
     "Business club management software",
     "Business networking app",
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/products/business-club-app",
   },
   openGraph: {
-    title: "Business Club Management Software & Networking App | PEP Software",
+    title: "Business Club Management Software & Networking App | Pep Software",
     description:
-      "Empower business networking organizations with PEP Software's business club management app. Members, 1-to-1s, referrals, and meeting attendance.",
+      "Empower business networking organizations with Pep Software's business club management app. Members, 1-to-1s, referrals, and meeting attendance.",
     url: "https://pepsoftwares.com/products/business-club-app",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

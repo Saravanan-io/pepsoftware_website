@@ -133,7 +133,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <span className="line-clamp-2 leading-relaxed">
-                  {COMPANY_INFO.city}, {COMPANY_INFO.state}
+                  {COMPANY_INFO.locations}
                 </span>
               </div>
 

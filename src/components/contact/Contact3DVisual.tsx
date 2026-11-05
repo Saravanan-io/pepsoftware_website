@@ -32,7 +32,7 @@ export function Contact3DVisual({ className = "" }: Contact3DVisualProps) {
         <div className="relative w-[320px] sm:w-[420px] md:w-[460px] aspect-square">
           <Image
             src="/images/contact/contact-3d-transparent.png"
-            alt="3D Realistic Communication Hub - PEP Software"
+            alt="3D Realistic Communication Hub - Pep Software"
             fill
             sizes="(max-width: 640px) 320px, (max-width: 768px) 420px, 460px"
             priority

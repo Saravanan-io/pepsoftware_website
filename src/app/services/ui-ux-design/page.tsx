@@ -12,9 +12,9 @@ import { CaseStudy3DSlider } from "@/components/services/CaseStudy3DSlider";
 import { ContactCTA } from "@/components/home/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Custom Software & UI/UX Design Services | PEP Software Erode",
+  title: "Custom Software & UI/UX Design Services | Pep Software Erode",
   description:
-    "Bespoke custom software development, enterprise CRM/ERP systems, and intuitive UI/UX design architecture by PEP Software to streamline operations and scale businesses.",
+    "Bespoke custom software development, enterprise CRM/ERP systems, and intuitive UI/UX design architecture by Pep Software to streamline operations and scale businesses.",
   keywords: [
     "Custom software development",
     "Custom software development company",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     canonical: "https://pepsoftwares.com/services/ui-ux-design",
   },
   openGraph: {
-    title: "Custom Software & UI/UX Design Services | PEP Software Erode",
+    title: "Custom Software & UI/UX Design Services | Pep Software Erode",
     description:
-      "Bespoke custom software development and intuitive UI/UX design architecture by PEP Software in Tamil Nadu.",
+      "Bespoke custom software development and intuitive UI/UX design architecture by Pep Software in Tamil Nadu.",
     url: "https://pepsoftwares.com/services/ui-ux-design",
-    siteName: "PEP Software",
+    siteName: "Pep Software",
   },
 };
 

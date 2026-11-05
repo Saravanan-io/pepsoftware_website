@@ -1,7 +1,7 @@
 # PEP SOFTWARE — COMPLETE SEO, AEO, GEO, LLMO & LOCAL SEO SPECIFICATION
 
 **Official Production Domain:** `https://pepsoftwares.com`  
-**Brand Name:** PEP Software (Pep Softwares Pvt. Ltd.)  
+**Brand Name:** Pep Software (Pep Softwares Pvt. Ltd.)  
 **Headquarters:** 47, Marappa 1st Street, Main Rd, Surampatty, Erode, Tamil Nadu 638009  
 **Branch / Regional Presence:** Coimbatore (Physical Office), Salem (Remote Service Delivery), Tamil Nadu (Statewide Authority)  
 **Main Contact:** Phone: `+91 98841 41911` | WhatsApp: `+91 6381010282` | Email: `contact@pepsoftwares.com`
@@ -9,13 +9,13 @@
 ---
 
 ## 1. WEBSITE OVERVIEW
-PEP Software is an engineering and digital product studio headquartered in Erode, Tamil Nadu, with regional presence in Coimbatore and Salem. The company builds high-performance web applications, native and cross-platform mobile apps (iOS, Android, Flutter), custom enterprise software, and proprietary B2B application suites (attendance tracking, business club management, association networks, and matrimony portals).
+Pep Software is an engineering and digital product studio headquartered in Erode, Tamil Nadu, with regional presence in Coimbatore and Salem. The company builds high-performance web applications, native and cross-platform mobile apps (iOS, Android, Flutter), custom enterprise software, and proprietary B2B application suites (attendance tracking, business club management, association networks, and matrimony portals).
 
 ## 2. SEO OBJECTIVES
 1. **Local & Regional Leadership:** Rank #1 for software company and IT company searches in Erode, Coimbatore, Salem, and Tamil Nadu.
 2. **Service Intent Domination:** Capture commercial search queries for custom software development, mobile app development, web application engineering, and UI/UX design.
 3. **Product Discoverability:** Drive commercial queries directly to proprietary product pages (Attendance Tracking System, Business Club App, Network Club App, Matrimony Application).
-4. **AI & Answer Engine Readiness (AEO/GEO/LLMO):** Ensure Perplexity, ChatGPT Search, Google Gemini, and Claude accurately cite PEP Software as a leading software engineering firm with verified credentials and structured data.
+4. **AI & Answer Engine Readiness (AEO/GEO/LLMO):** Ensure Perplexity, ChatGPT Search, Google Gemini, and Claude accurately cite Pep Software as a leading software engineering firm with verified credentials and structured data.
 
 ## 3. TARGET AUDIENCE
 - **Enterprises & SMEs:** Seeking bespoke software, ERP/CRM development, workflow automation, and employee attendance tracking systems in Tamil Nadu and South India.
@@ -57,7 +57,7 @@ PEP Software is an engineering and digital product studio headquartered in Erode
 | Search Query | Category | Target Canonical URL |
 |---|---|---|
 | software company in Erode, software company in Coimbatore, IT company in Erode | Company / Local | `https://pepsoftwares.com/` |
-| About PEP Software, Shri Gowtham CEO, software team Erode | Brand / About | `https://pepsoftwares.com/about` |
+| About Pep Software, Shri Gowtham CEO, software team Erode | Brand / About | `https://pepsoftwares.com/about` |
 | software development services in Tamil Nadu | Services Directory | `https://pepsoftwares.com/services` |
 | website development company, web app development | Web Development | `https://pepsoftwares.com/services/website-design-development` |
 | mobile application development company, Flutter app development | Mobile App Dev | `https://pepsoftwares.com/services/mobile-app-design-development` |
@@ -68,7 +68,7 @@ PEP Software is an engineering and digital product studio headquartered in Erode
 | business club management software, networking app | Business Club App | `https://pepsoftwares.com/products/business-club-app` |
 | network club management application, association software | Network Club App | `https://pepsoftwares.com/products/network-club-app` |
 | matrimony application, matrimony software in Tamil Nadu | Matrimony App | `https://pepsoftwares.com/products/matrimony-application` |
-| PEP Software contact number, Erode studio address, directions | Local / Contact | `https://pepsoftwares.com/contact` |
+| Pep Software contact number, Erode studio address, directions | Local / Contact | `https://pepsoftwares.com/contact` |
 | client testimonials, software company reviews | Trust / Proof | `https://pepsoftwares.com/testimonials` |
 | case studies, software portfolio | Portfolio | `https://pepsoftwares.com/work` |
 
@@ -95,7 +95,7 @@ Each product detail page features:
 - **Custom 404:** Created `src/app/not-found.tsx` to prevent soft 404s and retain lost visitors.
 
 ## 10. METADATA STRATEGY
-- All page titles follow the pattern: `[Primary Keyword / Page Name] | [Location / Value Proposition] — PEP Software`.
+- All page titles follow the pattern: `[Primary Keyword / Page Name] | [Location / Value Proposition] — Pep Software`.
 - All meta descriptions are between 150-165 characters and contain clear calls to action and target regional keywords.
 - Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`, `og:site_name`, `og:locale`) and Twitter cards (`summary_large_image`) are defined across all pages.
 
@@ -152,7 +152,7 @@ Generated via `src/components/seo/JsonLd.tsx`:
 5. In [Bing Webmaster Tools](https://www.bing.com/webmasters), import the verified GSC property.
 
 ## 21. REMAINING MANUAL TASKS
-- Set up and claim Google Business Profile (GBP) for PEP Software Erode and verify the postcard/video.
+- Set up and claim Google Business Profile (GBP) for Pep Software Erode and verify the postcard/video.
 - Confirm exact street address for Coimbatore branch once finalized.
 - Connect GA4 Measurement ID in `seo-config.ts` if analytics tracking is desired.
 

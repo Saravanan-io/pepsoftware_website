@@ -42,7 +42,7 @@ export function Header() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About us", href: "/about" },
-    { label: "Services", href: "/services", hasDropdown: true },
+    { label: "Services", href: "/services" },
     { label: "SaaS Products", href: "/products", hasDropdown: true },
     { label: "Projects", href: "/work" },
     { label: "Testimonials", href: "/testimonials" },
