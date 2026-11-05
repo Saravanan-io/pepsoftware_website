@@ -1,6 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PRODUCTS_CATALOG } from "@/data/products";
+import {
+  JsonLd,
+  getSoftwareApplicationSchema,
+  getFAQSchema,
+  getBreadcrumbSchema,
+} from "@/components/seo/JsonLd";
 import { ProductDetailPageTemplate } from "@/components/products/ProductDetailPageTemplate";
 
 const product = PRODUCTS_CATALOG.find(
@@ -8,22 +14,58 @@ const product = PRODUCTS_CATALOG.find(
 );
 
 export const metadata: Metadata = {
-  title: "Employee Attendance Tracking System | PEP Software",
+  title: "Attendance Management Software in Erode & Tamil Nadu | PEP Software",
   description:
-    "Explore employee attendance tracking, working-time records, leave workflows, location-aware attendance and workforce-management capabilities with PEP Software.",
+    "Complete employee attendance tracker and workforce management software by PEP Software. Features GPS location verification, leave workflows, and automated payroll reports.",
   keywords: [
-    "Employee attendance tracking system",
     "Attendance management software",
+    "Employee attendance tracker",
+    "Attendance tracker in Erode",
+    "Attendance management software in Tamil Nadu",
     "GPS attendance tracking software",
     "Workforce management application",
     "Leave management workflows",
   ],
   alternates: {
-    canonical: "https://pepsoftwares.com/products/attendance-tracking-system/",
+    canonical: "https://pepsoftwares.com/products/attendance-tracking-system",
+  },
+  openGraph: {
+    title: "Attendance Management Software in Erode & Tamil Nadu | PEP Software",
+    description:
+      "Complete employee attendance tracker and workforce management software by PEP Software. GPS verification, leave workflows, and payroll integration.",
+    url: "https://pepsoftwares.com/products/attendance-tracking-system",
+    siteName: "PEP Software",
   },
 };
 
 export default function AttendanceTrackingSystemPage() {
   if (!product) notFound();
-  return <ProductDetailPageTemplate product={product} />;
+
+  const softwareSchema = getSoftwareApplicationSchema({
+    name: "Attendance Tracking System",
+    description: product.hero.supportingContent,
+    url: "https://pepsoftwares.com/products/attendance-tracking-system",
+    category: "BusinessApplication",
+    features: product.modules.map((m) => m.name),
+  });
+
+  const faqSchema = getFAQSchema(product.faqs);
+
+  const breadcrumbsSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://pepsoftwares.com" },
+    { name: "Products", url: "https://pepsoftwares.com/products" },
+    {
+      name: "Attendance Tracking System",
+      url: "https://pepsoftwares.com/products/attendance-tracking-system",
+    },
+  ]);
+
+  return (
+    <>
+      <JsonLd schema={softwareSchema} />
+      {faqSchema && <JsonLd schema={faqSchema} />}
+      <JsonLd schema={breadcrumbsSchema} />
+      <ProductDetailPageTemplate product={product} />
+    </>
+  );
 }

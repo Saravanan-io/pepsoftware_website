@@ -1,6 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PRODUCTS_CATALOG } from "@/data/products";
+import {
+  JsonLd,
+  getSoftwareApplicationSchema,
+  getFAQSchema,
+  getBreadcrumbSchema,
+} from "@/components/seo/JsonLd";
 import { ProductDetailPageTemplate } from "@/components/products/ProductDetailPageTemplate";
 
 const product = PRODUCTS_CATALOG.find(
@@ -8,22 +14,57 @@ const product = PRODUCTS_CATALOG.find(
 );
 
 export const metadata: Metadata = {
-  title: "Matrimony Application Software for Businesses | PEP Software",
+  title: "Matrimony Application Software in Tamil Nadu | PEP Software",
   description:
-    "Explore matrimony application software with profile registration, partner search, member interactions, membership administration and management tools with PEP Software.",
+    "Turnkey matrimony application software platform for businesses and community networks in Tamil Nadu. Includes verified profiles, horoscope matching, and secure chat.",
   keywords: [
-    "Matrimony software for businesses",
-    "Matrimony application for associations",
+    "Matrimony application",
+    "Matrimony software in Tamil Nadu",
+    "Custom matrimony app development",
     "Community matrimony software",
-    "Matrimonial profile management software",
-    "B2B matrimony platform",
+    "Matrimonial portal development",
+    "Matrimonial app developers Erode",
   ],
   alternates: {
-    canonical: "https://pepsoftwares.com/products/matrimony-application/",
+    canonical: "https://pepsoftwares.com/products/matrimony-application",
+  },
+  openGraph: {
+    title: "Matrimony Application Software in Tamil Nadu | PEP Software",
+    description:
+      "Turnkey matrimony application software platform for businesses and community networks in Tamil Nadu by PEP Software.",
+    url: "https://pepsoftwares.com/products/matrimony-application",
+    siteName: "PEP Software",
   },
 };
 
 export default function MatrimonyApplicationPage() {
   if (!product) notFound();
-  return <ProductDetailPageTemplate product={product} />;
+
+  const softwareSchema = getSoftwareApplicationSchema({
+    name: "Matrimony Application Platform",
+    description: product.hero.supportingContent,
+    url: "https://pepsoftwares.com/products/matrimony-application",
+    category: "BusinessApplication",
+    features: product.modules.map((m) => m.name),
+  });
+
+  const faqSchema = getFAQSchema(product.faqs);
+
+  const breadcrumbsSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://pepsoftwares.com" },
+    { name: "Products", url: "https://pepsoftwares.com/products" },
+    {
+      name: "Matrimony Application",
+      url: "https://pepsoftwares.com/products/matrimony-application",
+    },
+  ]);
+
+  return (
+    <>
+      <JsonLd schema={softwareSchema} />
+      {faqSchema && <JsonLd schema={faqSchema} />}
+      <JsonLd schema={breadcrumbsSchema} />
+      <ProductDetailPageTemplate product={product} />
+    </>
+  );
 }

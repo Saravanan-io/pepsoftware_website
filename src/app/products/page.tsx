@@ -1,12 +1,13 @@
 import { Metadata } from "next";
+import { JsonLd, getBreadcrumbSchema } from "@/components/seo/JsonLd";
 import { ProductsOverviewHero } from "@/components/products/ProductsOverviewHero";
 import { ProductsWhyUsSection } from "@/components/products/ProductsWhyUsSection";
 import { ProductsEnquiryCTA } from "@/components/products/ProductsEnquiryCTA";
 
 export const metadata: Metadata = {
-  title: "Products | PEP Software — Application Solutions",
+  title: "Software Products & Business Applications | PEP Software",
   description:
-    "Explore application solutions for employee attendance, business club management, association membership and matrimony services with PEP Software.",
+    "Discover PEP Software's readymade business applications: employee attendance tracking systems, business club apps, association portals, and matrimony platforms.",
   keywords: [
     "Attendance tracking system",
     "Business club management app",
@@ -14,12 +15,29 @@ export const metadata: Metadata = {
     "Matrimony application software",
     "Association software",
     "Workforce management software",
+    "Software products in Tamil Nadu",
   ],
+  alternates: {
+    canonical: "https://pepsoftwares.com/products",
+  },
+  openGraph: {
+    title: "Software Products & Business Applications | PEP Software",
+    description:
+      "Proprietary software applications for attendance tracking, business networking clubs, association governance, and matrimonial matchmaking by PEP Software.",
+    url: "https://pepsoftwares.com/products",
+    siteName: "PEP Software",
+  },
 };
 
 export default function ProductsPage() {
+  const breadcrumbsSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://pepsoftwares.com" },
+    { name: "Products", url: "https://pepsoftwares.com/products" },
+  ]);
+
   return (
     <div className="w-full bg-[#FFFFFF]">
+      <JsonLd schema={breadcrumbsSchema} />
       {/* 01. Hero & Products Showcase (Exact Match to Reference Design) */}
       <ProductsOverviewHero />
 

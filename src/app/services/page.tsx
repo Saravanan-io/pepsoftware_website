@@ -8,13 +8,25 @@ import { ServicesSelectedWorkSection } from "@/components/services/ServicesSelec
 import { ServicesFinalCTASection } from "@/components/services/ServicesFinalCTASection";
 
 export const metadata: Metadata = {
-  title: "Services | Digital Solutions for Real Business Needs — PEP Software",
+  title: "Software Development Services in Tamil Nadu | PEP Software",
   description:
-    "We design, develop and deliver digital solutions that help businesses work smarter, serve customers better and grow: UI/UX Design, Websites & Web Apps, Mobile Apps, Custom Software, SaaS Products, and Digital Marketing.",
+    "Explore PEP Software's full-stack technology services: custom software development, web applications, mobile apps (iOS & Android), UI/UX design, and digital systems.",
+  keywords: [
+    "Software development services in Tamil Nadu",
+    "Website development company",
+    "Mobile application development company",
+    "Custom software development",
+    "UI UX design services",
+    "Digital marketing services",
+    "Enterprise software development",
+  ],
+  alternates: {
+    canonical: "https://pepsoftwares.com/services",
+  },
   openGraph: {
-    title: "Digital Solutions for Real Business Needs | PEP Software Services",
+    title: "Software Development Services in Tamil Nadu | PEP Software",
     description:
-      "Explore PEP Software's full suite of digital services: UI/UX Design, Website & Web Apps, Mobile App Development, Custom Enterprise Software, SaaS Development, and Digital Marketing.",
+      "Explore PEP Software's full suite of digital engineering services: UI/UX design, web applications, iOS/Android mobile apps, and custom enterprise software.",
     url: "https://pepsoftwares.com/services",
     siteName: "PEP Software",
   },
