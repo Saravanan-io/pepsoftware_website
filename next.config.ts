@@ -27,18 +27,78 @@ const nextConfig: NextConfig = {
   // Compress assets
   compress: true,
 
-  // Prevent browser caching on localhost during development
-  headers: async () => [
-    {
-      source: "/:path*",
-      headers: [
-        {
-          key: "Cache-Control",
-          value: "no-store, no-cache, must-revalidate, proxy-revalidate",
-        },
-      ],
-    },
-  ],
+  // Host redirects to protect canonical domain https://pepsoftwares.com
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "pepsoftwarewebsite.vercel.app",
+          },
+        ],
+        destination: "https://pepsoftwares.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.pepsoftwares.com",
+          },
+        ],
+        destination: "https://pepsoftwares.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
+  // Security and performance headers
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(self)",
+          },
+        ],
+      },
+      {
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/fonts/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
